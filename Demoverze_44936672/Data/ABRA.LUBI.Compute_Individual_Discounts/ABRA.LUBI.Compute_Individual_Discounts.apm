@@ -1,0 +1,143 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1141000101",
+    "name": "ABRA.LUBI.Compute_Individual_Discounts",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 2,
+    "description": "Skripty zajišťující implementaci individuální slevy",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "uIndividualDiscounts",
+      "filename": "uIndividualDiscounts.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "OBBDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana-radek_OBBDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 4
+    },
+    {
+      "scriptid": "QCMDDCC1QJE4V2CYU1YUPVBLFS",
+      "filename": "BO_UnknownBO_QCMDDCC1QJE4V2CYU1YUPVBLFS.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 5
+    },
+    {
+      "scriptid": "QUKRMP2B4GN41IJGBQOQGY1GEC",
+      "filename": "BO_Nabidkavydana-radek_QUKRMP2B4GN41IJGBQOQGY1GEC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 6
+    },
+    {
+      "scriptid": "O1C4ERBIVNIOT4WASH5MYY14CK",
+      "filename": "AG_Nabidkyvydane_O1C4ERBIVNIOT4WASH5MYY14CK.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 7
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 8
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 9
+    },
+    {
+      "scriptid": "WK02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem-radek_WK02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 10
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 11
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 12
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 13
+    },
+    {
+      "scriptid": "WG02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem_WG02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 14
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 15
+    },
+    {
+      "scriptid": "KXK5WCE04IA4XIX0XILO2JT3LK",
+      "filename": "AG_Neznamaagenda._KXK5WCE04IA4XIX0XILO2JT3LK.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 16
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 17
+    },
+    {
+      "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
+      "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
+      "scriptkind": 4,
+      "objversion": 1,
+      "posindex": 18
+    }
+  ]
+}

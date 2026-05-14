@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11G1000101",
+    "name": "eu.abra.alec.StinKovo.PicturesExport",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "TEMCU0UVB5J4VC0LJO3GXGSCXK",
+      "filename": "AG_Obrazky_TEMCU0UVB5J4VC0LJO3GXGSCXK.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 1
+    }
+  ]
+}

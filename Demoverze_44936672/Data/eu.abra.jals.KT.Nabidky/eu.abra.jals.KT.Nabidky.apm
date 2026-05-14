@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "21Z0000101",
+    "name": "eu.abra.jals.KT.Nabidky",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "Společné funkce pro skripty Nabídek vydaných",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "func",
+      "filename": "func.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    }
+  ]
+}

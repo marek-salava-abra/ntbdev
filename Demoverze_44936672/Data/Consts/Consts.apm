@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "51I0000101",
+    "name": "Consts",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Constants",
+      "filename": "Constants.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    }
+  ]
+}

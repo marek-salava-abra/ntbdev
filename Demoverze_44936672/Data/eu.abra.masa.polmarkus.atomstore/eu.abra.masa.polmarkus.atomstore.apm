@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11Y0000101",
+    "name": "eu.abra.masa.polmarkus.atomstore",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 39,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "MainLib",
+      "filename": "MainLib.pas",
+      "scriptkind": 0,
+      "objversion": 33,
+      "posindex": 1
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 32,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 39,
+      "posindex": 3
+    }
+  ]
+}

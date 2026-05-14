@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1110000101",
+    "name": "eu.elso.piecelists",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 2,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "NWWNX02WFV2ORFJOXIW4BHBLWG",
+      "filename": "AG_Kusovniky_NWWNX02WFV2ORFJOXIW4BHBLWG.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 2
+    },
+    {
+      "scriptid": "parsedata",
+      "filename": "parsedata.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 3
+    }
+  ]
+}

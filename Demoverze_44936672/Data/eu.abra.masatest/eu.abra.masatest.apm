@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1190000101",
+    "name": "eu.abra.masatest",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 4,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

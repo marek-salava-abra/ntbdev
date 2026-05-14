@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1161000101",
+    "name": "eu.abra.roeh.SunnexSklOpt",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 2,
+    "description": "au.abra.roeh.SannxSklOpt",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "FuncSPM",
+      "filename": "FuncSPM.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "QRFunc",
+      "filename": "QRFunc.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Requests",
+      "filename": "Requests.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "S24RE20IPZDL342W01C0CX3FCC",
+      "filename": "AG_Dilciskl.karty_S24RE20IPZDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 4
+    },
+    {
+      "scriptid": "AutoServKomp",
+      "filename": "AutoServKomp.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 5
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 6
+    },
+    {
+      "scriptid": "JYKL5H2XYMJOT4ZEFJYYJ5OI5G",
+      "filename": "AG_Kompletacnilisty_JYKL5H2XYMJOT4ZEFJYYJ5OI5G.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 7
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11N1000101",
+    "name": "test",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 14,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "AKOBC4TC4GM43DMRKS3MTQATXK",
+      "filename": "AM_ObchodniKasa_AKOBC4TC4GM43DMRKS3MTQATXK.pas",
+      "scriptkind": 5,
+      "objversion": 14,
+      "posindex": 1
+    }
+  ]
+}

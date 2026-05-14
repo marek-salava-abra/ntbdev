@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "31I0000101",
+    "name": "REST_SkladTerm_PLM",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "Vyplní ID řádku kusovníku do textu v řádku VMV",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "MIKSG2WSF4JOTBWLBBB0SZPAC0",
+      "filename": "IM_Import_MIKSG2WSF4JOTBWLBBB0SZPAC0_MIKSG2WSF4JOTBWLBBB0SZPAC0.pas",
+      "scriptkind": 4,
+      "objversion": 1,
+      "posindex": 1
+    }
+  ]
+}

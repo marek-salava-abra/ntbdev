@@ -1,0 +1,80 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "41I0000101",
+    "name": "REST_SkladTerm_Special",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "REST - Skladový terminál - konstanty",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "U_Const",
+      "filename": "U_Const.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "U_Requests",
+      "filename": "U_Requests.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "U_StandardHooks",
+      "filename": "U_StandardHooks.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "U_Aspera",
+      "filename": "U_Aspera.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 4
+    },
+    {
+      "scriptid": "U_Roka",
+      "filename": "U_Roka.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 5
+    },
+    {
+      "scriptid": "U_Obaly",
+      "filename": "U_Obaly.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 6
+    },
+    {
+      "scriptid": "U_Poltrade",
+      "filename": "U_Poltrade.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 7
+    },
+    {
+      "scriptid": "U_ExpressAlarm",
+      "filename": "U_ExpressAlarm.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 8
+    },
+    {
+      "scriptid": "U_DialogRolls",
+      "filename": "U_DialogRolls.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 9
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11Q0000101",
+    "name": "eu.abra.japl.Feprodukt.Shoptet.ImportOrder",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "Import objednávek z eshopu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Import",
+      "filename": "Import.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "automat",
+      "filename": "automat.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 4
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 5
+    },
+    {
+      "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
+      "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
+      "scriptkind": 4,
+      "objversion": 1,
+      "posindex": 6
+    }
+  ]
+}

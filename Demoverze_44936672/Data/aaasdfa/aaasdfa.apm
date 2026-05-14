@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11C0000101",
+    "name": "aaasdfa",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "CZ4A2VHL421OXDDUPQO4U4M1UC",
+      "filename": "IM_Import_CZ4A2VHL421OXDDUPQO4U4M1UC_CZ4A2VHL421OXDDUPQO4U4M1UC.pas",
+      "scriptkind": 4,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

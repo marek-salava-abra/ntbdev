@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2141000101",
+    "name": "eu.abra.masa.ambg.DIM-RO2II",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 12,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
+      "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
+      "scriptkind": 4,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 2
+    }
+  ]
+}

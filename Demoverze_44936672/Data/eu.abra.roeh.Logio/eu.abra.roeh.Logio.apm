@@ -1,0 +1,143 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2161000101",
+    "name": "eu.abra.roeh.Logio",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 2,
+    "description": "Komunikace s portálem Logio",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "constVar",
+      "filename": "constVar.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "func",
+      "filename": "func.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "licence",
+      "filename": "licence.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 4
+    },
+    {
+      "scriptid": "libCSV",
+      "filename": "libCSV.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 5
+    },
+    {
+      "scriptid": "Logio",
+      "filename": "Logio.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 6
+    },
+    {
+      "scriptid": "Requests",
+      "filename": "Requests.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 7
+    },
+    {
+      "scriptid": "frmDod",
+      "filename": "frmDod.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 8
+    },
+    {
+      "scriptid": "QrFunc",
+      "filename": "QrFunc.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 9
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 10
+    },
+    {
+      "scriptid": "S24RE20IPZDL342W01C0CX3FCC",
+      "filename": "AG_Dilciskl.karty_S24RE20IPZDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 11
+    },
+    {
+      "scriptid": "ZTVC4E0M3M1OR4DC0QZO5JLOEK",
+      "filename": "AG_Neznamaagenda._ZTVC4E0M3M1OR4DC0QZO5JLOEK.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 12
+    },
+    {
+      "scriptid": "AutoServ",
+      "filename": "AutoServ.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 13
+    },
+    {
+      "scriptid": "HADOF1QMT0N4Z1BAK0Z0I0CDG0",
+      "filename": "BO_UnknownBO_HADOF1QMT0N4Z1BAK0Z0I0CDG0.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 14
+    },
+    {
+      "scriptid": "KPZKXIYXBTROHDBEJN2GCFZU3K",
+      "filename": "BO_UnknownBO_KPZKXIYXBTROHDBEJN2GCFZU3K.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 15
+    },
+    {
+      "scriptid": "O0F5OHLYGNDL342T01C0CX3FCC",
+      "filename": "BO_Dodavatel_O0F5OHLYGNDL342T01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 16
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 17
+    },
+    {
+      "scriptid": "GAWVAN4GFNDL342T01C0CX3FCC",
+      "filename": "BO_Dilciskladovakarta_GAWVAN4GFNDL342T01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 18
+    }
+  ]
+}

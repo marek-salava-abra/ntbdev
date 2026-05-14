@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "21I0000101",
+    "name": "REST_SkladTerm_Customer",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "U_Func",
+      "filename": "U_Func.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "U_Requests",
+      "filename": "U_Requests.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    }
+  ]
+}

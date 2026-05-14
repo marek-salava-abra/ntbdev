@@ -1,0 +1,15 @@
+﻿uses
+  'ABRA.RAHU.Stappert.LogStore.Support.Common';
+
+////////////////////////////////////////////////////////////////////////////////
+
+procedure AfterFillOptputRows_Hook(Self: TNxDocumentImportManager);
+begin
+  ClearNotPreparedRowsFromStoreDocument(Self);
+  DuplicateStoreCardInfo(Self);
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+
+begin
+end.

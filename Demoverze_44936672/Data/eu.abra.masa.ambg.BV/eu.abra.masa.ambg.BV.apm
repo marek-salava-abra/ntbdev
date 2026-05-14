@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1151000101",
+    "name": "eu.abra.masa.ambg.BV",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 5,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "R1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Bankovnivypisy_R1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 1
+    }
+  ]
+}

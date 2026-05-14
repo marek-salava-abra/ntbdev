@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11H1000101",
+    "name": "eu.abra.roeh.InvStoreBatches",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "Nová Inventura pro CL ",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Const",
+      "filename": "Const.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "frm",
+      "filename": "frm.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Lib",
+      "filename": "Lib.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "ZFQNOUBQ4NEO5APLFIS5352F2O",
+      "filename": "AG_Dilciinventarniprotokoly_ZFQNOUBQ4NEO5APLFIS5352F2O.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 4
+    },
+    {
+      "scriptid": "ZRVMYEJVGVU4LAGYJNBYDS3OBW",
+      "filename": "BO_Dilciinventarniprotokol-radek_ZRVMYEJVGVU4LAGYJNBYDS3OBW.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 5
+    }
+  ]
+}

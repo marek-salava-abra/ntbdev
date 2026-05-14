@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11H0000101",
+    "name": "eu.abra.masa.CountUnits",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 11,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 1
+    }
+  ]
+}

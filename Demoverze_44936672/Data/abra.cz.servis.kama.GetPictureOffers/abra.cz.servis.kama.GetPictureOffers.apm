@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "11P0000101",
+    "name": "abra.cz.servis.kama.GetPictureOffers",
+    "license_holder": "Demoverze_44936672",
+    "objversion": 1,
+    "description": "XE:OK G4 OK - Vrací název nebo url adresu obrázku",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    }
+  ]
+}
