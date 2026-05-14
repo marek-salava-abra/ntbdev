@@ -1,0 +1,255 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8SK0000101",
+    "name": "REST_SkladTerm",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 92,
+    "description": "REST - Skladový terminál",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PA",
+      "filename": "PA.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 2
+    },
+    {
+      "scriptid": "U_Const",
+      "filename": "U_Const.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 3
+    },
+    {
+      "scriptid": "U_Func",
+      "filename": "U_Func.pas",
+      "scriptkind": 0,
+      "objversion": 92,
+      "posindex": 4
+    },
+    {
+      "scriptid": "U_FuncJSON",
+      "filename": "U_FuncJSON.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 5
+    },
+    {
+      "scriptid": "U_Get",
+      "filename": "U_Get.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 6
+    },
+    {
+      "scriptid": "U_Put",
+      "filename": "U_Put.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 7
+    },
+    {
+      "scriptid": "U_Post",
+      "filename": "U_Post.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 8
+    },
+    {
+      "scriptid": "U_Login",
+      "filename": "U_Login.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 9
+    },
+    {
+      "scriptid": "U_StoreCard",
+      "filename": "U_StoreCard.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 10
+    },
+    {
+      "scriptid": "U_Store",
+      "filename": "U_Store.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 11
+    },
+    {
+      "scriptid": "U_StorePosition",
+      "filename": "U_StorePosition.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 12
+    },
+    {
+      "scriptid": "U_StoreBatch",
+      "filename": "U_StoreBatch.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 13
+    },
+    {
+      "scriptid": "U_Firm",
+      "filename": "U_Firm.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 14
+    },
+    {
+      "scriptid": "U_PackageShipping",
+      "filename": "U_PackageShipping.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 15
+    },
+    {
+      "scriptid": "U_TemporaryStorage",
+      "filename": "U_TemporaryStorage.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 16
+    },
+    {
+      "scriptid": "U_TransferBetweenPositions",
+      "filename": "U_TransferBetweenPositions.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 17
+    },
+    {
+      "scriptid": "U_Queue",
+      "filename": "U_Queue.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 18
+    },
+    {
+      "scriptid": "U_WithoutDoc",
+      "filename": "U_WithoutDoc.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 19
+    },
+    {
+      "scriptid": "U_LogStoreDocument",
+      "filename": "U_LogStoreDocument.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 20
+    },
+    {
+      "scriptid": "U_Requests",
+      "filename": "U_Requests.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 21
+    },
+    {
+      "scriptid": "U_Inventorization",
+      "filename": "U_Inventorization.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 22
+    },
+    {
+      "scriptid": "U_TransferWholePosition",
+      "filename": "U_TransferWholePosition.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 23
+    },
+    {
+      "scriptid": "U_Test",
+      "filename": "U_Test.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 24
+    },
+    {
+      "scriptid": "U_Translation",
+      "filename": "U_Translation.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 25
+    },
+    {
+      "scriptid": "U_SQLQueries",
+      "filename": "U_SQLQueries.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 26
+    },
+    {
+      "scriptid": "U_Print",
+      "filename": "U_Print.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 27
+    },
+    {
+      "scriptid": "KTOSXMYWAVE13C5S00CA141B44",
+      "filename": "AG_Uzivatele_KTOSXMYWAVE13C5S00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 87,
+      "posindex": 28
+    },
+    {
+      "scriptid": "OFZO2K155FDL3CL100C4RHECN0",
+      "filename": "AG_Sklady_OFZO2K155FDL3CL100C4RHECN0.pas",
+      "scriptkind": 2,
+      "objversion": 87,
+      "posindex": 29
+    },
+    {
+      "scriptid": "DWURJB4QZODON0WPV32RWEOGO0",
+      "filename": "AG_Procesnistavy_DWURJB4QZODON0WPV32RWEOGO0.pas",
+      "scriptkind": 2,
+      "objversion": 87,
+      "posindex": 30
+    },
+    {
+      "scriptid": "U_DialogRolls",
+      "filename": "U_DialogRolls.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 31
+    },
+    {
+      "scriptid": "U_Rolls",
+      "filename": "U_Rolls.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 32
+    },
+    {
+      "scriptid": "U_File",
+      "filename": "U_File.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 33
+    },
+    {
+      "scriptid": "U_EntryPoint",
+      "filename": "U_EntryPoint.pas",
+      "scriptkind": 0,
+      "objversion": 26,
+      "posindex": 34
+    },
+    {
+      "scriptid": "U_CommonFunctionality",
+      "filename": "U_CommonFunctionality.pas",
+      "scriptkind": 0,
+      "objversion": 26,
+      "posindex": 35
+    }
+  ]
+}

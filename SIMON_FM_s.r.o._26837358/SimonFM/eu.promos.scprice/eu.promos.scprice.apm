@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4SC0000101",
+    "name": "eu.promos.scprice",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 17,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "G5GESPQ23FE13DQC01C0CX3F40",
+      "filename": "AG_Ceniky_G5GESPQ23FE13DQC01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 11,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 3
+    },
+    {
+      "scriptid": "SH3NMKUXA5CO1JCRFZKXPJMDMS",
+      "filename": "AG_Akcniceniky_SH3NMKUXA5CO1JCRFZKXPJMDMS.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 4
+    }
+  ]
+}

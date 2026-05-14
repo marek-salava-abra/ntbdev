@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1Y10000101",
+    "name": "eu.simon.PaymentOrders2",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 13,
+    "description": "#",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "KH3SX0HB4NDL3BLX00C5OG4NF4",
+      "filename": "BO_Platebniprikaz-radek_KH3SX0HB4NDL3BLX00C5OG4NF4.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 1
+    }
+  ]
+}

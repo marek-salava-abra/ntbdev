@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "6S91000101",
+    "name": "eu.abra.masa.simon.ImportELINEv6",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 32,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 6
+  },
+  "scripts": [
+    {
+      "scriptid": "VNJGDP5MU4K4V5GWUFOHULYHVG",
+      "filename": "AG_Servisniknizka_VNJGDP5MU4K4V5GWUFOHULYHVG.pas",
+      "scriptkind": 2,
+      "objversion": 29,
+      "posindex": 1
+    }
+  ]
+}

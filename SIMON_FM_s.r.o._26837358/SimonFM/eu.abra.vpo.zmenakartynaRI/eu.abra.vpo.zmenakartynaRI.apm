@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1P10000101",
+    "name": "eu.abra.vpo.zmenakartynaRI",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 5,
+    "description": "#Skript v agendě Pohyby OP umožní změnu skladové karty",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "T2FWDKF0NSSOBC2KLELLUBPBXW",
+      "filename": "AG_Pohybynaobjednavkachprijatych_T2FWDKF0NSSOBC2KLELLUBPBXW.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

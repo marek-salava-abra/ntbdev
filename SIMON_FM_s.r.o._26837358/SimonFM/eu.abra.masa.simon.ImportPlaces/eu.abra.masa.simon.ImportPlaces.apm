@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SR0000101",
+    "name": "eu.abra.masa.simon.ImportPlaces",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 20,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "DBG4IHIKXAK4RDZSV0HO1HB3FW",
+      "filename": "AG_Skladovepozice_DBG4IHIKXAK4RDZSV0HO1HB3FW.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 1
+    },
+    {
+      "scriptid": "TIJJBJCDUOJOLJXAQQDINSNAKC",
+      "filename": "AG_KategorieZbozi.cz_TIJJBJCDUOJOLJXAQQDINSNAKC.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 2
+    },
+    {
+      "scriptid": "YYWOOBQY2L5OXJKJMEJ45HWNL4",
+      "filename": "AG_KategorieHeureka.cz_YYWOOBQY2L5OXJKJMEJ45HWNL4.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 3
+    },
+    {
+      "scriptid": "4MP1E2VUANDL342Q01C0CX3FCC",
+      "filename": "AG_Skladovemenu_4MP1E2VUANDL342Q01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 4
+    }
+  ]
+}

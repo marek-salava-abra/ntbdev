@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "CSK0000101",
+    "name": "REST_TemporaryStorage",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 2,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "KTOSXMYWAVE13C5S00CA141B44",
+      "filename": "AG_Uzivatele_KTOSXMYWAVE13C5S00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 1
+    }
+  ]
+}

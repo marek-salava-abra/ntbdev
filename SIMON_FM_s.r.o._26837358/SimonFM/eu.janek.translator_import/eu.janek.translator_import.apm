@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1S20000101",
+    "name": "eu.janek.translator_import",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 12,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 6,
+      "posindex": 1
+    },
+    {
+      "scriptid": "WZFBJZSLRTGOLJKEKC5VEYIMTK",
+      "filename": "AG_VazbyVIPnafirmu_WZFBJZSLRTGOLJKEKC5VEYIMTK.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 3
+    }
+  ]
+}

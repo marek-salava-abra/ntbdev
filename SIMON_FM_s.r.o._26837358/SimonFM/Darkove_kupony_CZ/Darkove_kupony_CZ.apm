@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2W00000101",
+    "name": "Dárkové_kupóny_CZ",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 65,
+    "description": "#",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 49,
+      "posindex": 1
+    },
+    {
+      "scriptid": "50DTJ50PAPB433M5031NC4P3EK",
+      "filename": "AM_Modul_50DTJ50PAPB433M5031NC4P3EK_50DTJ50PAPB433M5031NC4P3EK.pas",
+      "scriptkind": 5,
+      "objversion": 32,
+      "posindex": 2
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 28,
+      "posindex": 3
+    }
+  ]
+}

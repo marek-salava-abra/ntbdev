@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5SJ1000101",
+    "name": "eu.gosi.odpis",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 6,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "50DTJ50PAPB433M5031NC4P3EK",
+      "filename": "AM_Modul_50DTJ50PAPB433M5031NC4P3EK_50DTJ50PAPB433M5031NC4P3EK.pas",
+      "scriptkind": 5,
+      "objversion": 6,
+      "posindex": 1
+    }
+  ]
+}

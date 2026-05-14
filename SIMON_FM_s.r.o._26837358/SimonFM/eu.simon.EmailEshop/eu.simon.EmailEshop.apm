@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2I30000101",
+    "name": "eu.simon.EmailEshop",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 45,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "mail",
+      "filename": "mail.pas",
+      "scriptkind": 0,
+      "objversion": 16,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 40,
+      "posindex": 2
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SI0000101",
+    "name": "eu.simon.ESFunkce",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 68,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 99
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 43,
+      "posindex": 1
+    },
+    {
+      "scriptid": "mail",
+      "filename": "mail.pas",
+      "scriptkind": 0,
+      "objversion": 38,
+      "posindex": 2
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 50,
+      "posindex": 3
+    }
+  ]
+}

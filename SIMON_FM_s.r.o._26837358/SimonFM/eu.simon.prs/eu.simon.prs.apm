@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1730000101",
+    "name": "eu.simon.prs",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "SGN1QXTSL2TO5GWRESQPQF3Z3K",
+      "filename": "IM_Import_SGN1QXTSL2TO5GWRESQPQF3Z3K_SGN1QXTSL2TO5GWRESQPQF3Z3K.pas",
+      "scriptkind": 4,
+      "objversion": 5,
+      "posindex": 1
+    }
+  ]
+}

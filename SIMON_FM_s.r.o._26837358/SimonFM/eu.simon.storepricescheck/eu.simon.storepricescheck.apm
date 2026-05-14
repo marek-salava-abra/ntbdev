@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1F10000101",
+    "name": "eu.simon.storepricescheck",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 9,
+    "description": "#",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GHYLVQXQ3FE13DQC01C0CX3F40",
+      "filename": "BO_Cenikovacena_GHYLVQXQ3FE13DQC01C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 1
+    }
+  ]
+}

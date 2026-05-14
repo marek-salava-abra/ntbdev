@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2L00000101",
+    "name": "abra.eu.masa.PHV",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 9,
+    "description": "#Oprava PHV",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "H1V34BK4BJOOLFNU4WANHL3M2C",
+      "filename": "AG_Prijemhotovychvyrobku_H1V34BK4BJOOLFNU4WANHL3M2C.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SE1000101",
+    "name": "eu.abra.simon.cloneparam",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 27,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "0L1VJHPYN3QOHC2U4W2ZOKJZS0",
+      "filename": "AG_Skupinyparametruskladovychkaret_0L1VJHPYN3QOHC2U4W2ZOKJZS0.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 1
+    },
+    {
+      "scriptid": "OD4JP4GMMNRO5DTOIFTDVCLISC",
+      "filename": "BO_BOskupinparametruskladovychkaret_OD4JP4GMMNRO5DTOIFTDVCLISC.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 2
+    },
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 3
+    }
+  ]
+}

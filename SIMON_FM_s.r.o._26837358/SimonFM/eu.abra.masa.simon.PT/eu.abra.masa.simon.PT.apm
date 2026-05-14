@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SR1000101",
+    "name": "eu.abra.masa.simon.PT",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 59,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 58,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1A20000101",
+    "name": "eu.checkActionPriceList",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 14,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "AutoKonec",
+      "filename": "AutoKonec.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 1
+    }
+  ]
+}

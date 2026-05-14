@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4SR1000101",
+    "name": "eu.abra.masa.simon.VPZ",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "VBZQNX5M0OCOZ2JYXQ4OHME1EC",
+      "filename": "AG_Vyskladnenizpozic_VBZQNX5M0OCOZ2JYXQ4OHME1EC.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "WVLRWHM4N2MO12X3VNL3HALEKW",
+      "filename": "AG_Presunmezipozicemi_WVLRWHM4N2MO12X3VNL3HALEKW.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

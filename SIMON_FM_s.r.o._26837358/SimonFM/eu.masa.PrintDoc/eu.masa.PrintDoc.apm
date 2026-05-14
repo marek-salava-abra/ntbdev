@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2Q30000101",
+    "name": "eu.masa.PrintDoc",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 5,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "00MEV5HL5BEL3JY400C5PPZRN0",
+      "filename": "BO_Trzba_00MEV5HL5BEL3JY400C5PPZRN0.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

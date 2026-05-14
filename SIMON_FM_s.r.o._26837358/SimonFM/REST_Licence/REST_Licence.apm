@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SK0000101",
+    "name": "REST_Licence",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 3,
+    "description": "REST - Licenční balíček",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "libSecurity",
+      "filename": "libSecurity.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "libConst",
+      "filename": "libConst.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 2
+    },
+    {
+      "scriptid": "RV5F5HCAZ41OD0QWKMGRZI0VD0",
+      "filename": "BO_Licencovanazarizeni_RV5F5HCAZ41OD0QWKMGRZI0VD0.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 3
+    },
+    {
+      "scriptid": "ABB2MO2CCN3OX3MFF1HPDUIB04",
+      "filename": "AG_Licencovanazarizeni_ABB2MO2CCN3OX3MFF1HPDUIB04.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 4
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1810000101",
+    "name": "eu.abra.masa.importtxt",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 64,
+    "description": "#",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 27,
+      "posindex": 1
+    },
+    {
+      "scriptid": "imports",
+      "filename": "imports.pas",
+      "scriptkind": 0,
+      "objversion": 39,
+      "posindex": 2
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 3
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 4
+    },
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 26,
+      "posindex": 5
+    },
+    {
+      "scriptid": "BT0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarnimanka_BT0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 15,
+      "posindex": 6
+    },
+    {
+      "scriptid": "imports2",
+      "filename": "imports2.pas",
+      "scriptkind": 0,
+      "objversion": 20,
+      "posindex": 7
+    },
+    {
+      "scriptid": "BP0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarniprebytky_BP0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 17,
+      "posindex": 8
+    },
+    {
+      "scriptid": "JYKL5H2XYMJOT4ZEFJYYJ5OI5G",
+      "filename": "AG_Kompletacnilisty_JYKL5H2XYMJOT4ZEFJYYJ5OI5G.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 9
+    },
+    {
+      "scriptid": "imports3",
+      "filename": "imports3.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 10
+    }
+  ]
+}

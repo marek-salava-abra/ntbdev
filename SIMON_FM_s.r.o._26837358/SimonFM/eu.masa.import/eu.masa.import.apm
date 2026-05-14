@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2L30000101",
+    "name": "eu.masa.import",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 29,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 1
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 16,
+      "posindex": 2
+    },
+    {
+      "scriptid": "VQL23RLXWQM4XGN2I0S5VXCAPC",
+      "filename": "AG_Naskladnenidopozic_VQL23RLXWQM4XGN2I0S5VXCAPC.pas",
+      "scriptkind": 2,
+      "objversion": 15,
+      "posindex": 3
+    },
+    {
+      "scriptid": "HEXW4ANPOVOONHN5GTAHG4KKHC",
+      "filename": "AG_Premeny-prijmy_HEXW4ANPOVOONHN5GTAHG4KKHC.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 4
+    }
+  ]
+}

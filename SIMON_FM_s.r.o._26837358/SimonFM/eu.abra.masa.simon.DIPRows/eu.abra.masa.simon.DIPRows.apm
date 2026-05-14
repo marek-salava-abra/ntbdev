@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3ST0000101",
+    "name": "eu.abra.masa.simon.DIPRows",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZFQNOUBQ4NEO5APLFIS5352F2O",
+      "filename": "AG_Dilciinventarniprotokoly_ZFQNOUBQ4NEO5APLFIS5352F2O.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 1
+    }
+  ]
+}

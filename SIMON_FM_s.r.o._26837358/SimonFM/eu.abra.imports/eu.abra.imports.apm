@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SE0000101",
+    "name": "eu.abra.imports",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 44,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 24,
+      "posindex": 2
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 21,
+      "posindex": 3
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 22,
+      "posindex": 4
+    },
+    {
+      "scriptid": "ImportFile",
+      "filename": "ImportFile.pas",
+      "scriptkind": 0,
+      "objversion": 42,
+      "posindex": 5
+    }
+  ]
+}

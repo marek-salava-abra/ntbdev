@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2730000101",
+    "name": "eu.simon.accountdocs",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 28,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "AccountDocs",
+      "filename": "AccountDocs.pas",
+      "scriptkind": 0,
+      "objversion": 26,
+      "posindex": 1
+    }
+  ]
+}

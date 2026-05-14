@@ -1,0 +1,115 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1X00000101",
+    "name": "abra.eu.simonasdf",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 725,
+    "description": "#",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 319,
+      "posindex": 1
+    },
+    {
+      "scriptid": "OYC0P3TDDY1ORIJO2SKTP2KZKG",
+      "filename": "AG_Aktivity_OYC0P3TDDY1ORIJO2SKTP2KZKG.pas",
+      "scriptkind": 2,
+      "objversion": 354,
+      "posindex": 2
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 308,
+      "posindex": 3
+    },
+    {
+      "scriptid": "OBBDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana-radek_OBBDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 308,
+      "posindex": 4
+    },
+    {
+      "scriptid": "0H0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist-radek_0H0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 308,
+      "posindex": 5
+    },
+    {
+      "scriptid": "WK02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem-radek_WK02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 308,
+      "posindex": 6
+    },
+    {
+      "scriptid": "Service",
+      "filename": "Service.pas",
+      "scriptkind": 0,
+      "objversion": 366,
+      "posindex": 7
+    },
+    {
+      "scriptid": "Odvoz",
+      "filename": "Odvoz.pas",
+      "scriptkind": 0,
+      "objversion": 243,
+      "posindex": 8
+    },
+    {
+      "scriptid": "vyrizeni",
+      "filename": "vyrizeni.pas",
+      "scriptkind": 0,
+      "objversion": 300,
+      "posindex": 9
+    },
+    {
+      "scriptid": "VIYABDSJIN04RBJHJIL3OI54J0",
+      "filename": "AG_Agendazarizenipujcovny_VIYABDSJIN04RBJHJIL3OI54J0.pas",
+      "scriptkind": 2,
+      "objversion": 210,
+      "posindex": 10
+    },
+    {
+      "scriptid": "zalohy",
+      "filename": "zalohy.pas",
+      "scriptkind": 0,
+      "objversion": 191,
+      "posindex": 11
+    },
+    {
+      "scriptid": "reklamace",
+      "filename": "reklamace.pas",
+      "scriptkind": 0,
+      "objversion": 207,
+      "posindex": 12
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 175,
+      "posindex": 13
+    },
+    {
+      "scriptid": "complete",
+      "filename": "complete.pas",
+      "scriptkind": 0,
+      "objversion": 53,
+      "posindex": 14
+    }
+  ]
+}

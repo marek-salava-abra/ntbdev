@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1220000101",
+    "name": "eu.simon.pujcovna",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 82,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OYC0P3TDDY1ORIJO2SKTP2KZKG",
+      "filename": "AG_Aktivity_OYC0P3TDDY1ORIJO2SKTP2KZKG.pas",
+      "scriptkind": 2,
+      "objversion": 47,
+      "posindex": 1
+    },
+    {
+      "scriptid": "tabPujcovna",
+      "filename": "tabPujcovna.pas",
+      "scriptkind": 0,
+      "objversion": 69,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Print",
+      "filename": "Print.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 3
+    }
+  ]
+}

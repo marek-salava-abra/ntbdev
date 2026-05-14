@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1N20000101",
+    "name": "eu.simon.MailFromPosSummaredDoc",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 11,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "012F3WQVEREL3JY400C5PPZRN0",
+      "filename": "BO_Souhrnnypokladnidoklad_012F3WQVEREL3JY400C5PPZRN0.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 1
+    }
+  ]
+}

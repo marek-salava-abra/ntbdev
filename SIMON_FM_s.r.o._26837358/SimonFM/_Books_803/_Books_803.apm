@@ -1,0 +1,80 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1K10000101",
+    "name": "_Books_803",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 5,
+    "description": "#Knihovny bez potřeby DevelUsr",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "uScXML",
+      "filename": "uScXML.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "uScFunc",
+      "filename": "uScFunc.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 2
+    },
+    {
+      "scriptid": "uScPersistParam",
+      "filename": "uScPersistParam.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 3
+    },
+    {
+      "scriptid": "uScOLEFunc",
+      "filename": "uScOLEFunc.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 4
+    },
+    {
+      "scriptid": "uScSiteFunc",
+      "filename": "uScSiteFunc.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 5
+    },
+    {
+      "scriptid": "uScOLEClasses",
+      "filename": "uScOLEClasses.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 6
+    },
+    {
+      "scriptid": "uScFuncOS",
+      "filename": "uScFuncOS.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 7
+    },
+    {
+      "scriptid": "uScBookFunc",
+      "filename": "uScBookFunc.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 8
+    },
+    {
+      "scriptid": "uScDialog",
+      "filename": "uScDialog.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 9
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "ASL1000101",
+    "name": "eu.abra.masa.API_IN",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 33,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 33,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SJ0000101",
+    "name": "eu.abra.mavy.LabelPrinter.API",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 11,
+    "description": "v1.10",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "automat",
+      "filename": "automat.pas",
+      "scriptkind": 0,
+      "objversion": 8,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "CreatePDM",
+      "filename": "CreatePDM.pas",
+      "scriptkind": 0,
+      "objversion": 8,
+      "posindex": 3
+    },
+    {
+      "scriptid": "SendToLabelPrinter",
+      "filename": "SendToLabelPrinter.pas",
+      "scriptkind": 0,
+      "objversion": 8,
+      "posindex": 4
+    },
+    {
+      "scriptid": "QVSAA1X2BWEOHH22MEPGEAGI0W",
+      "filename": "AG_Odeslanaposta_QVSAA1X2BWEOHH22MEPGEAGI0W.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 5
+    },
+    {
+      "scriptid": "KQSRQSPU1JO43IINYNOQKKYHVO",
+      "filename": "AG_Postovniposkytovatele_KQSRQSPU1JO43IINYNOQKKYHVO.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 6
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 7
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 8
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 9
+    },
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 10
+    },
+    {
+      "scriptid": "FV3AMWTNCMZ4HFCECJRGW0JVW4",
+      "filename": "AG_LabelPrinter-stavyzasilek_FV3AMWTNCMZ4HFCECJRGW0JVW4.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 11
+    },
+    {
+      "scriptid": "COAUTOW5YRDL3C5P00CA141B44",
+      "filename": "AG_Zpusobydopravy_COAUTOW5YRDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 12
+    },
+    {
+      "scriptid": "EFMK3ZXZQGE4B1SSCYEBDGMCCK",
+      "filename": "BO_Odeslanaposta_EFMK3ZXZQGE4B1SSCYEBDGMCCK.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 13
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 14
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 15
+    }
+  ]
+}

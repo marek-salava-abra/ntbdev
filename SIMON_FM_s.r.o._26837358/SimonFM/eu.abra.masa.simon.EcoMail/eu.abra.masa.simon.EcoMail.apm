@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3ST1000101",
+    "name": "eu.abra.masa.simon.EcoMail",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 32,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 30,
+      "posindex": 1
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 20,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 21,
+      "posindex": 3
+    },
+    {
+      "scriptid": "4K3EXM5PQBCL35CH000ILPWJF4",
+      "filename": "BO_Firma_4K3EXM5PQBCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 12,
+      "posindex": 4
+    }
+  ]
+}

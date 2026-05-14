@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2M30000101",
+    "name": "abra.eu.masa.simon.pos.firmselect2",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 11,
+    "description": "#Dohledá firmu na základě sejmutého kódu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "AKOBC4TC4GM43DMRKS3MTQATXK",
+      "filename": "AM_ObchodniKasa_AKOBC4TC4GM43DMRKS3MTQATXK.pas",
+      "scriptkind": 5,
+      "objversion": 8,
+      "posindex": 1
+    },
+    {
+      "scriptid": "LH2MTEL5B0FOL1KJUWDHV3AKWK",
+      "filename": "AM_Modul_LH2MTEL5B0FOL1KJUWDHV3AKWK_LH2MTEL5B0FOL1KJUWDHV3AKWK.pas",
+      "scriptkind": 5,
+      "objversion": 7,
+      "posindex": 2
+    }
+  ]
+}

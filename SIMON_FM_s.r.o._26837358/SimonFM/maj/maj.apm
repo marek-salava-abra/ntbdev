@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3SI1000101",
+    "name": "maj",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 10,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "4M4R1JFNBREL31ME00C5PPBIWO",
+      "filename": "AG_Drobnymajetek_4M4R1JFNBREL31ME00C5PPBIWO.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2N30000101",
+    "name": "eu.simon.vip",
+    "license_holder": "SIMON_FM_s.r.o._26837358",
+    "objversion": 9,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "OYC0P3TDDY1ORIJO2SKTP2KZKG",
+      "filename": "AG_Aktivity_OYC0P3TDDY1ORIJO2SKTP2KZKG.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 2
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 3
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 4
+    }
+  ]
+}
