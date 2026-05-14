@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000208",
+    "name": "eu.abra.masa.lipoelastic.GenStoreDoc",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 95,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "005WXDGLTVDL342W01C0CX3FCC",
+      "filename": "AG_Sarze-seriovacisla_005WXDGLTVDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 89,
+      "posindex": 1
+    },
+    {
+      "scriptid": "HEXW4ANPOVOONHN5GTAHG4KKHC",
+      "filename": "AG_Premeny-prijmy_HEXW4ANPOVOONHN5GTAHG4KKHC.pas",
+      "scriptkind": 2,
+      "objversion": 58,
+      "posindex": 2
+    }
+  ]
+}

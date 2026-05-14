@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "9KV3000101",
+    "name": "Synchronizace_exact",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 54,
+    "description": "Synchronizace mimo abru",
+    "cryptForExport": true,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 25,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 30,
+      "posindex": 2
+    },
+    {
+      "scriptid": "WEN033MLM3DL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 32,
+      "posindex": 3
+    }
+  ]
+}

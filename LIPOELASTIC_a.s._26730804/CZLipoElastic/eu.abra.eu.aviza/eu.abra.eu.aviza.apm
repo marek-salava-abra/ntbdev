@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2530000101",
+    "name": "eu.abra.eu.aviza",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 34,
+    "description": "eu.abra.rama.aviza",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "consts",
+      "filename": "consts.pas",
+      "scriptkind": 0,
+      "objversion": 18,
+      "posindex": 1
+    },
+    {
+      "scriptid": "xml",
+      "filename": "xml.pas",
+      "scriptkind": 0,
+      "objversion": 16,
+      "posindex": 2
+    },
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 27,
+      "posindex": 3
+    },
+    {
+      "scriptid": "R1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Bankovnivypisy_R1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 19,
+      "posindex": 4
+    },
+    {
+      "scriptid": "rolls",
+      "filename": "rolls.pas",
+      "scriptkind": 0,
+      "objversion": 16,
+      "posindex": 5
+    },
+    {
+      "scriptid": "libs",
+      "filename": "libs.pas",
+      "scriptkind": 0,
+      "objversion": 16,
+      "posindex": 6
+    },
+    {
+      "scriptid": "uLicence",
+      "filename": "uLicence.pas",
+      "scriptkind": 0,
+      "objversion": 18,
+      "posindex": 7
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8K24000101",
+    "name": "Synchronizace_API_odeslani_old",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 68,
+    "description": "sssss",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 29,
+      "posindex": 1
+    },
+    {
+      "scriptid": "libs",
+      "filename": "libs.pas",
+      "scriptkind": 0,
+      "objversion": 24,
+      "posindex": 2
+    },
+    {
+      "scriptid": "005WXDGLTVDL342W01C0CX3FCC",
+      "filename": "AG_Sarze-seriovacisla_005WXDGLTVDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 3
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 32,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 27,
+      "posindex": 5
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 57,
+      "posindex": 6
+    },
+    {
+      "scriptid": "5JXY100I12P4TITWSNE0LD1IKS",
+      "filename": "IM_Import_5JXY100I12P4TITWSNE0LD1IKS_5JXY100I12P4TITWSNE0LD1IKS.pas",
+      "scriptkind": 4,
+      "objversion": 22,
+      "posindex": 7
+    }
+  ]
+}

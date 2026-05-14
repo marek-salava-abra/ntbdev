@@ -1,0 +1,80 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2600000101",
+    "name": "Predvyplneni_rad",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 191,
+    "description": "Předvyplnění řad",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 99,
+      "posindex": 1
+    },
+    {
+      "scriptid": "42HE04FZGJD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturaprijata_42HE04FZGJD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 95,
+      "posindex": 2
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 97,
+      "posindex": 3
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 129,
+      "posindex": 4
+    },
+    {
+      "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 97,
+      "posindex": 5
+    },
+    {
+      "scriptid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "filename": "BO_Prijemka_E03ZNUMDTCC4PDAUIEY1MBTJC0.pas",
+      "scriptkind": 1,
+      "objversion": 91,
+      "posindex": 6
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 113,
+      "posindex": 7
+    },
+    {
+      "scriptid": "OBBDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana-radek_OBBDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 59,
+      "posindex": 8
+    },
+    {
+      "scriptid": "K3TH0HR5TZDL342W01C0CX3FCC",
+      "filename": "BO_Skladovydoklad-pohybsarze-seriovehocisla_K3TH0HR5TZDL342W01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 9
+    }
+  ]
+}

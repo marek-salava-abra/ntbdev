@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KV1000101",
+    "name": "PRzDLsBatch",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 37,
+    "description": "Z dodacího listu vygeneruje příjemku včetně šarží",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 29,
+      "posindex": 1
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "QSNMTCUOXEO4J54SH11XNYRA3C",
+      "filename": "IM_Import_QSNMTCUOXEO4J54SH11XNYRA3C_QSNMTCUOXEO4J54SH11XNYRA3C.pas",
+      "scriptkind": 4,
+      "objversion": 2,
+      "posindex": 3
+    }
+  ]
+}

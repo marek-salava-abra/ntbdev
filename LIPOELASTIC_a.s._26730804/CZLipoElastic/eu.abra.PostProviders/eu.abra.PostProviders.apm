@@ -1,0 +1,304 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~00000000E",
+    "name": "eu.abra.PostProviders",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 17,
+    "description": "Balíkobot  3.5.2",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 10
+  },
+  "scripts": [
+    {
+      "scriptid": "TMQVRRRTOOLOB0F53Q5THY4XC4",
+      "filename": "AG_Baliky_TMQVRRRTOOLOB0F53Q5THY4XC4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 2
+    },
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 3
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 4
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 5
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 6
+    },
+    {
+      "scriptid": "QVSAA1X2BWEOHH22MEPGEAGI0W",
+      "filename": "AG_Odeslanaposta_QVSAA1X2BWEOHH22MEPGEAGI0W.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 7
+    },
+    {
+      "scriptid": "KQSRQSPU1JO43IINYNOQKKYHVO",
+      "filename": "AG_Postovniposkytovatele_KQSRQSPU1JO43IINYNOQKKYHVO.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 8
+    },
+    {
+      "scriptid": "K1Z5H5TO4RF4ZBTYSLQR4EXUJK",
+      "filename": "AG_Typyobsahuodeslaneposty_K1Z5H5TO4RF4ZBTYSLQR4EXUJK.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 9
+    },
+    {
+      "scriptid": "SEW3O3DPGLP4PDSZSELPNZ24S4",
+      "filename": "AG_Manipulacnijednotky_SEW3O3DPGLP4PDSZSELPNZ24S4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 10
+    },
+    {
+      "scriptid": "FNDKUKWMS0WOVJ23SLANZ1SKMG",
+      "filename": "AG_Typysluzebposty_FNDKUKWMS0WOVJ23SLANZ1SKMG.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 11
+    },
+    {
+      "scriptid": "EFMK3ZXZQGE4B1SSCYEBDGMCCK",
+      "filename": "BO_Odeslanaposta_EFMK3ZXZQGE4B1SSCYEBDGMCCK.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 12
+    },
+    {
+      "scriptid": "Z5QZE3BVXOTOD4S3YFWJ2M2I3K",
+      "filename": "BO_Poskytovatelpostovnichsluzeb_Z5QZE3BVXOTOD4S3YFWJ2M2I3K.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 13
+    },
+    {
+      "scriptid": "uConstBalikobot",
+      "filename": "uConstBalikobot.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 14
+    },
+    {
+      "scriptid": "uActionEvents",
+      "filename": "uActionEvents.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 15
+    },
+    {
+      "scriptid": "uBalikobotFunc",
+      "filename": "uBalikobotFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 16
+    },
+    {
+      "scriptid": "uAddressFunc",
+      "filename": "uAddressFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 17
+    },
+    {
+      "scriptid": "uCapacityFunc",
+      "filename": "uCapacityFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 18
+    },
+    {
+      "scriptid": "uConst",
+      "filename": "uConst.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 19
+    },
+    {
+      "scriptid": "uConstCustomScript",
+      "filename": "uConstCustomScript.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 20
+    },
+    {
+      "scriptid": "uConstForm",
+      "filename": "uConstForm.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 21
+    },
+    {
+      "scriptid": "uCreatePackage",
+      "filename": "uCreatePackage.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 22
+    },
+    {
+      "scriptid": "uCustomScript",
+      "filename": "uCustomScript.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 23
+    },
+    {
+      "scriptid": "uDocTypeFunc",
+      "filename": "uDocTypeFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 24
+    },
+    {
+      "scriptid": "uForm",
+      "filename": "uForm.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 25
+    },
+    {
+      "scriptid": "uImportPackages",
+      "filename": "uImportPackages.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 26
+    },
+    {
+      "scriptid": "uLicence",
+      "filename": "uLicence.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 27
+    },
+    {
+      "scriptid": "uMemoMessage",
+      "filename": "uMemoMessage.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 28
+    },
+    {
+      "scriptid": "uOutPutPackages",
+      "filename": "uOutPutPackages.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 29
+    },
+    {
+      "scriptid": "uPostProvider",
+      "filename": "uPostProvider.pas",
+      "scriptkind": 0,
+      "objversion": 11,
+      "posindex": 30
+    },
+    {
+      "scriptid": "uProgressForm",
+      "filename": "uProgressForm.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 31
+    },
+    {
+      "scriptid": "uSQLFunc",
+      "filename": "uSQLFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 32
+    },
+    {
+      "scriptid": "uStrFunc",
+      "filename": "uStrFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 33
+    },
+    {
+      "scriptid": "uPrint",
+      "filename": "uPrint.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 34
+    },
+    {
+      "scriptid": "uWeightFunc",
+      "filename": "uWeightFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 35
+    },
+    {
+      "scriptid": "uWSFunc",
+      "filename": "uWSFunc.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 36
+    },
+    {
+      "scriptid": "uXML",
+      "filename": "uXML.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 37
+    },
+    {
+      "scriptid": "uIniFile",
+      "filename": "uIniFile.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 38
+    },
+    {
+      "scriptid": "uImportManager",
+      "filename": "uImportManager.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 39
+    },
+    {
+      "scriptid": "uLanguage",
+      "filename": "uLanguage.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 40
+    },
+    {
+      "scriptid": "uLog",
+      "filename": "uLog.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 41
+    }
+  ]
+}

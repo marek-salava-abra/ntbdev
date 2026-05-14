@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000N02",
+    "name": "eu.abra.masa.lipoelastic.ValidateRowOV",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 26,
+    "description": "Validace šicí dávky na řádku dokladu OV",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "CHMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana-radek_CHMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 20,
+      "posindex": 1
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

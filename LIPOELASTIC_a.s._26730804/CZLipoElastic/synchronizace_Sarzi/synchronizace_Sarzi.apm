@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8K04000101",
+    "name": "synchronizace_Sarzi",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 24,
+    "description": "synchronizace šarží ",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "005WXDGLTVDL342W01C0CX3FCC",
+      "filename": "AG_Sarze-seriovacisla_005WXDGLTVDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 1
+    }
+  ]
+}

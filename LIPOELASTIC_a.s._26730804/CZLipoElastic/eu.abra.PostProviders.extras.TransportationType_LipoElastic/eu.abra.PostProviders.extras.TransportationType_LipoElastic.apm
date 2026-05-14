@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~00000000G",
+    "name": "eu.abra.PostProviders.extras.TransportationType_LipoElastic",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 40,
+    "description": "eu.abra.PostProviders.extras",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "uLib",
+      "filename": "uLib.pas",
+      "scriptkind": 0,
+      "objversion": 33,
+      "posindex": 1
+    },
+    {
+      "scriptid": "uConst",
+      "filename": "uConst.pas",
+      "scriptkind": 0,
+      "objversion": 22,
+      "posindex": 2
+    },
+    {
+      "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
+      "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
+      "scriptkind": 4,
+      "objversion": 22,
+      "posindex": 3
+    },
+    {
+      "scriptid": "EFMK3ZXZQGE4B1SSCYEBDGMCCK",
+      "filename": "BO_Odeslanaposta_EFMK3ZXZQGE4B1SSCYEBDGMCCK.pas",
+      "scriptkind": 1,
+      "objversion": 26,
+      "posindex": 4
+    },
+    {
+      "scriptid": "QVSAA1X2BWEOHH22MEPGEAGI0W",
+      "filename": "AG_Odeslanaposta_QVSAA1X2BWEOHH22MEPGEAGI0W.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 5
+    },
+    {
+      "scriptid": "uImportManager",
+      "filename": "uImportManager.pas",
+      "scriptkind": 0,
+      "objversion": 22,
+      "posindex": 6
+    },
+    {
+      "scriptid": "MGL3OIVTAZL4VJ30UW4UMP3BPG",
+      "filename": "AG_Naplanovaneulohy_MGL3OIVTAZL4VJ30UW4UMP3BPG.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 7
+    },
+    {
+      "scriptid": "uForm",
+      "filename": "uForm.pas",
+      "scriptkind": 0,
+      "objversion": 22,
+      "posindex": 8
+    }
+  ]
+}

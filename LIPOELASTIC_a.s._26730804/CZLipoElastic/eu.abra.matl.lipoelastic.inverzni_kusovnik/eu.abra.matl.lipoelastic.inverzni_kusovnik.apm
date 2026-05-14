@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000K02",
+    "name": "eu.abra.matl.lipoelastic.inverzni_kusovnik",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "5RK2OINXJI34T3HX5V55T5HSXS",
+      "filename": "AG_Inverznikusovnik_5RK2OINXJI34T3HX5V55T5HSXS.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

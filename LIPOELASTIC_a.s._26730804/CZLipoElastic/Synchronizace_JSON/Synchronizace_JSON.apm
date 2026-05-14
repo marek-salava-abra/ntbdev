@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000403",
+    "name": "Synchronizace_JSON",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 61,
+    "description": "Synchronizace mezi abrami_JSON",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Lib",
+      "filename": "Lib.pas",
+      "scriptkind": 0,
+      "objversion": 18,
+      "posindex": 1
+    },
+    {
+      "scriptid": "CHEISZBA2CYO14WNOFGIQHYVPK",
+      "filename": "AG_Sortimentniskupiny_CHEISZBA2CYO14WNOFGIQHYVPK.pas",
+      "scriptkind": 2,
+      "objversion": 32,
+      "posindex": 2
+    },
+    {
+      "scriptid": "0AJDJBKJ5VDL342P01C0CX3FCC",
+      "filename": "AG_Skladovetypy_0AJDJBKJ5VDL342P01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 3
+    },
+    {
+      "scriptid": "4MP1E2VUANDL342Q01C0CX3FCC",
+      "filename": "AG_Skladovemenu_4MP1E2VUANDL342Q01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 4
+    },
+    {
+      "scriptid": "J5O4HSHO3RY4HACKL1G0D0Y404",
+      "filename": "AG_Obrazkytechnologickychpostupu_J5O4HSHO3RY4HACKL1G0D0Y404.pas",
+      "scriptkind": 2,
+      "objversion": 20,
+      "posindex": 5
+    },
+    {
+      "scriptid": "TEMCU0UVB5J4VC0LJO3GXGSCXK",
+      "filename": "AG_Obrazky_TEMCU0UVB5J4VC0LJO3GXGSCXK.pas",
+      "scriptkind": 2,
+      "objversion": 24,
+      "posindex": 6
+    },
+    {
+      "scriptid": "KCBDEFEPAYUOZ3D0GK3URSGKIO",
+      "filename": "BO_Obrazektechnologickychpostupu_KCBDEFEPAYUOZ3D0GK3URSGKIO.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 7
+    }
+  ]
+}

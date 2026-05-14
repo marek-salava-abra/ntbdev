@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000701",
+    "name": "eu.abra.masa.lipoelastic.SCC3",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 20,
+    "description": "pouze pro import dat",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "0AJDJBKJ5VDL342P01C0CX3FCC",
+      "filename": "AG_Skladovetypy_0AJDJBKJ5VDL342P01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 16,
+      "posindex": 1
+    }
+  ]
+}

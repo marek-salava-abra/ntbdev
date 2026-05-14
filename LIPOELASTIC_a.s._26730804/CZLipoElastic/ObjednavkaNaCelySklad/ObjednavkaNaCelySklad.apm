@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8K43000101",
+    "name": "ObjednavkaNaCelySklad",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 39,
+    "description": "Objednávka na všechno na skladu ",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 10
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 35,
+      "posindex": 1
+    }
+  ]
+}

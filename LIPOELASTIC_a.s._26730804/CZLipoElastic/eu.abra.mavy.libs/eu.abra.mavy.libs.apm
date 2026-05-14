@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "GK74000101",
+    "name": "eu.abra.mavy.libs",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 6,
+    "description": "v1.04",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "konstanty",
+      "filename": "konstanty.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Forms",
+      "filename": "Forms.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 3
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 4
+    }
+  ]
+}

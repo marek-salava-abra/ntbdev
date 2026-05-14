@@ -1,0 +1,192 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KY0000101",
+    "name": "_Knihovny_ALL",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 313,
+    "description": "Všeobecné knihovny k využití   2021",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "XML",
+      "filename": "XML.pas",
+      "scriptkind": 0,
+      "objversion": 101,
+      "posindex": 1
+    },
+    {
+      "scriptid": "HTTP",
+      "filename": "HTTP.pas",
+      "scriptkind": 0,
+      "objversion": 93,
+      "posindex": 2
+    },
+    {
+      "scriptid": "SQL",
+      "filename": "SQL.pas",
+      "scriptkind": 0,
+      "objversion": 92,
+      "posindex": 3
+    },
+    {
+      "scriptid": "MSSQL",
+      "filename": "MSSQL.pas",
+      "scriptkind": 0,
+      "objversion": 91,
+      "posindex": 4
+    },
+    {
+      "scriptid": "Filesystem",
+      "filename": "Filesystem.pas",
+      "scriptkind": 0,
+      "objversion": 91,
+      "posindex": 5
+    },
+    {
+      "scriptid": "DateTime",
+      "filename": "DateTime.pas",
+      "scriptkind": 0,
+      "objversion": 94,
+      "posindex": 6
+    },
+    {
+      "scriptid": "ABRA",
+      "filename": "ABRA.pas",
+      "scriptkind": 0,
+      "objversion": 92,
+      "posindex": 7
+    },
+    {
+      "scriptid": "Validation",
+      "filename": "Validation.pas",
+      "scriptkind": 0,
+      "objversion": 93,
+      "posindex": 8
+    },
+    {
+      "scriptid": "Visual",
+      "filename": "Visual.pas",
+      "scriptkind": 0,
+      "objversion": 91,
+      "posindex": 9
+    },
+    {
+      "scriptid": "VisualForms",
+      "filename": "VisualForms.pas",
+      "scriptkind": 0,
+      "objversion": 126,
+      "posindex": 10
+    },
+    {
+      "scriptid": "Store",
+      "filename": "Store.pas",
+      "scriptkind": 0,
+      "objversion": 92,
+      "posindex": 11
+    },
+    {
+      "scriptid": "Wage",
+      "filename": "Wage.pas",
+      "scriptkind": 0,
+      "objversion": 92,
+      "posindex": 12
+    },
+    {
+      "scriptid": "SelDat",
+      "filename": "SelDat.pas",
+      "scriptkind": 0,
+      "objversion": 91,
+      "posindex": 13
+    },
+    {
+      "scriptid": "Email",
+      "filename": "Email.pas",
+      "scriptkind": 0,
+      "objversion": 92,
+      "posindex": 14
+    },
+    {
+      "scriptid": "Rows",
+      "filename": "Rows.pas",
+      "scriptkind": 0,
+      "objversion": 92,
+      "posindex": 15
+    },
+    {
+      "scriptid": "Head",
+      "filename": "Head.pas",
+      "scriptkind": 0,
+      "objversion": 93,
+      "posindex": 16
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 101,
+      "posindex": 17
+    },
+    {
+      "scriptid": "QWOSKVTSQCJOTGHJAYPSZLTHQG",
+      "filename": "FRM_QWOSKVTSQCJOTGHJAYPSZLTHQG.pas",
+      "scriptkind": 6,
+      "objversion": 95,
+      "posindex": 18
+    },
+    {
+      "scriptid": "Parse",
+      "filename": "Parse.pas",
+      "scriptkind": 0,
+      "objversion": 174,
+      "posindex": 19
+    },
+    {
+      "scriptid": "Firms_params",
+      "filename": "Firms_params.pas",
+      "scriptkind": 0,
+      "objversion": 85,
+      "posindex": 20
+    },
+    {
+      "scriptid": "Change_Parameters",
+      "filename": "Change_Parameters.pas",
+      "scriptkind": 0,
+      "objversion": 71,
+      "posindex": 21
+    },
+    {
+      "scriptid": "HistoryData",
+      "filename": "HistoryData.pas",
+      "scriptkind": 0,
+      "objversion": 78,
+      "posindex": 22
+    },
+    {
+      "scriptid": "API",
+      "filename": "API.pas",
+      "scriptkind": 0,
+      "objversion": 59,
+      "posindex": 23
+    },
+    {
+      "scriptid": "Komunikace",
+      "filename": "Komunikace.pas",
+      "scriptkind": 0,
+      "objversion": 52,
+      "posindex": 24
+    },
+    {
+      "scriptid": "Stavovost",
+      "filename": "Stavovost.pas",
+      "scriptkind": 0,
+      "objversion": 69,
+      "posindex": 25
+    }
+  ]
+}

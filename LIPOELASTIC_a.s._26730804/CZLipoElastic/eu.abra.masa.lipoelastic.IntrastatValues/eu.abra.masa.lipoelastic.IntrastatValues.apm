@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000K03",
+    "name": "eu.abra.masa.lipoelastic.IntrastatValues",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 24,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 17,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 2
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 3
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1310000101",
+    "name": "abra.eu.MASk.Email",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 179,
+    "description": "Odesílání emailů při změně stavu objednávky",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 174,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Odeslani_emailu",
+      "filename": "Odeslani_emailu.pas",
+      "scriptkind": 0,
+      "objversion": 85,
+      "posindex": 2
+    }
+  ]
+}

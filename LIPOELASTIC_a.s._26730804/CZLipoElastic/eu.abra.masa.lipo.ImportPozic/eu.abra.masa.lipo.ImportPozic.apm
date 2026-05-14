@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~00000000D",
+    "name": "eu.abra.masa.lipo.ImportPozic",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 20,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "VQL23RLXWQM4XGN2I0S5VXCAPC",
+      "filename": "AG_Naskladnenidopozic_VQL23RLXWQM4XGN2I0S5VXCAPC.pas",
+      "scriptkind": 2,
+      "objversion": 15,
+      "posindex": 1
+    }
+  ]
+}

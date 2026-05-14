@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1W10000101",
+    "name": "abra.mask.CRM",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 9,
+    "description": "CRM",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 3
+    }
+  ]
+}

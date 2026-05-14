@@ -1,0 +1,108 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "CK54000101",
+    "name": "eu.abra.mire.EkoKom",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 23,
+    "description": "Balíček scriptů pro vytváření výkazů pro EKO-KOM",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "3DROIEGQRFMOH4ZT4I53BZCXKO",
+      "filename": "BO_ObalEKOKOM_3DROIEGQRFMOH4ZT4I53BZCXKO.pas",
+      "scriptkind": 1,
+      "objversion": 14,
+      "posindex": 1
+    },
+    {
+      "scriptid": "YNDO524TCAO4Z0EIWTI2XMGIS4",
+      "filename": "AG_ObalyEKO-KOM_YNDO524TCAO4Z0EIWTI2XMGIS4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 2
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 3
+    },
+    {
+      "scriptid": "Report",
+      "filename": "Report.pas",
+      "scriptkind": 0,
+      "objversion": 19,
+      "posindex": 4
+    },
+    {
+      "scriptid": "Convert",
+      "filename": "Convert.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 5
+    },
+    {
+      "scriptid": "Settings",
+      "filename": "Settings.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 6
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 7
+    },
+    {
+      "scriptid": "TabEkoKom",
+      "filename": "TabEkoKom.pas",
+      "scriptkind": 0,
+      "objversion": 15,
+      "posindex": 8
+    },
+    {
+      "scriptid": "Lib",
+      "filename": "Lib.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 9
+    },
+    {
+      "scriptid": "uLicence",
+      "filename": "uLicence.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 10
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 11
+    },
+    {
+      "scriptid": "1T0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Vratkadodacichlistu_1T0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 12
+    },
+    {
+      "scriptid": "2T0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Inventarnimanko_2T0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 13
+    }
+  ]
+}

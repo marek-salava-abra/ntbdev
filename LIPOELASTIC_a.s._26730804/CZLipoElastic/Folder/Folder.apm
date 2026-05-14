@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KJ2000101",
+    "name": "Folder",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 163,
+    "description": "Vytváření úložiště pro ERP systém",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 116,
+      "posindex": 1
+    },
+    {
+      "scriptid": "BR2XLG155WN430DRGDVWWXUAVW",
+      "filename": "AG_Smlouvy_BR2XLG155WN430DRGDVWWXUAVW.pas",
+      "scriptkind": 2,
+      "objversion": 78,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Lib",
+      "filename": "Lib.pas",
+      "scriptkind": 0,
+      "objversion": 116,
+      "posindex": 3
+    }
+  ]
+}

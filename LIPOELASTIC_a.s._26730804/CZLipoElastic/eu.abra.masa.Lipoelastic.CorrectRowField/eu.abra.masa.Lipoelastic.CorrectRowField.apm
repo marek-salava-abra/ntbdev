@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000W06",
+    "name": "eu.abra.masa.Lipoelastic.CorrectRowField",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 5,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "BL0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Vratkydodacichlistu_BL0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "NN20CW0TDQSODH2FPC5IVSYIKW",
+      "filename": "AG_Vratkyprijemek_NN20CW0TDQSODH2FPC5IVSYIKW.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 4
+    }
+  ]
+}

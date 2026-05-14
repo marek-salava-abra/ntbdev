@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "9KZ3000101",
+    "name": "eu.abra.alec.AMES.CopyJORandPL2",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 31,
+    "description": "@@",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 1
+    },
+    {
+      "scriptid": "NWWNX02WFV2ORFJOXIW4BHBLWG",
+      "filename": "AG_Kusovniky_NWWNX02WFV2ORFJOXIW4BHBLWG.pas",
+      "scriptkind": 2,
+      "objversion": 24,
+      "posindex": 2
+    },
+    {
+      "scriptid": "EY1VHUCFUEW455OMM2KXYUWR4K",
+      "filename": "AG_Technologickepostupy_EY1VHUCFUEW455OMM2KXYUWR4K.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 3
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 4
+    }
+  ]
+}

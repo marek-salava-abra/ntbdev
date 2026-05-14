@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KU3000101",
+    "name": "Generalledger_store_ID",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 15,
+    "description": "Doplnění skladu do účetnictví ",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "C3S1BMBT4RD13ACL03KIU0CLP4",
+      "filename": "BO_Ucetnizapis-zadost_C3S1BMBT4RD13ACL03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "S4RQ0AMDM3DL35J301C0CX3F40",
+      "filename": "AG_Zalohovelistyvydane_S4RQ0AMDM3DL35J301C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 2
+    }
+  ]
+}

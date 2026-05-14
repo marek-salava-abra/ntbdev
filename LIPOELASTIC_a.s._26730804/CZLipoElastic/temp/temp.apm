@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000K0A",
+    "name": "temp",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 6,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "VXC1Q2UDUOTOBGQNWZTZZJPP24",
+      "filename": "AG_Logy_VXC1Q2UDUOTOBGQNWZTZZJPP24.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

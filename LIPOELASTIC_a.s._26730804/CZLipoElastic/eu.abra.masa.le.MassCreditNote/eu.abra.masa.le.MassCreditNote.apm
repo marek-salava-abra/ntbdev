@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "BKZ3000101",
+    "name": "eu.abra.masa.le.MassCreditNote",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 78,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 69,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 43,
+      "posindex": 2
+    },
+    {
+      "scriptid": "05O2XT2S23E13HBT00C5OG4NF4",
+      "filename": "AG_Skladovepohyby_05O2XT2S23E13HBT00C5OG4NF4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 3
+    }
+  ]
+}

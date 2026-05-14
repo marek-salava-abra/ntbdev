@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KS3000101",
+    "name": "Synchronizace_bilance",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 113,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 86,
+      "posindex": 1
+    },
+    {
+      "scriptid": "DD3OXGVXSJNOJCXRAAK2OGT1UC",
+      "filename": "AG_Bilance_DD3OXGVXSJNOJCXRAAK2OGT1UC.pas",
+      "scriptkind": 2,
+      "objversion": 69,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Libs",
+      "filename": "Libs.pas",
+      "scriptkind": 0,
+      "objversion": 60,
+      "posindex": 3
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 4
+    }
+  ]
+}

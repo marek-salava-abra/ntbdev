@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "DKD3000101",
+    "name": "Kopie_OV_S_BAtch",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 33,
+    "description": "Příklad akce, která vygeneruje z příjemky dodací list",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 31,
+      "posindex": 1
+    }
+  ]
+}

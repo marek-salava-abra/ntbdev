@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KX3000101",
+    "name": "Dohrani_sarzi_po_importu",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 21,
+    "description": "Po importu dokladu na základě údajů v řádku doplní šarže",
+    "cryptForExport": false,
+    "usageState": 1,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "FLQIA44IVWM4B20GYRHC42BHGW",
+      "filename": "BO_Prijemka-radek_FLQIA44IVWM4B20GYRHC42BHGW.pas",
+      "scriptkind": 1,
+      "objversion": 18,
+      "posindex": 1
+    }
+  ]
+}

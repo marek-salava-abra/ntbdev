@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000E01",
+    "name": "eu.abra.masa.lipoelastic.SCParam",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 11,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 1
+    },
+    {
+      "scriptid": "0L1VJHPYN3QOHC2U4W2ZOKJZS0",
+      "filename": "AG_Skupinyparametruskladovychkaret_0L1VJHPYN3QOHC2U4W2ZOKJZS0.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 2
+    },
+    {
+      "scriptid": "OD4JP4GMMNRO5DTOIFTDVCLISC",
+      "filename": "BO_BOskupinparametruskladovychkaret_OD4JP4GMMNRO5DTOIFTDVCLISC.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 3
+    },
+    {
+      "scriptid": "qr",
+      "filename": "qr.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 4
+    },
+    {
+      "scriptid": "KCAWICC3H2O4DG0YEDMLO4X0PK",
+      "filename": "BO_BOparametruskladovychkaret_KCAWICC3H2O4DG0YEDMLO4X0PK.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 5
+    }
+  ]
+}

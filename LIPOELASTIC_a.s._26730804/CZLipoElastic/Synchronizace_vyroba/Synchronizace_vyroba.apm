@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KM3000101",
+    "name": "Synchronizace_vyroba",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 220,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "MHMY3UH1D3Z4T1DKS4XLO3HHKC",
+      "filename": "AG_Pracoviste_MHMY3UH1D3Z4T1DKS4XLO3HHKC.pas",
+      "scriptkind": 2,
+      "objversion": 97,
+      "posindex": 3
+    },
+    {
+      "scriptid": "T4L4RJJDHP4O5J4ZGRDCMAVLZK",
+      "filename": "AG_Etapytechnologickychpostupu_T4L4RJJDHP4O5J4ZGRDCMAVLZK.pas",
+      "scriptkind": 2,
+      "objversion": 84,
+      "posindex": 4
+    },
+    {
+      "scriptid": "PKEQXR2D3DB4XEHRILIGPKZLLK",
+      "filename": "AG_Typytechnologickychpostupu_PKEQXR2D3DB4XEHRILIGPKZLLK.pas",
+      "scriptkind": 2,
+      "objversion": 82,
+      "posindex": 5
+    },
+    {
+      "scriptid": "VRF4WYCZRVO41HXUCTAMRA5L1K",
+      "filename": "AG_Rezijnisazby_VRF4WYCZRVO41HXUCTAMRA5L1K.pas",
+      "scriptkind": 2,
+      "objversion": 83,
+      "posindex": 6
+    },
+    {
+      "scriptid": "0MRATHIJ3ZPOPCFD2FG4R4GJA4",
+      "filename": "AG_Tarifnitridy_0MRATHIJ3ZPOPCFD2FG4R4GJA4.pas",
+      "scriptkind": 2,
+      "objversion": 80,
+      "posindex": 7
+    },
+    {
+      "scriptid": "BTQOB2M3Z5Y4ZFNAP03YLYA0RK",
+      "filename": "AG_Kompetence_BTQOB2M3Z5Y4ZFNAP03YLYA0RK.pas",
+      "scriptkind": 2,
+      "objversion": 53,
+      "posindex": 8
+    },
+    {
+      "scriptid": "F0YCECZYIKV4PFN4FWJXNGXGLO",
+      "filename": "AG_Kategoriekompetenci_F0YCECZYIKV4PFN4FWJXNGXGLO.pas",
+      "scriptkind": 2,
+      "objversion": 53,
+      "posindex": 9
+    },
+    {
+      "scriptid": "TEMCU0UVB5J4VC0LJO3GXGSCXK",
+      "filename": "AG_Obrazky_TEMCU0UVB5J4VC0LJO3GXGSCXK.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 10
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5K32000101",
+    "name": "abra.eu.API.digitalizace",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 321,
+    "description": "Digitalizace - vizuálno ",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "DQTZF3V3XIC4B1WR3ERGIXKXDO",
+      "filename": "AG_Pracenaoperacich_DQTZF3V3XIC4B1WR3ERGIXKXDO.pas",
+      "scriptkind": 2,
+      "objversion": 176,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Base_function",
+      "filename": "Base_function.pas",
+      "scriptkind": 0,
+      "objversion": 194,
+      "posindex": 3
+    },
+    {
+      "scriptid": "LIBS",
+      "filename": "LIBS.pas",
+      "scriptkind": 0,
+      "objversion": 125,
+      "posindex": 4
+    },
+    {
+      "scriptid": "Forms",
+      "filename": "Forms.pas",
+      "scriptkind": 0,
+      "objversion": 186,
+      "posindex": 5
+    },
+    {
+      "scriptid": "Function",
+      "filename": "Function.pas",
+      "scriptkind": 0,
+      "objversion": 124,
+      "posindex": 6
+    },
+    {
+      "scriptid": "API",
+      "filename": "API.pas",
+      "scriptkind": 0,
+      "objversion": 68,
+      "posindex": 7
+    },
+    {
+      "scriptid": "Q4EISOIDDKMOLF12IC3WFS0GDS",
+      "filename": "AG_Vyrobniprikazy_Q4EISOIDDKMOLF12IC3WFS0GDS.pas",
+      "scriptkind": 2,
+      "objversion": 71,
+      "posindex": 8
+    },
+    {
+      "scriptid": "SCM",
+      "filename": "SCM.pas",
+      "scriptkind": 0,
+      "objversion": 63,
+      "posindex": 9
+    },
+    {
+      "scriptid": "IVJSI1K34CJORFG1QBJOMTSVAG",
+      "filename": "BO_Pozadaveknavyrobu_IVJSI1K34CJORFG1QBJOMTSVAG.pas",
+      "scriptkind": 1,
+      "objversion": 85,
+      "posindex": 12
+    },
+    {
+      "scriptid": "EFGI2WXAJMEOV2UCIIVJPBUMOC",
+      "filename": "BO_Pozadaveknavyrobu-kusovnik_EFGI2WXAJMEOV2UCIIVJPBUMOC.pas",
+      "scriptkind": 1,
+      "objversion": 24,
+      "posindex": 14
+    }
+  ]
+}

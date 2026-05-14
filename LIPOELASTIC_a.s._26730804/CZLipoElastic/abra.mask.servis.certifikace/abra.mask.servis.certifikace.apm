@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1H10000101",
+    "name": "abra.mask.servis.certifikace",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 118,
+    "description": "Vytvoření DL z OP",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "EGMJZ1SA5KO410TMWEZXONIKOS",
+      "filename": "AG_AgendaCertifikacezbozi_EGMJZ1SA5KO410TMWEZXONIKOS.pas",
+      "scriptkind": 2,
+      "objversion": 61,
+      "posindex": 3
+    },
+    {
+      "scriptid": "GXP1GR0NJ5J4RG5WYUM2IBRC2O",
+      "filename": "AG_Certifikaceosob_GXP1GR0NJ5J4RG5WYUM2IBRC2O.pas",
+      "scriptkind": 2,
+      "objversion": 51,
+      "posindex": 4
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 97,
+      "posindex": 5
+    }
+  ]
+}

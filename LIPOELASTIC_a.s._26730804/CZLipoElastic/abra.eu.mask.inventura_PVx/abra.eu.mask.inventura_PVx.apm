@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2140000101",
+    "name": "abra.eu.mask.inventura_PVx",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 37,
+    "description": "Zjednodušené zadávání dílčího inventárního protokolu",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZFQNOUBQ4NEO5APLFIS5352F2O",
+      "filename": "AG_Dilciinventarniprotokoly_ZFQNOUBQ4NEO5APLFIS5352F2O.pas",
+      "scriptkind": 2,
+      "objversion": 35,
+      "posindex": 1
+    }
+  ]
+}

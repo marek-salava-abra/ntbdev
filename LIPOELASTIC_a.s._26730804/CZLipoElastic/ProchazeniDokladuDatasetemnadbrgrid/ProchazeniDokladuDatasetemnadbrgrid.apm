@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "AK44000101",
+    "name": "ProchazeniDokladuDatasetemnadbrgrid",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 35,
+    "description": "práce a procházeí datasetem ",
+    "cryptForExport": false,
+    "usageState": 1,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "EGVDANSIQWY4V2Y52YRUPRHAK4",
+      "filename": "AG_Zameny-prijmy_EGVDANSIQWY4V2Y52YRUPRHAK4.pas",
+      "scriptkind": 2,
+      "objversion": 33,
+      "posindex": 1
+    }
+  ]
+}

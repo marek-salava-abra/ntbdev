@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KQ1000101",
+    "name": "vytvoreniprv",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 14,
+    "description": "wfwef",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "TCKW1IYPS4SO1CZB5ROVXUKODC",
+      "filename": "AG_TEMP_TCKW1IYPS4SO1CZB5ROVXUKODC.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 1
+    }
+  ]
+}

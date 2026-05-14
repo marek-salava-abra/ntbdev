@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8K14000101",
+    "name": "NxApiLib",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 450,
+    "description": "Knihovny pro API",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Lib",
+      "filename": "Lib.pas",
+      "scriptkind": 0,
+      "objversion": 420,
+      "posindex": 1
+    },
+    {
+      "scriptid": "new",
+      "filename": "new.pas",
+      "scriptkind": 0,
+      "objversion": 53,
+      "posindex": 2
+    }
+  ]
+}

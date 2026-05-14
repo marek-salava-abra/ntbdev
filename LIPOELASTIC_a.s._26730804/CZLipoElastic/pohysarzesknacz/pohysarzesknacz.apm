@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KE3000101",
+    "name": "pohysarzesknacz",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 32,
+    "description": "zpětné propsání šarže",
+    "cryptForExport": false,
+    "usageState": 1,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "FJFZPKZ3TVMOV00YPT2WI34V34",
+      "filename": "AG_PohybysarzinaOV_FJFZPKZ3TVMOV00YPT2WI34V34.pas",
+      "scriptkind": 2,
+      "objversion": 30,
+      "posindex": 1
+    }
+  ]
+}

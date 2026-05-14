@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1Y10000101",
+    "name": "abra.eu.mask.delete_DPH",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 15,
+    "description": "Kontrola mazání DPH",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "EPXJ3GDLIOZ41FPIS3POB3NUCS",
+      "filename": "BO_UzaverkaDPH_EPXJ3GDLIOZ41FPIS3POB3NUCS.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 1
+    }
+  ]
+}

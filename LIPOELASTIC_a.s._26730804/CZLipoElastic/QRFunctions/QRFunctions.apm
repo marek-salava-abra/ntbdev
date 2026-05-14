@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KW0000101",
+    "name": "QRFunctions",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 69,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "QR",
+      "filename": "QR.pas",
+      "scriptkind": 0,
+      "objversion": 68,
+      "posindex": 1
+    }
+  ]
+}

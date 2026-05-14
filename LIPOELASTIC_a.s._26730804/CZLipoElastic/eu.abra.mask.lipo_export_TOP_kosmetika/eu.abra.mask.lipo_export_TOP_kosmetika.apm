@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1F10000101",
+    "name": "eu.abra.mask.lipo_export_TOP_kosmetika",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 9,
+    "description": "Automatické export XMLz skladových karet",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "knihovna",
+      "filename": "knihovna.pas",
+      "scriptkind": 0,
+      "objversion": 6,
+      "posindex": 1
+    }
+  ]
+}

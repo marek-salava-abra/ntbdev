@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000H05",
+    "name": "pokus",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 41,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "VNJGDP5MU4K4V5GWUFOHULYHVG",
+      "filename": "AG_Servisniknizka_VNJGDP5MU4K4V5GWUFOHULYHVG.pas",
+      "scriptkind": 2,
+      "objversion": 38,
+      "posindex": 1
+    }
+  ]
+}

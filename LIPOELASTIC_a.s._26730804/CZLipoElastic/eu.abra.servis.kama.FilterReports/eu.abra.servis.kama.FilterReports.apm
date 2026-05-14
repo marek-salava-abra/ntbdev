@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1X10000101",
+    "name": "eu.abra.servis.kama.FilterReports",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 27,
+    "description": "Skript zamezuje zobrazení některých tiskových sestav n vabídkách vydaných",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "4CQONRMN0ND13BYP02K2DBYMG4",
+      "filename": "RL_Tiskovesestavy_4CQONRMN0ND13BYP02K2DBYMG4.pas",
+      "scriptkind": 3,
+      "objversion": 24,
+      "posindex": 1
+    }
+  ]
+}

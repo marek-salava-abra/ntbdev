@@ -1,0 +1,101 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000T05",
+    "name": "eu.abra.alec.Lipoelastic.ND_Rolls_CanDelete",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 24,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 1
+    },
+    {
+      "scriptid": "RLJXEDVJRBBONBDFZFQ5W51MTC",
+      "filename": "AG_NDBarva_RLJXEDVJRBBONBDFZFQ5W51MTC.pas",
+      "scriptkind": 2,
+      "objversion": 19,
+      "posindex": 2
+    },
+    {
+      "scriptid": "KVITULWXNIFOHAFO2AVOQIEJ2S",
+      "filename": "AG_NDDruh_KVITULWXNIFOHAFO2AVOQIEJ2S.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 3
+    },
+    {
+      "scriptid": "EW5CJSREBCE4X4CFCYU413DJLS",
+      "filename": "AG_NDGMDN_EW5CJSREBCE4X4CFCYU413DJLS.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 4
+    },
+    {
+      "scriptid": "5G0QUHN5U5Y4FCIRS1XNBSQF5C",
+      "filename": "AG_NDKolekce_5G0QUHN5U5Y4FCIRS1XNBSQF5C.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 5
+    },
+    {
+      "scriptid": "40RAYODHLKE4DJREZYJYJTWORO",
+      "filename": "AG_NDKomprese_40RAYODHLKE4DJREZYJYJTWORO.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 6
+    },
+    {
+      "scriptid": "3KY4LXGNLCQOJJVXWVNT4Q24VK",
+      "filename": "AG_NDPocetksvbaleni_3KY4LXGNLCQOJJVXWVNT4Q24VK.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 7
+    },
+    {
+      "scriptid": "BXDSPKZ31SB4VIIEJKZBSBCNES",
+      "filename": "AG_NDProvedeni_BXDSPKZ31SB4VIIEJKZBSBCNES.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 8
+    },
+    {
+      "scriptid": "PC5STVEYY22O302QPNIE2Q5HD0",
+      "filename": "AG_NDSkupina_PC5STVEYY22O302QPNIE2Q5HD0.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 9
+    },
+    {
+      "scriptid": "PIM1KTNUG4I45FYMBWCNPH3N1O",
+      "filename": "AG_NDTyp_PIM1KTNUG4I45FYMBWCNPH3N1O.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 10
+    },
+    {
+      "scriptid": "1PUJDOBT20TODCRXQRSXYBQZH4",
+      "filename": "AG_NDVelikost_1PUJDOBT20TODCRXQRSXYBQZH4.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 11
+    },
+    {
+      "scriptid": "MZHR5P02Z2T4HFEEA204SY4NA0",
+      "filename": "AG_NDMaterialy_MZHR5P02Z2T4HFEEA204SY4NA0.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 12
+    }
+  ]
+}

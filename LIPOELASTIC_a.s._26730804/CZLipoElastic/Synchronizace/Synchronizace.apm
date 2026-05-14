@@ -1,0 +1,514 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8K03000101",
+    "name": "Synchronizace",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 1538,
+    "description": "Synchronizace databází pomocí api",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 9
+  },
+  "scripts": [
+    {
+      "scriptid": "Query_DefrollData",
+      "filename": "Query_DefrollData.pas",
+      "scriptkind": 0,
+      "objversion": 228,
+      "posindex": 1
+    },
+    {
+      "scriptid": "API",
+      "filename": "API.pas",
+      "scriptkind": 0,
+      "objversion": 997,
+      "posindex": 2
+    },
+    {
+      "scriptid": "S4JI2RKYABF13JXS00KEZYD5AW",
+      "filename": "AG_Definovatelnepolozky_S4JI2RKYABF13JXS00KEZYD5AW.pas",
+      "scriptkind": 2,
+      "objversion": 300,
+      "posindex": 4
+    },
+    {
+      "scriptid": "DWURJB4QZODON0WPV32RWEOGO0",
+      "filename": "AG_Procesnistavy_DWURJB4QZODON0WPV32RWEOGO0.pas",
+      "scriptkind": 2,
+      "objversion": 210,
+      "posindex": 5
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 549,
+      "posindex": 6
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 410,
+      "posindex": 7
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 410,
+      "posindex": 8
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 539,
+      "posindex": 9
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 563,
+      "posindex": 10
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 710,
+      "posindex": 12
+    },
+    {
+      "scriptid": "4MP1E2VUANDL342Q01C0CX3FCC",
+      "filename": "AG_Skladovemenu_4MP1E2VUANDL342Q01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 466,
+      "posindex": 14
+    },
+    {
+      "scriptid": "NTC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Radydokladu_NTC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 247,
+      "posindex": 15
+    },
+    {
+      "scriptid": "O5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Zakazky_O5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 237,
+      "posindex": 16
+    },
+    {
+      "scriptid": "OFZO2K155FDL3CL100C4RHECN0",
+      "filename": "AG_Sklady_OFZO2K155FDL3CL100C4RHECN0.pas",
+      "scriptkind": 2,
+      "objversion": 369,
+      "posindex": 17
+    },
+    {
+      "scriptid": "ODC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Obchodnipripady_ODC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 229,
+      "posindex": 18
+    },
+    {
+      "scriptid": "CHAXOLB2KTZ4JC0YKAW41L1UE4",
+      "filename": "AG_Projekty_CHAXOLB2KTZ4JC0YKAW41L1UE4.pas",
+      "scriptkind": 2,
+      "objversion": 224,
+      "posindex": 19
+    },
+    {
+      "scriptid": "MHC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Uctovyrozvrh_MHC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 221,
+      "posindex": 20
+    },
+    {
+      "scriptid": "CHEISZBA2CYO14WNOFGIQHYVPK",
+      "filename": "AG_Sortimentniskupiny_CHEISZBA2CYO14WNOFGIQHYVPK.pas",
+      "scriptkind": 2,
+      "objversion": 232,
+      "posindex": 21
+    },
+    {
+      "scriptid": "0AJDJBKJ5VDL342P01C0CX3FCC",
+      "filename": "AG_Skladovetypy_0AJDJBKJ5VDL342P01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 227,
+      "posindex": 22
+    },
+    {
+      "scriptid": "GSFEWM0E4NNO1E3MDXZ3R4D5JS",
+      "filename": "AG_Barva_GSFEWM0E4NNO1E3MDXZ3R4D5JS.pas",
+      "scriptkind": 2,
+      "objversion": 224,
+      "posindex": 23
+    },
+    {
+      "scriptid": "NXC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Strediska_NXC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 232,
+      "posindex": 24
+    },
+    {
+      "scriptid": "1DCBUI1GQSW4FGKPA4YCNIDNLG",
+      "filename": "BO_Vazbaskl.kartynaskl.menu_1DCBUI1GQSW4FGKPA4YCNIDNLG.pas",
+      "scriptkind": 1,
+      "objversion": 463,
+      "posindex": 31
+    },
+    {
+      "scriptid": "TO4FASTZK2R4HEHN4FGRBKVXXC",
+      "filename": "AG_ArtiklyDevenolux_TO4FASTZK2R4HEHN4FGRBKVXXC.pas",
+      "scriptkind": 2,
+      "objversion": 217,
+      "posindex": 36
+    },
+    {
+      "scriptid": "21HRSQSHUN3OZG1APJ0KMJFYL4",
+      "filename": "AG_AgendaBenefit_21HRSQSHUN3OZG1APJ0KMJFYL4.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 38
+    },
+    {
+      "scriptid": "UQ4XFONCM0Q4P0DTV1LVPVKTRW",
+      "filename": "AG_Boky_UQ4XFONCM0Q4P0DTV1LVPVKTRW.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 40
+    },
+    {
+      "scriptid": "O2EM33VKAHP4H54IK2CBV0QBK4",
+      "filename": "AG_Brand_O2EM33VKAHP4H54IK2CBV0QBK4.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 42
+    },
+    {
+      "scriptid": "PAXRHIUL2MKO302GWQPFEF1R4S",
+      "filename": "AG_Cast_tela_PAXRHIUL2MKO302GWQPFEF1R4S.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 44
+    },
+    {
+      "scriptid": "JZEIRHF4043ON02Q5HA1JDE5OW",
+      "filename": "AG_Druh_JZEIRHF4043ON02Q5HA1JDE5OW.pas",
+      "scriptkind": 2,
+      "objversion": 229,
+      "posindex": 46
+    },
+    {
+      "scriptid": "NRKHJQ0YOLR4RG1OQ102NPQROG",
+      "filename": "AG_Agendaduvoduvraceni_NRKHJQ0YOLR4RG1OQ102NPQROG.pas",
+      "scriptkind": 2,
+      "objversion": 218,
+      "posindex": 48
+    },
+    {
+      "scriptid": "BGMMF1SIN13OZEIUSZPYKUCGSS",
+      "filename": "AG_Faze_BGMMF1SIN13OZEIUSZPYKUCGSS.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 50
+    },
+    {
+      "scriptid": "P4TQJJ1DKT54PGY3K421GWHQNC",
+      "filename": "AG_GMDN_P4TQJJ1DKT54PGY3K421GWHQNC.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 52
+    },
+    {
+      "scriptid": "HWAIGDVGINW4LJBEA5PVV542M4",
+      "filename": "BO_KodyFDA_HWAIGDVGINW4LJBEA5PVV542M4.pas",
+      "scriptkind": 1,
+      "objversion": 371,
+      "posindex": 53
+    },
+    {
+      "scriptid": "Y4ZALBCQGWU4BEYTZ5N2HRAIRS",
+      "filename": "AG_Komprese_Y4ZALBCQGWU4BEYTZ5N2HRAIRS.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 56
+    },
+    {
+      "scriptid": "RI0YO52ONJ44XGIIY3XL3BEHDC",
+      "filename": "AG_Konkurence_RI0YO52ONJ44XGIIY3XL3BEHDC.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 58
+    },
+    {
+      "scriptid": "D0IWEFYUOYTONFUK12JCCQVTRW",
+      "filename": "AG_Kosicek_D0IWEFYUOYTONFUK12JCCQVTRW.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 60
+    },
+    {
+      "scriptid": "TOWY3VAC0D24F5HOZ0B4ZG1XQK",
+      "filename": "AG_AgendaLycra_TOWY3VAC0D24F5HOZ0B4ZG1XQK.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 62
+    },
+    {
+      "scriptid": "RDFIQO4GHKO4HCDNJOILZC0Q3C",
+      "filename": "AG_AgendaLycraMAXIS_RDFIQO4GHKO4HCDNJOILZC0Q3C.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 64
+    },
+    {
+      "scriptid": "EN3BWVVEIJU43HZPSXXVCDJ4QG",
+      "filename": "AG_Material_EN3BWVVEIJU43HZPSXXVCDJ4QG.pas",
+      "scriptkind": 2,
+      "objversion": 169,
+      "posindex": 65
+    },
+    {
+      "scriptid": "LWFGZ4ZDGAT4JIVIVSLGCVHACG",
+      "filename": "AG_Material_LWFGZ4ZDGAT4JIVIVSLGCVHACG.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 66
+    },
+    {
+      "scriptid": "5AFSN3EIXO0OB1O1KWDMMTNVTC",
+      "filename": "BO_Material-komprese_5AFSN3EIXO0OB1O1KWDMMTNVTC.pas",
+      "scriptkind": 1,
+      "objversion": 371,
+      "posindex": 67
+    },
+    {
+      "scriptid": "ZYGPIPN1YBF4DDFNSSO30G0OGS",
+      "filename": "BO_Materialoveslozeni_ZYGPIPN1YBF4DDFNSSO30G0OGS.pas",
+      "scriptkind": 1,
+      "objversion": 371,
+      "posindex": 69
+    },
+    {
+      "scriptid": "P4MDVFWWVVROTC5GTD44ZWCHEC",
+      "filename": "AG_Nadpis_P4MDVFWWVVROTC5GTD44ZWCHEC.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 71
+    },
+    {
+      "scriptid": "IHKLCEYKHZU4JFBJGDUZRNIRTG",
+      "filename": "AG_Obvodstehna_IHKLCEYKHZU4JFBJGDUZRNIRTG.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 73
+    },
+    {
+      "scriptid": "2ZHWA35401O4RAPCJWHZCLUNQS",
+      "filename": "AG_Odpovedni_email_2ZHWA35401O4RAPCJWHZCLUNQS.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 75
+    },
+    {
+      "scriptid": "BMIIPE0FKWI45APKZHEIRLK1OS",
+      "filename": "AG_AgendaOpakujicihosetextu_BMIIPE0FKWI45APKZHEIRLK1OS.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 77
+    },
+    {
+      "scriptid": "CXI0B4O4WMH4D0JVG0RZCAIL3C",
+      "filename": "AG_AgendaPADMAXIS_CXI0B4O4WMH4D0JVG0RZCAIL3C.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 79
+    },
+    {
+      "scriptid": "2CMS1N0LAH54L2RLSFWGT513UO",
+      "filename": "AG_AgendaPAD_2CMS1N0LAH54L2RLSFWGT513UO.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 81
+    },
+    {
+      "scriptid": "RZEYUB4BFHW4TAX5ZYTBGWGY0O",
+      "filename": "AG_Pohlavi_RZEYUB4BFHW4TAX5ZYTBGWGY0O.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 83
+    },
+    {
+      "scriptid": "ZT4L4LPNOZM4PJ3NHEMKKOXRHS",
+      "filename": "AG_Pouziti_ZT4L4LPNOZM4PJ3NHEMKKOXRHS.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 85
+    },
+    {
+      "scriptid": "Z2GE5LBRIZJ4FJMWR1FKMVG14S",
+      "filename": "AG_Pracisymboly_Z2GE5LBRIZJ4FJMWR1FKMVG14S.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 87
+    },
+    {
+      "scriptid": "I3XBLNXB1W5OL23ATJIKNPV444",
+      "filename": "AG_Predvyplnovani_I3XBLNXB1W5OL23ATJIKNPV444.pas",
+      "scriptkind": 2,
+      "objversion": 210,
+      "posindex": 89
+    },
+    {
+      "scriptid": "1Y4NXVKDO1GOHA1UZVKCMAEIA0",
+      "filename": "AG_Punc.typ_1Y4NXVKDO1GOHA1UZVKCMAEIA0.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 91
+    },
+    {
+      "scriptid": "XVDVBB2LK524DGIMUP1GU13QZW",
+      "filename": "AG_Specifikace_XVDVBB2LK524DGIMUP1GU13QZW.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 93
+    },
+    {
+      "scriptid": "54ORALWXXTAOB2UJVEUDYMZOP4",
+      "filename": "AG_Spotrebni_material_54ORALWXXTAOB2UJVEUDYMZOP4.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 95
+    },
+    {
+      "scriptid": "EWIBNKY113NO3FFSODOJHO3HMG",
+      "filename": "AG_Agendastatistickehocleneni_EWIBNKY113NO3FFSODOJHO3HMG.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 97
+    },
+    {
+      "scriptid": "DYGYDZ2NPF2OJAHHQ53ZU3T2RC",
+      "filename": "AG_Translator_DYGYDZ2NPF2OJAHHQ53ZU3T2RC.pas",
+      "scriptkind": 2,
+      "objversion": 216,
+      "posindex": 99
+    },
+    {
+      "scriptid": "5V1HCSAZ1BPODBTKRQ1P3KOH0C",
+      "filename": "AG_Typpouziti_5V1HCSAZ1BPODBTKRQ1P3KOH0C.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 101
+    },
+    {
+      "scriptid": "P5HZXMVNMEWO51LENVHCFHHZKG",
+      "filename": "AG_Typ_certifikace_P5HZXMVNMEWO51LENVHCFHHZKG.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 103
+    },
+    {
+      "scriptid": "VITRFHXI5EG4ZD3ETZPHWXP4CO",
+      "filename": "AG_Typyproduktu_VITRFHXI5EG4ZD3ETZPHWXP4CO.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 105
+    },
+    {
+      "scriptid": "CITYMBB5FWVOJ1ILCBIKSHNGIW",
+      "filename": "AG_Typystitku_CITYMBB5FWVOJ1ILCBIKSHNGIW.pas",
+      "scriptkind": 2,
+      "objversion": 215,
+      "posindex": 107
+    },
+    {
+      "scriptid": "1AETF2DKAQT4NFZM3EI5FY4EMK",
+      "filename": "AG_Velikost_1AETF2DKAQT4NFZM3EI5FY4EMK.pas",
+      "scriptkind": 2,
+      "objversion": 220,
+      "posindex": 109
+    },
+    {
+      "scriptid": "5QJIA4M2AKW4PDUPSODBOGYVV4",
+      "filename": "AG_Velikostchodidla_5QJIA4M2AKW4PDUPSODBOGYVV4.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 111
+    },
+    {
+      "scriptid": "UBAWCHYM00OO3D3RINCNHP4LOW",
+      "filename": "AG_Vyska_pasu_UBAWCHYM00OO3D3RINCNHP4LOW.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 113
+    },
+    {
+      "scriptid": "H0U4AHRYVIA434COZOOLKJOGSS",
+      "filename": "AG_Vyska_H0U4AHRYVIA434COZOOLKJOGSS.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 115
+    },
+    {
+      "scriptid": "UH4AKTJFU134153FSP1GG3ODV0",
+      "filename": "AG_Agendazdravotnichprostredku_UH4AKTJFU134153FSP1GG3ODV0.pas",
+      "scriptkind": 2,
+      "objversion": 214,
+      "posindex": 117
+    },
+    {
+      "scriptid": "O3MNKJQJ5ZD4BHLHDDXNNOJHNC",
+      "filename": "AG_Uctovaniskladu_O3MNKJQJ5ZD4BHLHDDXNNOJHNC.pas",
+      "scriptkind": 2,
+      "objversion": 186,
+      "posindex": 118
+    },
+    {
+      "scriptid": "KELQ0CRL4NO4H5UIZT22PU1MWW",
+      "filename": "AG_Provedeni_KELQ0CRL4NO4H5UIZT22PU1MWW.pas",
+      "scriptkind": 2,
+      "objversion": 167,
+      "posindex": 119
+    },
+    {
+      "scriptid": "CKAUTOW5YRDL3C5P00CA141B44",
+      "filename": "AG_Zpusobyuhrady_CKAUTOW5YRDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 159,
+      "posindex": 120
+    },
+    {
+      "scriptid": "COAUTOW5YRDL3C5P00CA141B44",
+      "filename": "AG_Zpusobydopravy_COAUTOW5YRDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 166,
+      "posindex": 121
+    },
+    {
+      "scriptid": "EIB1HX0CPRWODJIBEMX0IXVK14",
+      "filename": "AG_Skupiny_EIB1HX0CPRWODJIBEMX0IXVK14.pas",
+      "scriptkind": 2,
+      "objversion": 92,
+      "posindex": 122
+    },
+    {
+      "scriptid": "5OMS5BS4QXSO3ATD0FZ3A4GTEO",
+      "filename": "AG_API_Connector_5OMS5BS4QXSO3ATD0FZ3A4GTEO.pas",
+      "scriptkind": 2,
+      "objversion": 90,
+      "posindex": 123
+    }
+  ]
+}

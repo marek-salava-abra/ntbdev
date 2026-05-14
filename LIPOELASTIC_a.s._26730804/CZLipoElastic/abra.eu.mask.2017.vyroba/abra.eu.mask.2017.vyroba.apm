@@ -1,0 +1,143 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1020000101",
+    "name": "abra.eu.mask.2017.vyroba",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 368,
+    "description": "vyroba valmez",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 10
+  },
+  "scripts": [
+    {
+      "scriptid": "5JXY100I12P4TITWSNE0LD1IKS",
+      "filename": "IM_Import_5JXY100I12P4TITWSNE0LD1IKS_5JXY100I12P4TITWSNE0LD1IKS.pas",
+      "scriptkind": 4,
+      "objversion": 157,
+      "posindex": 2
+    },
+    {
+      "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 146,
+      "posindex": 3
+    },
+    {
+      "scriptid": "CHMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana-radek_CHMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 133,
+      "posindex": 4
+    },
+    {
+      "scriptid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "filename": "BO_Prijemka_E03ZNUMDTCC4PDAUIEY1MBTJC0.pas",
+      "scriptkind": 1,
+      "objversion": 130,
+      "posindex": 5
+    },
+    {
+      "scriptid": "libs",
+      "filename": "libs.pas",
+      "scriptkind": 0,
+      "objversion": 130,
+      "posindex": 6
+    },
+    {
+      "scriptid": "EY1VHUCFUEW455OMM2KXYUWR4K",
+      "filename": "AG_Technologickepostupy_EY1VHUCFUEW455OMM2KXYUWR4K.pas",
+      "scriptkind": 2,
+      "objversion": 139,
+      "posindex": 7
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 124,
+      "posindex": 8
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 125,
+      "posindex": 9
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 124,
+      "posindex": 10
+    },
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 124,
+      "posindex": 11
+    },
+    {
+      "scriptid": "LIBSa",
+      "filename": "LIBSa.pas",
+      "scriptkind": 0,
+      "objversion": 104,
+      "posindex": 12
+    },
+    {
+      "scriptid": "DD3OXGVXSJNOJCXRAAK2OGT1UC",
+      "filename": "AG_Bilance_DD3OXGVXSJNOJCXRAAK2OGT1UC.pas",
+      "scriptkind": 2,
+      "objversion": 123,
+      "posindex": 13
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 98,
+      "posindex": 14
+    },
+    {
+      "scriptid": "ONWLBO0DUPX4B400AJEI4YETD4",
+      "filename": "AG_Pozadavkynavyrobu_ONWLBO0DUPX4B400AJEI4YETD4.pas",
+      "scriptkind": 2,
+      "objversion": 102,
+      "posindex": 15
+    },
+    {
+      "scriptid": "MHMY3UH1D3Z4T1DKS4XLO3HHKC",
+      "filename": "AG_Pracoviste_MHMY3UH1D3Z4T1DKS4XLO3HHKC.pas",
+      "scriptkind": 2,
+      "objversion": 54,
+      "posindex": 16
+    },
+    {
+      "scriptid": "TX3FY4NELOB4JEFT5YOFC1XACO",
+      "filename": "BO_Pozadaveknavyrobu-vyrabenapolozka_TX3FY4NELOB4JEFT5YOFC1XACO.pas",
+      "scriptkind": 1,
+      "objversion": 14,
+      "posindex": 17
+    },
+    {
+      "scriptid": "3KHZXPR1T5145JROOCIYSV00OO",
+      "filename": "BO_Technologickypostup-radek_3KHZXPR1T5145JROOCIYSV00OO.pas",
+      "scriptkind": 1,
+      "objversion": 12,
+      "posindex": 18
+    },
+    {
+      "scriptid": "RMBJ1K5KJKJOVGZZPKYSUS5N3O",
+      "filename": "BO_Pozadaveknavyrobu-technologickypostup_RMBJ1K5KJKJOVGZZPKYSUS5N3O.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 19
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1320000101",
+    "name": "eu.abra.Lipoelastic.storebatch",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 16,
+    "description": "#",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZOY0JTCO1OA4VCQKX3EE1QNC0G",
+      "filename": "IM_Import_ZOY0JTCO1OA4VCQKX3EE1QNC0G_ZOY0JTCO1OA4VCQKX3EE1QNC0G.pas",
+      "scriptkind": 4,
+      "objversion": 10,
+      "posindex": 1
+    },
+    {
+      "scriptid": "22KUHRO1VHC4R0YJ5V5O4GYMEK",
+      "filename": "IM_Import_22KUHRO1VHC4R0YJ5V5O4GYMEK_22KUHRO1VHC4R0YJ5V5O4GYMEK.pas",
+      "scriptkind": 4,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 3
+    }
+  ]
+}

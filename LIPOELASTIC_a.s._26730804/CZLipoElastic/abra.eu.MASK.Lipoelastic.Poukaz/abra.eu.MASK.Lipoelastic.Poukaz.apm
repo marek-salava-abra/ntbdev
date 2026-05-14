@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1G10000101",
+    "name": "abra.eu.MASK.Lipoelastic.Poukaz",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 41,
+    "description": "abra.eu.MASK.Lipoelastic.Poukaz",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZUMBGNJTXF44H4YIMBETLJJRQ0",
+      "filename": "IM_Import_ZUMBGNJTXF44H4YIMBETLJJRQ0_ZUMBGNJTXF44H4YIMBETLJJRQ0.pas",
+      "scriptkind": 4,
+      "objversion": 38,
+      "posindex": 1
+    }
+  ]
+}

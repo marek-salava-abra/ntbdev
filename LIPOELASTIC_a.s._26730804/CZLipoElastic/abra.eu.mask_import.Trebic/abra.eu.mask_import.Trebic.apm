@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4K21000101",
+    "name": "abra.eu.mask_import.Trebic",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 119,
+    "description": "Import , export a přenos dat pro funkce Třebíč",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 99
+  },
+  "scripts": [
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 111,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Objednavka_prijata",
+      "filename": "Objednavka_prijata.pas",
+      "scriptkind": 0,
+      "objversion": 54,
+      "posindex": 2
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 59,
+      "posindex": 3
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 55,
+      "posindex": 4
+    },
+    {
+      "scriptid": "5JXY100I12P4TITWSNE0LD1IKS",
+      "filename": "IM_Import_5JXY100I12P4TITWSNE0LD1IKS_5JXY100I12P4TITWSNE0LD1IKS.pas",
+      "scriptkind": 4,
+      "objversion": 55,
+      "posindex": 5
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 55,
+      "posindex": 6
+    },
+    {
+      "scriptid": "KD1M2C1MDJP4ZIQXARBUQXROU0",
+      "filename": "IM_Import_KD1M2C1MDJP4ZIQXARBUQXROU0_KD1M2C1MDJP4ZIQXARBUQXROU0.pas",
+      "scriptkind": 4,
+      "objversion": 56,
+      "posindex": 7
+    },
+    {
+      "scriptid": "22KUHRO1VHC4R0YJ5V5O4GYMEK",
+      "filename": "IM_Import_22KUHRO1VHC4R0YJ5V5O4GYMEK_22KUHRO1VHC4R0YJ5V5O4GYMEK.pas",
+      "scriptkind": 4,
+      "objversion": 54,
+      "posindex": 8
+    }
+  ]
+}

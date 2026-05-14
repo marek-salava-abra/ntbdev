@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000D02",
+    "name": "eu.abra.alec.Lipoelastic.Auto",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 48,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "auto",
+      "filename": "auto.pas",
+      "scriptkind": 0,
+      "objversion": 45,
+      "posindex": 1
+    }
+  ]
+}

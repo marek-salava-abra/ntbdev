@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1900000101",
+    "name": "mask.abra.eu.adresar",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 51,
+    "description": "Adresar",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "4K3EXM5PQBCL35CH000ILPWJF4",
+      "filename": "BO_Firma_4K3EXM5PQBCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 37,
+      "posindex": 1
+    },
+    {
+      "scriptid": "4C3EXM5PQBCL35CH000ILPWJF4",
+      "filename": "BO_Adresa_4C3EXM5PQBCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 31,
+      "posindex": 2
+    }
+  ]
+}
