@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1FW0000101",
+    "name": "eu.abra.masa.simon.InV",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 1,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "HEXW4ANPOVOONHN5GTAHG4KKHC",
+      "filename": "AG_Premeny-prijmy_HEXW4ANPOVOONHN5GTAHG4KKHC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "1R5YABXVW0DOD23YKZUXCZQUZK",
+      "filename": "AG_Premeny-vydeje_1R5YABXVW0DOD23YKZUXCZQUZK.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 3
+    }
+  ]
+}

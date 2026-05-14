@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1F10000101",
+    "name": "eu.promos.Orders",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 5,
+    "description": "řazení",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 1
+    }
+  ]
+}

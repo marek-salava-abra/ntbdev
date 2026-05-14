@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1FO0000101",
+    "name": "eu.abra.masa.ExportDocs2PDF",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 46,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 40,
+      "posindex": 1
+    },
+    {
+      "scriptid": "consts",
+      "filename": "consts.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 2
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 13,
+      "posindex": 3
+    },
+    {
+      "scriptid": "W402MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Dobropisfakturyvydane_W402MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 5
+    },
+    {
+      "scriptid": "1T0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Vratkadodacichlistu_1T0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 6
+    },
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 7
+    },
+    {
+      "scriptid": "WEN033MLM3DL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 8
+    }
+  ]
+}

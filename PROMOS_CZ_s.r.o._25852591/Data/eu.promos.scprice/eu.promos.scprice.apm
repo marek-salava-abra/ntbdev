@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1F20000101",
+    "name": "eu.promos.scprice",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 23,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "G5GESPQ23FE13DQC01C0CX3F40",
+      "filename": "AG_Ceniky_G5GESPQ23FE13DQC01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 17,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 13,
+      "posindex": 3
+    }
+  ]
+}

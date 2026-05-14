@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2300000101",
+    "name": "eu.obb.fv",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 6,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 3
+    }
+  ]
+}

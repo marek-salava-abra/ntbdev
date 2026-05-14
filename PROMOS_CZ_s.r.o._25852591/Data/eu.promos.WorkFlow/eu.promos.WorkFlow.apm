@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "DFE0000101",
+    "name": "eu.promos.WorkFlow",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 136,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 100,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 66,
+      "posindex": 2
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 71,
+      "posindex": 3
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 67,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 77,
+      "posindex": 5
+    },
+    {
+      "scriptid": "0P0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej_0P0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 18,
+      "posindex": 6
+    }
+  ]
+}

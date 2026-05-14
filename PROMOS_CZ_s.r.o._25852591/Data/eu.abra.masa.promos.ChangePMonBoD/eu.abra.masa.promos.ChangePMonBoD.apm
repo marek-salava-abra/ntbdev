@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1FZ0000101",
+    "name": "eu.abra.masa.promos.ChangePMonBoD",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 12,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 1
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 2
+    }
+  ]
+}

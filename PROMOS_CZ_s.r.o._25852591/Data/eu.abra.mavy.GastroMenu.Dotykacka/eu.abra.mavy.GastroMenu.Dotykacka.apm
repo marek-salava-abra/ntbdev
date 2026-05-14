@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2FB0000101",
+    "name": "eu.abra.mavy.GastroMenu.Dotykacka",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 10,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 1
+    },
+    {
+      "scriptid": "form",
+      "filename": "form.pas",
+      "scriptkind": 0,
+      "objversion": 6,
+      "posindex": 2
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 3
+    }
+  ]
+}

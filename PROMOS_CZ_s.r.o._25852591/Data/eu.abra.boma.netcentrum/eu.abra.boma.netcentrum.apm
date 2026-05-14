@@ -1,0 +1,115 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5FQ0000101",
+    "name": "eu.abra.boma.netcentrum",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 3,
+    "description": "skripty týkající se všecho kolem NET Centra",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 20
+  },
+  "scripts": [
+    {
+      "scriptid": "consts",
+      "filename": "consts.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 2
+    },
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 3
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 4
+    },
+    {
+      "scriptid": "maildoc",
+      "filename": "maildoc.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 5
+    },
+    {
+      "scriptid": "ZUMBGNJTXF44H4YIMBETLJJRQ0",
+      "filename": "IM_Import_ZUMBGNJTXF44H4YIMBETLJJRQ0_ZUMBGNJTXF44H4YIMBETLJJRQ0.pas",
+      "scriptkind": 4,
+      "objversion": 2,
+      "posindex": 6
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 7
+    },
+    {
+      "scriptid": "22KUHRO1VHC4R0YJ5V5O4GYMEK",
+      "filename": "IM_Import_22KUHRO1VHC4R0YJ5V5O4GYMEK_22KUHRO1VHC4R0YJ5V5O4GYMEK.pas",
+      "scriptkind": 4,
+      "objversion": 2,
+      "posindex": 8
+    },
+    {
+      "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
+      "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
+      "scriptkind": 4,
+      "objversion": 2,
+      "posindex": 9
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 10
+    },
+    {
+      "scriptid": "http",
+      "filename": "http.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 11
+    },
+    {
+      "scriptid": "automation",
+      "filename": "automation.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 12
+    },
+    {
+      "scriptid": "WEN033MLM3DL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 13
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 14
+    }
+  ]
+}

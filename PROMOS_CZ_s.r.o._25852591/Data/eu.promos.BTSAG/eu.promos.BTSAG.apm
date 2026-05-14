@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1FB0000101",
+    "name": "eu.promos.BTSAG",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 4,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ODC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Obchodnipripady_ODC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2FZ0000101",
+    "name": "eu.abra.masa.promos.prefillDoc",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

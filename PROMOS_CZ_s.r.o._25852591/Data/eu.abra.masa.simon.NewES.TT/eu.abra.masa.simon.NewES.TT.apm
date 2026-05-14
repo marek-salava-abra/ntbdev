@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "7FP0000101",
+    "name": "eu.abra.masa.simon.NewES.TT",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 19,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 19,
+      "posindex": 1
+    }
+  ]
+}

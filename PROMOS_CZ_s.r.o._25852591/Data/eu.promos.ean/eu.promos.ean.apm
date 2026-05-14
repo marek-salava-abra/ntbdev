@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1F30000101",
+    "name": "eu.promos.ean",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 4,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

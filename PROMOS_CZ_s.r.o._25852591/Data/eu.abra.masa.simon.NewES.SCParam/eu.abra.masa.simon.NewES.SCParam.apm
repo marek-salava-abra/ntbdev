@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3FJ0000101",
+    "name": "eu.abra.masa.simon.NewES.SCParam",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 2,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "0L1VJHPYN3QOHC2U4W2ZOKJZS0",
+      "filename": "AG_Skupinyparametruskladovychkaret_0L1VJHPYN3QOHC2U4W2ZOKJZS0.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 2
+    },
+    {
+      "scriptid": "OD4JP4GMMNRO5DTOIFTDVCLISC",
+      "filename": "BO_BOskupinparametruskladovychkaret_OD4JP4GMMNRO5DTOIFTDVCLISC.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 3
+    },
+    {
+      "scriptid": "qr",
+      "filename": "qr.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 4
+    }
+  ]
+}

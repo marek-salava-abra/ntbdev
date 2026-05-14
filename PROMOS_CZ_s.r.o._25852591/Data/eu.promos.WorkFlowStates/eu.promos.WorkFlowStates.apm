@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "EFE0000101",
+    "name": "eu.promos.WorkFlowStates",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 59,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "0P0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej_0P0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 35,
+      "posindex": 1
+    },
+    {
+      "scriptid": "1D0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkaprijem_1D0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 32,
+      "posindex": 2
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 44,
+      "posindex": 3
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 29,
+      "posindex": 4
+    },
+    {
+      "scriptid": "WG02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem_WG02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 31,
+      "posindex": 5
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 31,
+      "posindex": 6
+    }
+  ]
+}

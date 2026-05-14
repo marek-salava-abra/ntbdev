@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "CFE0000101",
+    "name": "eu.abra.alec.FloresUserGen",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 3,
+    "description": "Generátor uživatelského kódu k přihlášení do čtečky Flores",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "KTOSXMYWAVE13C5S00CA141B44",
+      "filename": "AG_Uzivatele_KTOSXMYWAVE13C5S00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

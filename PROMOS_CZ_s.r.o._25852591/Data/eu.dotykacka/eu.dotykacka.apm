@@ -1,0 +1,80 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3FB0000101",
+    "name": "eu.dotykacka",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 353,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 305,
+      "posindex": 1
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 232,
+      "posindex": 2
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 112,
+      "posindex": 3
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 104,
+      "posindex": 4
+    },
+    {
+      "scriptid": "form",
+      "filename": "form.pas",
+      "scriptkind": 0,
+      "objversion": 96,
+      "posindex": 5
+    },
+    {
+      "scriptid": "ASLib",
+      "filename": "ASLib.pas",
+      "scriptkind": 0,
+      "objversion": 91,
+      "posindex": 6
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 47,
+      "posindex": 7
+    },
+    {
+      "scriptid": "WG02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem_WG02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 45,
+      "posindex": 8
+    },
+    {
+      "scriptid": "PMStateLib",
+      "filename": "PMStateLib.pas",
+      "scriptkind": 0,
+      "objversion": 26,
+      "posindex": 9
+    }
+  ]
+}

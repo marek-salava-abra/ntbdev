@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1100000101",
+    "name": "eu.promos.inp",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "BP0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarniprebytky_BP0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 2
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 3
+    }
+  ]
+}

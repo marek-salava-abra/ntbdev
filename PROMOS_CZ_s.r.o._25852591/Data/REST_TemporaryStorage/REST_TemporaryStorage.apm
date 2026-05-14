@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8FE0000101",
+    "name": "REST_TemporaryStorage",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "KTOSXMYWAVE13C5S00CA141B44",
+      "filename": "AG_Uzivatele_KTOSXMYWAVE13C5S00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

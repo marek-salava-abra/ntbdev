@@ -1,0 +1,164 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2FE0000101",
+    "name": "StandardUnits",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 7,
+    "description": "Sada standardnich unit (ver. 2.38)",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "U_Prava",
+      "filename": "U_Prava.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "U_DataSet",
+      "filename": "U_DataSet.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 2
+    },
+    {
+      "scriptid": "U_Form",
+      "filename": "U_Form.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 3
+    },
+    {
+      "scriptid": "U_Components",
+      "filename": "U_Components.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 4
+    },
+    {
+      "scriptid": "U_DebugLog",
+      "filename": "U_DebugLog.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 5
+    },
+    {
+      "scriptid": "U_GetId",
+      "filename": "U_GetId.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 6
+    },
+    {
+      "scriptid": "U_MSSql",
+      "filename": "U_MSSql.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 7
+    },
+    {
+      "scriptid": "U_OpenDialog",
+      "filename": "U_OpenDialog.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 8
+    },
+    {
+      "scriptid": "U_Gau",
+      "filename": "U_Gau.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 9
+    },
+    {
+      "scriptid": "U_FormShow",
+      "filename": "U_FormShow.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 10
+    },
+    {
+      "scriptid": "U_Params",
+      "filename": "U_Params.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 11
+    },
+    {
+      "scriptid": "U_IBSQL",
+      "filename": "U_IBSQL.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 12
+    },
+    {
+      "scriptid": "U_Filters",
+      "filename": "U_Filters.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 13
+    },
+    {
+      "scriptid": "U_PrintReport",
+      "filename": "U_PrintReport.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 14
+    },
+    {
+      "scriptid": "U_EmailSent",
+      "filename": "U_EmailSent.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 15
+    },
+    {
+      "scriptid": "U_MsgSent",
+      "filename": "U_MsgSent.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 16
+    },
+    {
+      "scriptid": "U_Relation",
+      "filename": "U_Relation.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 17
+    },
+    {
+      "scriptid": "U_Func",
+      "filename": "U_Func.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 18
+    },
+    {
+      "scriptid": "U_Forms",
+      "filename": "U_Forms.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 19
+    },
+    {
+      "scriptid": "U_Status",
+      "filename": "U_Status.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 20
+    },
+    {
+      "scriptid": "U_JobRequest",
+      "filename": "U_JobRequest.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 21
+    }
+  ]
+}

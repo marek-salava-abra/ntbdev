@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1FM0000101",
+    "name": "eu.abra.masa.PicsAndDosc",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 23,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "consts",
+      "filename": "consts.pas",
+      "scriptkind": 0,
+      "objversion": 16,
+      "posindex": 1
+    },
+    {
+      "scriptid": "C03HFKOASUP4J1D3KKGVQGAING",
+      "filename": "BO_Obrazekkeskladovekarte_C03HFKOASUP4J1D3KKGVQGAING.pas",
+      "scriptkind": 1,
+      "objversion": 14,
+      "posindex": 2
+    },
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 12,
+      "posindex": 3
+    },
+    {
+      "scriptid": "4MP1E2VUANDL342Q01C0CX3FCC",
+      "filename": "AG_Skladovemenu_4MP1E2VUANDL342Q01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 4
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 5
+    }
+  ]
+}

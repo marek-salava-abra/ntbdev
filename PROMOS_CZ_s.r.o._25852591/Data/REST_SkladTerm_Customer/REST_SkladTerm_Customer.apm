@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "AFE0000101",
+    "name": "REST_SkladTerm_Customer",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 12,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "U_Func",
+      "filename": "U_Func.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 1
+    },
+    {
+      "scriptid": "U_Requests",
+      "filename": "U_Requests.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 2
+    }
+  ]
+}

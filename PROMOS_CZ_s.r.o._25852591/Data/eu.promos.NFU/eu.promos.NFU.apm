@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1FD0000101",
+    "name": "eu.promos.NFU",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 6,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 2
+    },
+    {
+      "scriptid": "QUKRMP2B4GN41IJGBQOQGY1GEC",
+      "filename": "BO_Nabidkavydana-radek_QUKRMP2B4GN41IJGBQOQGY1GEC.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 3
+    },
+    {
+      "scriptid": "CHMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana-radek_CHMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 4
+    },
+    {
+      "scriptid": "OBBDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana-radek_OBBDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 5
+    },
+    {
+      "scriptid": "0H0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist-radek_0H0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 6
+    }
+  ]
+}
