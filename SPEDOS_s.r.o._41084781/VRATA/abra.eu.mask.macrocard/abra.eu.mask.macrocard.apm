@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1T00000101",
+    "name": "abra.eu.mask.macrocard",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 165,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "S2FMB2WMS4U4NIBGZVCWYYPFYK",
+      "filename": "AM_SystemoveUdalosti_S2FMB2WMS4U4NIBGZVCWYYPFYK.pas",
+      "scriptkind": 5,
+      "objversion": 120,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 63,
+      "posindex": 3
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 55,
+      "posindex": 4
+    }
+  ]
+}

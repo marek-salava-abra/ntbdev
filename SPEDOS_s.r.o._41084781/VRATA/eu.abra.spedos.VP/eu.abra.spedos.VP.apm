@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2NV1000101",
+    "name": "eu.abra.spedos.VP",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 15,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OBPCSAJGCVF13JXS00KEZYD5AW",
+      "filename": "AG_Mzdovelisty_OBPCSAJGCVF13JXS00KEZYD5AW.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 1
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 2
+    },
+    {
+      "scriptid": "mail",
+      "filename": "mail.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 3
+    },
+    {
+      "scriptid": "CPP5AZU1CVF13JXS00KEZYD5AW",
+      "filename": "BO_Zamestnanec_CPP5AZU1CVF13JXS00KEZYD5AW.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 4
+    }
+  ]
+}

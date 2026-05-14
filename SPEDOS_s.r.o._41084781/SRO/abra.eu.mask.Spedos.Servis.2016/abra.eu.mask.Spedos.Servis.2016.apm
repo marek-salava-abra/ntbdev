@@ -1,0 +1,122 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "9640000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 1092,
+    "description": "Hlavní funkčnost ABRY",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "BCHF52UGXCO4H5MIAQVY5P3ZOC",
+      "filename": "BO_Servisnilist_BCHF52UGXCO4H5MIAQVY5P3ZOC.pas",
+      "scriptkind": 1,
+      "objversion": 559,
+      "posindex": 1
+    },
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 517,
+      "posindex": 2
+    },
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 866,
+      "posindex": 3
+    },
+    {
+      "scriptid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "filename": "BO_Prijemka_E03ZNUMDTCC4PDAUIEY1MBTJC0.pas",
+      "scriptkind": 1,
+      "objversion": 513,
+      "posindex": 4
+    },
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 545,
+      "posindex": 5
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 514,
+      "posindex": 6
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 513,
+      "posindex": 7
+    },
+    {
+      "scriptid": "0P0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej_0P0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 514,
+      "posindex": 8
+    },
+    {
+      "scriptid": "1T0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Vratkadodacichlistu_1T0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 514,
+      "posindex": 9
+    },
+    {
+      "scriptid": "I3CRLLN3XYVO30ZDQ2WB4CRZW0",
+      "filename": "BO_Montaznilist_I3CRLLN3XYVO30ZDQ2WB4CRZW0.pas",
+      "scriptkind": 1,
+      "objversion": 530,
+      "posindex": 10
+    },
+    {
+      "scriptid": "QJPTXXMQE2S4HDB42E3R4VKVRO",
+      "filename": "AG_Casovyplan_QJPTXXMQE2S4HDB42E3R4VKVRO.pas",
+      "scriptkind": 2,
+      "objversion": 619,
+      "posindex": 11
+    },
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 527,
+      "posindex": 12
+    },
+    {
+      "scriptid": "T3S00IN35IV4D0M3AQ0Y10CDFC",
+      "filename": "BO_Radekmontazniholistu_T3S00IN35IV4D0M3AQ0Y10CDFC.pas",
+      "scriptkind": 1,
+      "objversion": 488,
+      "posindex": 13
+    },
+    {
+      "scriptid": "0ITGDE00UJDL3HBT00C5OG4NF4",
+      "filename": "BO_Skladovydoklad-radek_0ITGDE00UJDL3HBT00C5OG4NF4.pas",
+      "scriptkind": 1,
+      "objversion": 423,
+      "posindex": 14
+    },
+    {
+      "scriptid": "OWHN2TMXL2COJJ3LKNBV4OVSTC",
+      "filename": "BO_Servisovanypredmet_OWHN2TMXL2COJJ3LKNBV4OVSTC.pas",
+      "scriptkind": 1,
+      "objversion": 363,
+      "posindex": 15
+    }
+  ]
+}

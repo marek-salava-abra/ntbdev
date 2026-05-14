@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3Q40000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.doplněni_adresare",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 96,
+    "description": "Vytvoření DL z OP",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 95,
+      "posindex": 5
+    }
+  ]
+}

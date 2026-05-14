@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4750000101",
+    "name": "rename_dir",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 51,
+    "description": "renamedir",
+    "cryptForExport": false,
+    "usageState": 1,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 51,
+      "posindex": 1
+    }
+  ]
+}

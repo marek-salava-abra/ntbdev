@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5850000101",
+    "name": "protokol",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 87,
+    "description": "FAkturace ze servisu",
+    "cryptForExport": false,
+    "usageState": 1,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 86,
+      "posindex": 4
+    }
+  ]
+}

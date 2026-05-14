@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1Q00000101",
+    "name": "abra.eu.mask.Spedos.PaymentGroup",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 4,
+    "description": "Skript umožňující seskupit platby",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "40FI4H5P53DL3BLX00C5OG4NF4",
+      "filename": "AG_Zadostioplatebniprikazy_40FI4H5P53DL3BLX00C5OG4NF4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4G50000101",
+    "name": "abra.eu.mask.function_libs",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 45,
+    "description": "2017",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "VisualForms",
+      "filename": "VisualForms.pas",
+      "scriptkind": 0,
+      "objversion": 41,
+      "posindex": 1
+    }
+  ]
+}

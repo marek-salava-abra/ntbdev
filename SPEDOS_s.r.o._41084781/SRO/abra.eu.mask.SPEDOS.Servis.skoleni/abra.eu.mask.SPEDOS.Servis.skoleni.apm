@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3D50000101",
+    "name": "abra.eu.mask.SPEDOS.Servis.skoleni",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 2,
+    "description": "Zdravotni_prohlidka",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "33H4G5TW1HO4X50FMD550R0DQG",
+      "filename": "AG_Role_33H4G5TW1HO4X50FMD550R0DQG.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 2
+    },
+    {
+      "scriptid": "OYC0P3TDDY1ORIJO2SKTP2KZKG",
+      "filename": "AG_Aktivity_OYC0P3TDDY1ORIJO2SKTP2KZKG.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 3
+    }
+  ]
+}

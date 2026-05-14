@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3260000101",
+    "name": "abra.eu.MASK.import_CSV_mzdy",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 2,
+    "description": "Import parametrů",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OBPCSAJGCVF13JXS00KEZYD5AW",
+      "filename": "AG_Mzdovelisty_OBPCSAJGCVF13JXS00KEZYD5AW.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

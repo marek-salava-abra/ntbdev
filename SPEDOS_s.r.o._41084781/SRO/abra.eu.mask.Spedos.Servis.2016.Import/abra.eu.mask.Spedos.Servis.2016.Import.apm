@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3A40000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.Import",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 438,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Servisované předměty",
+      "filename": "Servisovanepredmety_Servisované předměty.pas",
+      "scriptkind": 0,
+      "objversion": 425,
+      "posindex": 1
+    },
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 221,
+      "posindex": 2
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 196,
+      "posindex": 3
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3R20000101",
+    "name": "abra.mask.Rozpad_prace",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 59,
+    "description": "Rozpad řádků DZV",
+    "cryptForExport": false,
+    "usageState": 1,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Books",
+      "filename": "Books.pas",
+      "scriptkind": 0,
+      "objversion": 30,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Main",
+      "filename": "Main.pas",
+      "scriptkind": 0,
+      "objversion": 49,
+      "posindex": 2
+    },
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 26,
+      "posindex": 3
+    }
+  ]
+}

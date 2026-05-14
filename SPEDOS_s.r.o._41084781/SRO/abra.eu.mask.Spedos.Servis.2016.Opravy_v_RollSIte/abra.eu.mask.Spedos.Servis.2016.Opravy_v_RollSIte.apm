@@ -1,0 +1,108 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3550000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.Opravy_v_RollSIte",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 41,
+    "description": "Změna smlouvy",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 29,
+      "posindex": 1
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 2
+    },
+    {
+      "scriptid": "NDC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarosob_NDC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 3
+    },
+    {
+      "scriptid": "LYTNYJI2TZJ41HQGZPE1M5IK5G",
+      "filename": "AG_Agendazakaznik_LYTNYJI2TZJ41HQGZPE1M5IK5G.pas",
+      "scriptkind": 2,
+      "objversion": 32,
+      "posindex": 4
+    },
+    {
+      "scriptid": "HLSVDCSHAL2O3I2XUDXYHKNCMO",
+      "filename": "AG_Agendazarizeni_HLSVDCSHAL2O3I2XUDXYHKNCMO.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 5
+    },
+    {
+      "scriptid": "BJAFM03YIILOLARSGWBI532SWK",
+      "filename": "AG_AgendaVyrobce-znacka_BJAFM03YIILOLARSGWBI532SWK.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 6
+    },
+    {
+      "scriptid": "15DMCT2A3XG433ZIB4E3O1UZ54",
+      "filename": "AG_AgendaTyp_zarzeni_15DMCT2A3XG433ZIB4E3O1UZ54.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 7
+    },
+    {
+      "scriptid": "Funkce",
+      "filename": "Funkce.pas",
+      "scriptkind": 0,
+      "objversion": 22,
+      "posindex": 8
+    },
+    {
+      "scriptid": "UWJWYOPWDASOJAZ02VAWTXGIES",
+      "filename": "AG_Opravovanacast_UWJWYOPWDASOJAZ02VAWTXGIES.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 9
+    },
+    {
+      "scriptid": "JXYPS5JIE2D4HH4JORX212HQTC",
+      "filename": "AG_Pricinaporuchy_JXYPS5JIE2D4HH4JORX212HQTC.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 10
+    },
+    {
+      "scriptid": "Y2UP3MXIWUT4RGJ3BQAXWJ0F44",
+      "filename": "AG_AgendaTyp_poruchy_Y2UP3MXIWUT4RGJ3BQAXWJ0F44.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 11
+    },
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 12
+    },
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 13
+    }
+  ]
+}

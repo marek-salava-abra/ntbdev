@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2NW0000101",
+    "name": "eu.spedos.SetCreated",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "K2WTYL304VD13ACL03KIU0CLP4",
+      "filename": "BO_Zakazka_K2WTYL304VD13ACL03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

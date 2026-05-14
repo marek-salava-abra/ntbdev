@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2NA1000101",
+    "name": "eu.abra.masa.spedos.TEST",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 8,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ONWLBO0DUPX4B400AJEI4YETD4",
+      "filename": "AG_Pozadavkynavyrobu_ONWLBO0DUPX4B400AJEI4YETD4.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8640000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.vizualno",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 29,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 16,
+      "posindex": 1
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "KMP4HSFOJ4MOXDPEKVCTO25OJ0",
+      "filename": "AG_Servisnioperace_KMP4HSFOJ4MOXDPEKVCTO25OJ0.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 3
+    },
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 4
+    },
+    {
+      "scriptid": "QJPTXXMQE2S4HDB42E3R4VKVRO",
+      "filename": "AG_Casovyplan_QJPTXXMQE2S4HDB42E3R4VKVRO.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 5
+    }
+  ]
+}

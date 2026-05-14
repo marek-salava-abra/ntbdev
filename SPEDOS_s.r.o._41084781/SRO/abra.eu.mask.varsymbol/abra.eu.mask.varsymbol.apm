@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3O50000101",
+    "name": "abra.eu.mask.varsymbol",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 20,
+    "description": "Oprava automatických duplicit variabilních symbolů při více než 10 obdobích.",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 18,
+      "posindex": 1
+    },
+    {
+      "scriptid": "WEN033MLM3DL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 2
+    },
+    {
+      "scriptid": "0LHHWWVMXVD13ACQ03KIU0CLP4",
+      "filename": "BO_Ostatniprijem_0LHHWWVMXVD13ACQ03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 3
+    }
+  ]
+}

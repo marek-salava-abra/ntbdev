@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1C10000101",
+    "name": "abra.eu.mask.Spedos.Nedokoncena_vyroba",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 43,
+    "description": "Skript umožňující seskupit platby",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "MDC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Internidoklady_MDC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 42,
+      "posindex": 1
+    }
+  ]
+}

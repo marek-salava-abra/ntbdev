@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2X00000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.ImportzOD",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 662,
+    "description": "verze 2019 poslední změna na auth",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Objednavky_prijate",
+      "filename": "Objednavky_prijate.pas",
+      "scriptkind": 0,
+      "objversion": 516,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 375,
+      "posindex": 2
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 248,
+      "posindex": 3
+    },
+    {
+      "scriptid": "CMZLUMXCRVL4JDZDLC4YFU1CU0",
+      "filename": "AG_Obchodni_dokumentace_CMZLUMXCRVL4JDZDLC4YFU1CU0.pas",
+      "scriptkind": 2,
+      "objversion": 235,
+      "posindex": 4
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 199,
+      "posindex": 5
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 196,
+      "posindex": 6
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 177,
+      "posindex": 7
+    },
+    {
+      "scriptid": "QGK21PXOQRT4ZEPWEBIC0KFCDO",
+      "filename": "BO_Obchodnidok-Pozice_QGK21PXOQRT4ZEPWEBIC0KFCDO.pas",
+      "scriptkind": 1,
+      "objversion": 97,
+      "posindex": 8
+    },
+    {
+      "scriptid": "H3DLVNUZC4KOJBA5D2VT00FKWK",
+      "filename": "AG_Vyrobky_H3DLVNUZC4KOJBA5D2VT00FKWK.pas",
+      "scriptkind": 2,
+      "objversion": 66,
+      "posindex": 9
+    },
+    {
+      "scriptid": "XNAVPBFTCRO4BBYJZ2FN14T51O",
+      "filename": "BO_Vyrobky_XNAVPBFTCRO4BBYJZ2FN14T51O.pas",
+      "scriptkind": 1,
+      "objversion": 69,
+      "posindex": 10
+    }
+  ]
+}

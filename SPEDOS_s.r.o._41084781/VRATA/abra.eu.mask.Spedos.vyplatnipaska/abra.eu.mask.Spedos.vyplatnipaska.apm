@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1E00000101",
+    "name": "abra.eu.mask.Spedos.vyplatnipaska",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 26,
+    "description": "tiskvyplatnipasky",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "OBPCSAJGCVF13JXS00KEZYD5AW",
+      "filename": "AG_Mzdovelisty_OBPCSAJGCVF13JXS00KEZYD5AW.pas",
+      "scriptkind": 2,
+      "objversion": 26,
+      "posindex": 1
+    }
+  ]
+}

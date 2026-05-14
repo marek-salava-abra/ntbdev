@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1K00000101",
+    "name": "abra.eu.mask.SPEDOS.personalistika",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 79,
+    "description": "Zdravotni_prohlidka",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "NDC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarosob_NDC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 50,
+      "posindex": 1
+    },
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 24,
+      "posindex": 2
+    },
+    {
+      "scriptid": "OYC0P3TDDY1ORIJO2SKTP2KZKG",
+      "filename": "AG_Aktivity_OYC0P3TDDY1ORIJO2SKTP2KZKG.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 3
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3I50000101",
+    "name": "abra.eu.mask.Spedos.f1",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 13,
+    "description": "FAkturace ze servisu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 1
+    },
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "ZSR1DT11PBWOJ3MELFAGIQ22QO",
+      "filename": "AG_Danovezalohovelistyvydane_ZSR1DT11PBWOJ3MELFAGIQ22QO.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 3
+    },
+    {
+      "scriptid": "UYQKGUQWDC3OD2XUW0334DG5PC",
+      "filename": "AG_Danovezalohovelistyprijate_UYQKGUQWDC3OD2XUW0334DG5PC.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 4
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 5
+    },
+    {
+      "scriptid": "S1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladnivydeje_S1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 6
+    }
+  ]
+}

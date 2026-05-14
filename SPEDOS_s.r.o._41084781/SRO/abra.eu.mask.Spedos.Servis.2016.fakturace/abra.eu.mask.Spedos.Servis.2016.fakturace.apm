@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3640000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.fakturace",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 77,
+    "description": "FAkturace ze servisu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 53,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 46,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Stav_zaplaceni",
+      "filename": "Stav_zaplaceni.pas",
+      "scriptkind": 0,
+      "objversion": 63,
+      "posindex": 3
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 43,
+      "posindex": 4
+    },
+    {
+      "scriptid": "WYA0AKSTSHAON5IYFIY0RWCWIG",
+      "filename": "IM_Import_WYA0AKSTSHAON5IYFIY0RWCWIG_WYA0AKSTSHAON5IYFIY0RWCWIG.pas",
+      "scriptkind": 4,
+      "objversion": 43,
+      "posindex": 5
+    }
+  ]
+}

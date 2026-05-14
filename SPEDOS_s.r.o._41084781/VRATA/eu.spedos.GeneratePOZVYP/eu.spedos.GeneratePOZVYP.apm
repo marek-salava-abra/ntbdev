@@ -1,0 +1,157 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2K10000101",
+    "name": "eu.spedos.GeneratePOZVYP",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 387,
+    "description": "new auth",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ONWLBO0DUPX4B400AJEI4YETD4",
+      "filename": "AG_Pozadavkynavyrobu_ONWLBO0DUPX4B400AJEI4YETD4.pas",
+      "scriptkind": 2,
+      "objversion": 186,
+      "posindex": 1
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 161,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 176,
+      "posindex": 3
+    },
+    {
+      "scriptid": "import",
+      "filename": "import.pas",
+      "scriptkind": 0,
+      "objversion": 237,
+      "posindex": 4
+    },
+    {
+      "scriptid": "GenerateVYP",
+      "filename": "GenerateVYP.pas",
+      "scriptkind": 0,
+      "objversion": 178,
+      "posindex": 5
+    },
+    {
+      "scriptid": "XTVGL0IK2F14PDPCEHMYNWX4T4",
+      "filename": "BO_Pracovnilistek_XTVGL0IK2F14PDPCEHMYNWX4T4.pas",
+      "scriptkind": 1,
+      "objversion": 195,
+      "posindex": 6
+    },
+    {
+      "scriptid": "qr",
+      "filename": "qr.pas",
+      "scriptkind": 0,
+      "objversion": 161,
+      "posindex": 7
+    },
+    {
+      "scriptid": "FinishedProducts",
+      "filename": "FinishedProducts.pas",
+      "scriptkind": 0,
+      "objversion": 170,
+      "posindex": 8
+    },
+    {
+      "scriptid": "Q4EISOIDDKMOLF12IC3WFS0GDS",
+      "filename": "AG_Vyrobniprikazy_Q4EISOIDDKMOLF12IC3WFS0GDS.pas",
+      "scriptkind": 2,
+      "objversion": 164,
+      "posindex": 9
+    },
+    {
+      "scriptid": "FWWRMEWLCQSOR5P5SCLZIAVVB4",
+      "filename": "AG_Dilcihotovevyrobky_FWWRMEWLCQSOR5P5SCLZIAVVB4.pas",
+      "scriptkind": 2,
+      "objversion": 162,
+      "posindex": 10
+    },
+    {
+      "scriptid": "Const",
+      "filename": "Const.pas",
+      "scriptkind": 0,
+      "objversion": 164,
+      "posindex": 11
+    },
+    {
+      "scriptid": "HTI3OTLGNRPO32EEISEPC0XZ0K",
+      "filename": "BO_Vyrobniprikaz_HTI3OTLGNRPO32EEISEPC0XZ0K.pas",
+      "scriptkind": 1,
+      "objversion": 152,
+      "posindex": 12
+    },
+    {
+      "scriptid": "XNAVPBFTCRO4BBYJZ2FN14T51O",
+      "filename": "BO_Vyrobky_XNAVPBFTCRO4BBYJZ2FN14T51O.pas",
+      "scriptkind": 1,
+      "objversion": 120,
+      "posindex": 13
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 107,
+      "posindex": 14
+    },
+    {
+      "scriptid": "C3DLAMUSDJNOLDWCDBSBM2GAI0",
+      "filename": "BO_Prijemhotovychvyrobku_C3DLAMUSDJNOLDWCDBSBM2GAI0.pas",
+      "scriptkind": 1,
+      "objversion": 100,
+      "posindex": 15
+    },
+    {
+      "scriptid": "POZP",
+      "filename": "POZP.pas",
+      "scriptkind": 0,
+      "objversion": 90,
+      "posindex": 16
+    },
+    {
+      "scriptid": "GeneratePOZP",
+      "filename": "GeneratePOZP.pas",
+      "scriptkind": 0,
+      "objversion": 89,
+      "posindex": 17
+    },
+    {
+      "scriptid": "ImportND",
+      "filename": "ImportND.pas",
+      "scriptkind": 0,
+      "objversion": 90,
+      "posindex": 18
+    },
+    {
+      "scriptid": "EmailPHV",
+      "filename": "EmailPHV.pas",
+      "scriptkind": 0,
+      "objversion": 101,
+      "posindex": 19
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 87,
+      "posindex": 20
+    }
+  ]
+}

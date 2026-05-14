@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4V50000101",
+    "name": "eu.abra.darova.6.vizualno_hromadna_kopie",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 2,
+    "description": "Příklad přidání tlačítka a funkce pro hromadnou kopii do agendy Středisek",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "NXC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Strediska_NXC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 1
+    }
+  ]
+}

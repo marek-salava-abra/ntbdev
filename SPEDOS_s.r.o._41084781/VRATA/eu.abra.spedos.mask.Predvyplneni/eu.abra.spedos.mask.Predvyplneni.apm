@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2500000101",
+    "name": "eu.abra.spedos.mask.Predvyplneni",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 12,
+    "description": "Příklad aktualizace položky při změně jiné položky v objektu Zakázka",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "filename": "BO_Prijemka_E03ZNUMDTCC4PDAUIEY1MBTJC0.pas",
+      "scriptkind": 1,
+      "objversion": 12,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3C40000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.chybejici_ML",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 28,
+    "description": "xxxx",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 24,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Chybejici_ML",
+      "filename": "Chybejici_ML.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

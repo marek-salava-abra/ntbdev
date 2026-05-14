@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3H20000101",
+    "name": "abra.eu.mask.spedos.servis.2016.ChangeState_SL",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 220,
+    "description": "Změna stavu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 97
+  },
+  "scripts": [
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 158,
+      "posindex": 1
+    }
+  ]
+}

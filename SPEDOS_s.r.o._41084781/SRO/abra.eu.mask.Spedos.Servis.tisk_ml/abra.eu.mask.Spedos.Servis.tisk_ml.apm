@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4D40000101",
+    "name": "abra.eu.mask.Spedos.Servis.tisk_ml",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 12,
+    "description": "Vytvoření DL z OP",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 5
+    }
+  ]
+}

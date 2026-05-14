@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3M50000101",
+    "name": "abra.eu.mask.spedos.servis.2016.add_roles",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 18,
+    "description": "Změna stavu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 97
+  },
+  "scripts": [
+    {
+      "scriptid": "33H4G5TW1HO4X50FMD550R0DQG",
+      "filename": "AG_Role_33H4G5TW1HO4X50FMD550R0DQG.pas",
+      "scriptkind": 2,
+      "objversion": 16,
+      "posindex": 1
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

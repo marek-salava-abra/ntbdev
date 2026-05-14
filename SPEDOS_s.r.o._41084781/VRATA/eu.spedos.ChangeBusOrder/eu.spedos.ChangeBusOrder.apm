@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5N51000101",
+    "name": "eu.spedos.ChangeBusOrder",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 5,
+    "description": "Změna zakázky u výrobku",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 20
+  },
+  "scripts": [
+    {
+      "scriptid": "Q4EISOIDDKMOLF12IC3WFS0GDS",
+      "filename": "AG_Vyrobniprikazy_Q4EISOIDDKMOLF12IC3WFS0GDS.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

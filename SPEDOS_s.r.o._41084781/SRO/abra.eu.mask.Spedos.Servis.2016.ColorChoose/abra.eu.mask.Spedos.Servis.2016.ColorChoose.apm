@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3J40000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.ColorChoose",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 69,
+    "description": "Volba barvy servisu",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 41,
+      "posindex": 1
+    },
+    {
+      "scriptid": "OFTMKVQH3ZD13ACL03KIU0CLP4",
+      "filename": "BO_Radadokladu_OFTMKVQH3ZD13ACL03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 24,
+      "posindex": 2
+    },
+    {
+      "scriptid": "NTC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Radydokladu_NTC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 25,
+      "posindex": 3
+    },
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 28,
+      "posindex": 4
+    },
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 31,
+      "posindex": 5
+    },
+    {
+      "scriptid": "JWGYGUWZCI3O54C4T4Z4QZPFRS",
+      "filename": "BO_Stav_ML_JWGYGUWZCI3O54C4T4Z4QZPFRS.pas",
+      "scriptkind": 1,
+      "objversion": 19,
+      "posindex": 6
+    },
+    {
+      "scriptid": "T12B2FLAX01OFJ4QFUOLSC4INO",
+      "filename": "AG_Stav_ML_T12B2FLAX01OFJ4QFUOLSC4INO.pas",
+      "scriptkind": 2,
+      "objversion": 20,
+      "posindex": 7
+    }
+  ]
+}

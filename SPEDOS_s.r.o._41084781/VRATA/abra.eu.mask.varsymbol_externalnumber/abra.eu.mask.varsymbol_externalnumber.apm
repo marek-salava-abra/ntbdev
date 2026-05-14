@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1800000101",
+    "name": "abra.eu.mask.varsymbol_externalnumber",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 2,
+    "description": "Obnova předvyplňování externího čísla podle variabilního symbolu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "42HE04FZGJD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturaprijata_42HE04FZGJD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 1
+    }
+  ]
+}

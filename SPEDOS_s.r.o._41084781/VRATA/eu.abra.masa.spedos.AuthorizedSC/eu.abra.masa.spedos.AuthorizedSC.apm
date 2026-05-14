@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2NK1000101",
+    "name": "eu.abra.masa.spedos.AuthorizedSC",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 17,
+    "description": "Schvalovani skladovych karet",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "0H0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist-radek_0H0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 13,
+      "posindex": 1
+    },
+    {
+      "scriptid": "FLQIA44IVWM4B20GYRHC42BHGW",
+      "filename": "BO_Prijemka-radek_FLQIA44IVWM4B20GYRHC42BHGW.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 2
+    },
+    {
+      "scriptid": "EFGI2WXAJMEOV2UCIIVJPBUMOC",
+      "filename": "BO_Pozadaveknavyrobu-kusovnik_EFGI2WXAJMEOV2UCIIVJPBUMOC.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 3
+    }
+  ]
+}

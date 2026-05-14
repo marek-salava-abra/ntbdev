@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2NI1000101",
+    "name": "eu.abra.masa.spedos.OV",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 5,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 1
+    },
+    {
+      "scriptid": "AS",
+      "filename": "AS.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

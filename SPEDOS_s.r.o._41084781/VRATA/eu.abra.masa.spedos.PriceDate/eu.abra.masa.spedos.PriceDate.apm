@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "7NR1000101",
+    "name": "eu.abra.masa.spedos.PriceDate",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 8,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GHYLVQXQ3FE13DQC01C0CX3F40",
+      "filename": "BO_Cenikovacena_GHYLVQXQ3FE13DQC01C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 1
+    }
+  ]
+}

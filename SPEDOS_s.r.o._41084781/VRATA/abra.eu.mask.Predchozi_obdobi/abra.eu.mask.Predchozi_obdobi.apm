@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1210000101",
+    "name": "abra.eu.mask.Predchozi_obdobi",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 3,
+    "description": "Přeúčtování z denníku účtu 38 na zadané období",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "M5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Ucetnidenik_M5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

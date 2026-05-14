@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3F50000101",
+    "name": "abra.eu.mask.AutoArchiv.Folder",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 10,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 6,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Auto_archiv",
+      "filename": "Auto_archiv.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 2
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 3
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 4
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 5
+    },
+    {
+      "scriptid": "WG02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem_WG02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 6
+    },
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 7
+    },
+    {
+      "scriptid": "42HE04FZGJD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturaprijata_42HE04FZGJD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 8
+    },
+    {
+      "scriptid": "S1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladnivydeje_S1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 9
+    },
+    {
+      "scriptid": "0RXJZGDLBBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladnivydej_0RXJZGDLBBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 10
+    }
+  ]
+}

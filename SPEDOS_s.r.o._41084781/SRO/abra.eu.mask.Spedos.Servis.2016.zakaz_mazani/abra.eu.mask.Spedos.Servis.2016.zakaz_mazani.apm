@@ -1,0 +1,94 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3L40000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.zákaz_mazani",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 17,
+    "description": "Zákaz mazání",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 1
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 2
+    },
+    {
+      "scriptid": "NDC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarosob_NDC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 3
+    },
+    {
+      "scriptid": "LYTNYJI2TZJ41HQGZPE1M5IK5G",
+      "filename": "AG_Agendazakaznik_LYTNYJI2TZJ41HQGZPE1M5IK5G.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 4
+    },
+    {
+      "scriptid": "HLSVDCSHAL2O3I2XUDXYHKNCMO",
+      "filename": "AG_Agendazarizeni_HLSVDCSHAL2O3I2XUDXYHKNCMO.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 5
+    },
+    {
+      "scriptid": "BJAFM03YIILOLARSGWBI532SWK",
+      "filename": "AG_AgendaVyrobce-znacka_BJAFM03YIILOLARSGWBI532SWK.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 6
+    },
+    {
+      "scriptid": "15DMCT2A3XG433ZIB4E3O1UZ54",
+      "filename": "AG_AgendaTyp_zarzeni_15DMCT2A3XG433ZIB4E3O1UZ54.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 7
+    },
+    {
+      "scriptid": "Funkce",
+      "filename": "Funkce.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 8
+    },
+    {
+      "scriptid": "UWJWYOPWDASOJAZ02VAWTXGIES",
+      "filename": "AG_Opravovanacast_UWJWYOPWDASOJAZ02VAWTXGIES.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 9
+    },
+    {
+      "scriptid": "JXYPS5JIE2D4HH4JORX212HQTC",
+      "filename": "AG_Pricinaporuchy_JXYPS5JIE2D4HH4JORX212HQTC.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 10
+    },
+    {
+      "scriptid": "Y2UP3MXIWUT4RGJ3BQAXWJ0F44",
+      "filename": "AG_AgendaTyp_poruchy_Y2UP3MXIWUT4RGJ3BQAXWJ0F44.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 11
+    }
+  ]
+}

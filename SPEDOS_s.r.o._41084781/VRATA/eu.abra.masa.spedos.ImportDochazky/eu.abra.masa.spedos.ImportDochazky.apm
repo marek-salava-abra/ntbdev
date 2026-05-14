@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5NS1000101",
+    "name": "eu.abra.masa.spedos.ImportDocházky",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "BQJOLOPACR3O5FZQK2N5YX4MXS",
+      "filename": "AG_Dochazka_BQJOLOPACR3O5FZQK2N5YX4MXS.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4NT1000101",
+    "name": "eu.abra.masa.spedos.CreateCoopFromVYP",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 31,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Q4EISOIDDKMOLF12IC3WFS0GDS",
+      "filename": "AG_Vyrobniprikazy_Q4EISOIDDKMOLF12IC3WFS0GDS.pas",
+      "scriptkind": 2,
+      "objversion": 27,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ONWLBO0DUPX4B400AJEI4YETD4",
+      "filename": "AG_Pozadavkynavyrobu_ONWLBO0DUPX4B400AJEI4YETD4.pas",
+      "scriptkind": 2,
+      "objversion": 20,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 19,
+      "posindex": 3
+    }
+  ]
+}

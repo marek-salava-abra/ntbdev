@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3B00000101",
+    "name": "xxx",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 4,
+    "description": "xxxx",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "5315B3YAPMNOB0FIRUCLXSJ52O",
+      "filename": "RL_Servisovanepredmety_5315B3YAPMNOB0FIRUCLXSJ52O.pas",
+      "scriptkind": 3,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

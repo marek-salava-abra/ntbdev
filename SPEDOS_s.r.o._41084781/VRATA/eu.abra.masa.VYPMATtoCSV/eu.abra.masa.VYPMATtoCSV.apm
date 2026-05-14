@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2NW1000101",
+    "name": "eu.abra.masa.VYPMATtoCSV",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 15,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Q4EISOIDDKMOLF12IC3WFS0GDS",
+      "filename": "AG_Vyrobniprikazy_Q4EISOIDDKMOLF12IC3WFS0GDS.pas",
+      "scriptkind": 2,
+      "objversion": 15,
+      "posindex": 1
+    }
+  ]
+}

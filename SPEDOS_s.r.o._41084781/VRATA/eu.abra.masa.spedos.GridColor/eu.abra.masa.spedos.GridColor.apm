@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2ND1000101",
+    "name": "eu.abra.masa.spedos.GridColor",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 13,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 1
+    },
+    {
+      "scriptid": "4K3EXM5PQBCL35CH000ILPWJF4",
+      "filename": "BO_Firma_4K3EXM5PQBCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

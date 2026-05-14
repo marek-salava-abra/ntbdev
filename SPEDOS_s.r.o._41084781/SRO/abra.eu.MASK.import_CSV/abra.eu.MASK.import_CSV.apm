@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3B10000101",
+    "name": "abra.eu.MASK.import_CSV",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 19,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "D50CW35SW4GONAMDX3YQBVKKB4",
+      "filename": "AG_Instalacnisady_D50CW35SW4GONAMDX3YQBVKKB4.pas",
+      "scriptkind": 2,
+      "objversion": 16,
+      "posindex": 1
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 8,
+      "posindex": 2
+    }
+  ]
+}

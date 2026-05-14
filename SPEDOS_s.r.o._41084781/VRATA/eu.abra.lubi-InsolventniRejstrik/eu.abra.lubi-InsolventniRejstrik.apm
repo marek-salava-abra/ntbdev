@@ -1,0 +1,108 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1C00000101",
+    "name": "eu.abra.lubi-InsolventniRejstrik",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 2,
+    "description": "Import \"Insolvečního rejstříku\"",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Commons",
+      "filename": "Commons.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "NRPXNW12EMY4J2CCKSNJHAUUSC",
+      "filename": "AG_Insolvencnirejstrik_NRPXNW12EMY4J2CCKSNJHAUUSC.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 2
+    },
+    {
+      "scriptid": "IBRZISKSINOOH4ZRQMWHQ5DSSC",
+      "filename": "AG_Insolvencnirejstrik-nastaveni_IBRZISKSINOOH4ZRQMWHQ5DSSC.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 3
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 4
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 5
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 6
+    },
+    {
+      "scriptid": "WEN033MLM3DL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 7
+    },
+    {
+      "scriptid": "S3YFE5QQNYQORJXLJWXDL3QV0K",
+      "filename": "BO_Danovyzalohovylistvydany_S3YFE5QQNYQORJXLJWXDL3QV0K.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 8
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 9
+    },
+    {
+      "scriptid": "WDRPQOEXWZWO540K4B4MBNGWUS",
+      "filename": "BO_BOInsolvencnirejstrik-nastaveni_WDRPQOEXWZWO540K4B4MBNGWUS.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 10
+    },
+    {
+      "scriptid": "uLicence",
+      "filename": "uLicence.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 11
+    },
+    {
+      "scriptid": "uProgressForm",
+      "filename": "uProgressForm.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 12
+    },
+    {
+      "scriptid": "uTransactions",
+      "filename": "uTransactions.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 13
+    }
+  ]
+}

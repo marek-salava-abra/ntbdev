@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3W40000101",
+    "name": "abra.eu.mask.Spedos.servis.2016.importML",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 51,
+    "description": "Import materiálových položek do jiného ML",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 51,
+      "posindex": 3
+    }
+  ]
+}

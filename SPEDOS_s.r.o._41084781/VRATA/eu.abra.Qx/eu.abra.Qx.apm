@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1M00000101",
+    "name": "eu.abra.Qx",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 6,
+    "description": "Balíček služeb pro Mobilní terminály",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ca",
+      "filename": "ca.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "templateImpl",
+      "filename": "templateImpl.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 2
+    },
+    {
+      "scriptid": "func",
+      "filename": "func.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 3
+    },
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 4
+    }
+  ]
+}

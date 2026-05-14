@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3D20000101",
+    "name": "abra.eu.Mask.SPEDOS.Folder.Skladové_karty",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 10,
+    "description": "Folder pro skladové karty",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "2PFD3PM4JRR4V1SDHPQO0MKND4",
+      "filename": "AG_Servisovanepredmety_2PFD3PM4JRR4V1SDHPQO0MKND4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 3
+    }
+  ]
+}

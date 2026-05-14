@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4NR1000101",
+    "name": "eu.abra.masa.API",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 6,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "K2WTYL304VD13ACL03KIU0CLP4",
+      "filename": "BO_Zakazka_K2WTYL304VD13ACL03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "G5GESPQ23FE13DQC01C0CX3F40",
+      "filename": "AG_Ceniky_G5GESPQ23FE13DQC01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

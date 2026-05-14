@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3NT1000101",
+    "name": "eu.abra.darova.1.predvyplnovani",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 2,
+    "description": "Předvyplňování hodnot + interní funkce",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O1X54EUXPZCL35CH000ILPWJF4",
+      "filename": "BO_Stredisko_O1X54EUXPZCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "knihovna1",
+      "filename": "knihovna1.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3L50000101",
+    "name": "abra.eu.mask.Spedos.ucto.ColorChoosea",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 28,
+    "description": "Volba barvy servisu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Libs",
+      "filename": "Libs.pas",
+      "scriptkind": 0,
+      "objversion": 15,
+      "posindex": 1
+    },
+    {
+      "scriptid": "M5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Ucetnidenik_M5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 2
+    },
+    {
+      "scriptid": "MTC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Ucetnizadosti_MTC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 20,
+      "posindex": 3
+    },
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 4
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 5
+    },
+    {
+      "scriptid": "T5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Zalohovelistyprijate_T5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 6
+    },
+    {
+      "scriptid": "S4RQ0AMDM3DL35J301C0CX3F40",
+      "filename": "AG_Zalohovelistyvydane_S4RQ0AMDM3DL35J301C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 7
+    },
+    {
+      "scriptid": "ZSR1DT11PBWOJ3MELFAGIQ22QO",
+      "filename": "AG_Danovezalohovelistyvydane_ZSR1DT11PBWOJ3MELFAGIQ22QO.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 8
+    },
+    {
+      "scriptid": "UYQKGUQWDC3OD2XUW0334DG5PC",
+      "filename": "AG_Danovezalohovelistyprijate_UYQKGUQWDC3OD2XUW0334DG5PC.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 9
+    },
+    {
+      "scriptid": "G0DSSJKGJFP4JDDUACIK2KGSG0",
+      "filename": "AG_Dobropisydanovychzalohovychlistuprijatych_G0DSSJKGJFP4JDDUACIK2KGSG0.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 10
+    },
+    {
+      "scriptid": "212YMDVVGRSOJ4T4GDIQ5XVYMW",
+      "filename": "AG_Dobropisydanovychzalohovychlistuvydanych_212YMDVVGRSOJ4T4GDIQ5XVYMW.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 11
+    },
+    {
+      "scriptid": "42VOLQXZBRDL3A2D01C0CSUFSG",
+      "filename": "AG_Dobropisyfakturprijatych_42VOLQXZBRDL3A2D01C0CSUFSG.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 12
+    },
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 13
+    },
+    {
+      "scriptid": "K1KJYSAJHFDL3BLX00C5OG4NF4",
+      "filename": "AG_JSD_K1KJYSAJHFDL3BLX00C5OG4NF4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 14
+    },
+    {
+      "scriptid": "BC5EFWY1AYX4TD0LXMR0HCUZ5O",
+      "filename": "AG_Dokladyreversecharge_BC5EFWY1AYX4TD0LXMR0HCUZ5O.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 15
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 16
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 17
+    },
+    {
+      "scriptid": "BH0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-prijmy_BH0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 18
+    },
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 19
+    },
+    {
+      "scriptid": "BL0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Vratkydodacichlistu_BL0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 20
+    },
+    {
+      "scriptid": "NN20CW0TDQSODH2FPC5IVSYIKW",
+      "filename": "AG_Vratkyprijemek_NN20CW0TDQSODH2FPC5IVSYIKW.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 21
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 22
+    },
+    {
+      "scriptid": "S1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladnivydeje_S1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 23
+    },
+    {
+      "scriptid": "SXC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Vracenipokladnichprijmu_SXC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 24
+    },
+    {
+      "scriptid": "STC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Vracenipokladnichvydeju_STC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 25
+    },
+    {
+      "scriptid": "R1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Bankovnivypisy_R1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 26
+    },
+    {
+      "scriptid": "W01A21CP33DL35IV01C0CX3F40",
+      "filename": "AG_Ostatniprijmy_W01A21CP33DL35IV01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 13,
+      "posindex": 27
+    },
+    {
+      "scriptid": "S0BSHJZUJNEL315000C5PPZRR4",
+      "filename": "AG_Odpisymajetku_S0BSHJZUJNEL315000C5PPZRR4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 28
+    },
+    {
+      "scriptid": "G3TEDAJFKTB4ZG1ZXPSCAIIWO4",
+      "filename": "AG_Hlavniinventarniprotokoly_G3TEDAJFKTB4ZG1ZXPSCAIIWO4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 29
+    },
+    {
+      "scriptid": "ZFQNOUBQ4NEO5APLFIS5352F2O",
+      "filename": "AG_Dilciinventarniprotokoly_ZFQNOUBQ4NEO5APLFIS5352F2O.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 30
+    },
+    {
+      "scriptid": "OBPCSAJGCVF13JXS00KEZYD5AW",
+      "filename": "AG_Mzdovelisty_OBPCSAJGCVF13JXS00KEZYD5AW.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 31
+    },
+    {
+      "scriptid": "W41A21CP33DL35IV01C0CX3F40",
+      "filename": "AG_Ostatnivydaje_W41A21CP33DL35IV01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 32
+    },
+    {
+      "scriptid": "xxx",
+      "filename": "xxx.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 33
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 34
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 35
+    },
+    {
+      "scriptid": "NDC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarosob_NDC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 36
+    },
+    {
+      "scriptid": "R5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Bankovniucty_R5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 37
+    },
+    {
+      "scriptid": "PHC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladny_PHC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 38
+    },
+    {
+      "scriptid": "NXC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Strediska_NXC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 39
+    },
+    {
+      "scriptid": "O5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Zakazky_O5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 40
+    },
+    {
+      "scriptid": "NPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Obdobi_NPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 41
+    },
+    {
+      "scriptid": "ODC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Obchodnipripady_ODC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 42
+    },
+    {
+      "scriptid": "CHAXOLB2KTZ4JC0YKAW41L1UE4",
+      "filename": "AG_Projekty_CHAXOLB2KTZ4JC0YKAW41L1UE4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 43
+    },
+    {
+      "scriptid": "G5FIX0QNKNDL3ACT03KIU0CLP4",
+      "filename": "AG_Typyvydaju_G5FIX0QNKNDL3ACT03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 44
+    },
+    {
+      "scriptid": "G1FIX0QNKNDL3ACT03KIU0CLP4",
+      "filename": "AG_Typyprijmu_G1FIX0QNKNDL3ACT03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 45
+    },
+    {
+      "scriptid": "K0CPO0X11NEL314Z00C5PPZRR4",
+      "filename": "AG_Dlouhodobymajetek_K0CPO0X11NEL314Z00C5PPZRR4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 46
+    },
+    {
+      "scriptid": "4M4R1JFNBREL31ME00C5PPBIWO",
+      "filename": "AG_Drobnymajetek_4M4R1JFNBREL31ME00C5PPBIWO.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 47
+    },
+    {
+      "scriptid": "S24RE20IPZDL342W01C0CX3FCC",
+      "filename": "AG_Dilciskl.karty_S24RE20IPZDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 48
+    },
+    {
+      "scriptid": "005WXDGLTVDL342W01C0CX3FCC",
+      "filename": "AG_Sarze-seriovacisla_005WXDGLTVDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 49
+    },
+    {
+      "scriptid": "A1TAS3OJNGU4HE5WCEMWHOQDFO",
+      "filename": "AG_Dilcisarze-seriovacisla_A1TAS3OJNGU4HE5WCEMWHOQDFO.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 50
+    },
+    {
+      "scriptid": "O5XTY0EMCVF13FG501C0C2VN0K",
+      "filename": "AG_Zamestnanci_O5XTY0EMCVF13FG501C0C2VN0K.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 51
+    },
+    {
+      "scriptid": "VGS5UINQ2ZNOR21Y24XL443YEG",
+      "filename": "AG_Pracovnipomery_VGS5UINQ2ZNOR21Y24XL443YEG.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 52
+    }
+  ]
+}

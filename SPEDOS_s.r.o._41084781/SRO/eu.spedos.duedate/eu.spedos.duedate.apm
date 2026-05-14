@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "33B0000101",
+    "name": "eu.spedos.duedate",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 2
+    },
+    {
+      "scriptid": "S4RQ0AMDM3DL35J301C0CX3F40",
+      "filename": "AG_Zalohovelistyvydane_S4RQ0AMDM3DL35J301C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 3
+    },
+    {
+      "scriptid": "T5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Zalohovelistyprijate_T5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 4
+    }
+  ]
+}

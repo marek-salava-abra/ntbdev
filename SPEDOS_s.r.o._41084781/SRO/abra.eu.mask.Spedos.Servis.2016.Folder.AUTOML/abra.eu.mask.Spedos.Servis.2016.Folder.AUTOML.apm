@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4640000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.Folder.AUTOML",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 32,
+    "description": "autofolderML",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "I3CRLLN3XYVO30ZDQ2WB4CRZW0",
+      "filename": "BO_Montaznilist_I3CRLLN3XYVO30ZDQ2WB4CRZW0.pas",
+      "scriptkind": 1,
+      "objversion": 29,
+      "posindex": 1
+    },
+    {
+      "scriptid": "OWHN2TMXL2COJJ3LKNBV4OVSTC",
+      "filename": "BO_Servisovanypredmet_OWHN2TMXL2COJJ3LKNBV4OVSTC.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 2
+    }
+  ]
+}

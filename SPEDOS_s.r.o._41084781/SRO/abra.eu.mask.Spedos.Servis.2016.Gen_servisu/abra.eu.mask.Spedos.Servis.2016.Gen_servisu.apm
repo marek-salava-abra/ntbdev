@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5640000101",
+    "name": "abra.eu.mask.Spedos.Servis.2016.Gen_servisu",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 128,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 99
+  },
+  "scripts": [
+    {
+      "scriptid": "BCHF52UGXCO4H5MIAQVY5P3ZOC",
+      "filename": "BO_Servisnilist_BCHF52UGXCO4H5MIAQVY5P3ZOC.pas",
+      "scriptkind": 1,
+      "objversion": 109,
+      "posindex": 1
+    },
+    {
+      "scriptid": "NHT5Z3GSFFQ4F024JRFLUNOS30",
+      "filename": "AG_Servisnilisty_NHT5Z3GSFFQ4F024JRFLUNOS30.pas",
+      "scriptkind": 2,
+      "objversion": 69,
+      "posindex": 2
+    },
+    {
+      "scriptid": "5H5Q1YT0BNE45EFK3SPKR4AD4S",
+      "filename": "AG_Montaznilisty_5H5Q1YT0BNE45EFK3SPKR4AD4S.pas",
+      "scriptkind": 2,
+      "objversion": 44,
+      "posindex": 3
+    }
+  ]
+}

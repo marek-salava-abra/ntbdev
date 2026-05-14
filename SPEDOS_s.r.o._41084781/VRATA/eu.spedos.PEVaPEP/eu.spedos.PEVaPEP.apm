@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2N51000101",
+    "name": "eu.spedos.PEVaPEP",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 12,
+    "description": "Sloouží pro importy do přeměna výdej a přeměna příjem",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "1R5YABXVW0DOD23YKZUXCZQUZK",
+      "filename": "AG_Premeny-vydeje_1R5YABXVW0DOD23YKZUXCZQUZK.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 1
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 2
+    },
+    {
+      "scriptid": "HEXW4ANPOVOONHN5GTAHG4KKHC",
+      "filename": "AG_Premeny-prijmy_HEXW4ANPOVOONHN5GTAHG4KKHC.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 3
+    }
+  ]
+}

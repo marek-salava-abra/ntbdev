@@ -1,0 +1,94 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1L00000101",
+    "name": "abra.eu.mask.Spedos_Digi_Archiv",
+    "license_holder": "SPEDOS_s.r.o._41084781",
+    "objversion": 107,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 47,
+      "posindex": 1
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 61,
+      "posindex": 2
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 93,
+      "posindex": 3
+    },
+    {
+      "scriptid": "T5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Zalohovelistyprijate_T5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 47,
+      "posindex": 4
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 47,
+      "posindex": 5
+    },
+    {
+      "scriptid": "S4RQ0AMDM3DL35J301C0CX3F40",
+      "filename": "AG_Zalohovelistyvydane_S4RQ0AMDM3DL35J301C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 49,
+      "posindex": 6
+    },
+    {
+      "scriptid": "S1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladnivydeje_S1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 47,
+      "posindex": 7
+    },
+    {
+      "scriptid": "KSG5LWEKSXTOFGI3IDHTGTQMAO",
+      "filename": "AG_UzaverkyDPH_KSG5LWEKSXTOFGI3IDHTGTQMAO.pas",
+      "scriptkind": 2,
+      "objversion": 44,
+      "posindex": 8
+    },
+    {
+      "scriptid": "EPXJ3GDLIOZ41FPIS3POB3NUCS",
+      "filename": "BO_UzaverkaDPH_EPXJ3GDLIOZ41FPIS3POB3NUCS.pas",
+      "scriptkind": 1,
+      "objversion": 38,
+      "posindex": 9
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 10
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 11
+    }
+  ]
+}
