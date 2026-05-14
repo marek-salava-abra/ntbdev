@@ -1,0 +1,12 @@
+{
+    "editor.semanticTokenColorCustomizations": {
+        "[default]": {
+            "abragenLocalFunction": "#DCDCAA",
+            "abragenGlobalFunction": "#C586C0",
+            "abragenMethod": "#4FC1FF",
+            "abragenProperty": "#9CDCFE",
+            "abragenClass": "#4EC9B0",
+            "abragenConstant": "#4FC1FF"
+        }
+    }
+}
