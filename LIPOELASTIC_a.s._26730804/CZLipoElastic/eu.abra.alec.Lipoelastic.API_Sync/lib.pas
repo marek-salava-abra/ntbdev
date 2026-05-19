@@ -20,7 +20,6 @@ begin
   mJSON:= TJSONSuperObject.Create;
   try
     try
-      //testovací komentář
       //SEKCE ZÁKLADNÍCH DAT********************************************************************************
       mJSON.O['data'] := mJSON.CreateJSONArray;
       mJSON.A['data'].O[0]:= mJSON.CreateJSON;
@@ -60,10 +59,9 @@ begin
       mJSON.A['data'].O[0].B['VelikostCode']:= ABO.GetFieldValueAsBoolean('U_velikost_ID.Code');
       mJSON.A['data'].O[0].B['VelikostName']:= ABO.GetFieldValueAsBoolean('U_velikost_ID.Name');
       mJSON.A['data'].O[0].B['BarvaCode']:= ABO.GetFieldValueAsBoolean('U_barva_ID.Code');
-      mJSON.A['data'].O[0].B['BarvaName']:= ABO.GetFieldValueAsBoolean('U_barva_ID.Name');
-      
+      mJSON.A['data'].O[0].B['BarvaName']:= ABO.GetFieldValueAsBoolean('U_barva_ID.Name');      
       //KONEC STARÝCH DAT********************************************************************************
-
+      //Doplněno jen pro SK, jinde nepoužívat, sekce doplněna dne 19.5.2026
 
       //SEKCE JEDNOTEK********************************************************************************
       mUnits:=ABO.GetLoadedCollectionMonikerForFieldCode(ABO.GetFieldCode('StoreUnits'));
