@@ -20,6 +20,7 @@ begin
   mJSON:= TJSONSuperObject.Create;
   try
     try
+      //testovací komentář
       //SEKCE ZÁKLADNÍCH DAT********************************************************************************
       mJSON.O['data'] := mJSON.CreateJSONArray;
       mJSON.A['data'].O[0]:= mJSON.CreateJSON;
