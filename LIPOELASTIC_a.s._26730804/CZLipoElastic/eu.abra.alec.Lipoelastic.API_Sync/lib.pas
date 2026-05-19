@@ -50,7 +50,7 @@ begin
       mJSON.A['data'].O[0].B['X_Matka']:= ABO.GetFieldValueAsBoolean('X_Matka');
       mJSON.A['data'].O[0].S['X_Parent_IDCode']:= ABO.GetFieldValueAsString('X_Parent_ID.Code');
       //KONEC ZÁKLADNÍCH DAT********************************************************************************
-
+      //doplnit
 
       //SEKCE JEDNOTEK********************************************************************************
       mUnits:=ABO.GetLoadedCollectionMonikerForFieldCode(ABO.GetFieldCode('StoreUnits'));
