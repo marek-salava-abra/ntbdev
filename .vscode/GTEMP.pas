@@ -48,6 +48,10 @@ begin
       mJSON.A['data'].O[0].D['IntrastatConstantWeight']:= ABO.GetFieldValueAsFloat('IntrastatCommodity_ID.ConstantWeight');
       mJSON.A['data'].O[0].S['EAN']:= ABO.GetFieldValueAsString('EAN');
       mJSON.A['data'].O[0].B['X_Matka']:= ABO.GetFieldValueAsBoolean('X_Matka');
+      mJSON.A['data'].O[0].S['X_Parent_IDCode']:= ABO.GetFieldValueAsString('X_Parent_ID.Code');
+      //KONEC ZÁKLADNÍCH DAT********************************************************************************
+
+      //ZAČÁTEK STARÝCH DAT********************************************************************************
       mJSON.A['data'].O[0].B['TypProduktuCode']:= ABO.GetFieldValueAsBoolean('X_Typ_produktu.Code');
       mJSON.A['data'].O[0].B['TypProduktuName']:= ABO.GetFieldValueAsBoolean('X_Typ_produktu.Name');
       mJSON.A['data'].O[0].B['DruhCode']:= ABO.GetFieldValueAsBoolean('U_druh_ID.Code');
@@ -56,8 +60,8 @@ begin
       mJSON.A['data'].O[0].B['VelikostName']:= ABO.GetFieldValueAsBoolean('U_velikost_ID.Name');
       mJSON.A['data'].O[0].B['BarvaCode']:= ABO.GetFieldValueAsBoolean('U_barva_ID.Code');
       mJSON.A['data'].O[0].B['BarvaName']:= ABO.GetFieldValueAsBoolean('U_barva_ID.Name');
-      mJSON.A['data'].O[0].S['X_Parent_IDCode']:= ABO.GetFieldValueAsString('X_Parent_ID.Code');
-      //KONEC ZÁKLADNÍCH DAT********************************************************************************
+      
+      //KONEC STARÝCH DAT********************************************************************************
 
 
       //SEKCE JEDNOTEK********************************************************************************
