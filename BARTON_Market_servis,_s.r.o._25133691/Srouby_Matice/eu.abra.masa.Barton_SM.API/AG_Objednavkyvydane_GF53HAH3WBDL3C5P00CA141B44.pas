@@ -110,8 +110,6 @@ begin
             mRowJSON.S['QUnit']:=mRowBO.GetFieldValueAsString('Qunit');
             mRowJSON.S['Text']:=mRowBO.GetFieldValueAsString('Text');
             mRowJSON.S['Row_ID']:=mRowBO.OID;
-            mRowJSON.D['Price']:=mRowBO.GetFieldValueAsFloat('Price');
-            mRowJSON.D['Amount']:=mRowBO.GetFieldValueAsFloat('Amount');
             
             mHeaderJSON.A['Rows'].Add(mRowJSON);
           end;
