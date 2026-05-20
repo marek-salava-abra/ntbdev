@@ -19,7 +19,8 @@ begin
        if not(NxIsEmptyOID(mOrder_ID)) then begin
          mbo:=self.ObjectSpace.CreateObject(Class_ReceivedOrder);
          mBO.Load(mOrder_ID,nil);
-         mbo.PMChangeState('8000000101');
+         if mbo.GetFieldValueAsBoolean('Closed') then
+          mbo.PMChangeState('8000000101') else mbo.PMChangeState('3010000101');
          mbo.free;
        end;
     end;
