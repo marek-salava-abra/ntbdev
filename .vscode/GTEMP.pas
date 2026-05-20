@@ -80,7 +80,7 @@ begin
           // Pokud byly nalezeny nenalezené karty, zastavit a vypsat chybu
           if mNotFoundCards.count>0 then begin
             WaitWin.Stop;
-            NxShowSimpleMessage('Skladové karty neexistují na API:'+ #13#10 + #13#10 + mNotFoundCards.Text + #13#10 + #13#10 + 'Synchronizace byla zrušena.',mSite);
+            NxShowSimpleMessage('Skladové karty neexistují v BMS:'+ #13#10 + #13#10 + mNotFoundCards.Text + #13#10 + #13#10 + 'Synchronizace byla zrušena.',mSite);
             mNotFoundCards.Free;
             exit;
           end;
