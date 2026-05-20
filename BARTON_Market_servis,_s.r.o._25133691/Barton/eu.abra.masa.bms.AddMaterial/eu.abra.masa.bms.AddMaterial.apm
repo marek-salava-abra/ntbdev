@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "10F0000101",
+    "name": "eu.abra.masa.bms.AddMaterial",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 4,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZXS4WRJWL2BO3HHEI4VUA3K3FW",
+      "filename": "AG_Normykompletace_ZXS4WRJWL2BO3HHEI4VUA3K3FW.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "dlg",
+      "filename": "dlg.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

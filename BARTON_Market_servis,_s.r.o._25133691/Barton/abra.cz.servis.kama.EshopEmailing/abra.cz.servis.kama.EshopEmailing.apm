@@ -1,0 +1,171 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "10H0000101",
+    "name": "abra.cz.servis.kama.EshopEmailing",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 1,
+    "description": "Odeslílání e-mailů z e-shopu ver. 7.97",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "1EM15VZKGXLONIBKTGPMJTAIFS",
+      "filename": "BO_Eshop-Nastavenie-mailingu_1EM15VZKGXLONIBKTGPMJTAIFS.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "WEN033MLM3DL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 3
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 4
+    },
+    {
+      "scriptid": "JZ22ZRJ0NNU4B10XV5SWGOHYR4",
+      "filename": "BO_Osobavefirme_JZ22ZRJ0NNU4B10XV5SWGOHYR4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 5
+    },
+    {
+      "scriptid": "ENOR1TF5WOFODJWGHWKOLF1BTC",
+      "filename": "BO_TrzbaEET_ENOR1TF5WOFODJWGHWKOLF1BTC.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 6
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 7
+    },
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 8
+    },
+    {
+      "scriptid": "EFMK3ZXZQGE4B1SSCYEBDGMCCK",
+      "filename": "BO_Odeslanaposta_EFMK3ZXZQGE4B1SSCYEBDGMCCK.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 9
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 10
+    },
+    {
+      "scriptid": "X1FB0Z3MCNN4B53W20FQD2PDRC",
+      "filename": "AG_Eshop-Nastavenie-mailingu_X1FB0Z3MCNN4B53W20FQD2PDRC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 11
+    },
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 12
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 13
+    },
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 14
+    },
+    {
+      "scriptid": "S5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladniprijmy_S5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 15
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 16
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 17
+    },
+    {
+      "scriptid": "ZSR1DT11PBWOJ3MELFAGIQ22QO",
+      "filename": "AG_Danovezalohovelistyvydane_ZSR1DT11PBWOJ3MELFAGIQ22QO.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 18
+    },
+    {
+      "scriptid": "QVSAA1X2BWEOHH22MEPGEAGI0W",
+      "filename": "AG_Odeslanaposta_QVSAA1X2BWEOHH22MEPGEAGI0W.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 19
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 20
+    },
+    {
+      "scriptid": "EditorHTML",
+      "filename": "EditorHTML.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 21
+    },
+    {
+      "scriptid": "constants",
+      "filename": "constants.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 22
+    }
+  ]
+}

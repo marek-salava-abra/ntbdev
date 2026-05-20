@@ -1,0 +1,80 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "30D0000101",
+    "name": "abra.cz.servis.ecommerce.EshopPrefill.MVC",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 26,
+    "description": "Eshop - Obecné pomocné funkce při zadání XDF položek pro eshop",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Common",
+      "filename": "Common.pas",
+      "scriptkind": 0,
+      "objversion": 24,
+      "posindex": 1
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 2
+    },
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 12,
+      "posindex": 3
+    },
+    {
+      "scriptid": "4MP1E2VUANDL342Q01C0CX3FCC",
+      "filename": "AG_Skladovemenu_4MP1E2VUANDL342Q01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 4
+    },
+    {
+      "scriptid": "42P1E2VUANDL342Q01C0CX3FCC",
+      "filename": "BO_Skladovemenu_42P1E2VUANDL342Q01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 5
+    },
+    {
+      "scriptid": "4K3EXM5PQBCL35CH000ILPWJF4",
+      "filename": "BO_Firma_4K3EXM5PQBCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 6
+    },
+    {
+      "scriptid": "WEC02QYERNCL35CH000ILPWJF4",
+      "filename": "BO_Osoba_WEC02QYERNCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 7
+    },
+    {
+      "scriptid": "2MV1EAYNMBW4RAH1W01CWIIWC0",
+      "filename": "BO_Eshop-Prislusenstvikeskladovymkartam_2MV1EAYNMBW4RAH1W01CWIIWC0.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 8
+    },
+    {
+      "scriptid": "I1ULWKJ0G1K4RHJRMMPRTA5QC4",
+      "filename": "AG_Eshop-Prislusenstvikeskladovymkartam_I1ULWKJ0G1K4RHJRMMPRTA5QC4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 9
+    }
+  ]
+}

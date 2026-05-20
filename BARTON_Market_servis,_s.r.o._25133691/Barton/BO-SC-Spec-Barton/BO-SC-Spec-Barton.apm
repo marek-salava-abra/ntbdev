@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1070000101",
+    "name": "BO-SC-Spec-Barton",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 36,
+    "description": "Code",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 27,
+      "posindex": 1
+    }
+  ]
+}

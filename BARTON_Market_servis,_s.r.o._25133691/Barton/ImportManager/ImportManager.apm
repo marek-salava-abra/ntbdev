@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1020000101",
+    "name": "ImportManager",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 17,
+    "description": "Importní manažer",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "22KUHRO1VHC4R0YJ5V5O4GYMEK",
+      "filename": "IM_Import_22KUHRO1VHC4R0YJ5V5O4GYMEK_22KUHRO1VHC4R0YJ5V5O4GYMEK.pas",
+      "scriptkind": 4,
+      "objversion": 17,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ZUMBGNJTXF44H4YIMBETLJJRQ0",
+      "filename": "IM_Import_ZUMBGNJTXF44H4YIMBETLJJRQ0_ZUMBGNJTXF44H4YIMBETLJJRQ0.pas",
+      "scriptkind": 4,
+      "objversion": 13,
+      "posindex": 2
+    },
+    {
+      "scriptid": "NOQNYTKTGF54L3A3TCFFVQSWSK",
+      "filename": "IM_Import_NOQNYTKTGF54L3A3TCFFVQSWSK_NOQNYTKTGF54L3A3TCFFVQSWSK.pas",
+      "scriptkind": 4,
+      "objversion": 13,
+      "posindex": 3
+    }
+  ]
+}

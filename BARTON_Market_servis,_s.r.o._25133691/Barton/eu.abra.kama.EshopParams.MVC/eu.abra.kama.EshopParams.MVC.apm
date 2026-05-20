@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "20D0000101",
+    "name": "eu.abra.kama.EshopParams.MVC",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 1,
+    "description": "Snadná editace parametrů ke skladovým kartám ver. 1.83",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 1
+    },
+    {
+      "scriptid": "JF1P4PG3DFW4HG3MPZDJ1BLSQG",
+      "filename": "RL_Eshop-Ciselnikovehodnotyvlastnostiskladovekarty_JF1P4PG3DFW4HG3MPZDJ1BLSQG.pas",
+      "scriptkind": 3,
+      "objversion": 1,
+      "posindex": 2
+    },
+    {
+      "scriptid": "GTBN5PZAVZP41EHWQVCF4YCHHW",
+      "filename": "RL_Eshop-Vlastnosti_GTBN5PZAVZP41EHWQVCF4YCHHW.pas",
+      "scriptkind": 3,
+      "objversion": 1,
+      "posindex": 3
+    }
+  ]
+}

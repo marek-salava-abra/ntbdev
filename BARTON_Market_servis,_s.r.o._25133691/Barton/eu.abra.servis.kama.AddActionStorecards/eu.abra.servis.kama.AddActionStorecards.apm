@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "10E0000101",
+    "name": "eu.abra.servis.kama.AddActionStorecards",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 1,
+    "description": "Připojí karty k aktivitě v1.01",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OYC0P3TDDY1ORIJO2SKTP2KZKG",
+      "filename": "AG_Aktivity_OYC0P3TDDY1ORIJO2SKTP2KZKG.pas",
+      "scriptkind": 2,
+      "objversion": 1,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2010000101",
+    "name": "eu.abra.rama.edi2",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 6,
+    "description": "eu.abra.rama.edi2",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 6,
+      "posindex": 1
+    },
+    {
+      "scriptid": "common",
+      "filename": "common.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 2
+    },
+    {
+      "scriptid": "import",
+      "filename": "import.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 3
+    },
+    {
+      "scriptid": "export",
+      "filename": "export.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 4
+    },
+    {
+      "scriptid": "settings",
+      "filename": "settings.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 5
+    },
+    {
+      "scriptid": "automat",
+      "filename": "automat.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 6
+    },
+    {
+      "scriptid": "impm_common",
+      "filename": "impm_common.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 7
+    },
+    {
+      "scriptid": "qr",
+      "filename": "qr.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 8
+    },
+    {
+      "scriptid": "4IS5X5MK2BH4TASDZ1GM0PDASS",
+      "filename": "AG_EDISubstituceEANu_4IS5X5MK2BH4TASDZ1GM0PDASS.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 9
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 10
+    },
+    {
+      "scriptid": "X23MN50XW0KORHXEP3TLJJBIZW",
+      "filename": "AG_EDIPolozkyimportu_X23MN50XW0KORHXEP3TLJJBIZW.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 11
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 12
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 13
+    },
+    {
+      "scriptid": "22KUHRO1VHC4R0YJ5V5O4GYMEK",
+      "filename": "IM_Import_22KUHRO1VHC4R0YJ5V5O4GYMEK_22KUHRO1VHC4R0YJ5V5O4GYMEK.pas",
+      "scriptkind": 4,
+      "objversion": 5,
+      "posindex": 14
+    },
+    {
+      "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
+      "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
+      "scriptkind": 4,
+      "objversion": 5,
+      "posindex": 15
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 16
+    },
+    {
+      "scriptid": "agendy",
+      "filename": "agendy.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 18
+    },
+    {
+      "scriptid": "xml_importy",
+      "filename": "xml_importy.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 19
+    },
+    {
+      "scriptid": "X0LZE0HIE5WOJBPFVQRNNNVAP0",
+      "filename": "AG_DefinovatelneB2Bimporty_X0LZE0HIE5WOJBPFVQRNNNVAP0.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 20
+    },
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 21
+    },
+    {
+      "scriptid": "ZUMBGNJTXF44H4YIMBETLJJRQ0",
+      "filename": "IM_Import_ZUMBGNJTXF44H4YIMBETLJJRQ0_ZUMBGNJTXF44H4YIMBETLJJRQ0.pas",
+      "scriptkind": 4,
+      "objversion": 5,
+      "posindex": 22
+    },
+    {
+      "scriptid": "libscommon",
+      "filename": "libscommon.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 23
+    },
+    {
+      "scriptid": "libsrolls",
+      "filename": "libsrolls.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 24
+    },
+    {
+      "scriptid": "uLicence",
+      "filename": "uLicence.pas",
+      "scriptkind": 0,
+      "objversion": 5,
+      "posindex": 25
+    }
+  ]
+}

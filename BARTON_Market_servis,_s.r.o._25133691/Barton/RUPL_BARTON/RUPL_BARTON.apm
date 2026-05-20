@@ -1,0 +1,150 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1050000101",
+    "name": "RUPL_BARTON",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 52,
+    "description": "Prefill šarží",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Functions_Heads",
+      "filename": "Functions_Heads.pas",
+      "scriptkind": 0,
+      "objversion": 35,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Functions_Rows_OUT",
+      "filename": "Functions_Rows_OUT.pas",
+      "scriptkind": 0,
+      "objversion": 36,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Functions_Rows_IN",
+      "filename": "Functions_Rows_IN.pas",
+      "scriptkind": 0,
+      "objversion": 34,
+      "posindex": 3
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 34,
+      "posindex": 4
+    },
+    {
+      "scriptid": "0H0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist-radek_0H0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 5
+    },
+    {
+      "scriptid": "2T0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Inventarnimanko_2T0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 6
+    },
+    {
+      "scriptid": "310I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Inventarnimanko-radek_310I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 7
+    },
+    {
+      "scriptid": "0P0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej_0P0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 8
+    },
+    {
+      "scriptid": "110I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej-radek_110I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 9
+    },
+    {
+      "scriptid": "2MV0SHPYLFJOL3D4WN02HCPX5S",
+      "filename": "BO_Vydejmaterialudovyroby_2MV0SHPYLFJOL3D4WN02HCPX5S.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 10
+    },
+    {
+      "scriptid": "YMPR5ATH032O1H3R4VWVLDLY4S",
+      "filename": "BO_Vydejmaterialudovyroby-radek_YMPR5ATH032O1H3R4VWVLDLY4S.pas",
+      "scriptkind": 1,
+      "objversion": 41,
+      "posindex": 11
+    },
+    {
+      "scriptid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "filename": "BO_Prijemka_E03ZNUMDTCC4PDAUIEY1MBTJC0.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 12
+    },
+    {
+      "scriptid": "FLQIA44IVWM4B20GYRHC42BHGW",
+      "filename": "BO_Prijemka-radek_FLQIA44IVWM4B20GYRHC42BHGW.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 13
+    },
+    {
+      "scriptid": "2D0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Inventarniprebytek_2D0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 14
+    },
+    {
+      "scriptid": "2L0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Inventarniprebytek-radek_2L0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 15
+    },
+    {
+      "scriptid": "1D0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkaprijem_1D0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 16
+    },
+    {
+      "scriptid": "1L0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkaprijem-radek_1L0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 17
+    },
+    {
+      "scriptid": "C3DLAMUSDJNOLDWCDBSBM2GAI0",
+      "filename": "BO_Prijemhotovychvyrobku_C3DLAMUSDJNOLDWCDBSBM2GAI0.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 18
+    },
+    {
+      "scriptid": "GJU2P1XJKZF41IBONBO5OUXCX4",
+      "filename": "BO_Prijemhotovychvyrobku-radek_GJU2P1XJKZF41IBONBO5OUXCX4.pas",
+      "scriptkind": 1,
+      "objversion": 33,
+      "posindex": 19
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1010000101",
+    "name": "edi2",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 2,
+    "description": "edi2",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "extras",
+      "filename": "extras.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "example",
+      "filename": "example.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

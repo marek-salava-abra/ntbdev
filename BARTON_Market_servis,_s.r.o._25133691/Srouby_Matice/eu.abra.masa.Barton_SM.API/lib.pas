@@ -1,5 +1,4 @@
-
-var
+﻿var
   gUpdated, gCreated: Integer;
 
 // API_POST - Odesílání dat na API v JSON formátu
@@ -12,45 +11,22 @@ begin
   mSuffix:= '';
   try
    mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
+   mURl:='https://api.barton.cz:8444/barton/'+mSuffix+aName;  // UPRAVIT: URL_ENDPOINT nahradit správným URL
    mWinHTTP.Open('POST', mURL);
    mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
-   mWinHTTP.SetRequestHeader('Authorization','Basic '+'AUTH_TOKEN');
+   mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.UTF8.GetBytes('API:ApiHeslo')));
    mWinHTTP.Send(aJSON.AsJson);
-   mResultJSON:=TJSONSuperObject.Create;
-   mResultJSON.S['Category']:=aName;
-   mResultJSON.S['ServiceName']:='API Service';
-   mResultJSON.I['HTTPStatus']:=StrToInt(mWinHTTP.status);
-   mResultJSON.S['Method']:='POST';
-   mResultJSON.S['InputJSON']:='#'+aJSON.AsString+'#';
    if mWinHTTP.status='200' then begin
      Result:=TJSONSuperObject.ParseString(mWinHTTP.ResponseText, True);
-     mResultJSON.S['Status']:='OK';
-     mResultJSON.S['ResponseText']:=mWinHTTP.ResponseText;
-     mResultJSON.S['ExceptionMessage']:='';
    end else begin
      Result:=TJSONSuperObject.create;
      Result.S['ID']:='';
-     mResultJSON.S['Status']:='Error1';
-     mResultJSON.S['ResponseText']:=mWinHTTP.ResponseText;
-     mResultJSON.S['ExceptionMessage']:='';
    end;
-   API_Result(mResultJSON);
   except
    Result:=TJSONSuperObject.create;
    Result.S['error']:='error';
-   mResultJSON:=TJSONSuperObject.Create;
-   mResultJSON.S['Category']:=aName;
-   mResultJSON.S['ServiceName']:='API Service';
-   mResultJSON.I['HTTPStatus']:=404;
-   mResultJSON.S['InputJSON']:=aJSON.AsString;
-   mResultJSON.S['Status']:='Error1';
-   mResultJSON.S['ResponseText']:='';
-   mResultJSON.S['ExceptionMessage']:=ExceptionMessage;
-   mResultJSON.S['Method']:='POST';
-   API_Result(mResultJSON);
   end;
 end;
-
 
 function API_GET(aURL:String; aIndex: integer = 0): TJSONSuperObject;
 var
@@ -63,8 +39,7 @@ begin
     mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
     mWinHTTP.Open('GET', aURL);
     mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
-    if aIndex=0 then mAuth:='AUTH_TOKEN'  // UPRAVIT
-    mWinHTTP.SetRequestHeader('Authorization','Basic '+mAuth);
+    mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.UTF8.GetBytes('API:ApiHeslo')));
     mWinHTTP.Send();
     Result:=TJSONSuperObject.ParseString(ConvertToText(mWinHTTP.Responsebody), True);
   except

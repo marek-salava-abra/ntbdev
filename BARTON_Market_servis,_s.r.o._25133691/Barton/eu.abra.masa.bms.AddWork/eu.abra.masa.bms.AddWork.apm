@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "10G0000101",
+    "name": "eu.abra.masa.bms.AddWork",
+    "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
+    "objversion": 34,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "AJVFUWST2X54BH2U3OOERGL5DG",
+      "filename": "AG_Obsahyskladovychpozic_AJVFUWST2X54BH2U3OOERGL5DG.pas",
+      "scriptkind": 2,
+      "objversion": 34,
+      "posindex": 1
+    }
+  ]
+}
