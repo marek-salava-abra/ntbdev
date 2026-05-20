@@ -5,10 +5,10 @@
     "id": "1010000101",
     "name": "eu.abra.masa.Barton_SM.API",
     "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
-    "objversion": 9,
+    "objversion": 24,
     "description": "",
     "cryptForExport": false,
-    "usageState": 0,
+    "usageState": 2,
     "usageStateTestConnection": 3,
     "runOrder": 0
   },
@@ -17,14 +17,14 @@
       "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
       "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
       "scriptkind": 2,
-      "objversion": 7,
+      "objversion": 17,
       "posindex": 1
     },
     {
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 7,
+      "objversion": 15,
       "posindex": 2
     }
   ]
