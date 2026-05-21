@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000903",
+    "name": "eu.abra.masa.lipoelastic.ImportSupplier",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 19,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 1
+    },
+    {
+      "scriptid": "BP0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarniprebytky_BP0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 2
+    }
+  ]
+}

@@ -49,6 +49,7 @@ begin
           // Kontrola existence skladových karet na vzdáleném API
           mNotFoundCards:=TStringList.Create;
           mNotFoundCards.Clear;
+          WaitWin.StartProgress('Kontrola položek, čekejte ...', '', mRows.Count);
           
           for i:=0 to mRows.count-1 do begin
             mRowBO:=mRows.BusinessObject[i];
@@ -75,7 +76,10 @@ begin
                 end;
               end;
             end;
+            WaitWin.ChangeText(IntToStr(i+1) + ' / ' + IntToStr(mRows.Count));
+            WaitWin.StepIt;
           end;
+          WaitWin.Stop;
           
           // Pokud byly nalezeny nenalezené karty, zastavit a vypsat chybu
           if mNotFoundCards.count>0 then begin
@@ -95,6 +99,7 @@ begin
           mHeaderJSON.S['Description']:=mBO.GetFieldValueAsString('Description');
           mHeaderJSON.S['FirmCode']:=mBO.GetFieldValueAsString('Firm_ID.Code');
           mHeaderJSON.S['FirmName']:=mBO.GetFieldValueAsString('Firm_ID.Name');
+          mHeaderJSON.S['FirmOrgIdentNumber']:=mBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber');
           mHeaderJSON.S['IssuedOrder_ID']:=mBO.OID;
           mHeaderJSON.O['Rows'] := mHeaderJSON.CreateJSONArray;          
           

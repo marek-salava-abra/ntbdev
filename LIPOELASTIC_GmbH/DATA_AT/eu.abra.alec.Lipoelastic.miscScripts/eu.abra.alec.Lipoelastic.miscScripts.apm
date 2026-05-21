@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000A04",
+    "name": "eu.abra.alec.Lipoelastic.miscScripts",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 4,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "CHWH5QIPG044BHXIMZZG20MMG4",
+      "filename": "AG_Provozovny_CHWH5QIPG044BHXIMZZG20MMG4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

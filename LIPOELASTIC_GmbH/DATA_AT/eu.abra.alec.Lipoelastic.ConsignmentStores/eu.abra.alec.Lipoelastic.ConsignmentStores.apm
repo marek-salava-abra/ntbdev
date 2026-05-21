@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000904",
+    "name": "eu.abra.alec.Lipoelastic.ConsignmentStores",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 80,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OFZO2K155FDL3CL100C4RHECN0",
+      "filename": "AG_Sklady_OFZO2K155FDL3CL100C4RHECN0.pas",
+      "scriptkind": 2,
+      "objversion": 40,
+      "posindex": 1
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 40,
+      "posindex": 2
+    },
+    {
+      "scriptid": "datamatrix",
+      "filename": "datamatrix.pas",
+      "scriptkind": 0,
+      "objversion": 44,
+      "posindex": 3
+    },
+    {
+      "scriptid": "legacy",
+      "filename": "legacy.pas",
+      "scriptkind": 0,
+      "objversion": 36,
+      "posindex": 4
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 63,
+      "posindex": 5
+    },
+    {
+      "scriptid": "import",
+      "filename": "import.pas",
+      "scriptkind": 0,
+      "objversion": 27,
+      "posindex": 6
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000103",
+    "name": "eu.abra.alec.Lipoelastic.Sendcloud",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 367,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 165,
+      "posindex": 1
+    },
+    {
+      "scriptid": "3PO4P4CZ0NMOJDFFNZKX4USK5C",
+      "filename": "AG_Sendcloud-stavyzasilek_3PO4P4CZ0NMOJDFFNZKX4USK5C.pas",
+      "scriptkind": 2,
+      "objversion": 148,
+      "posindex": 2
+    },
+    {
+      "scriptid": "COAUTOW5YRDL3C5P00CA141B44",
+      "filename": "AG_Zpusobydopravy_COAUTOW5YRDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 152,
+      "posindex": 3
+    },
+    {
+      "scriptid": "KQSRQSPU1JO43IINYNOQKKYHVO",
+      "filename": "AG_Postovniposkytovatele_KQSRQSPU1JO43IINYNOQKKYHVO.pas",
+      "scriptkind": 2,
+      "objversion": 112,
+      "posindex": 4
+    },
+    {
+      "scriptid": "QVSAA1X2BWEOHH22MEPGEAGI0W",
+      "filename": "AG_Odeslanaposta_QVSAA1X2BWEOHH22MEPGEAGI0W.pas",
+      "scriptkind": 2,
+      "objversion": 89,
+      "posindex": 5
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 103,
+      "posindex": 6
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 161,
+      "posindex": 7
+    },
+    {
+      "scriptid": "API",
+      "filename": "API.pas",
+      "scriptkind": 0,
+      "objversion": 168,
+      "posindex": 8
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 253,
+      "posindex": 9
+    },
+    {
+      "scriptid": "POST",
+      "filename": "POST.pas",
+      "scriptkind": 0,
+      "objversion": 98,
+      "posindex": 10
+    },
+    {
+      "scriptid": "JSON",
+      "filename": "JSON.pas",
+      "scriptkind": 0,
+      "objversion": 44,
+      "posindex": 11
+    },
+    {
+      "scriptid": "1D0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkaprijem_1D0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 25,
+      "posindex": 12
+    },
+    {
+      "scriptid": "BH0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-prijmy_BH0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 13
+    }
+  ]
+}

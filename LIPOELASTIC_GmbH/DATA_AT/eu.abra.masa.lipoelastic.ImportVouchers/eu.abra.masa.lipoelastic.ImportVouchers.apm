@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000603",
+    "name": "eu.abra.masa.lipoelastic.ImportVouchers",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 35,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "KKECBGLAU2L4Z3E5VNJIHEO0VS",
+      "filename": "AG_Vouchers_KKECBGLAU2L4Z3E5VNJIHEO0VS.pas",
+      "scriptkind": 2,
+      "objversion": 34,
+      "posindex": 1
+    }
+  ]
+}

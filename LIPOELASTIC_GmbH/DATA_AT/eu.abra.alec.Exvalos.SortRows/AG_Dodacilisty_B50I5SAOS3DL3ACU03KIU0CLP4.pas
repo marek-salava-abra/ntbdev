@@ -1,0 +1,5 @@
+﻿//uses '.lib';
+
+
+begin
+end.

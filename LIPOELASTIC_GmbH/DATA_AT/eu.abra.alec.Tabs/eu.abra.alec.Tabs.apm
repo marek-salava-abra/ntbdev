@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000I05",
+    "name": "eu.abra.alec.Tabs",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 363,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 249,
+      "posindex": 1
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 220,
+      "posindex": 2
+    },
+    {
+      "scriptid": "IssuedInvoices",
+      "filename": "IssuedInvoices.pas",
+      "scriptkind": 0,
+      "objversion": 203,
+      "posindex": 3
+    },
+    {
+      "scriptid": "CreditNotes",
+      "filename": "CreditNotes.pas",
+      "scriptkind": 0,
+      "objversion": 131,
+      "posindex": 4
+    },
+    {
+      "scriptid": "OrdersIn",
+      "filename": "OrdersIn.pas",
+      "scriptkind": 0,
+      "objversion": 69,
+      "posindex": 5
+    },
+    {
+      "scriptid": "dataset",
+      "filename": "dataset.pas",
+      "scriptkind": 0,
+      "objversion": 11,
+      "posindex": 6
+    },
+    {
+      "scriptid": "legacy",
+      "filename": "legacy.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 7
+    },
+    {
+      "scriptid": "BankStatements",
+      "filename": "BankStatements.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 8
+    }
+  ]
+}

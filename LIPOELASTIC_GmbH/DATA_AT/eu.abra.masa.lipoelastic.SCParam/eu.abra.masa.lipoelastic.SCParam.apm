@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000102",
+    "name": "eu.abra.masa.lipoelastic.SCParam",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 5,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "qr",
+      "filename": "qr.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 4
+    },
+    {
+      "scriptid": "KCAWICC3H2O4DG0YEDMLO4X0PK",
+      "filename": "BO_BOparametruskladovychkaret_KCAWICC3H2O4DG0YEDMLO4X0PK.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 5
+    }
+  ]
+}

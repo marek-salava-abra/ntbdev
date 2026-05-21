@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000A05",
+    "name": "eu.abra.masa.lipelastic.GenOV",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 35,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 35,
+      "posindex": 1
+    }
+  ]
+}

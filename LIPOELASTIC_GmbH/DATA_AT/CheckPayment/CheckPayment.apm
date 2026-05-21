@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000504",
+    "name": "CheckPayment",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 60,
+    "description": "Api kontrola platby na OP",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 34,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 42,
+      "posindex": 2
+    },
+    {
+      "scriptid": "OBSCO4S1BRD13FY1010DELDFKK",
+      "filename": "BO_Bankovnivypis-radek_OBSCO4S1BRD13FY1010DELDFKK.pas",
+      "scriptkind": 1,
+      "objversion": 14,
+      "posindex": 3
+    },
+    {
+      "scriptid": "R1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Bankovnivypisy_R1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 5
+    }
+  ]
+}

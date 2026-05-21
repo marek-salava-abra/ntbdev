@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000F08",
+    "name": "eu.abra.alec.Lipoelastic.BankPairing",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 232,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 224,
+      "posindex": 1
+    },
+    {
+      "scriptid": "R1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Bankovnivypisy_R1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 135,
+      "posindex": 2
+    },
+    {
+      "scriptid": "docMatching",
+      "filename": "docMatching.pas",
+      "scriptkind": 0,
+      "objversion": 17,
+      "posindex": 3
+    }
+  ]
+}

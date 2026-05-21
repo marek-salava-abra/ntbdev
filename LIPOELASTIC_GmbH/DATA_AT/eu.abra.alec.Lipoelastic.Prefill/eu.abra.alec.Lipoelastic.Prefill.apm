@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000C05",
+    "name": "eu.abra.alec.Lipoelastic.Prefill",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 20,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 15,
+      "posindex": 1
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 2
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 3
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000K08",
+    "name": "eu.abra.masa.lipoelastic.FillPurchasePrice",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "BP0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarniprebytky_BP0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

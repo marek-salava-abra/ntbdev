@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000G04",
+    "name": "eu.abra.masa.lipoelastic.InventoryDocs",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 139,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OFZO2K155FDL3CL100C4RHECN0",
+      "filename": "AG_Sklady_OFZO2K155FDL3CL100C4RHECN0.pas",
+      "scriptkind": 2,
+      "objversion": 110,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 89,
+      "posindex": 2
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 71,
+      "posindex": 3
+    },
+    {
+      "scriptid": "ZFQNOUBQ4NEO5APLFIS5352F2O",
+      "filename": "AG_Dilciinventarniprotokoly_ZFQNOUBQ4NEO5APLFIS5352F2O.pas",
+      "scriptkind": 2,
+      "objversion": 31,
+      "posindex": 5
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000D04",
+    "name": "eu.abra.masa.lipo.SelRecordFromXLS",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 5,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

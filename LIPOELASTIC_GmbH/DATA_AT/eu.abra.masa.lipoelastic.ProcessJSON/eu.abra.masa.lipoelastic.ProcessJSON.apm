@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000H0C",
+    "name": "eu.abra.masa.lipoelastic.ProcessJSON",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 26,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "NXFEVXVBFRX4ZFMFP4E4ED1GVS",
+      "filename": "AG_InvoiceQueuefromCZE_NXFEVXVBFRX4ZFMFP4E4ED1GVS.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 1
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 24,
+      "posindex": 2
+    },
+    {
+      "scriptid": "auto",
+      "filename": "auto.pas",
+      "scriptkind": 0,
+      "objversion": 16,
+      "posindex": 3
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 4
+    }
+  ]
+}

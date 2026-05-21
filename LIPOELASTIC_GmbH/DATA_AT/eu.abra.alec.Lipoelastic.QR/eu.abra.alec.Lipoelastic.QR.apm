@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000A06",
+    "name": "eu.abra.alec.Lipoelastic.QR",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 30,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "QR",
+      "filename": "QR.pas",
+      "scriptkind": 0,
+      "objversion": 29,
+      "posindex": 1
+    }
+  ]
+}

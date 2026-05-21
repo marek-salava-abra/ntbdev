@@ -1,0 +1,80 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000001",
+    "name": "eu.abra.masa.lipoelastic.importxml",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 337,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OFZO2K155FDL3CL100C4RHECN0",
+      "filename": "AG_Sklady_OFZO2K155FDL3CL100C4RHECN0.pas",
+      "scriptkind": 2,
+      "objversion": 226,
+      "posindex": 1
+    },
+    {
+      "scriptid": "CKAUTOW5YRDL3C5P00CA141B44",
+      "filename": "AG_Zpusobyuhrady_CKAUTOW5YRDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 212,
+      "posindex": 2
+    },
+    {
+      "scriptid": "COAUTOW5YRDL3C5P00CA141B44",
+      "filename": "AG_Zpusobydopravy_COAUTOW5YRDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 211,
+      "posindex": 3
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 243,
+      "posindex": 4
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 212,
+      "posindex": 5
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 188,
+      "posindex": 6
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 165,
+      "posindex": 7
+    },
+    {
+      "scriptid": "G5GESPQ23FE13DQC01C0CX3F40",
+      "filename": "AG_Ceniky_G5GESPQ23FE13DQC01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 136,
+      "posindex": 8
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 123,
+      "posindex": 9
+    }
+  ]
+}

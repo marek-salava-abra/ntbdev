@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000805",
+    "name": "eu.abra.masa.lipoelastic.Autoinvoice",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 238,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 174,
+      "posindex": 1
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 109,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 112,
+      "posindex": 3
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 126,
+      "posindex": 4
+    },
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 78,
+      "posindex": 5
+    },
+    {
+      "scriptid": "O1C4ERBIVNIOT4WASH5MYY14CK",
+      "filename": "AG_Nabidkyvydane_O1C4ERBIVNIOT4WASH5MYY14CK.pas",
+      "scriptkind": 2,
+      "objversion": 67,
+      "posindex": 6
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 67,
+      "posindex": 7
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 8
+    }
+  ]
+}

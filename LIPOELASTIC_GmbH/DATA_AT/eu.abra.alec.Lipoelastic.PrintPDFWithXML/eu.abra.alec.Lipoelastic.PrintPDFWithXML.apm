@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000C04",
+    "name": "eu.abra.alec.Lipoelastic.PrintPDFWithXML",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 1
+    },
+    {
+      "scriptid": "QR",
+      "filename": "QR.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

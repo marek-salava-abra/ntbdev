@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000807",
+    "name": "eu.abra.masa.lipoleastic.PMStates",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 52,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 32,
+      "posindex": 1
+    },
+    {
+      "scriptid": "EFMK3ZXZQGE4B1SSCYEBDGMCCK",
+      "filename": "BO_Odeslanaposta_EFMK3ZXZQGE4B1SSCYEBDGMCCK.pas",
+      "scriptkind": 1,
+      "objversion": 30,
+      "posindex": 2
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 25,
+      "posindex": 3
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 21,
+      "posindex": 4
+    }
+  ]
+}

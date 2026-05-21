@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000203",
+    "name": "eu.abra.masa.lipoelastic.mollie",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 95,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "R1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Bankovnivypisy_R1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 94,
+      "posindex": 1
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 60,
+      "posindex": 2
+    }
+  ]
+}

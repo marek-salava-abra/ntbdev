@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000002",
+    "name": "eu.abra.masa.lipoelastic.AT_API",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 116,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 101,
+      "posindex": 1
+    },
+    {
+      "scriptid": "API",
+      "filename": "API.pas",
+      "scriptkind": 0,
+      "objversion": 31,
+      "posindex": 2
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 33,
+      "posindex": 3
+    },
+    {
+      "scriptid": "NTC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Radydokladu_NTC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 27,
+      "posindex": 4
+    },
+    {
+      "scriptid": "005WXDGLTVDL342W01C0CX3FCC",
+      "filename": "AG_Sarze-seriovacisla_005WXDGLTVDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 5
+    }
+  ]
+}
