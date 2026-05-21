@@ -32,6 +32,12 @@ Toto repozitář obsahuje vývojové skripty a moduly pro různé instance ABRA 
     - `REST_SkladTerm/`: REST API pro skladové terminály.
     - Různé další moduly pro import, export, e-shop integrace atd.
 
+- **BARTON_Market_servis,_s.r.o._25133691/**: Skripty pro společnost BARTON Market servis.
+  - **Barton/**: Moduly a nástroje pro BARTON.
+  - **Srouby_Matice/**: Obsahuje specializované ABRA moduly jako `eu.abra.masa.Barton_SM.API/`.
+
+- **LIPOELASTIC_a.s._26730804/** a **LIPOELASTIC_s.r.o._53578341/**: Skripty pro společnost LIPOELASTIC, rozdělené podle instance.
+
 ### Další soubory v kořeni
 
 - **GPATH, GRTAGS, GTAGS**: Soubory pro GNU Global - nástroj pro rychlé vyhledávání v kódu.
