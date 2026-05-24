@@ -16,6 +16,79 @@ begin
   mAction.Hint := 'Dohledá kartu na BMS a založí';
   mAction.Category := 'tabList';
   mAction.OnExecute := @GetCardOverAPI;
+  mAction := Self.GetNewAction;
+  mAction.ShowControl := True;
+  mAction.ShowMenuItem := True;
+  mAction.Name := 'actUpdateCardOverAPI';
+  mAction.Caption := '##Aktualizovat z BMS##';
+  mAction.Hint := 'Aktualizuje EAN a popis na jednotce z BMS';
+  mAction.Category := 'tabList';
+  mAction.OnExecute := @UpdateCardOverAPI;
+end;
+
+Procedure UpdateCardOverAPI(sender:tcomponent);
+var
+ mSite: TSiteForm;
+ mList: TStringList;
+ mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
+ i,j,k,l,m,n: integer;
+ mRemoteStoreCardID:string;
+ mStoreCardJSON, mResultJSON, mJSON: TJSONSuperObject;
+ mStoreCardArray: TJSONSuperObjectArray;
+ mUnits, mEANs: TNxCustomBusinessMonikerCollection;
+begin
+  mSite := TComponent(Sender).BusRollSite;
+  mList := TStringList.Create;
+  TBusRollSiteForm(mSite).List.GetSelectedID(mList);
+  if mlist.Count>0 then begin
+    if NxMessageBox('Dotaz','Přejete si aktualizovat EAN a popis jednotky u '+IntToStr(mList.count)+' karet?' , mdConfirm, mdbYesNo, 0, 0, False, mSite)= mrYes then begin
+      WaitWin.StartProgress('Aktualizuji položky, čekejte ...', '', mlist.Count);
+      for l:=0 to mlist.count-1 do begin
+        mBO:=mSite.BaseObjectSpace.createobject(Class_StoreCard);
+        mBO.Load(mlist.strings[l], nil);
+        if Assigned(mBO) then begin
+          mRemoteStoreCardID := '';
+          mStoreCardJSON := API_GET('https://api.barton.cz:8444/barton/Storecards?select=id,code,name&where=code eq '+QuotedStr(mbo.GetFieldValueAsString('Code'))+' and hidden eq ''N''');
+          mStoreCardArray := mStoreCardJSON.AsArray;
+          if mStoreCardArray.Length = 1 then mRemoteStoreCardID := mStoreCardArray.O[0].S['id'] else mremoteStoreCardID:='';
+          if not(nxisemptyoid(mRemoteStoreCardID)) then begin
+            mJSON := TJSONSuperObject.Create;
+              try
+                mJSON.S['id']:=mremoteStoreCardID;
+                mResultJSON := API_POST(mJSON, 'StoreCards', True);
+              finally
+                mJSON.Free;
+              end;
+              if Assigned(mResultJSON) and not NxIsEmptyOID(mResultJSON.S['ID']) then begin
+               munits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
+               for i:=0 to munits.count-1 do begin
+                  mUnitBO:=munits.BusinessObject[i];
+                  for m:=0 to mResultJSON.A['StoreUnits'].Length-1 do begin
+                    if mUnitBO.GetFieldValueAsString('Code')=mResultJSON.A['StoreUnits'].O[m].S['Code'] then begin
+                      if munitbo.GetFieldValueAsString('EAN')='' then
+                        mUnitBO.SetFieldValueAsString('EAN',mResultJSON.A['StoreUnits'].O[m].S['EAN']);
+                      if mUnitBO.GetFieldValueAsString('Description')='' then  
+                        mUnitBO.SetFieldValueAsString('Description',mResultJSON.A['StoreUnits'].O[m].S['Description']);                
+                      means:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
+                      for n:=0 to means.count-1 do means.BusinessObject[n].MarkForDelete;
+                      for j:=0 to mResultJSON.A['StoreUnits'].O[m].A['EANs'].Length-1 do begin
+                        mEANBO:=means.AddNewObject;
+                        mEANBO.SetFieldValueAsString('EAN',mResultJSON.A['StoreUnits'].O[m].A['EANs'].O[j].S['EAN']);
+                      end;
+                    end;
+                  end;
+               end;
+              end; 
+          end;
+        end;
+        if mbo.needsave then mbo.save;
+        mBO.free;
+        WaitWin.ChangeText(IntToStr(l+1) + ' / ' + IntToStr(mList.Count));
+        WaitWin.StepIt;
+       end;
+     WaitWin.Stop;
+    end;
+  end;
 end;
 
 Procedure GetCardOverAPI(sender:tcomponent);

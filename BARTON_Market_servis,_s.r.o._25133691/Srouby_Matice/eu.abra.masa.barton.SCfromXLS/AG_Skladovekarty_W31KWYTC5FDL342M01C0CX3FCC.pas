@@ -10,7 +10,7 @@ begin
   mAction.Hint := 'založení karet dle XLS';
   mAction.Category := 'tabList';
   mAction.OnExecute := @CreateSC;
-
+  {
   mAction := Self.GetNewAction;
   mAction.ShowControl := True;
   mAction.ShowMenuItem := True;
@@ -18,7 +18,7 @@ begin
   mAction.Caption := '## Doplní jednotku ##';
   mAction.Hint := 'doplní jednotku dle XLS';
   mAction.Category := 'tabList';
-  mAction.OnExecute := @InsertSCUnit;
+  mAction.OnExecute := @InsertSCUnit;}
 end;
 
 Procedure InsertSCUnit(Sender:TComponent);
