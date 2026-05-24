@@ -2,10 +2,10 @@
   "type": "ABRAGEN_PACKAGE_METADATA",
   "metadata_version": 1,
   "package": {
-    "id": "1010000101",
-    "name": "eu.abra.masa.Barton_SM.API",
+    "id": "10J0000101",
+    "name": "eu.abra.masa.BMS.API",
     "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
-    "objversion": 58,
+    "objversion": 24,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -14,17 +14,17 @@
   },
   "scripts": [
     {
-      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
-      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
-      "scriptkind": 2,
-      "objversion": 46,
-      "posindex": 1
-    },
-    {
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 35,
+      "objversion": 17,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 11,
       "posindex": 2
     }
   ]

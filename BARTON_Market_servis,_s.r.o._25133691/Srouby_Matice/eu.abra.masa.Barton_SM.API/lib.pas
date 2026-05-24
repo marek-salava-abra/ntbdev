@@ -8,7 +8,7 @@ var
  mResultJSON:TJSONSuperObject;
  mSuffix, mURL: string;
 begin
-  mSuffix:= '';
+  mSuffix:= 'script/eu.abra.masa.BMS.API/lib/';
   try
    mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
    mURl:='https://api.barton.cz:8444/barton/'+mSuffix+aName;  // UPRAVIT: URL_ENDPOINT nahradit správným URL

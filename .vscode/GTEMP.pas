@@ -93,13 +93,13 @@ begin
           // Příprava hlavičky dokladu v JSON
           mHeaderJSON:=TJSONSuperObject.Create;
           mHeaderJSON.S['Code']:=mBO.DisplayName;
-          //mHeaderJSON.S['DocumentNumber']:=mBO.GetFieldValueAsString('DocumentNumber');
-          mHeaderJSON.S['ExternalNumber']:=mBO.GetFieldValueAsString('ExternalNumber');
+          mHeaderJSON.S['DocumentNumber']:=mBO.displayname;
+          //mHeaderJSON.S['ExternalNumber']:=mBO.GetFieldValueAsString('ExternalNumber');
           //mHeaderJSON.DT8601['CreatedOn']:=mBO.GetFieldValueAsDateTime('CreatedOn');
           mHeaderJSON.S['Description']:=mBO.GetFieldValueAsString('Description');
           mHeaderJSON.S['FirmCode']:=mBO.GetFieldValueAsString('Firm_ID.Code');
           mHeaderJSON.S['FirmName']:=mBO.GetFieldValueAsString('Firm_ID.Name');
-          mHeaderJSON.S['FirmOrgIdentNumber']:=mBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber');
+          mHeaderJSON.S['FirmOrgIdentNumber']:='09165657';
           mHeaderJSON.S['IssuedOrder_ID']:=mBO.OID;
           mHeaderJSON.O['Rows'] := mHeaderJSON.CreateJSONArray;          
           
@@ -120,6 +120,8 @@ begin
           end;
 
           // UPRAVIT: Zadejte správné URL endpoint a typ dokladu
+          CFxLog.SaveLog(NxCreateContext(mBO.objectspace),'LA','DataOrder '+mHeaderJSON.S['IssuedOrder_ID'],mHeaderJSON.AsString,2,Now);
+          //NxShowsimpleMessage(mheaderJSON.AsString, mSite);
           mResultJSON:= TJSONSuperObject.Create;
           mResultJSON:= API_POST(mHeaderJSON, 'IssuedOrders');  // Parametr 'IssuedOrders' přizpůsobte
 
@@ -127,7 +129,7 @@ begin
           if not(NxIsEmptyOID(mResultJSON.S['ID'])) then begin
             mBO.SetFieldValueAsString('X_ExternalDocument',mResultJSON.S['Code']);
             mBO.SetFieldValueAsBoolean('Issued',true);
-            mBO.SetFieldValueAsDateTime('X_SendDate$Date',Now);
+            mBO.SetFieldValueAsDateTime('X_SentDate$Date',Now);
             mBO.save;
             TDynSiteForm(mSite).RefreshData;
           end else begin
@@ -146,6 +148,36 @@ begin
       NxShowSimpleMessage('Chyby při synchronizaci:'+#13#10+mErrorMessage, mSite)
     else
       NxShowSimpleMessage('Synchronizace objednávek byla dokončena.', mSite);
+end;
+
+procedure _CanDelete_Hook(Self: TDynSiteForm; var ACanDelete: Boolean);
+begin
+ if not(osNew in self.CurrentObject.State) then begin
+   if Not(NxIsBlank(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'))) then begin
+      if (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'-',[srall],0)>0) and
+         (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'/',[srall],0)>0) then begin
+           ACanDelete:=false;
+           NxShowSimpleMessage('Vymazání zamítnuto.Objednávka byla odeslána do BMS, vymažte napřed doklad v BMS.',Self);
+      end;
+   end;
+ end;
+end;
+
+procedure _CanEdit_Hook(Self: TDynSiteForm; var ACanEdit: Boolean);
+begin
+ if not(osNew in self.CurrentObject.State) then begin
+   if Not(NxIsBlank(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'))) then begin
+      if (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'-',[srall],0)>0) and
+         (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'/',[srall],0)>0) then begin
+           if (self.CompanyCache.GetUserID='SUPER00000') then begin
+                        NxShowSimpleMessage('Položka byla synchronizována, opravujte jen hodnoty neovlivnující synchronizaci.',Self);
+           end else begin
+                    ACanEdit:=false;
+                    NxShowSimpleMessage('Oprava zamítnuta.Objednávka byla odeslána do BMS, vymažte napřed doklad v BMS.',Self);
+           end;
+      end;
+   end;
+ end;
 end;
 
 begin
