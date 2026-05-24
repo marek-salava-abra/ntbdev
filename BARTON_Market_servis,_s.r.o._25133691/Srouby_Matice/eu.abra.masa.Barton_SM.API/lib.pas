@@ -19,8 +19,7 @@ begin
    if mWinHTTP.status='200' then begin
      Result:=TJSONSuperObject.ParseString(mWinHTTP.ResponseText, True);
    end else begin
-     Result:=TJSONSuperObject.create;
-     Result.S['ID']:='';
+     Result:=TJSONSuperObject.ParseString(mWinHTTP.ResponseText, True);
    end;
   except
    Result:=TJSONSuperObject.create;

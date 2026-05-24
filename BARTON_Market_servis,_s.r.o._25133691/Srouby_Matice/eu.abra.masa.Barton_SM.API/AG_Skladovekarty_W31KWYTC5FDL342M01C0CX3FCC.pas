@@ -52,7 +52,7 @@ begin
     begin
       mRemoteStoreCardID := mStoreCardArray.O[0].S['id'];
     end else begin
-      NxShowSimpleMessage('Chyba při dotazu na BMS', mSite);
+      NxShowSimpleMessage('Karta podle kódu ' + mCode + ' nebyla nalezena na BMS.', mSite);
       Exit;
     end;
   finally
@@ -66,12 +66,17 @@ begin
       mJSON.S['id']:=mremoteStoreCardID;
       mResultJSON := API_POST(mJSON, 'StoreCards', True);
     finally
-      mJSON.Free;
+      //mJSON.Free;
     end;
 
     try
+      Nxshowsimplemessage('InputJson'+mJSON.AsString+NxCrlF+'ResultJSON '+mResultJSON.AsString, mSite);
+      if Assigned(mResultJSON) and (mResultJSON.I['error_code']>0) then
+         NxShowsimplemessage('Chyba při založení skladové karty. '+inttostr(mResultJSON.I['error_code'])+nxcrlf+mresultjson.S['description'], mSite);
       if Assigned(mResultJSON) and not NxIsEmptyOID(mResultJSON.S['ID']) then
       begin
+       NxShowsimplemessage(mresultjson.AsString, mSite);
+       {
         mBO:= mSite.BaseObjectSpace.CreateObject(Class_StoreCard);
         mBO.new;
         mBO.prefill;
@@ -79,7 +84,7 @@ begin
         mbo.save;
         mStoreCardID := mbo.OID;
         mBO.free;
-        TBusRollSiteForm(mSite).DataSet.SeekID(mStoreCardID);
+        TBusRollSiteForm(mSite).DataSet.SeekID(mStoreCardID);}
       end
       else
       begin

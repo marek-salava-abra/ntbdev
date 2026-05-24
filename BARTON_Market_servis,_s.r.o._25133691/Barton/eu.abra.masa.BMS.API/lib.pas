@@ -2,7 +2,7 @@
 var
     mOS: TNxCustomObjectSpace;
     mCode, mName, mErrorMessage: string;
-    mStoreCardJSON, mResultJSON: TJSONSuperObject;
+    mStoreUnitJSON, mEANJSON: TJSONSuperObject;
     mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
     mUnits, mEANs: TNxCustomBusinessMonikerCollection;
     i,j,k: integer;
@@ -10,6 +10,52 @@ var
 begin
   Result := TJSONSuperObject.Create; 
   mOS := AContext.GetObjectSpace;
+  mBO:=mOS.createobject(Class_StoreCard);
+  mbo.load(AInput.S['id'],nil);
+   result.S['ID']:=mBO.OID;
+   Result.S['Code']:=mBO.GetFieldValueAsString('Code');
+   result.s['Name']:=mBO.GetFieldValueAsString('Name');
+   Result.S['StoreCardCategoryCode']:=mBO.GetFieldValueAsString('StoreCardCategory_ID.Code');
+   //Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
+   Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
+   Result.S['VATRate_ID']:= mBO.GetFieldValueAsString('VATRate_ID');
+   REsult.S['MainUnitCode']:=mBO.GetFieldValueAsString('MainUnitCode');
+   Result.S['X_Name_35']:=mBO.GetFieldValueAsString('x_Name_35');
+   Result.S['X_DIN']:=mBO.GetFieldValueAsString('x_DIN');
+   Result.S['X_ISO']:=mBO.GetFieldValueAsString('x_ISO');
+   Result.S['X_CSN']:=mBO.GetFieldValueAsString('x_CSN');
+   Result.S['X_Rozmer']:=mBO.GetFieldValueAsString('X_Rozmer');
+   Result.S['StoreAssortmentGroupCode']:=mBO.GetFieldValueAsString('StoreAssortmentGroup_ID.Code');
+   Result.S['BMSMaterialCode']:=mBO.GetfieldValueAsString('X_BMS_Material_ID.Code');
+   Result.S['BMSSkupinaCode']:=mBO.GetfieldValueAsString('X_BMS_Skupina_ID.Code');
+   Result.S['BMSPovrchCode']:=mBO.GetfieldValueAsString('X_BMS_povrchUprava_ID.Code');
+   Result.S['BMSTvarHlavaCode']:=mBO.GetfieldValueAsString('X_BMS_tvarhlava_ID.Code');
+   Result.S['BMSObalCode']:=mBO.GetfieldValueAsString('X_BMS_Obal_ID.Code');
+   Result.S['Specification']:=mBO.GetFieldValueAsString('Specification');
+   Result.I['X_Prumer']:=mBO.GetFieldValueAsInteger('X_Prumer');
+   Result.I['X_Delka']:=mBO.GetFieldValueAsInteger('X_delka');
+   Result.I['X_Typ_Zavitu']:=mBO.GetFieldValueAsInteger('X_Typ_Zavitu');
+   Result.O['StoreUnits']:=Result.CreateJSONArray;
+   munits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
+   for i:=0 to munits.count-1 do begin
+     mUnitBO:=munits.BusinessObject[i];
+     mStoreUnitJSON:=TJSONSuperObject.Create;
+     mStoreUnitJSON.S['Code']:=mUnitBO.GetFieldValueAsString('Code');
+     mStoreUnitJSON.S['EAN']:=mUnitBO.GetFieldValueAsString('EAN');
+     mStoreUnitJSON.I['PLU']:=mUnitBO.GetFieldValueAsInteger('PLU');
+     mStoreUnitJSON.S['Description']:=mUnitBO.GetFieldValueAsString('Description');
+     mStoreunitjson.D['UnitRate']:=mUnitBO.GetFieldValueAsFloat('UnitRate');
+     mStoreunitJSON.O['EANs']:=mStoreUnitJSON.CreateJSONArray;
+     means:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
+     for j:=0 to means.count-1 do begin
+       mEANBO:=means.BusinessObject[j];
+       mEANJSON:=TJSONSuperObject.Create;
+       mEANJSON.S['EAN']:=mEANBO.GetFieldValueAsString('EAN');
+       mStoreUnitJSON.A['EANs'].Add(mEANJSON);
+     end;
+     result.A['StoreUnits'].Add(mStoreUnitJSON);
+   end;
+  mbo.free;
  end;   
 
 function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
