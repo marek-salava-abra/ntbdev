@@ -7,11 +7,14 @@ var
     mUnits, mEANs: TNxCustomBusinessMonikerCollection;
     i,j,k: integer;
     mSite: TDynSiteForm;
+    mPrice:extended;
 begin
   Result := TJSONSuperObject.Create; 
   mOS := AContext.GetObjectSpace;
   mBO:=mOS.createobject(Class_StoreCard);
   mbo.load(AInput.S['id'],nil);
+  mPrice:=NxEvalObjectExprAsFloatDef(mBO,'NxGetStoreCardUnitPriceDef('+Quotedstr('')+', '+Quotedstr('')+', ' + QuotedStr(mBO.OID) + 
+                    ','+Quotedstr('1000000101')+', '+Quotedstr(mBO.GetFieldValueAsString('MainUnitCode'))+',false,'+QuotedStr('0000CZK000')+','+inttostr(trunc(Date))+')',0);
    result.S['ID']:=mBO.OID;
    Result.S['Code']:=mBO.GetFieldValueAsString('Code');
    result.s['Name']:=mBO.GetFieldValueAsString('Name');
@@ -35,6 +38,7 @@ begin
    Result.I['X_Prumer']:=mBO.GetFieldValueAsInteger('X_Prumer');
    Result.I['X_Delka']:=mBO.GetFieldValueAsInteger('X_delka');
    Result.I['X_Typ_Zavitu']:=mBO.GetFieldValueAsInteger('X_Typ_Zavitu');
+   Result.D['Price']:=mPrice;
    Result.O['StoreUnits']:=Result.CreateJSONArray;
    munits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
    for i:=0 to munits.count-1 do begin

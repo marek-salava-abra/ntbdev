@@ -1,168 +1,167 @@
-function POST_StoreCards(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
-var
-    mOS: TNxCustomObjectSpace;
-    mCode, mName, mErrorMessage: string;
-    mStoreUnitJSON, mEANJSON: TJSONSuperObject;
-    mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
-    mUnits, mEANs: TNxCustomBusinessMonikerCollection;
-    i,j,k: integer;
-    mSite: TDynSiteForm;
-begin
-  Result := TJSONSuperObject.Create; 
-  mOS := AContext.GetObjectSpace;
-  mBO:=mOS.createobject(Class_StoreCard);
-  mbo.load(AInput.S['id'],nil);
-   result.S['ID']:=mBO.OID;
-   Result.S['Code']:=mBO.GetFieldValueAsString('Code');
-   result.s['Name']:=mBO.GetFieldValueAsString('Name');
-   Result.S['StoreCardCategoryCode']:=mBO.GetFieldValueAsString('StoreCardCategory_ID.Code');
-   //Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
-   Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
-   Result.S['VATRate_ID']:= mBO.GetFieldValueAsString('VATRate_ID');
-   REsult.S['MainUnitCode']:=mBO.GetFieldValueAsString('MainUnitCode');
-   Result.S['X_Name_35']:=mBO.GetFieldValueAsString('x_Name_35');
-   Result.S['X_DIN']:=mBO.GetFieldValueAsString('x_DIN');
-   Result.S['X_ISO']:=mBO.GetFieldValueAsString('x_ISO');
-   Result.S['X_CSN']:=mBO.GetFieldValueAsString('x_CSN');
-   Result.S['X_Rozmer']:=mBO.GetFieldValueAsString('X_Rozmer');
-   Result.S['StoreAssortmentGroupCode']:=mBO.GetFieldValueAsString('StoreAssortmentGroup_ID.Code');
-   Result.S['BMSMaterialCode']:=mBO.GetfieldValueAsString('X_BMS_Material_ID.Code');
-   Result.S['BMSSkupinaCode']:=mBO.GetfieldValueAsString('X_BMS_Skupina_ID.Code');
-   Result.S['BMSPovrchCode']:=mBO.GetfieldValueAsString('X_BMS_povrchUprava_ID.Code');
-   Result.S['BMSTvarHlavaCode']:=mBO.GetfieldValueAsString('X_BMS_tvarhlava_ID.Code');
-   Result.S['BMSObalCode']:=mBO.GetfieldValueAsString('X_BMS_Obal_ID.Code');
-   Result.S['Specification']:=mBO.GetFieldValueAsString('Specification');
-   Result.I['X_Prumer']:=mBO.GetFieldValueAsInteger('X_Prumer');
-   Result.I['X_Delka']:=mBO.GetFieldValueAsInteger('X_delka');
-   Result.I['X_Typ_Zavitu']:=mBO.GetFieldValueAsInteger('X_Typ_Zavitu');
-   Result.O['StoreUnits']:=Result.CreateJSONArray;
-   munits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
-   for i:=0 to munits.count-1 do begin
-     mUnitBO:=munits.BusinessObject[i];
-     mStoreUnitJSON:=TJSONSuperObject.Create;
-     mStoreUnitJSON.S['Code']:=mUnitBO.GetFieldValueAsString('Code');
-     mStoreUnitJSON.S['EAN']:=mUnitBO.GetFieldValueAsString('EAN');
-     mStoreUnitJSON.I['PLU']:=mUnitBO.GetFieldValueAsInteger('PLU');
-     mStoreUnitJSON.S['Description']:=mUnitBO.GetFieldValueAsString('Description');
-     mStoreunitjson.D['UnitRate']:=mUnitBO.GetFieldValueAsFloat('UnitRate');
-     mStoreunitJSON.O['EANs']:=mStoreUnitJSON.CreateJSONArray;
-     means:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
-     for j:=0 to means.count-1 do begin
-       mEANBO:=means.BusinessObject[j];
-       mEANJSON:=TJSONSuperObject.Create;
-       mEANJSON.S['EAN']:=mEANBO.GetFieldValueAsString('EAN');
-       mStoreUnitJSON.A['EANs'].Add(mEANJSON);
-     end;
-     result.A['StoreUnits'].Add(mStoreUnitJSON);
-   end;
-  mbo.free;
- end;   
+uses '.lib';
 
-function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+// ===== SYNCHRONIZACE OBJEDÁVEK VYDANÝCH Z FIRMY =====
+// Skript slouží pro odesílání dokladů objedávek vydaných v JSON formátu na vzdálené API
+// Odesílané údaje zahrnují: hlavičku dokladu a řádky s detailem
+
+procedure InitSite_Hook(Self: TSiteForm);
 var
- mHeaderBO, mRowBO, mIORowBO:TNxCustomBusinessObject;
- i,j:integer;
- mRows, mIORows:TNxCustomBusinessMonikerCollection;
- mOS:TNxCustomObjectSpace;
- mDocQueue_ID, mStore_ID, mDivision_ID, mIODocQueue_ID, mMainSupplier_ID, mReceivedOrder_ID,mBusProject_ID, mNotFoundCard, mStoreCard_ID, mFirm_ID:string;
- mInputParams:TNxParameters;
- mParam:TNxParameter;
- mImportMan: TNxDocumentImportManager;
+  mAction: TBasicAction;
 begin
- Result := TJSONSuperObject.Create;
- mOS:=AContext.GetObjectSpace;
- CFxLog.SaveLog(NxCreateContext(mOS),'LA','DataOrder '+AInput.S['IssuedOrder_ID'],AInput.AsString,2,Now);
+  mAction := Self.GetNewAction;
+  mAction.ShowControl := True;
+  mAction.ShowMenuItem := True;
+  mAction.Name := 'actGetCardOverAPI';
+  mAction.Caption := '##Karta z BMS##';
+  mAction.Hint := 'Dohledá kartu na BMS a založí';
+  mAction.Category := 'tabList';
+  mAction.OnExecute := @GetCardOverAPI;
+end;
+
+Procedure GetCardOverAPI(sender:tcomponent);
+var
+  mSite: TSiteForm;
+  mCode, mStoreCardID, mRemoteStoreCardID: string;
+  mStoreCardJSON, mResultJSON, mJSON: TJSONSuperObject;
+  mStoreCardArray: TJSONSuperObjectArray;
+  mList: TStringList;
+  mBO, mUnitBO, mEANBO, mStorePriceBO, mStorePriceRowBO: TNxCustomBusinessObject;
+  mUnits, mEANs, mStorePrices: TNxCustomBusinessMonikerCollection;
+  i,j: integer;
+begin
+  mSite := TComponent(Sender).BusRollSite;
+  mCode := Trim(InputBox('BMS skladová karta', 'Zadejte kód skladové karty', ''));
+  if mCode = '' then
+    Exit;
+
+  mStoreCardID := mSite.BaseObjectSpace.SQLSelectFirstAsString(
+    'Select id from storecards where code='+QuotedStr(mCode)+' and hidden=''N''', '');
+
+  if not NxIsEmptyOID(mStoreCardID) then
+  begin
+    NxShowSimpleMessage('Skladová karta ''' + mCode + ''' již existuje v aktuální databázi.', mSite);
+  
+    Exit;
+  end;
+
+  mRemoteStoreCardID := '';
+  mStoreCardJSON := API_GET(
+    'https://api.barton.cz:8444/barton/Storecards?select=id,code,name&where=code eq '+QuotedStr(mCode)+' and hidden eq ''N''');
   try
-      mReceivedOrder_ID:=mOS.SQLSelectFirstAsString('Select id from receivedorders where X_IssuedOrderID='+QuotedStr(AInput.S['IssuedOrder_ID']),'');
-      if NxIsEmptyOID(mReceivedOrder_ID) then begin
-          mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
-          mHeaderBO.New;
-          mHeaderBO.prefill;
-          mNotFoundCard:='';
-          mDocQueue_ID:='I700000101';
-          mHeaderBO.SetFieldValueAsString('DocQueue_ID',mDocQueue_ID);
-          mHeaderBO.SetFieldValueAsString('ExternalNumber',AInput.S['DocumentNumber']);
-          mHeaderBO.SetFieldValueAsString('Description',AInput.S['Description']);
-          mHeaderBO.SetFieldValueAsString('X_IssuedOrderID',AInput.S['IssuedOrder_ID']);
-          mFirm_ID:=mOS.SQLSelectFirstAsString('select id from firms where hidden='+QuotedStr('N')+' and firm_id is null and orgidentnumber='+QuotedStr(AInput.S['FirmOrgIdentNumber']),'');
-          mheaderBO.SetFieldValueAsString('Firm_ID',mFirm_ID);
-          mHeaderBO.setfieldvalueasboolean('X_FromAPI',true);
-          mRows:=mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
-           for i:= 0 to AInput.A['Rows'].Length -1 do begin
-             mRowBO:=mRows.AddNewObject;
-             mrowBO.Prefill;
-             mStore_ID:='1210000101';
-             mDivision_ID:='2100000101';
-             mRowBO.SetFieldValueAsInteger('RowType', AInput.A['Rows'].O[i].I['RowType']);
-             if not(NxIsEmptyOID(AInput.A['Rows'].O[i].S['Row_ID'])) then
-              mRowBO.SetFieldValueAsString('X_IssuedOrderRowID',AInput.A['Rows'].O[i].S['Row_ID']);
-             mRowBO.SetFieldValueAsString('Division_ID',mDivision_ID);
-             if AInput.A['Rows'].O[i].I['RowType']=3 then begin
-               mRowBO.SetFieldValueAsString('Store_ID',mStore_ID);
-               mStoreCard_ID:=mOS.SQLSelectFirstAsString('select id from storecards where hidden='+QuotedStr('N')+' and code='+QuotedStr(AInput.A['Rows'].O[i].S['StoreCardCode']),'');
-               mRowBO.SetFieldValueAsString('StoreCard_ID',mStoreCard_ID);
-               if NxIsEmptyOID(mStoreCard_ID) then mNotFoundCard:=mNotFoundCard+NxCrLf+AInput.A['Rows'].O[i].S['StoreCardCode'];
-               //if NxIsEmptyOID(mMainSupplier_ID)  and not(NxIsEmptyOID(mIODocQueue_ID)) then mMainSupplier_ID:=mRowBO.GetFieldValueAsString('Storecard_id.MainSupplier_ID.Firm_ID');
-               mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
-               //mRowBO.SetFieldValueAsFloat('UnitPrice',0);
-               //mRowBO.SetFieldValueAsFloat('TotalPrice',0);
-             end else begin
-               if AInput.A['Rows'].O[i].I['RowType']=2 then begin
-                mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
-                mrowBO.SetFieldValueAsString('QUnit',AInput.A['Rows'].O[i].S['QUnit']);
-               end;
-               mRowBO.SetFieldValueAsString('Text',AInput.A['Rows'].O[i].S['Text']);
-             end;
-           end;
-          mHeaderBO.save;
+    mStoreCardArray := mStoreCardJSON.AsArray;
+    if mStoreCardArray.Length = 1 then
+    begin
+      mRemoteStoreCardID := mStoreCardArray.O[0].S['id'];
+    end else begin
+      NxShowSimpleMessage('Karta podle kódu ' + mCode + ' nebyla nalezena na BMS.', mSite);
+      Exit;
+    end;
+  finally
+    mStoreCardJSON.Free;
+  end;
+
+  if not(NxIsEmptyOID(mRemoteStoreCardID)) then
+  begin
+    mJSON := TJSONSuperObject.Create;
+    try
+      mJSON.S['id']:=mremoteStoreCardID;
+      mResultJSON := API_POST(mJSON, 'StoreCards', True);
+    finally
+      //mJSON.Free;
+    end;
+
+    try
+      //Nxshowsimplemessage('InputJson'+mJSON.AsString+NxCrlF+'ResultJSON '+mResultJSON.AsString, mSite);
+      if Assigned(mResultJSON) and (mResultJSON.I['error_code']>0) then
+         NxShowsimplemessage('Chyba při založení skladové karty. '+inttostr(mResultJSON.I['error_code'])+nxcrlf+mresultjson.S['description'], mSite);
+      if Assigned(mResultJSON) and not NxIsEmptyOID(mResultJSON.S['ID']) then
+      begin
+       //NxShowsimplemessage(mresultjson.AsString, mSite);
+       
+        mBO:= mSite.BaseObjectSpace.CreateObject(Class_StoreCard);
+        mBO.new;
+        mBO.prefill;
+        mBO.SetFieldValueAsString('Code', mResultJSON.S['Code']);
+        mBO.SetFieldValueAsString('Name', mResultJSON.S['Name']);
+        mBO.SetfieldvalueasString('Specification', mResultJSON.S['Specification']);
+        mBO.SetFieldvalueAsString('StoreCardCategory_ID', 
+         mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from storecardcategories where code='+QuotedStr(mResultJSON.S['StoreCardCategoryCode'])+' and hidden=''N''', ''));
+        mBO.SetFieldvalueasstring('Vatrate_ID',mresultJSON.S['VATRate_ID']);
+        mBO.SetFieldvalueasstring('X_ISO',mresultJSON.S['X_ISO']);
+        mbo.SetFieldValueasString('X_Din',mresultJSON.S['X_DIN']);
+        mBO.SetFieldvalueasstring('X_CSN',mresultJSON.S['X_CSN']);
+        mBO.SetFieldvalueasstring('X_Name_35',mresultJSON.S['X_Name_35']);
+        MBO.SetFieldvalueasstring('X_Rozmer',mresultJSON.S['X_Rozmer']);
+        mBO.Setfieldvalueasinteger('X_delka',mresultJSON.I['X_Delka']);
+        mBO.Setfieldvalueasinteger('X_Prumer',mresultJSON.I['X_Prumer']);
+        mBO.Setfieldvalueasinteger('X_Typ_Zavitu',mresultJSON.I['X_Typ_Zavitu']);
+        mUnits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
+        for i:=0 to munits.count-1 do
+          mUnits.businessobject[i].MarkForDelete;
+        for i:=0 to mResultJSON.A['StoreUnits'].Length-1 do begin
+          mUnitBO:=mUnits.AddNewObject;
+          mUnitBO.SetFieldValueAsString('Code', mResultJSON.A['StoreUnits'].O[i].S['Code']);
+          mUnitBO.SetFieldValueAsString('EAN', mResultJSON.A['StoreUnits'].O[i].S['EAN']);
+          mUnitBO.SetFieldValueAsInteger('PLU', mResultJSON.A['StoreUnits'].O[i].I['PLU']);
+          mUnitBO.SetFieldValueAsString('Description', mResultJSON.A['StoreUnits'].O[i].S['Description']);
+          mUnitBO.SetFieldValueAsFloat('UnitRate', mResultJSON.A['StoreUnits'].O[i].D['UnitRate']);
+          mEANs:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
+          for j:=0 to mResultJSON.A['StoreUnits'].O[i].A['EANs'].Length-1 do begin
+           if not(mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']=mResultJSON.A['StoreUnits'].O[i].S['EAN']) then begin
+             mEANBO:=mEANs.AddNewObject;
+             mEANBO.SetFieldValueAsString('EAN', mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']);
+            end;
+          end;
+        end; 
+
+        mBO.SetFieldvalueasstring('MainUnitCode',mresultJSON.S['MainUnitCode']);
+        mBO.SetFieldvalueasstring('StoreAssortmentGroup_ID',
+         mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from StoreAssortmentGroups where code='+QuotedStr(mResultJSON.S['StoreAssortmentGroupCode'])+' and hidden=''N''', ''));  
+        mbo.setfieldvalueasstring('X_BMS_Material_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSMaterialCode'])+' and clsid='+QuotedStr(Class_BMS_material)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_Skupina_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSSkupinaCode'])+' and clsid='+QuotedStr(Class_BMS_skupina)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_povrchUprava_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSPovrchCode'])+' and clsid='+QuotedStr(Class_BMS_povrch_uprava)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_tvarhlava_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSTvarHlavaCode'])+' and clsid='+QuotedStr(Class_BMS_tvar_hlavy)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_Obal_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSObalCode'])+' and clsid='+QuotedStr(Class_BMS_obal)+' and hidden=''N''', '')); 
+        mbo.save;
+        mStoreCardID := mbo.OID;
+        if mresultJSON.D['Price']>0 then begin
+            mStorePriceBO:=mSite.BaseObjectSpace.CreateObject(Class_StorePrice);
+            mStorePriceBO.new;
+            mStorePriceBO.prefill;
+            mStorePriceBO.SetFieldValueAsString('PriceList_ID','1000000101');
+            mStorePriceBO.SetFieldValueAsString('StoreCard_ID',mStoreCardID);
+            mStorePrices:=mStorePriceBO.GetLoadedCollectionMonikerForFieldCode(mStorePriceBO.GetFieldCode('PriceRows'));
+            mStorePriceRowBO:=mStorePrices.AddNewObject;
+            mStorePriceRowBO.SetFieldValueAsString('Price_ID','1000000101');
+            mStorePriceRowBO.SetFieldValueAsFloat('Amount',mresultJSON.D['Price']);
+            mStorePriceRowBO.SetFieldValueAsString('Qunit',mresultJSON.S['MainUnitCode']);
+            mStorePriceBO.save;
+            mStorePriceBO.free;
+        end;
           
-          Result.S['ID']:=mHeaderBO.OID;
-          Result.S['Code']:=mHeaderBO.DisplayName;
-          Result.S['Status']:='Ok';
-          mHeaderBO.Free;
-      end else begin
-        mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
-        mHeaderBO.Load(mReceivedOrder_ID,nil);
-        Result.S['ID']:=mHeaderBO.OID;
-        Result.S['Code']:=mHeaderBO.DisplayName;
-        Result.S['Status']:='Ok';
-        mHeaderBO.free;
+        mBO.free;
+        TBusRollSiteForm(mSite).DataSet.SeekID(mStoreCardID);
+      end
+      else
+      begin
+        NxShowSimpleMessage('Chyba při založení skladové karty: ' + mResultJSON.S['Code'] + ' ' + mResultJSON.S['Status'], mSite);
+        Exit;
       end;
-  except
-      Result.S['ID']:='';
-      Result.S['Code']:=ExceptionMessage+nxCrLf+'Nenalezené karty:'+NxCrlF+mNotFoundCard;
-      Result.S['Status']:='Error';
-      mHeaderBO.Free;
+    finally
+      mResultJSON.Free;
+    end;
+  end
+  else
+  begin
+    NxShowSimpleMessage('Skladová karta již existuje na BMS: ' + mCode, mSite);
   end;
-end;
 
-function API_PUT(aJSON:TJSONSuperObject; AObjectName, AID:string; aIndex: integer = 0):TJSONSuperObject;
-var
- mWinHTTP:Variant;
- mResultJSON:TJSONSuperObject;
- mURL, mAuth:string;
-begin
-  try
-    mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
-    mWinHTTP.Open('PUT', 'https://api.barton.cz:8444/Srouby_Matice/' + AObjectName + '/' + AID + '?select=id');
-    mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
-    mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.UTF8.GetBytes('API:ApiHeslo')));
-    mWinHTTP.Send(aJSON.AsJson);
-    Result:=TJSONSuperObject.ParseString(ConvertToText(mWinHTTP.Responsebody), True);
-  except
-    Result:=TJSONSuperObject.create;
-    Result.S['error']:='error';
-  end;
 end;
-
-function ConvertToText(aUnicodeBytes: TBytes): String;
-var
-  mUnicodeBites: TBytes;
-begin
-  mUnicodeBites := TEncoding.Convert(aUnicodeBytes,Encoding_cpUTF_8,Encoding_cpUTF_16);
-  Result := TEncoding.Unicode.GetString(mUnicodeBites);
-end;
-
 
 begin
 end.
