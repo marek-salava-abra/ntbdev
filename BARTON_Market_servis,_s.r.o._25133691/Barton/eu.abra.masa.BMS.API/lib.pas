@@ -1,4 +1,18 @@
-﻿function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+﻿function POST_StoreCards(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+var
+    mOS: TNxCustomObjectSpace;
+    mCode, mName, mErrorMessage: string;
+    mStoreCardJSON, mResultJSON: TJSONSuperObject;
+    mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
+    mUnits, mEANs: TNxCustomBusinessMonikerCollection;
+    i,j,k: integer;
+    mSite: TDynSiteForm;
+begin
+  Result := TJSONSuperObject.Create; 
+  mOS := AContext.GetObjectSpace;
+ end;   
+
+function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
 var
  mHeaderBO, mRowBO, mIORowBO:TNxCustomBusinessObject;
  i,j:integer;
@@ -21,7 +35,7 @@ begin
           mNotFoundCard:='';
           mDocQueue_ID:='I700000101';
           mHeaderBO.SetFieldValueAsString('DocQueue_ID',mDocQueue_ID);
-          mHeaderBO.SetFieldValueAsString('ExternalNumber',AInput.S['ExternalNumber']);
+          mHeaderBO.SetFieldValueAsString('ExternalNumber',AInput.S['DocumentNumber']);
           mHeaderBO.SetFieldValueAsString('Description',AInput.S['Description']);
           mHeaderBO.SetFieldValueAsString('X_IssuedOrderID',AInput.S['IssuedOrder_ID']);
           mFirm_ID:=mOS.SQLSelectFirstAsString('select id from firms where hidden='+QuotedStr('N')+' and firm_id is null and orgidentnumber='+QuotedStr(AInput.S['FirmOrgIdentNumber']),'');

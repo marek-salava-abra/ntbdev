@@ -1,184 +1,122 @@
-uses '.lib';
-
-// ===== SYNCHRONIZACE OBJEDÁVEK VYDANÝCH Z FIRMY =====
-// Skript slouží pro odesílání dokladů objedávek vydaných v JSON formátu na vzdálené API
-// Odesílané údaje zahrnují: hlavičku dokladu a řádky s detailem
-
-procedure InitSite_Hook(Self: TSiteForm);
+function POST_StoreCards(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
 var
-  mAction: TBasicAction;
+    mOS: TNxCustomObjectSpace;
+    mCode, mName, mErrorMessage: string;
+    mStoreCardJSON, mResultJSON: TJSONSuperObject;
+    mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
+    mUnits, mEANs: TNxCustomBusinessMonikerCollection;
+    i,j,k: integer;
+    mSite: TDynSiteForm;
 begin
-  mAction := Self.GetNewAction;
-  mAction.ShowControl := True;
-  mAction.ShowMenuItem := True;
-  mAction.Name := 'actSyncOrdersAPI';
-  mAction.Caption := '##Odeslat do BMS##';
-  mAction.Hint := 'Odesle objednávku na vzdálené API v JSON formátu';
-  mAction.Category := 'tabList';
-  mAction.OnExecute := @SyncOrdersAPI;
-end;
+  Result := TJSONSuperObject.Create; 
+  mOS := AContext.GetObjectSpace;
+ end;   
 
-procedure SyncOrdersAPI(Sender:TComponent);
+function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
 var
-  mSite: tSiteForm;
-  mHeaderJSON, mRowJSON, mResultJSON, mStoreCardJSON: TJSONSuperObject;
-  mStoreCardArray: TJSONSuperObjectArray;
-  mBO, mRowBO: TNxCustomBusinessObject;
-  i,j,k: integer;
-  mRows: TNxCustomBusinessMonikerCollection;
-  mErrorMessage, mStoreCardCode, mStoreCardID:String;
-  mList:TStringList;
-  mNotFoundCards:TStringList;
+ mHeaderBO, mRowBO, mIORowBO:TNxCustomBusinessObject;
+ i,j:integer;
+ mRows, mIORows:TNxCustomBusinessMonikerCollection;
+ mOS:TNxCustomObjectSpace;
+ mDocQueue_ID, mStore_ID, mDivision_ID, mIODocQueue_ID, mMainSupplier_ID, mReceivedOrder_ID,mBusProject_ID, mNotFoundCard, mStoreCard_ID, mFirm_ID:string;
+ mInputParams:TNxParameters;
+ mParam:TNxParameter;
+ mImportMan: TNxDocumentImportManager;
 begin
-  mSite:=TComponent(Sender).DynSite;
-  mList:=TStringList.Create;
-  mBO:=TDynSiteForm(mSite).currentobject;
-
-      
-      if Assigned(mBO) then begin
-        // Načtení a příprava řádků dokladu
-          mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
-        try
-          // Kontrola zda nebylo již odesláno
-          if Not(NxIsBlank(mBO.GetFieldValueAsString('X_ExternalDocument'))) then begin
-            NxShowSimpleMessage('Objednávka již byla synchronizována. Nelze odeslat znovu.',mSite);
-            WaitWin.Stop;
-            exit;
-          end;
-
-          // Kontrola existence skladových karet na vzdáleném API
-          mNotFoundCards:=TStringList.Create;
-          mNotFoundCards.Clear;
-          WaitWin.StartProgress('Kontrola položek, čekejte ...', '', mRows.Count);
-          
-          for i:=0 to mRows.count-1 do begin
-            mRowBO:=mRows.BusinessObject[i];
-            
-            if not(NxIsEmptyOID(mRowBO.GetFieldValueAsString('StoreCard_ID'))) then begin
-              mStoreCardCode:=mRowBO.GetFieldValueAsString('StoreCard_ID.Code');
-              
-              // GET dotaz na vzdálené API - kontrola existence skladové karty
-              mStoreCardJSON:=API_GET('https://api.barton.cz:8444/barton/Storecards?select=id&where=code eq '+QuotedStr(mStoreCardCode)+' and hidden eq ''N''');
-              
-              if Assigned(mStoreCardJSON) then begin
-                mStoreCardArray:=mStoreCardJSON.AsArray;
-                k:=mStoreCardArray.Length;
-                
-                if k=1 then
-                  mStoreCardID:=mStoreCardArray.O[0].S['id']
-                else
-                  mStoreCardID:='';
-                
-                // Kontrola, zda je ID prázdné
-                if NxIsEmptyOID(mStoreCardID) then begin
-                  if mNotFoundCards.IndexOf(mStoreCardCode)=-1 then
-                    mNotFoundCards.Add('Řádek '+ IntToStr(i+1) + ': ' + mStoreCardCode);
-                end;
-              end;
-            end;
-            WaitWin.ChangeText(IntToStr(i+1) + ' / ' + IntToStr(mRows.Count));
-            WaitWin.StepIt;
-          end;
-          WaitWin.Stop;
-          
-          // Pokud byly nalezeny nenalezené karty, zastavit a vypsat chybu
-          if mNotFoundCards.count>0 then begin
-            WaitWin.Stop;
-            NxShowSimpleMessage('Skladové karty neexistují v BMS:'+ #13#10 + #13#10 + mNotFoundCards.Text + #13#10 + #13#10 + 'Synchronizace byla zrušena.',mSite);
-            mNotFoundCards.Free;
-            exit;
-          end;
-          mNotFoundCards.Free;
-
-          // Příprava hlavičky dokladu v JSON
-          mHeaderJSON:=TJSONSuperObject.Create;
-          mHeaderJSON.S['Code']:=mBO.DisplayName;
-          mHeaderJSON.S['DocumentNumber']:=mBO.displayname;
-          //mHeaderJSON.S['ExternalNumber']:=mBO.GetFieldValueAsString('ExternalNumber');
-          //mHeaderJSON.DT8601['CreatedOn']:=mBO.GetFieldValueAsDateTime('CreatedOn');
-          mHeaderJSON.S['Description']:=mBO.GetFieldValueAsString('Description');
-          mHeaderJSON.S['FirmCode']:=mBO.GetFieldValueAsString('Firm_ID.Code');
-          mHeaderJSON.S['FirmName']:=mBO.GetFieldValueAsString('Firm_ID.Name');
-          mHeaderJSON.S['FirmOrgIdentNumber']:='09165657';
-          mHeaderJSON.S['IssuedOrder_ID']:=mBO.OID;
-          mHeaderJSON.O['Rows'] := mHeaderJSON.CreateJSONArray;          
-          
-          for i:=0 to mRows.count-1 do begin
-            mRowBO:=mRows.BusinessObject[i];
-            mRowJSON:=TJSONSuperObject.Create;
-            
-            mRowJSON.I['RowNumber']:=i+1;
-            mRowJSON.I['RowType']:=mRowBO.GetFieldValueAsInteger('RowType');
-            mRowJSON.S['StoreCardCode']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Code');
-            mRowJSON.S['StoreCardName']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Name');
-            mRowJSON.D['Quantity']:=mRowBO.GetFieldValueAsFloat('Quantity');
-            mRowJSON.S['QUnit']:=mRowBO.GetFieldValueAsString('Qunit');
-            mRowJSON.S['Text']:=mRowBO.GetFieldValueAsString('Text');
-            mRowJSON.S['Row_ID']:=mRowBO.OID;
-            
-            mHeaderJSON.A['Rows'].Add(mRowJSON);
-          end;
-
-          // UPRAVIT: Zadejte správné URL endpoint a typ dokladu
-          CFxLog.SaveLog(NxCreateContext(mBO.objectspace),'LA','DataOrder '+mHeaderJSON.S['IssuedOrder_ID'],mHeaderJSON.AsString,2,Now);
-          //NxShowsimpleMessage(mheaderJSON.AsString, mSite);
-          mResultJSON:= TJSONSuperObject.Create;
-          mResultJSON:= API_POST(mHeaderJSON, 'IssuedOrders');  // Parametr 'IssuedOrders' přizpůsobte
-
-          // Uložení výsledku synchronizace
-          if not(NxIsEmptyOID(mResultJSON.S['ID'])) then begin
-            mBO.SetFieldValueAsString('X_ExternalDocument',mResultJSON.S['Code']);
-            mBO.SetFieldValueAsBoolean('Issued',true);
-            mBO.SetFieldValueAsDateTime('X_SentDate$Date',Now);
-            mBO.save;
-            TDynSiteForm(mSite).RefreshData;
-          end else begin
-            mErrorMessage:=mErrorMessage+#13#10+mResultJSON.S['Code'] + ' - Chyba při synchronizaci.';
-          end;
-
-          mBO.free;
-
-        except
-        
-          NxShowSimpleMessage('Chyba při zpracování: '+ExceptionMessage, mSite);
-        end;
-      end;
-    
-    if mErrorMessage <> '' then
-      NxShowSimpleMessage('Chyby při synchronizaci:'+#13#10+mErrorMessage, mSite)
-    else
-      NxShowSimpleMessage('Synchronizace objednávek byla dokončena.', mSite);
-end;
-
-procedure _CanDelete_Hook(Self: TDynSiteForm; var ACanDelete: Boolean);
-begin
- if not(osNew in self.CurrentObject.State) then begin
-   if Not(NxIsBlank(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'))) then begin
-      if (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'-',[srall],0)>0) and
-         (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'/',[srall],0)>0) then begin
-           ACanDelete:=false;
-           NxShowSimpleMessage('Vymazání zamítnuto.Objednávka byla odeslána do BMS, vymažte napřed doklad v BMS.',Self);
-      end;
-   end;
- end;
-end;
-
-procedure _CanEdit_Hook(Self: TDynSiteForm; var ACanEdit: Boolean);
-begin
- if not(osNew in self.CurrentObject.State) then begin
-   if Not(NxIsBlank(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'))) then begin
-      if (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'-',[srall],0)>0) and
-         (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'/',[srall],0)>0) then begin
-           if (self.CompanyCache.GetUserID='SUPER00000') then begin
-                        NxShowSimpleMessage('Položka byla synchronizována, opravujte jen hodnoty neovlivnující synchronizaci.',Self);
-           end else begin
-                    ACanEdit:=false;
-                    NxShowSimpleMessage('Oprava zamítnuta.Objednávka byla odeslána do BMS, vymažte napřed doklad v BMS.',Self);
+ Result := TJSONSuperObject.Create;
+ mOS:=AContext.GetObjectSpace;
+ CFxLog.SaveLog(NxCreateContext(mOS),'LA','DataOrder '+AInput.S['IssuedOrder_ID'],AInput.AsString,2,Now);
+  try
+      mReceivedOrder_ID:=mOS.SQLSelectFirstAsString('Select id from receivedorders where X_IssuedOrderID='+QuotedStr(AInput.S['IssuedOrder_ID']),'');
+      if NxIsEmptyOID(mReceivedOrder_ID) then begin
+          mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
+          mHeaderBO.New;
+          mHeaderBO.prefill;
+          mNotFoundCard:='';
+          mDocQueue_ID:='I700000101';
+          mHeaderBO.SetFieldValueAsString('DocQueue_ID',mDocQueue_ID);
+          mHeaderBO.SetFieldValueAsString('ExternalNumber',AInput.S['DocumentNumber']);
+          mHeaderBO.SetFieldValueAsString('Description',AInput.S['Description']);
+          mHeaderBO.SetFieldValueAsString('X_IssuedOrderID',AInput.S['IssuedOrder_ID']);
+          mFirm_ID:=mOS.SQLSelectFirstAsString('select id from firms where hidden='+QuotedStr('N')+' and firm_id is null and orgidentnumber='+QuotedStr(AInput.S['FirmOrgIdentNumber']),'');
+          mheaderBO.SetFieldValueAsString('Firm_ID',mFirm_ID);
+          mHeaderBO.setfieldvalueasboolean('X_FromAPI',true);
+          mRows:=mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
+           for i:= 0 to AInput.A['Rows'].Length -1 do begin
+             mRowBO:=mRows.AddNewObject;
+             mrowBO.Prefill;
+             mStore_ID:='1210000101';
+             mDivision_ID:='2100000101';
+             mRowBO.SetFieldValueAsInteger('RowType', AInput.A['Rows'].O[i].I['RowType']);
+             if not(NxIsEmptyOID(AInput.A['Rows'].O[i].S['Row_ID'])) then
+              mRowBO.SetFieldValueAsString('X_IssuedOrderRowID',AInput.A['Rows'].O[i].S['Row_ID']);
+             mRowBO.SetFieldValueAsString('Division_ID',mDivision_ID);
+             if AInput.A['Rows'].O[i].I['RowType']=3 then begin
+               mRowBO.SetFieldValueAsString('Store_ID',mStore_ID);
+               mStoreCard_ID:=mOS.SQLSelectFirstAsString('select id from storecards where hidden='+QuotedStr('N')+' and code='+QuotedStr(AInput.A['Rows'].O[i].S['StoreCardCode']),'');
+               mRowBO.SetFieldValueAsString('StoreCard_ID',mStoreCard_ID);
+               if NxIsEmptyOID(mStoreCard_ID) then mNotFoundCard:=mNotFoundCard+NxCrLf+AInput.A['Rows'].O[i].S['StoreCardCode'];
+               //if NxIsEmptyOID(mMainSupplier_ID)  and not(NxIsEmptyOID(mIODocQueue_ID)) then mMainSupplier_ID:=mRowBO.GetFieldValueAsString('Storecard_id.MainSupplier_ID.Firm_ID');
+               mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
+               //mRowBO.SetFieldValueAsFloat('UnitPrice',0);
+               //mRowBO.SetFieldValueAsFloat('TotalPrice',0);
+             end else begin
+               if AInput.A['Rows'].O[i].I['RowType']=2 then begin
+                mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
+                mrowBO.SetFieldValueAsString('QUnit',AInput.A['Rows'].O[i].S['QUnit']);
+               end;
+               mRowBO.SetFieldValueAsString('Text',AInput.A['Rows'].O[i].S['Text']);
+             end;
            end;
+          mHeaderBO.save;
+          
+          Result.S['ID']:=mHeaderBO.OID;
+          Result.S['Code']:=mHeaderBO.DisplayName;
+          Result.S['Status']:='Ok';
+          mHeaderBO.Free;
+      end else begin
+        mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
+        mHeaderBO.Load(mReceivedOrder_ID,nil);
+        Result.S['ID']:=mHeaderBO.OID;
+        Result.S['Code']:=mHeaderBO.DisplayName;
+        Result.S['Status']:='Ok';
+        mHeaderBO.free;
       end;
-   end;
- end;
+  except
+      Result.S['ID']:='';
+      Result.S['Code']:=ExceptionMessage+nxCrLf+'Nenalezené karty:'+NxCrlF+mNotFoundCard;
+      Result.S['Status']:='Error';
+      mHeaderBO.Free;
+  end;
 end;
+
+function API_PUT(aJSON:TJSONSuperObject; AObjectName, AID:string; aIndex: integer = 0):TJSONSuperObject;
+var
+ mWinHTTP:Variant;
+ mResultJSON:TJSONSuperObject;
+ mURL, mAuth:string;
+begin
+  try
+    mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
+    mWinHTTP.Open('PUT', 'https://api.barton.cz:8444/Srouby_Matice/' + AObjectName + '/' + AID + '?select=id');
+    mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
+    mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.UTF8.GetBytes('API:ApiHeslo')));
+    mWinHTTP.Send(aJSON.AsJson);
+    Result:=TJSONSuperObject.ParseString(ConvertToText(mWinHTTP.Responsebody), True);
+  except
+    Result:=TJSONSuperObject.create;
+    Result.S['error']:='error';
+  end;
+end;
+
+function ConvertToText(aUnicodeBytes: TBytes): String;
+var
+  mUnicodeBites: TBytes;
+begin
+  mUnicodeBites := TEncoding.Convert(aUnicodeBytes,Encoding_cpUTF_8,Encoding_cpUTF_16);
+  Result := TEncoding.Unicode.GetString(mUnicodeBites);
+end;
+
 
 begin
 end.

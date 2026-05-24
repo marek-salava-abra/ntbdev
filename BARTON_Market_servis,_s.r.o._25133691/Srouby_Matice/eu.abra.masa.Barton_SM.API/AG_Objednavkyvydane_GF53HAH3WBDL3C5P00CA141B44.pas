@@ -33,7 +33,7 @@ begin
   mSite:=TComponent(Sender).DynSite;
   mList:=TStringList.Create;
   mBO:=TDynSiteForm(mSite).currentobject;
-
+  mErrorMessage:='';
       
       if Assigned(mBO) then begin
         // Načtení a příprava řádků dokladu
@@ -97,26 +97,26 @@ begin
           //mHeaderJSON.S['ExternalNumber']:=mBO.GetFieldValueAsString('ExternalNumber');
           //mHeaderJSON.DT8601['CreatedOn']:=mBO.GetFieldValueAsDateTime('CreatedOn');
           mHeaderJSON.S['Description']:=mBO.GetFieldValueAsString('Description');
-          mHeaderJSON.S['FirmCode']:=mBO.GetFieldValueAsString('Firm_ID.Code');
-          mHeaderJSON.S['FirmName']:=mBO.GetFieldValueAsString('Firm_ID.Name');
+          //mHeaderJSON.S['FirmCode']:=mBO.GetFieldValueAsString('Firm_ID.Code');
+          //mHeaderJSON.S['FirmName']:=mBO.GetFieldValueAsString('Firm_ID.Name');
           mHeaderJSON.S['FirmOrgIdentNumber']:='09165657';
           mHeaderJSON.S['IssuedOrder_ID']:=mBO.OID;
           mHeaderJSON.O['Rows'] := mHeaderJSON.CreateJSONArray;          
           
           for i:=0 to mRows.count-1 do begin
             mRowBO:=mRows.BusinessObject[i];
-            mRowJSON:=TJSONSuperObject.Create;
-            
-            mRowJSON.I['RowNumber']:=i+1;
-            mRowJSON.I['RowType']:=mRowBO.GetFieldValueAsInteger('RowType');
-            mRowJSON.S['StoreCardCode']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Code');
-            mRowJSON.S['StoreCardName']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Name');
-            mRowJSON.D['Quantity']:=mRowBO.GetFieldValueAsFloat('Quantity');
-            mRowJSON.S['QUnit']:=mRowBO.GetFieldValueAsString('Qunit');
-            mRowJSON.S['Text']:=mRowBO.GetFieldValueAsString('Text');
-            mRowJSON.S['Row_ID']:=mRowBO.OID;
-            
-            mHeaderJSON.A['Rows'].Add(mRowJSON);
+            if mRowBO.GetFieldValueAsInteger('RowType') in [2,3] then begin
+              mRowJSON:=TJSONSuperObject.Create;            
+              mRowJSON.I['RowNumber']:=i+1;
+              mRowJSON.I['RowType']:=mRowBO.GetFieldValueAsInteger('RowType');
+              mRowJSON.S['StoreCardCode']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Code');
+              mRowJSON.S['StoreCardName']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Name');
+              mRowJSON.D['Quantity']:=mRowBO.GetFieldValueAsFloat('Quantity');
+              mRowJSON.S['QUnit']:=mRowBO.GetFieldValueAsString('Qunit');
+              mRowJSON.S['Text']:=mRowBO.GetFieldValueAsString('Text');
+              mRowJSON.S['Row_ID']:=mRowBO.OID;            
+              mHeaderJSON.A['Rows'].Add(mRowJSON);
+            end;
           end;
 
           // UPRAVIT: Zadejte správné URL endpoint a typ dokladu
