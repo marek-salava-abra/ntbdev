@@ -87,6 +87,7 @@ begin
         WaitWin.StepIt;
        end;
      WaitWin.Stop;
+     TBusRollSiteForm(mSite).RefreshData;
     end;
   end;
 end;

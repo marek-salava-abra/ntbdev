@@ -1,171 +1,240 @@
+uses '.lib';
+
+// ===== SYNCHRONIZACE OBJEDÁVEK VYDANÝCH Z FIRMY =====
+// Skript slouží pro odesílání dokladů objedávek vydaných v JSON formátu na vzdálené API
+// Odesílané údaje zahrnují: hlavičku dokladu a řádky s detailem
+
 procedure InitSite_Hook(Self: TSiteForm);
 var
-  mAction:TAction;
+  mAction: TBasicAction;
 begin
   mAction := Self.GetNewAction;
   mAction.ShowControl := True;
   mAction.ShowMenuItem := True;
-  mAction.Name := 'actCreateSC';
-  mAction.Caption := '## Založí karty dle XLS ##';
-  mAction.Hint := 'založení karet dle XLS';
+  mAction.Name := 'actGetCardOverAPI';
+  mAction.Caption := '##Karta z BMS##';
+  mAction.Hint := 'Dohledá kartu na BMS a založí';
   mAction.Category := 'tabList';
-  mAction.OnExecute := @CreateSC;
-  {
+  mAction.OnExecute := @GetCardOverAPI;
   mAction := Self.GetNewAction;
   mAction.ShowControl := True;
   mAction.ShowMenuItem := True;
-  mAction.Name := 'actInsertSC';
-  mAction.Caption := '## Doplní jednotku ##';
-  mAction.Hint := 'doplní jednotku dle XLS';
+  mAction.Name := 'actUpdateCardOverAPI';
+  mAction.Caption := '##Aktualizovat z BMS##';
+  mAction.Hint := 'Aktualizuje EAN a popis na jednotce z BMS';
   mAction.Category := 'tabList';
-  mAction.OnExecute := @InsertSCUnit;}
+  mAction.OnExecute := @UpdateCardOverAPI;
 end;
 
-Procedure InsertSCUnit(Sender:TComponent);
+Procedure UpdateCardOverAPI(sender:tcomponent);
 var
- mSite:TSiteForm;
- mOpenDlg: TOpenDialog;
- mOS:TNxCustomObjectSpace;
- mExcel, mWB, mSheet: Variant;
- i,j,k,l: integer;
- mCode, mStoreCard_ID:string;
- mSCBO, mUnitBO, mStorePriceBO, mStorePriceRowBO:TNxCustomBusinessObject;
- mUnits, mStorePrices:TNxCustomBusinessMonikerCollection;
+ mSite: TSiteForm;
+ mList: TStringList;
+ mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
+ i,j,k,l,m,n: integer;
+ mRemoteStoreCardID:string;
+ mStoreCardJSON, mResultJSON, mJSON: TJSONSuperObject;
+ mStoreCardArray: TJSONSuperObjectArray;
+ mUnits, mEANs: TNxCustomBusinessMonikerCollection;
 begin
-  mSite := TComponent(Sender).Site;
-  mOS:=msite.BaseObjectSpace;
-  mOpenDlg:=TOpenDialog.Create(sender);
-  mOpenDlg.Title := 'Import z Excelu';
-  mOpenDlg.Filter := 'Soubory aplikace Excel (*.xls, *.xlsx)| *.xls;*.xlsx';
-  if mOpenDlg.Execute then begin
-    try
-      mExcel := CreateOleObject('Excel.Application');
-      mWB := mExcel.Workbooks.Open(mOpenDlg.FileName);
-      mSheet := mWB.Sheets[1];
-      k:=mSheet.UsedRange.Rows.Count;
-      i:=2;
-          WaitWin.StartProgress('Čekejte, prosím ...', '', k);
-          While i<k+1 do begin
-               mCode:=VarToStr(mSheet.Cells[i, 1]);
-               mStoreCard_ID:=mOS.SQLSelectFirstAsString('Select id from storecards where code='+QuotedStr(mCode)+' and hidden=''N'' ', '');
-               if not(NxIsEmptyOID(mStoreCard_ID)) then begin
-                 mSCBO:=mOS.CreateObject(Class_StoreCard);
-                 mSCBO.load(mStoreCard_ID,nil);
-                 mUnits:=mSCBO.GetLoadedCollectionMonikerForFieldCode(mSCBO.GetFieldCode('StoreUnits'));
-                 mUnitBO:=mUnits.AddNewObject;
-                 mUnitBO.SetFieldValueAsString('Code',VarToStr(mSheet.Cells[i, 3]));
-                 mUnitBO.SetFieldValueAsFloat('UnitRate', NxIBStrToFloat(VarToStr(mSheet.Cells[i, 2])));
-                 mSCBO.save;
-                 mscbo.free;
-               end;
-               Inc(i);
-               WaitWin.ChangeText(IntToStr(i+1) + ' / ' + IntToStr(k));
-               WaitWin.StepIt;
-          end;
-          WaitWin.Stop;
-          mWB.Close;
-    finally
-
-    end;
-   end;
-end;
-
-Procedure CreateSC(Sender:TComponent);
-var
- mSite:TSiteForm;
- mOpenDlg: TOpenDialog;
- mOS:TNxCustomObjectSpace;
- mExcel, mWB, mSheet: Variant;
- i,j,k,l: integer;
- mCode, mStoreCard_ID:string;
- mSCBO, mUnitBO, mStorePriceBO, mStorePriceRowBO:TNxCustomBusinessObject;
- mUnits, mStorePrices:TNxCustomBusinessMonikerCollection;
-begin
-  mSite := TComponent(Sender).Site;
-  mOS:=msite.BaseObjectSpace;
-  mOpenDlg:=TOpenDialog.Create(sender);
-  mOpenDlg.Title := 'Import z Excelu';
-  mOpenDlg.Filter := 'Soubory aplikace Excel (*.xls, *.xlsx)| *.xls;*.xlsx';
-  if mOpenDlg.Execute then begin
-    try
-      mExcel := CreateOleObject('Excel.Application');
-      mWB := mExcel.Workbooks.Open(mOpenDlg.FileName);
-      mSheet := mWB.Sheets[1];
-      k:=mSheet.UsedRange.Rows.Count;
-      i:=2;
-          WaitWin.StartProgress('Čekejte, prosím ...', '', k);
-          While i<k+1 do begin
-               mCode:=VarToStr(mSheet.Cells[i, 1]);
-                 if not(NxIsBlank(mCode)) then begin
-                  mSCBO:=mOS.CreateObject(Class_StoreCard);
-                  mSCBO.new;
-                  mSCBO.prefill;
-                  mSCBO.SetFieldValueAsString('Code',mCode);
-                  mSCBO.SetFieldValueAsString('Name',VarToStr(mSheet.Cells[i, 2]));
-                  mSCBO.SetFieldValueAsString('Specification',VarToStr(mSheet.Cells[i, 16]));
-                  mSCBO.SetFieldValueAsString('X_Name_35',AnsiLeftStr(VarToStr(mSheet.Cells[i, 2]),35));
-                  mSCBO.SetFieldValueAsString('X_Rozmer',VarToStr(mSheet.Cells[i, 4]));
-                  mSCBO.SetFieldValueAsInteger('X_Prumer',StrToInt(VarToStr(mSheet.Cells[i, 18])));
-                  mSCBO.SetFieldValueAsInteger('X_DELKA',StrToInt(VarToStr(mSheet.Cells[i, 19])));
-                  mSCBO.SetFieldValueAsInteger('X_TYP_ZAVITU',StrToInt(VarToStr(mSheet.Cells[i, 20])));
-                  mSCBO.SetFieldValueAsString('X_DIN',AnsiLeftStr(VarToStr(mSheet.Cells[i, 22]),12));
-                  mSCBO.SetFieldValueAsString('X_ISO',AnsiLeftStr(VarToStr(mSheet.Cells[i, 23]),12));
-                  mSCBO.SetFieldValueAsString('X_CSN',AnsiLeftStr(VarToStr(mSheet.Cells[i, 24]),12));
-                  if not(NxIsBlank(VarToStr(mSheet.Cells[i, 5]))) then
-                   mSCBO.SetFieldValueAsString('X_BMS_Material_ID', mOS.SQLSelectFirstAsString('Select id from defrolldata where hidden=''N'' and clsid='+QuotedStr(Class_BMS_material)+
-                                                                                               ' and code='+QuotedStr(VarToStr(mSheet.Cells[i, 5])),''));
-                  if not(NxIsBlank(VarToStr(mSheet.Cells[i, 6]))) then
-                   mscbo.SetFieldValueAsString('X_BMS_Skupina_ID', mOS.SQLSelectFirstAsString('Select id from defrolldata where hidden=''N'' and clsid='+QuotedStr(Class_BMS_skupina)+
-                                                                                               ' and code='+QuotedStr(VarToStr(mSheet.Cells[i, 6])),''));
-                  if not(NxIsBlank(VarToStr(mSheet.Cells[i, 15]))) then
-                   mscbo.SetFieldValueAsString('X_BMS_povrchUprava_ID', mOS.SQLSelectFirstAsString('Select id from defrolldata where hidden=''N'' and clsid='+QuotedStr(Class_BMS_povrch_uprava)+
-                                                                                               ' and code='+QuotedStr(VarToStr(mSheet.Cells[i, 15])),''));
-                  if not(NxIsBlank(VarToStr(mSheet.Cells[i, 21]))) then
-                   mscbo.SetFieldValueAsString('X_BMS_tvarhlava_ID', mOS.SQLSelectFirstAsString('Select id from defrolldata where hidden=''N'' and clsid='+QuotedStr(Class_BMS_tvar_hlavy)+
-                                                                                               ' and code='+QuotedStr(VarToStr(mSheet.Cells[i, 21])),''));
-                  if not(NxIsBlank(VarToStr(mSheet.Cells[i, 12]))) then
-                   mscbo.SetFieldValueAsString('X_BMS_Obal_ID', mOS.SQLSelectFirstAsString('Select id from defrolldata where hidden=''N'' and clsid='+QuotedStr(Class_BMS_obal)+
-                                                                                               ' and code='+QuotedStr(VarToStr(mSheet.Cells[i, 12])),''));
-                  mscbo.SetFieldValueAsString('StoreMenuItem_ID',mOS.SQLSelectFirstAsString('Select id from storemenu where hidden=''N'' and parent_id is not null and text='+QuotedStr(VarToStr(mSheet.Cells[i, 9])),''));
-                  mSCBO.SetFieldValueAsString('StoreAssortmentGroup_ID',mOS.SQLSelectFirstAsString('Select id from storeasSORTMENTGROUPs where hidden=''N'' and code='+QuotedStr(VarToStr(mSheet.Cells[i, 10])),''));
-                  mSCBO.SetFieldValueAsString('StoreCardCategory_ID',mOS.SQLSelectFirstAsString('select id from storecardcategories where code='+
-                                                                                                 QuotedStr(VarToStr(mSheet.Cells[i, 11])),'1100000101'));
-                  mSCBO.SetFieldValueAsString('VatRate_ID',mOS.SQLSelectFirstAsString('select id from VatRates where tariff='+
-                                                                                                 IntToStr(trunc(NxIBStrToFloat(VarToStr(mSheet.Cells[i, 7])))),'02100X0000'));
-                  mUnits:=mSCBO.GetLoadedCollectionMonikerForFieldCode(mSCBO.GetFieldCode('StoreUnits'));
-                  mUnitBO:=mUnits.BusinessObject[0];
-                  mUnitBO.SetFieldValueAsString('Code',VarToStr(mSheet.Cells[i, 3]));
-                  mUnitBO.SetFieldValueAsString('EAN',VarToStr(mSheet.Cells[i, 8]));
-                  mUnitBO.SetFieldValueAsInteger('PLU',StrToInt(VarToStr(mSheet.Cells[i, 17])));
-                  mSCBO.SetFieldValueAsString('MainUnitCode',VarToStr(mSheet.Cells[i, 3]));
-                  mSCBO.save;
-                  mStoreCard_ID:=mSCBO.OID;
-                  mSCBO.free;
-                  if NxIBStrToFloat(VarToStr(mSheet.Cells[i, 14]))>0 then begin
-                    mStorePriceBO:=mOS.CreateObject(Class_StorePrice);
-                    mStorePriceBO.new;
-                    mStorePriceBO.prefill;
-                    mStorePriceBO.SetFieldValueAsString('PriceList_ID','1000000101');
-                    mStorePriceBO.SetFieldValueAsString('StoreCard_ID',mStoreCard_ID);
-                    mStorePrices:=mStorePriceBO.GetLoadedCollectionMonikerForFieldCode(mStorePriceBO.GetFieldCode('PriceRows'));
-                    mStorePriceRowBO:=mStorePrices.AddNewObject;
-                    mStorePriceRowBO.SetFieldValueAsString('Price_ID','1000000101');
-                    mStorePriceRowBO.SetFieldValueAsFloat('Amount',NxIBStrToFloat(VarToStr(mSheet.Cells[i, 14])));
-                    mStorePriceRowBO.SetFieldValueAsString('Qunit',VarToStr(mSheet.Cells[i, 3]));
-                    mStorePriceBO.save;
-                    mStorePriceBO.free;
+  mSite := TComponent(Sender).BusRollSite;
+  mList := TStringList.Create;
+  TBusRollSiteForm(mSite).List.GetSelectedID(mList);
+  if mlist.Count>0 then begin
+    if NxMessageBox('Dotaz','Přejete si aktualizovat EAN a popis jednotky u '+IntToStr(mList.count)+' karet?' , mdConfirm, mdbYesNo, 0, 0, False, mSite)= mrYes then begin
+      WaitWin.StartProgress('Aktualizuji položky, čekejte ...', '', mlist.Count);
+      for l:=0 to mlist.count-1 do begin
+        mBO:=mSite.BaseObjectSpace.createobject(Class_StoreCard);
+        mBO.Load(mlist.strings[l], nil);
+        if Assigned(mBO) then begin
+          mRemoteStoreCardID := '';
+          mStoreCardJSON := API_GET('https://api.barton.cz:8444/barton/Storecards?select=id,code,name&where=code eq '+QuotedStr(mbo.GetFieldValueAsString('Code'))+' and hidden eq ''N''');
+          mStoreCardArray := mStoreCardJSON.AsArray;
+          if mStoreCardArray.Length = 1 then mRemoteStoreCardID := mStoreCardArray.O[0].S['id'] else mremoteStoreCardID:='';
+          if not(nxisemptyoid(mRemoteStoreCardID)) then begin
+            mJSON := TJSONSuperObject.Create;
+              try
+                mJSON.S['id']:=mremoteStoreCardID;
+                mResultJSON := API_POST(mJSON, 'StoreCards', True);
+              finally
+                mJSON.Free;
+              end;
+              if Assigned(mResultJSON) and not NxIsEmptyOID(mResultJSON.S['ID']) then begin
+               munits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
+               for i:=0 to munits.count-1 do begin
+                  mUnitBO:=munits.BusinessObject[i];
+                  for m:=0 to mResultJSON.A['StoreUnits'].Length-1 do begin
+                    if mUnitBO.GetFieldValueAsString('Code')=mResultJSON.A['StoreUnits'].O[m].S['Code'] then begin
+                      if munitbo.GetFieldValueAsString('EAN')='' then
+                        mUnitBO.SetFieldValueAsString('EAN',mResultJSON.A['StoreUnits'].O[m].S['EAN']);
+                      if mUnitBO.GetFieldValueAsString('Description')='' then  
+                        mUnitBO.SetFieldValueAsString('Description',mResultJSON.A['StoreUnits'].O[m].S['Description']);                
+                      means:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
+                      for n:=0 to means.count-1 do means.BusinessObject[n].MarkForDelete;
+                      for j:=0 to mResultJSON.A['StoreUnits'].O[m].A['EANs'].Length-1 do begin
+                        mEANBO:=means.AddNewObject;
+                        mEANBO.SetFieldValueAsString('EAN',mResultJSON.A['StoreUnits'].O[m].A['EANs'].O[j].S['EAN']);
+                      end;
+                    end;
                   end;
-                end;
-               Inc(i);
-               WaitWin.ChangeText(IntToStr(i+1) + ' / ' + IntToStr(k));
-               WaitWin.StepIt;
+               end;
+              end; 
           end;
-          WaitWin.Stop;
-          mWB.Close;
-    finally
-
+        end;
+        if mbo.needsave then mbo.save;
+        mBO.free;
+        WaitWin.ChangeText(IntToStr(l+1) + ' / ' + IntToStr(mList.Count));
+        WaitWin.StepIt;
+       end;
+     WaitWin.Stop;
+     TBusRollSiteForm(mSite).RefreshData;
     end;
-   end;
+  end;
+end;
+
+Procedure GetCardOverAPI(sender:tcomponent);
+var
+  mSite: TSiteForm;
+  mCode, mStoreCardID, mRemoteStoreCardID: string;
+  mStoreCardJSON, mResultJSON, mJSON: TJSONSuperObject;
+  mStoreCardArray: TJSONSuperObjectArray;
+  mList: TStringList;
+  mBO, mUnitBO, mEANBO, mStorePriceBO, mStorePriceRowBO: TNxCustomBusinessObject;
+  mUnits, mEANs, mStorePrices: TNxCustomBusinessMonikerCollection;
+  i,j: integer;
+begin
+  mSite := TComponent(Sender).BusRollSite;
+  mCode := Trim(InputBox('BMS skladová karta', 'Zadejte kód skladové karty', ''));
+  if mCode = '' then
+    Exit;
+
+  mStoreCardID := mSite.BaseObjectSpace.SQLSelectFirstAsString(
+    'Select id from storecards where code='+QuotedStr(mCode)+' and hidden=''N''', '');
+
+  if not NxIsEmptyOID(mStoreCardID) then
+  begin
+    NxShowSimpleMessage('Skladová karta ''' + mCode + ''' již existuje v aktuální databázi.', mSite);
+  
+    Exit;
+  end;
+
+  mRemoteStoreCardID := '';
+  mStoreCardJSON := API_GET(
+    'https://api.barton.cz:8444/barton/Storecards?select=id,code,name&where=code eq '+QuotedStr(mCode)+' and hidden eq ''N''');
+  try
+    mStoreCardArray := mStoreCardJSON.AsArray;
+    if mStoreCardArray.Length = 1 then
+    begin
+      mRemoteStoreCardID := mStoreCardArray.O[0].S['id'];
+    end else begin
+      NxShowSimpleMessage('Karta podle kódu ' + mCode + ' nebyla nalezena na BMS.', mSite);
+      Exit;
+    end;
+  finally
+    mStoreCardJSON.Free;
+  end;
+
+  if not(NxIsEmptyOID(mRemoteStoreCardID)) then
+  begin
+    mJSON := TJSONSuperObject.Create;
+    try
+      mJSON.S['id']:=mremoteStoreCardID;
+      mResultJSON := API_POST(mJSON, 'StoreCards', True);
+    finally
+      //mJSON.Free;
+    end;
+
+    try
+      //Nxshowsimplemessage('InputJson'+mJSON.AsString+NxCrlF+'ResultJSON '+mResultJSON.AsString, mSite);
+      if Assigned(mResultJSON) and (mResultJSON.I['error_code']>0) then
+         NxShowsimplemessage('Chyba při založení skladové karty. '+inttostr(mResultJSON.I['error_code'])+nxcrlf+mresultjson.S['description'], mSite);
+      if Assigned(mResultJSON) and not NxIsEmptyOID(mResultJSON.S['ID']) then
+      begin
+       //NxShowsimplemessage(mresultjson.AsString, mSite);
+       
+        mBO:= mSite.BaseObjectSpace.CreateObject(Class_StoreCard);
+        mBO.new;
+        mBO.prefill;
+        mBO.SetFieldValueAsString('Code', mResultJSON.S['Code']);
+        mBO.SetFieldValueAsString('Name', mResultJSON.S['Name']);
+        mBO.SetfieldvalueasString('Specification', mResultJSON.S['Specification']);
+        mBO.SetFieldvalueAsString('StoreCardCategory_ID', 
+         mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from storecardcategories where code='+QuotedStr(mResultJSON.S['StoreCardCategoryCode'])+' and hidden=''N''', ''));
+        mBO.SetFieldvalueasstring('Vatrate_ID',mresultJSON.S['VATRate_ID']);
+        mBO.SetFieldvalueasstring('X_ISO',mresultJSON.S['X_ISO']);
+        mbo.SetFieldValueasString('X_Din',mresultJSON.S['X_DIN']);
+        mBO.SetFieldvalueasstring('X_CSN',mresultJSON.S['X_CSN']);
+        mBO.SetFieldvalueasstring('X_Name_35',mresultJSON.S['X_Name_35']);
+        MBO.SetFieldvalueasstring('X_Rozmer',mresultJSON.S['X_Rozmer']);
+        mBO.Setfieldvalueasinteger('X_delka',mresultJSON.I['X_Delka']);
+        mBO.Setfieldvalueasinteger('X_Prumer',mresultJSON.I['X_Prumer']);
+        mBO.Setfieldvalueasinteger('X_Typ_Zavitu',mresultJSON.I['X_Typ_Zavitu']);
+        mUnits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
+        for i:=0 to munits.count-1 do
+          mUnits.businessobject[i].MarkForDelete;
+        for i:=0 to mResultJSON.A['StoreUnits'].Length-1 do begin
+          mUnitBO:=mUnits.AddNewObject;
+          mUnitBO.SetFieldValueAsString('Code', mResultJSON.A['StoreUnits'].O[i].S['Code']);
+          mUnitBO.SetFieldValueAsString('EAN', mResultJSON.A['StoreUnits'].O[i].S['EAN']);
+          mUnitBO.SetFieldValueAsInteger('PLU', mResultJSON.A['StoreUnits'].O[i].I['PLU']);
+          mUnitBO.SetFieldValueAsString('Description', mResultJSON.A['StoreUnits'].O[i].S['Description']);
+          mUnitBO.SetFieldValueAsFloat('UnitRate', mResultJSON.A['StoreUnits'].O[i].D['UnitRate']);
+          mEANs:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
+          for j:=0 to mResultJSON.A['StoreUnits'].O[i].A['EANs'].Length-1 do begin
+           if not(mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']=mResultJSON.A['StoreUnits'].O[i].S['EAN']) then begin
+             mEANBO:=mEANs.AddNewObject;
+             mEANBO.SetFieldValueAsString('EAN', mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']);
+            end;
+          end;
+        end; 
+
+        mBO.SetFieldvalueasstring('MainUnitCode',mresultJSON.S['MainUnitCode']);
+        mBO.SetFieldvalueasstring('StoreAssortmentGroup_ID',
+         mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from StoreAssortmentGroups where code='+QuotedStr(mResultJSON.S['StoreAssortmentGroupCode'])+' and hidden=''N''', ''));  
+        mbo.setfieldvalueasstring('X_BMS_Material_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSMaterialCode'])+' and clsid='+QuotedStr(Class_BMS_material)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_Skupina_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSSkupinaCode'])+' and clsid='+QuotedStr(Class_BMS_skupina)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_povrchUprava_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSPovrchCode'])+' and clsid='+QuotedStr(Class_BMS_povrch_uprava)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_tvarhlava_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSTvarHlavaCode'])+' and clsid='+QuotedStr(Class_BMS_tvar_hlavy)+' and hidden=''N''', ''));
+        mbo.setfieldvalueasstring('X_BMS_Obal_ID',mSite.BaseObjectSpace.SQLSelectFirstAsString('select id from defrolldata where code='
+          +QuotedStr(mResultJSON.S['BMSObalCode'])+' and clsid='+QuotedStr(Class_BMS_obal)+' and hidden=''N''', '')); 
+        mbo.save;
+        mStoreCardID := mbo.OID;
+        if mresultJSON.D['Price']>0 then begin
+            mStorePriceBO:=mSite.BaseObjectSpace.CreateObject(Class_StorePrice);
+            mStorePriceBO.new;
+            mStorePriceBO.prefill;
+            mStorePriceBO.SetFieldValueAsString('PriceList_ID','1000000101');
+            mStorePriceBO.SetFieldValueAsString('StoreCard_ID',mStoreCardID);
+            mStorePrices:=mStorePriceBO.GetLoadedCollectionMonikerForFieldCode(mStorePriceBO.GetFieldCode('PriceRows'));
+            mStorePriceRowBO:=mStorePrices.AddNewObject;
+            mStorePriceRowBO.SetFieldValueAsString('Price_ID','1000000101');
+            mStorePriceRowBO.SetFieldValueAsFloat('Amount',mresultJSON.D['Price']);
+            mStorePriceRowBO.SetFieldValueAsString('Qunit',mresultJSON.S['MainUnitCode']);
+            mStorePriceBO.save;
+            mStorePriceBO.free;
+        end;
+          
+        mBO.free;
+        TBusRollSiteForm(mSite).DataSet.SeekID(mStoreCardID);
+      end
+      else
+      begin
+        NxShowSimpleMessage('Chyba při založení skladové karty: ' + mResultJSON.S['Code'] + ' ' + mResultJSON.S['Status'], mSite);
+        Exit;
+      end;
+    finally
+      mResultJSON.Free;
+    end;
+  end
+  else
+  begin
+    NxShowSimpleMessage('Skladová karta již existuje na BMS: ' + mCode, mSite);
+  end;
+
 end;
 
 begin
