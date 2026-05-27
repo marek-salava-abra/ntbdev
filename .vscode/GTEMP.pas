@@ -1,86 +1,191 @@
-Const
-   cDocQueue_DL_ID = 'P600000101'; //DL
-   cDocQueue_VPZ_ID = '2900000101'; //VPZ
-   cStoreGateway_ID = '1010000101'; // Vyskladnovací místo
-   cStoreMan_ID = '5000000101'; // Skladník
+uses '.lib';
 
-   cNxSameGoodsInPositionStrategyID = '{BD31E23F-18B7-43B9-93B6-B652714090F1}';
-   cNxOldestStorageStrategyID = '{37A351FA-D60D-4A98-9A58-1FD1ACAD5339}';
-   cNxFreePositionsStrategyID = '{CBF7FC08-CAB3-4172-9A01-A7456BD4BC35}';
-   cNxMinimumPositionsStrategyID = '{C8F75D91-DDC3-40B4-A89E-24CDCBBDD523}';
-   cNxAccessibilityInputStrategyID = '{4F47491B-EAFC-4B9E-A905-45B7471C6723}';
-   cNxAccessibilityOutputStrategyID = '{0881618E-DF24-4A2E-87BC-DD75BD1E3F51}';
-   cNxMinimumAccessiblePositionsStrategyID = '{96BA5D26-14C5-4704-AF1A-157438752679}';
-   cNxFreeNoPreferredPositionsStrategyID = '{CFF06E40-E587-4DFF-9680-880751B3F359}';
+// ===== SYNCHRONIZACE OBJEDÁVEK VYDANÝCH Z FIRMY =====
+// Skript slouží pro odesílání dokladů objedávek vydaných v JSON formátu na vzdálené API
+// Odesílané údaje zahrnují: hlavičku dokladu a řádky s detailem
 
-procedure CreateBOD (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
+procedure InitSite_Hook(Self: TSiteForm);
 var
- mList,mValidateErrors, mLogs:TStringList;
- i:integer;
- mBO, mBoDBO:TNxCustomBusinessObject;
- mImportMan, mImportMan2:TNxDocumentImportManager;
- mInputParams, mInputParams2:TNxParameters;
- mParam:TNxParameter;
+  mAction: TBasicAction;
 begin
-  mList:=TStringList.Create;
-  mLogs:=TStringList.Create;
-  mValidateErrors:= TStringList.Create;
-  OS.SQLSelect('SELECT A.ID FROM ReceivedOrders A WHERE (A.IsAvailableForDelivery = ''A'')  AND (a.X_FromAPI=''A'')' , mList);
-  if mlist.Count>0 then begin
-   for i:=0 to mList.count-1 do begin
-      mBO:=OS.CreateObject(Class_ReceivedOrder);
-      mBO.Load(mlist.Strings[i],nil);
-            mLogs.add('Objednávka '+mbo.DisplayName);
-            try
-              mImportMan := NxCreateDocumentImportManager(OS, Class_ReceivedOrder, Class_BillOfDelivery);
-              mImportMan.AddInputDocument(mBO.OID);
-              mImportMan.SelectedHeader:= mImportMan.InputDocuments[0];
-              mInputParams := TNxParameters.Create;
-              mParam := mInputParams.GetOrCreateParam(dtstring,'DocQueue_ID');
-              mParam.AsString:=cDocQueue_DL_ID;
-              mImportMan.LoadParams(mInputParams);
-              mImportMan.Execute;
-              mImportMan.OutputDocument.save;
-              
-                            try
-                              mValidateErrors.Clear;
-                              mImportMan2 := NxCreateDocumentImportManager(OS, Class_BillOfDelivery, Class_LogStoreOutput);
-                              mInputParams2 := TNxParameters.Create;
-                              mImportMan2.AddInputDocument(mImportMan.OutputDocument.OID);
-                              mImportMan2.SelectedHeader:= mImportMan2.InputDocuments[0];
-                              mInputParams2.GetOrCreateParam(dtString, 'StoreGateway_ID').AsString := cStoreGateway_ID;
-                              mInputParams2.GetOrCreateParam(dtString, 'DocQueue_ID').AsString := cDocQueue_VPZ_ID;
-                              mInputParams2.GetOrCreateParam(dtString, 'StoreMan_ID').AsString := cStoreMan_ID;
-                              mInputParams2.GetOrCreateParam(dtBoolean, 'AutoPrefillPosition').AsBoolean := True;
-                              mInputParams2.GetOrCreateParam(dtString, 'Strategy_ID').AsString := cNxFreePositionsStrategyID;
-                              mInputParams2.GetOrCreateParam(dtBoolean, 'IsAccessibilityLimitFilter').AsBoolean := False;
-                              mInputParams2.GetOrCreateParam(dtInteger, 'AccessibilityLimit').AsInteger := 0;
+  mAction := Self.GetNewAction;
+  mAction.ShowControl := True;
+  mAction.ShowMenuItem := True;
+  mAction.Name := 'actSyncOrdersAPI';
+  mAction.Caption := '##Odeslat do BMS##';
+  mAction.Hint := 'Odesle objednávku na vzdálené API v JSON formátu';
+  mAction.Category := 'tabList';
+  mAction.OnExecute := @SyncOrdersAPI;
+end;
 
-                              mImportMan2.LoadParams(mInputParams2);
-                              mImportMan2.Execute;
-                              if mImportMan2.OutputDocument.Validate then
-                              begin
-                                 mImportMan2.OutputDocument.Save;
-                                 mBODBO := OS.CreateObject(Class_BillOfDelivery);
-                                 mBODBO.Load(mImportMan.OutputDocument.OID, nil);
-                                 mBODBO.PMChangeState('2010000101');
-                                 mbodbo.free;
-                                 mLogs.Add(' - Vytvořen polohovací doklad:'+mImportMan2.OutputDocument.DisplayName);
-                              end else begin
-                                 mImportMan2.OutputDocument.GetValidateErrors(mValidateErrors);
-                                 mLogs.Add(' - Polohovací doklad nebylo možné uložit, chyby:'+mValidateErrors.Text);
-                              end;
-                           finally
-                              mImportMan2.Free;
-                           end;
-            except
-              mLogs.add('Výjimka '+ExceptionMessage);
+procedure SyncOrdersAPI(Sender:TComponent);
+var
+  mSite: tSiteForm;
+  mHeaderJSON, mRowJSON, mResultJSON, mStoreCardJSON: TJSONSuperObject;
+  mStoreCardArray: TJSONSuperObjectArray;
+  mBO, mRowBO: TNxCustomBusinessObject;
+  i,j,k: integer;
+  mRows: TNxCustomBusinessMonikerCollection;
+  mErrorMessage, mStoreCardCode, mStoreCardID:String;
+  mList:TStringList;
+  mNotFoundCards:TStringList;
+begin
+  mSite:=TComponent(Sender).DynSite;
+  mList:=TStringList.Create;
+  mBO:=TDynSiteForm(mSite).currentobject;
+  mErrorMessage:='';
+      
+      if Assigned(mBO) then begin
+        // Načtení a příprava řádků dokladu
+          mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
+        try
+          // Kontrola zda nebylo již odesláno
+          if Not(NxIsBlank(mBO.GetFieldValueAsString('X_ExternalDocument'))) then begin
+            NxShowSimpleMessage('Objednávka již byla synchronizována. Nelze odeslat znovu.',mSite);
+            WaitWin.Stop;
+            exit;
+          end;
+
+          // Kontrola existence skladových karet na vzdáleném API
+          mNotFoundCards:=TStringList.Create;
+          mNotFoundCards.Clear;
+          WaitWin.StartProgress('Kontrola položek, čekejte ...', '', mRows.Count);
+          
+          for i:=0 to mRows.count-1 do begin
+            mRowBO:=mRows.BusinessObject[i];
+            
+            if not(NxIsEmptyOID(mRowBO.GetFieldValueAsString('StoreCard_ID'))) then begin
+              mStoreCardCode:=mRowBO.GetFieldValueAsString('StoreCard_ID.Code');
+              
+              // GET dotaz na vzdálené API - kontrola existence skladové karty
+              mStoreCardJSON:=API_GET('https://api.barton.cz:8444/barton/Storecards?select=id&where=code eq '+QuotedStr(mStoreCardCode)+' and hidden eq ''N''');
+              
+              if Assigned(mStoreCardJSON) then begin
+                mStoreCardArray:=mStoreCardJSON.AsArray;
+                k:=mStoreCardArray.Length;
+                
+                if k=1 then
+                  mStoreCardID:=mStoreCardArray.O[0].S['id']
+                else
+                  mStoreCardID:='';
+                
+                // Kontrola, zda je ID prázdné
+                if NxIsEmptyOID(mStoreCardID) then begin
+                  if mNotFoundCards.IndexOf(mStoreCardCode)=-1 then
+                    mNotFoundCards.Add('Řádek '+ IntToStr(i+1) + ': ' + mStoreCardCode);
+                end;
+              end;
             end;
-            mLogs.Add('Dodací list '+mImportMan.OutputDocument.DisplayName);
+            WaitWin.ChangeText(IntToStr(i+1) + ' / ' + IntToStr(mRows.Count));
+            WaitWin.StepIt;
+          end;
+          WaitWin.Stop;
+          
+          // Pokud byly nalezeny nenalezené karty, zastavit a vypsat chybu
+          if mNotFoundCards.count>0 then begin
+            WaitWin.Stop;
+            NxShowSimpleMessage('Skladové karty neexistují v BMS:'+ #13#10 + #13#10 + mNotFoundCards.Text + #13#10 + #13#10 + 'Synchronizace byla zrušena.',mSite);
+            mNotFoundCards.Free;
+            exit;
+          end;
+          mNotFoundCards.Free;
+
+          // Příprava hlavičky dokladu v JSON
+          mHeaderJSON:=TJSONSuperObject.Create;
+          mHeaderJSON.S['Code']:=mBO.DisplayName;
+          mHeaderJSON.S['DocumentNumber']:=mBO.displayname;
+          //mHeaderJSON.S['ExternalNumber']:=mBO.GetFieldValueAsString('ExternalNumber');
+          //mHeaderJSON.DT8601['CreatedOn']:=mBO.GetFieldValueAsDateTime('CreatedOn');
+          mHeaderJSON.S['Description']:=mBO.GetFieldValueAsString('Description');
+          //mHeaderJSON.S['FirmCode']:=mBO.GetFieldValueAsString('Firm_ID.Code');
+          //mHeaderJSON.S['FirmName']:=mBO.GetFieldValueAsString('Firm_ID.Name');
+          mHeaderJSON.S['FirmOrgIdentNumber']:='09165657';
+          mHeaderJSON.S['IssuedOrder_ID']:=mBO.OID;
+          mHeaderJSON.O['Rows'] := mHeaderJSON.CreateJSONArray;          
+          
+          for i:=0 to mRows.count-1 do begin
+            mRowBO:=mRows.BusinessObject[i];
+            if mRowBO.GetFieldValueAsInteger('RowType') in [2,3] then begin
+              mRowJSON:=TJSONSuperObject.Create;            
+              mRowJSON.I['RowNumber']:=i+1;
+              mRowJSON.I['RowType']:=mRowBO.GetFieldValueAsInteger('RowType');
+              mRowJSON.S['StoreCardCode']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Code');
+              mRowJSON.S['StoreCardName']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Name');
+              mRowJSON.D['Quantity']:=mRowBO.GetFieldValueAsFloat('Quantity');
+              mRowJSON.S['QUnit']:=mRowBO.GetFieldValueAsString('Qunit');
+              mRowJSON.S['Text']:=mRowBO.GetFieldValueAsString('Text');
+              mRowJSON.S['Row_ID']:=mRowBO.OID;            
+              mHeaderJSON.A['Rows'].Add(mRowJSON);
+            end;
+          end;
+
+          // UPRAVIT: Zadejte správné URL endpoint a typ dokladu
+          CFxLog.SaveLog(NxCreateContext(mBO.objectspace),'LA','DataOrder '+mHeaderJSON.S['IssuedOrder_ID'],mHeaderJSON.AsString,2,Now);
+          //NxShowsimpleMessage(mheaderJSON.AsString, mSite);
+          mResultJSON:= TJSONSuperObject.Create;
+          mResultJSON:= API_POST(mHeaderJSON, 'IssuedOrders');  // Parametr 'IssuedOrders' přizpůsobte
+
+          // Uložení výsledku synchronizace
+          if not(NxIsEmptyOID(mResultJSON.S['ID'])) then begin
+            mBO.SetFieldValueAsString('X_ExternalDocument',mResultJSON.S['Code']);
+            mBO.SetFieldValueAsBoolean('Issued',true);
+            mBO.SetFieldValueAsDateTime('X_SentDate$Date',Now);
+            mBO.save;
+            TDynSiteForm(mSite).RefreshData;
+          end else begin
+            mErrorMessage:=mErrorMessage+#13#10+mResultJSON.S['Code'] + ' - Chyba při synchronizaci.';
+          end;
+
+          mBO.free;
+
+        except
+        
+          NxShowSimpleMessage('Chyba při zpracování: '+ExceptionMessage, mSite);
+        end;
+      end;
+    
+    if mErrorMessage <> '' then
+      NxShowSimpleMessage('Chyby při synchronizaci:'+#13#10+mErrorMessage, mSite)
+    else
+      NxShowSimpleMessage('Synchronizace objednávek byla dokončena.', mSite);
+end;
+
+procedure _CanDelete_Hook(Self: TDynSiteForm; var ACanDelete: Boolean);
+begin
+ if not(osNew in self.CurrentObject.State) then begin
+   if Not(NxIsBlank(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'))) then begin
+      if (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'-',[srall],0)>0) and
+         (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'/',[srall],0)>0) then begin
+           ACanDelete:=false;
+           NxShowSimpleMessage('Vymazání zamítnuto.Objednávka byla odeslána do BMS, vymažte napřed doklad v BMS.',Self);
+      end;
    end;
-  end;
-  Success := True;
-  LogInfoStr := ''+NxCrlf+mLogs.Text;
+ end;
+end;
+
+procedure _CanEdit_Hook(Self: TDynSiteForm; var ACanEdit: Boolean);
+begin
+ if not(osNew in self.CurrentObject.State) then begin
+   if Not(NxIsBlank(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'))) then begin
+      if (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'-',[srall],0)>0) and
+         (NxSearch(self.CurrentObject.GetFieldValueAsString('X_ExternalDocument'),'/',[srall],0)>0) then begin
+           if (self.CompanyCache.GetUserID='SUPER00000') then begin
+                        NxShowSimpleMessage('Položka byla synchronizována, opravujte jen hodnoty neovlivnující synchronizaci.',Self);
+           end else begin
+                    ACanEdit:=false;
+                    NxShowSimpleMessage('Oprava zamítnuta.Objednávka byla odeslána do BMS, vymažte napřed doklad v BMS.',Self);
+           end;
+      end;
+   end;
+ end;
+end;
+
+procedure _AfterCloneRec_Hook(Self: TDynSiteForm);
+begin
+  TDynSiteForm(Self).CurrentObject.SetFieldValueAsDateTime('X_SentDate$Date',0);
+  TDynSiteForm(Self).CurrentObject.SetFieldValueAsString('X_ExternalDocument','');
+  TDynSiteForm(Self).CurrentObject.SetFieldValueAsBoolean('Issued',false);
+  TDynSiteForm(self).ActiveDataSet.RefreshCurrentItem;
 end;
 
 begin
