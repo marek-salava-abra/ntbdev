@@ -180,5 +180,12 @@ begin
  end;
 end;
 
+procedure _AfterCloneRec_Hook(Self: TDynSiteForm);
+begin
+  TDynSiteForm(Self).CurrentObject.SetFieldValueAsDateTime('X_SentDate$Date',0);
+  TDynSiteForm(Self).CurrentObject.SetFieldValueAsString('X_ExternalDocument','');
+  TDynSiteForm(self).ActiveDataSet.RefreshCurrentItem;
+end;
+
 begin
 end.

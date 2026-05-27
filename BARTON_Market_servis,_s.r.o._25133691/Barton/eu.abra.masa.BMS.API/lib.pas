@@ -72,6 +72,7 @@ var
  mInputParams:TNxParameters;
  mParam:TNxParameter;
  mImportMan: TNxDocumentImportManager;
+ mPurchasePrice, mKoeficient:extended;
 begin
  Result := TJSONSuperObject.Create;
  mOS:=AContext.GetObjectSpace;
@@ -90,6 +91,7 @@ begin
           mHeaderBO.SetFieldValueAsString('X_IssuedOrderID',AInput.S['IssuedOrder_ID']);
           mFirm_ID:=mOS.SQLSelectFirstAsString('select id from firms where hidden='+QuotedStr('N')+' and firm_id is null and orgidentnumber='+QuotedStr(AInput.S['FirmOrgIdentNumber']),'');
           mheaderBO.SetFieldValueAsString('Firm_ID',mFirm_ID);
+          mKoeficient:=(100+mHeaderBO.Getfieldvalueasfloat('Firm_ID.U_Percento2Purchase'))/100;
           mHeaderBO.setfieldvalueasboolean('X_FromAPI',true);
           mRows:=mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
            for i:= 0 to AInput.A['Rows'].Length -1 do begin
@@ -108,7 +110,8 @@ begin
                if NxIsEmptyOID(mStoreCard_ID) then mNotFoundCard:=mNotFoundCard+NxCrLf+AInput.A['Rows'].O[i].S['StoreCardCode'];
                //if NxIsEmptyOID(mMainSupplier_ID)  and not(NxIsEmptyOID(mIODocQueue_ID)) then mMainSupplier_ID:=mRowBO.GetFieldValueAsString('Storecard_id.MainSupplier_ID.Firm_ID');
                mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
-               //mRowBO.SetFieldValueAsFloat('UnitPrice',0);
+               mPurchasePrice:=mOS.sqlselectfirstAsExtended('Select PurchasePrice*PurchaseCurrRate from storesubcards where storecard_id='+QuotedStr(mStoreCard_ID)+' and store_id='+QuotedStr(mStore_ID),0);
+               if mpurchasePrice>0 then mRowBO.SetFieldValueAsFloat('UnitPrice',mPurchasePrice*mKoeficient);
                //mRowBO.SetFieldValueAsFloat('TotalPrice',0);
              end else begin
                if AInput.A['Rows'].O[i].I['RowType']=2 then begin

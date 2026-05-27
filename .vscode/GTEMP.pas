@@ -1,392 +1,175 @@
-procedure InitSite_Hook(Self: TSiteForm);
+function POST_StoreCards(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
 var
-  mAction: TBasicAction;
+    mOS: TNxCustomObjectSpace;
+    mCode, mName, mErrorMessage: string;
+    mStoreUnitJSON, mEANJSON: TJSONSuperObject;
+    mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
+    mUnits, mEANs: TNxCustomBusinessMonikerCollection;
+    i,j,k: integer;
+    mSite: TDynSiteForm;
+    mPrice:extended;
 begin
-  mAction := Self.GetNewAction;
-  mAction.ShowControl := True;
-  mAction.ShowMenuItem := True;
-  mAction.Name := 'actGenOVMP';
-  mAction.Caption := '##Vygeneruje OVMP##';
-  mAction.Hint := 'Vytvoří objendávku OVMP z OV1';
-  mAction.Category := 'tabList';
-  mAction.OnExecute := @GenOVMP;
-end;
-
-Procedure GenOVMP(Sender:TComponent);
-var
- mSite:TSiteForm;
- mRows, mNewRows:TNxCustomBusinessMonikerCollection;
- i,mProductCount:integer;
- mOS:TNxCustomObjectSpace;
- mBO, mRowBO, mNewBO, mNewRowBO, mUserXLink:TNxCustomBusinessObject;
- mNotFoundList:TStringList;
- mProductCard_ID, mMessage, mXLink_ID:string;
- mCompleteBatches:Boolean;
- mBatchQuantity, mQuantity:Extended;
- mPOZKList:tstringlist;
- mPOZBO, mVYPBO:TNxCustomBusinessObject;
-begin
- mSite:=TComponent(Sender).DynSite;
- mBO:=TDynSiteForm(mSite).CurrentObject;
- if Assigned(mBO) then begin
-   mOS:=mBO.ObjectSpace;
-   if (mBO.GetFieldValueAsString('DocQueue_ID.Code') in ['OV1','OV2','OV4', 'OVI','OVKO']) then begin
-    if mbo.GetFieldValueAsString('DocQueue_ID.Code') in ['OV1','OV2','OV4'] then begin
-     if NxMessageBox('Potvrzení', 'Vygenerovat OVMP z objednávky '+mbo.DisplayName+'?', mdConfirm, mdbYesNo, 1, nil, False, msite) = mrYes then begin
-       mCompleteBatches:=True;
-       mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
-       //kontrola na kompletní existenci šarží (agenda pohyby šarží na OV
-         for i:=0 to mRows.count-1 do begin
-           mRowBO:=mRows.BusinessObject[i];
-           if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
-             if mRowBO.GetFieldValueAsInteger('StoreCard_ID.Category')=2 then begin
-               if mCompleteBatches then begin
-                 mBatchQuantity:=mOS.SQLSelectFirstAsExtended('Select sum(X_Quantity) from defrolldata where clsid='+
-                                                              QuotedStr('EC2R2HSFK5UOZ5MYVJWJOHUC4S')+' and  X_Parent_ID='+QuotedStr(mRowBO.OID),0);
-                 if not(mBatchQuantity = (mRowBO.GetFieldValueAsFloat('Quantity')/mRowBO.GetFieldValueAsFloat('UnitRate'))) then
-                  mCompleteBatches:=False;
-               end;
-             end;
-           end;
-         end;
-        if not(mCompleteBatches) then begin
-          NxShowSimpleMessage('Doklad '+mBO.DisplayName+' nemá kompletně vygenerované šarže, nemohu pokračovat.', mSite);
-          exit;
-        end;
-       //konec kontroly
-       //kontrola na existenci x-vazby
-         mXLink_ID:=mOS.SQLSelectFirstAsString('Select id from userxlinks where SourceCLSID='+QuotedStr(Class_IssuedOrder)+
-                                               ' and Source_id='+QuotedStr(mBO.OID)+' and DestinationCLSID='+QuotedStr(Class_IssuedOrder),'');
-         if not(NxIsEmptyOID(mXLink_ID)) then begin
-           NxShowSimpleMessage('Doklad '+mBO.DisplayName+' již má svou OVMP', mSite);
-           exit;
-         end;
-       //konec kontroly x-vazby
-       //kontrola na kusovník s právě jednou výrobkovou kartou
-       mNotFoundList:=TStringList.Create;
-       mNotFoundList.Clear;
-       mMessage:='Nenalezené položky s kusovníkem o jedné výrobkové kartě:'+#13#10;
-       for i:=0 to mRows.count-1 do begin
-         mRowBO:=mRows.BusinessObject[i];
-         if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
-           if i=0 then
-           mProductCount:=mOS.SQLSelectFirstAsInteger('Select count(plm2.id) from plmpiecelists plm left join plmpiecelists2 plm2 on plm.id=plm2.parent_id '+
-                                                      'left join storecards sc on sc.id=plm2.storecard_id where sc.IsProduct=''A'' and plm2.X_DoNotProduce=''N'' '+
-                                                      'and plm.storecard_id='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),0);
-           if not(mProductCount=1) then mNotFoundList.Add(mRowBO.GetFieldValueAsString('StoreCard_ID.Code')+'  '+
-                                                          mRowBO.GetFieldValueAsString('StoreCard_ID.Name'));
-         end;
-       end;
-       if mNotFoundList.count>0 then begin
-         for i:=0 to mNotFoundList.count-1 do mMessage:=mMessage+#13#10+mNotFoundList.Strings[i];
-         NxShowSimpleMessage(mMessage,mSite);
-         // zapsat log, odeslat email na informatika@lipoelastic.com
-           CFxLog.SaveLog(NxCreateContext(mOS),'LA','chyba OVx',mMessage,2,Now);
-         // konec logu
-         exit;
-       end;
-       //konec kontroly kusovníku
-       //tvorba OVPM
-        try
-           mNewBO:=mOS.CreateObject(Class_IssuedOrder);
-           mNewBO.New;
-           mNewBO.Prefill;
-           mNewBO.SetFieldValueAsString('DocQueue_ID','~000000804');
-           mNewBO.SetFieldValueAsString('Firm_ID',mOS.SQLSelectFirstAsString('Select id from firms where firm_id is null and hidden=''N'' and OrgIdentNumber=''53578341'' ',''));
-           mNewBO.SetFieldValueAsBoolean('Confirmed',True);
-           mNewBO.SetFieldValueAsInteger('TradeType',6);
-           mNewBO.SetFieldValueAsString('IntrastatDeliveryTerm_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatDeliveryTerm_ID'));
-           mNewBO.SetFieldValueAsString('IntrastatTransportationType_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatTransportationType_'));
-           mNewBO.SetFieldValueAsString('IntrastatTransactionType_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatTransactionType_ID'));
-           mNewBO.SetFieldValueAsString('Country_ID',mOS.SQLSelectFirstAsString('Select id from countries where code='+QuotedStr(mNewBO.GetFieldValueAsString('Firm_ID.ResidenceAddress_ID.CountryCode')),''));
-           mNewRows:=mNewBO.GetLoadedCollectionMonikerForFieldCode(mNewBO.GetFieldCode('Rows'));
-           mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
-           for i:=0 to mRows.count-1 do begin
-             mRowBO:=mRows.BusinessObject[i];
-             mProductCard_ID:=mOS.SQLSelectFirstAsString('Select sc.id from plmpiecelists plm left join plmpiecelists2 plm2 on plm.id=plm2.parent_id '+
-                                                      'left join storecards sc on sc.id=plm2.storecard_id where sc.IsProduct=''A''  and plm2.X_DoNotProduce=''N'' '+
-                                                      'and plm.storecard_id='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),'');
-             mNewRowBO:=mNewRows.AddNewObject;
-             mNewRowBO.SetFieldValueAsInteger('RowType',3);
-             mNewRowBO.SetFieldValueAsString('Store_ID','~000000401');
-             mNewRowBO.SetFieldValueAsString('StoreCard_ID',mProductCard_ID);
-             mNewRowBO.SetFieldValueAsFloat('Quantity',mRowBO.GetFieldValueAsFloat('Quantity'));
-             mNewRowBO.SetFieldValueAsString('Division_ID',mRowBO.GetFieldValueAsString('Division_ID'));
-             mNewRowBO.SetFieldValueAsString('BusOrder_ID',mRowBO.GetFieldValueAsString('BusOrder_ID'));
-             mNewRowBO.SetFieldValueAsString('BusTransaction_ID',mRowBO.GetFieldValueAsString('BusTransaction_ID'));
-             mNewRowBO.SetFieldValueAsString('BusProject_ID',mRowBO.GetFieldValueAsString('BusProject_ID'));
-             mNewRowBO.SetFieldValueAsDateTime('DeliveryDate$Date',mRowBO.GetFieldValueAsDateTime('DeliveryDate$Date'));
-             mNewRowBO.SetFieldValueAsString('X_Origin_ID',mRowBO.OID);
-           end;
-           if mNewBO.NeedSave then mNewBO.save;
-             try
-              mUserXLink:=mOS.CreateObject(Class_UserXLink);
-              mUserXLink.New;
-              mUserXLink.Prefill;
-              mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
-              mUserXLink.SetFieldValueAsString('Source_ID', mBO.OID);
-              mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_IssuedOrder);
-              mUserXLink.SetFieldValueAsString('Destination_ID', mNewBO.OID);
-              mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
-              mUserXLink.SetFieldValueAsString('Description','Vazba');
-              mUserXLink.Save;
-            finally
-              mUserXLink.Free;
-            end;
-           TDynSiteForm(mSite).ShowSite(Site_IssuedOrders,true,'QueryByUserDynSQLCondition;A.ID='+QuotedStr(mNewBO.OID));
-        except
-           NxShowSimpleMessage('Něco se nepovedlo při generování OVMP, kontaktovat IT'+#13#10+ExceptionMessage,msite);
-           CFxLog.SaveLog(NxCreateContext(mOS),'LA','chyba OVx OVMP',ExceptionMessage+#13#10+NxGetUserName,2,Now);
-        end;
-       //konec tvorby OVMP
-      end;
+  Result := TJSONSuperObject.Create; 
+  mOS := AContext.GetObjectSpace;
+  mBO:=mOS.createobject(Class_StoreCard);
+  mbo.load(AInput.S['id'],nil);
+  mPrice:=NxEvalObjectExprAsFloatDef(mBO,'NxGetStoreCardUnitPriceDef('+Quotedstr('')+', '+Quotedstr('')+', ' + QuotedStr(mBO.OID) + 
+                    ','+Quotedstr('1000000101')+', '+Quotedstr(mBO.GetFieldValueAsString('MainUnitCode'))+',false,'+QuotedStr('0000CZK000')+','+inttostr(trunc(Date))+')',0);
+   result.S['ID']:=mBO.OID;
+   Result.S['Code']:=mBO.GetFieldValueAsString('Code');
+   result.s['Name']:=mBO.GetFieldValueAsString('Name');
+   Result.S['StoreCardCategoryCode']:=mBO.GetFieldValueAsString('StoreCardCategory_ID.Code');
+   //Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
+   Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
+   Result.S['VATRate_ID']:= mBO.GetFieldValueAsString('VATRate_ID');
+   REsult.S['MainUnitCode']:=mBO.GetFieldValueAsString('MainUnitCode');
+   Result.S['X_Name_35']:=mBO.GetFieldValueAsString('x_Name_35');
+   Result.S['X_DIN']:=mBO.GetFieldValueAsString('x_DIN');
+   Result.S['X_ISO']:=mBO.GetFieldValueAsString('x_ISO');
+   Result.S['X_CSN']:=mBO.GetFieldValueAsString('x_CSN');
+   Result.S['X_Rozmer']:=mBO.GetFieldValueAsString('X_Rozmer');
+   Result.S['StoreAssortmentGroupCode']:=mBO.GetFieldValueAsString('StoreAssortmentGroup_ID.Code');
+   Result.S['BMSMaterialCode']:=mBO.GetfieldValueAsString('X_BMS_Material_ID.Code');
+   Result.S['BMSSkupinaCode']:=mBO.GetfieldValueAsString('X_BMS_Skupina_ID.Code');
+   Result.S['BMSPovrchCode']:=mBO.GetfieldValueAsString('X_BMS_povrchUprava_ID.Code');
+   Result.S['BMSTvarHlavaCode']:=mBO.GetfieldValueAsString('X_BMS_tvarhlava_ID.Code');
+   Result.S['BMSObalCode']:=mBO.GetfieldValueAsString('X_BMS_Obal_ID.Code');
+   Result.S['Specification']:=mBO.GetFieldValueAsString('Specification');
+   Result.I['X_Prumer']:=mBO.GetFieldValueAsInteger('X_Prumer');
+   Result.I['X_Delka']:=mBO.GetFieldValueAsInteger('X_delka');
+   Result.I['X_Typ_Zavitu']:=mBO.GetFieldValueAsInteger('X_Typ_Zavitu');
+   Result.D['Price']:=mPrice;
+   Result.O['StoreUnits']:=Result.CreateJSONArray;
+   munits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
+   for i:=0 to munits.count-1 do begin
+     mUnitBO:=munits.BusinessObject[i];
+     mStoreUnitJSON:=TJSONSuperObject.Create;
+     mStoreUnitJSON.S['Code']:=mUnitBO.GetFieldValueAsString('Code');
+     mStoreUnitJSON.S['EAN']:=mUnitBO.GetFieldValueAsString('EAN');
+     mStoreUnitJSON.I['PLU']:=mUnitBO.GetFieldValueAsInteger('PLU');
+     mStoreUnitJSON.S['Description']:=mUnitBO.GetFieldValueAsString('Description');
+     mStoreunitjson.D['UnitRate']:=mUnitBO.GetFieldValueAsFloat('UnitRate');
+     mStoreunitJSON.O['EANs']:=mStoreUnitJSON.CreateJSONArray;
+     means:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
+     for j:=0 to means.count-1 do begin
+       mEANBO:=means.BusinessObject[j];
+       mEANJSON:=TJSONSuperObject.Create;
+       mEANJSON.S['EAN']:=mEANBO.GetFieldValueAsString('EAN');
+       mStoreUnitJSON.A['EANs'].Add(mEANJSON);
      end;
-   if mbo.GetFieldValueAsString('DocQueue_ID.Code')='OVI' then begin
-     if NxMessageBox('Potvrzení', 'Vygenerovat OVMPI z objednávky '+mbo.DisplayName+'?', mdConfirm, mdbYesNo, 1, nil, False, msite) = mrYes then begin
-       mCompleteBatches:=True;
-       mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
-       //kontrola na kompletní existenci šarží (agenda pohyby šarží na OV
-         for i:=0 to mRows.count-1 do begin
-           mRowBO:=mRows.BusinessObject[i];
-           if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
-             if mRowBO.GetFieldValueAsInteger('StoreCard_ID.Category')=2 then begin
-               if mCompleteBatches then begin
-                 mBatchQuantity:=mOS.SQLSelectFirstAsExtended('Select sum(X_Quantity) from defrolldata where clsid='+
-                                                              QuotedStr('EC2R2HSFK5UOZ5MYVJWJOHUC4S')+' and  X_Parent_ID='+QuotedStr(mRowBO.OID),0);
-                 if not(mBatchQuantity = (mRowBO.GetFieldValueAsFloat('Quantity')/mRowBO.GetFieldValueAsFloat('UnitRate'))) then
-                  mCompleteBatches:=False;
-               end;
-             end;
-           end;
-         end;
-        if not(mCompleteBatches) then begin
-          NxShowSimpleMessage('Doklad '+mBO.DisplayName+' nemá kompletně vygenerované šarže, nemohu pokračovat.', mSite);
-          exit;
-        end;
-       //konec kontroly
-       //kontrola na existenci x-vazby
-         mXLink_ID:=mOS.SQLSelectFirstAsString('Select id from userxlinks where SourceCLSID='+QuotedStr(Class_IssuedOrder)+
-                                               ' and Source_id='+QuotedStr(mBO.OID)+' and DestinationCLSID='+QuotedStr(Class_IssuedOrder),'');
-         if not(NxIsEmptyOID(mXLink_ID)) then begin
-           NxShowSimpleMessage('Doklad '+mBO.DisplayName+' již má svou OVMPI', mSite);
-           exit;
-         end;
-       //konec kontroly x-vazby
-       //kontrola na kusovník s právě jednou výrobkovou kartou
-       mNotFoundList:=TStringList.Create;
-       mNotFoundList.Clear;
-       mMessage:='Nenalezené položky s kusovníkem o jedné výrobkové kartě:'+#13#10;
-       for i:=0 to mRows.count-1 do begin
-         mRowBO:=mRows.BusinessObject[i];
-         if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
-           if i=0 then
-           mProductCount:=mOS.SQLSelectFirstAsInteger('Select count(plm2.id) from plmpiecelists plm left join plmpiecelists2 plm2 on plm.id=plm2.parent_id '+
-                                                      'left join storecards sc on sc.id=plm2.storecard_id where sc.IsProduct=''A'' '+
-                                                      'and plm.storecard_id='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),0);
-           if not(mProductCount=1) then mNotFoundList.Add(mRowBO.GetFieldValueAsString('StoreCard_ID.Code')+'  '+
-                                                          mRowBO.GetFieldValueAsString('StoreCard_ID.Name'));
-         end;
-       end;
-       if mNotFoundList.count>0 then begin
-         for i:=0 to mNotFoundList.count-1 do mMessage:=mMessage+#13#10+mNotFoundList.Strings[i];
-         NxShowSimpleMessage(mMessage,mSite);
-         // zapsat log, odeslat email na informatika@lipoelastic.com
-           CFxLog.SaveLog(NxCreateContext(mOS),'LA','chyba OVx',mMessage,2,Now);
-         // konec logu
-         exit;
-       end;
-       //konec kontroly kusovníku
-       //tvorba OVPM
-        try
-           mNewBO:=mOS.CreateObject(Class_IssuedOrder);
-           mNewBO.New;
-           mNewBO.Prefill;
-           mNewBO.SetFieldValueAsString('DocQueue_ID',mOS.SQLSelectFirstAsString('Select id from docqueues where hidden=''N'' and code=''OVMPI'' ',''));
-           mNewBO.SetFieldValueAsString('Firm_ID',mOS.SQLSelectFirstAsString('Select id from firms where firm_id is null and hidden=''N'' and OrgIdentNumber=''53578341'' ',''));
-           mNewBO.SetFieldValueAsBoolean('Confirmed',True);
-           mNewBO.SetFieldValueAsInteger('TradeType',6);
-           mNewBO.SetFieldValueAsString('Description',mbo.GetFieldValueAsString('Description'));
-           mNewBO.SetFieldValueAsString('IntrastatDeliveryTerm_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatDeliveryTerm_ID'));
-           mNewBO.SetFieldValueAsString('IntrastatTransportationType_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatTransportationType_'));
-           mNewBO.SetFieldValueAsString('IntrastatTransactionType_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatTransactionType_ID'));
-           mNewBO.SetFieldValueAsString('Country_ID',mOS.SQLSelectFirstAsString('Select id from countries where code='+QuotedStr(mNewBO.GetFieldValueAsString('Firm_ID.ResidenceAddress_ID.CountryCode')),''));
-           mNewRows:=mNewBO.GetLoadedCollectionMonikerForFieldCode(mNewBO.GetFieldCode('Rows'));
-           mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
-           for i:=0 to mRows.count-1 do begin
-             mRowBO:=mRows.BusinessObject[i];
-             mProductCard_ID:=mOS.SQLSelectFirstAsString('Select sc.id from plmpiecelists plm left join plmpiecelists2 plm2 on plm.id=plm2.parent_id '+
-                                                      'left join storecards sc on sc.id=plm2.storecard_id where sc.IsProduct=''A'' '+
-                                                      'and plm.storecard_id='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),'');
-             mNewRowBO:=mNewRows.AddNewObject;
-             mNewRowBO.SetFieldValueAsInteger('RowType',3);
-             mNewRowBO.SetFieldValueAsString('Store_ID','~000000401');
-             mNewRowBO.SetFieldValueAsString('StoreCard_ID',mProductCard_ID);
-             mNewRowBO.SetFieldValueAsFloat('Quantity',mRowBO.GetFieldValueAsFloat('Quantity'));
-             mNewRowBO.SetFieldValueAsString('Division_ID',mRowBO.GetFieldValueAsString('Division_ID'));
-             mNewRowBO.SetFieldValueAsString('BusOrder_ID',mRowBO.GetFieldValueAsString('BusOrder_ID'));
-             mNewRowBO.SetFieldValueAsString('BusTransaction_ID',mRowBO.GetFieldValueAsString('BusTransaction_ID'));
-             mNewRowBO.SetFieldValueAsString('BusProject_ID',mRowBO.GetFieldValueAsString('BusProject_ID'));
-             mNewRowBO.SetFieldValueAsDateTime('DeliveryDate$Date',mRowBO.GetFieldValueAsDateTime('DeliveryDate$Date'));
-             mNewRowBO.SetFieldValueAsString('X_PL_StoreCard_ID',mRowBO.GetFieldValueAsString('X_PL_StoreCard_ID'));
-             mNewRowBO.SetFieldValueAsString('X_Origin_ID',mRowBO.OID);
-           end;
-           if mNewBO.NeedSave then mNewBO.save;
-             try
-              mUserXLink:=mOS.CreateObject(Class_UserXLink);
-              mUserXLink.New;
-              mUserXLink.Prefill;
-              mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
-              mUserXLink.SetFieldValueAsString('Source_ID', mBO.OID);
-              mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_IssuedOrder);
-              mUserXLink.SetFieldValueAsString('Destination_ID', mNewBO.OID);
-              mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
-              mUserXLink.SetFieldValueAsString('Description','Vazba');
-              mUserXLink.Save;
-            finally
-              mUserXLink.Free;
-            end;
-           TDynSiteForm(mSite).ShowSite(Site_IssuedOrders,true,'QueryByUserDynSQLCondition;A.ID='+QuotedStr(mNewBO.OID));
-        except
-           NxShowSimpleMessage('Něco se nepovedlo při generování OVMPI, kontaktovat IT'+#13#10+ExceptionMessage,msite);
-           CFxLog.SaveLog(NxCreateContext(mOS),'LA','chyba OVx OVMPI',ExceptionMessage+#13#10+NxGetUserName,2,Now);
-        end;
-       //konec tvorby OVMP
-      end;
-     end;
-     if mbo.GetFieldValueAsString('DocQueue_ID.Code')='OVKO' then begin
-     if NxMessageBox('Potvrzení', 'Vygenerovat OVKP z objednávky '+mbo.DisplayName+'?', mdConfirm, mdbYesNo, 1, nil, False, msite) = mrYes then begin
-       mCompleteBatches:=True;
-       mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
-       //kontrola na kompletní existenci šarží (agenda pohyby šarží na OV
-         for i:=0 to mRows.count-1 do begin
-           mRowBO:=mRows.BusinessObject[i];
-           if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
-             if mRowBO.GetFieldValueAsInteger('StoreCard_ID.Category')=2 then begin
-               if mCompleteBatches then begin
-                 mBatchQuantity:=mOS.SQLSelectFirstAsExtended('Select sum(X_Quantity) from defrolldata where clsid='+
-                                                              QuotedStr('EC2R2HSFK5UOZ5MYVJWJOHUC4S')+' and  X_Parent_ID='+QuotedStr(mRowBO.OID),0);
-                 if not(mBatchQuantity = (mRowBO.GetFieldValueAsFloat('Quantity')/mRowBO.GetFieldValueAsFloat('UnitRate'))) then
-                  mCompleteBatches:=False;
-               end;
-             end;
-           end;
-         end;
-        if not(mCompleteBatches) then begin
-          NxShowSimpleMessage('Doklad '+mBO.DisplayName+' nemá kompletně vygenerované šarže, nemohu pokračovat.', mSite);
-          exit;
-        end;
-       //konec kontroly
-       //kontrola na existenci x-vazby
-         mXLink_ID:=mOS.SQLSelectFirstAsString('Select id from userxlinks where SourceCLSID='+QuotedStr(Class_IssuedOrder)+
-                                               ' and Source_id='+QuotedStr(mBO.OID)+' and DestinationCLSID='+QuotedStr(Class_IssuedOrder),'');
-         if not(NxIsEmptyOID(mXLink_ID)) then begin
-           NxShowSimpleMessage('Doklad '+mBO.DisplayName+' již má svou OVKO', mSite);
-           exit;
-         end;
-       //konec kontroly x-vazby
-       //kontrola na kusovník s právě jednou výrobkovou kartou
-       mNotFoundList:=TStringList.Create;
-       mNotFoundList.Clear;
-       mMessage:='Nenalezené položky s kusovníkem o jedné výrobkové kartě:'+#13#10;
-       for i:=0 to mRows.count-1 do begin
-         mRowBO:=mRows.BusinessObject[i];
-         if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
-           if i=0 then
-           mProductCount:=mOS.SQLSelectFirstAsInteger('Select count(plm2.id) from plmpiecelists plm left join plmpiecelists2 plm2 on plm.id=plm2.parent_id '+
-                                                      'left join storecards sc on sc.id=plm2.storecard_id where sc.IsProduct=''A'' '+
-                                                      'and plm.storecard_id='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),0);
-           if not(mProductCount=1) then mNotFoundList.Add(mRowBO.GetFieldValueAsString('StoreCard_ID.Code')+'  '+
-                                                          mRowBO.GetFieldValueAsString('StoreCard_ID.Name'));
-         end;
-       end;
-       if mNotFoundList.count>0 then begin
-         for i:=0 to mNotFoundList.count-1 do mMessage:=mMessage+#13#10+mNotFoundList.Strings[i];
-         NxShowSimpleMessage(mMessage,mSite);
-         // zapsat log, odeslat email na informatika@lipoelastic.com
-           CFxLog.SaveLog(NxCreateContext(mOS),'LA','chyba OVKO',mMessage,2,Now);
-         // konec logu
-         exit;
-       end;
-       //konec kontroly kusovníku
-       //tvorba OVKP
-        try
-           mPozklist:=tstringlist.Create;
-           mPOZKList.Clear;
-           mNewBO:=mOS.CreateObject(Class_IssuedOrder);
-           mNewBO.New;
-           mNewBO.Prefill;
-           mNewBO.SetFieldValueAsString('DocQueue_ID',mOS.SQLSelectFirstAsString('Select id from docqueues where hidden=''N'' and code=''OVKP'' ',''));
-           mNewBO.SetFieldValueAsString('Firm_ID',mOS.SQLSelectFirstAsString('Select id from firms where firm_id is null and hidden=''N'' and OrgIdentNumber=''53578341'' ',''));
-           mNewBO.SetFieldValueAsBoolean('Confirmed',True);
-           mNewBO.SetFieldValueAsString('Description',mbo.GetFieldValueAsString('Description'));
-           //mNewBO.SetFieldValueAsString('IntrastatDeliveryTerm_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatDeliveryTerm_ID'));
-           //mNewBO.SetFieldValueAsString('IntrastatTransportationType_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatTransportationType_'));
-           //mNewBO.SetFieldValueAsString('IntrastatTransactionType_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatTransactionType_ID'));
-           //mNewBO.SetFieldValueAsString('Country_ID',mOS.SQLSelectFirstAsString('Select id from countries where code='+QuotedStr(mNewBO.GetFieldValueAsString('Firm_ID.ResidenceAddress_ID.CountryCode')),''));
-           mNewRows:=mNewBO.GetLoadedCollectionMonikerForFieldCode(mNewBO.GetFieldCode('Rows'));
-           mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
-           for i:=0 to mRows.count-1 do begin
-             mRowBO:=mRows.BusinessObject[i];
-             mProductCard_ID:=mOS.SQLSelectFirstAsString('Select sc.id from plmpiecelists plm left join plmpiecelists2 plm2 on plm.id=plm2.parent_id '+
-                                                      'left join storecards sc on sc.id=plm2.storecard_id where sc.IsProduct=''A'' '+
-                                                      'and plm.storecard_id='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),'');
-             mNewRowBO:=mNewRows.AddNewObject;
-             mNewRowBO.SetFieldValueAsInteger('RowType',3);
-             mNewRowBO.SetFieldValueAsString('Store_ID','~000000E02');
-             mNewRowBO.SetFieldValueAsString('StoreCard_ID',mProductCard_ID);
-             mNewRowBO.SetFieldValueAsFloat('Quantity',mRowBO.GetFieldValueAsFloat('Quantity'));
-             mNewRowBO.SetFieldValueAsString('Division_ID',mRowBO.GetFieldValueAsString('Division_ID'));
-             mNewRowBO.SetFieldValueAsString('BusOrder_ID',mRowBO.GetFieldValueAsString('BusOrder_ID'));
-             mNewRowBO.SetFieldValueAsString('BusTransaction_ID',mRowBO.GetFieldValueAsString('BusTransaction_ID'));
-             mNewRowBO.SetFieldValueAsString('BusProject_ID',mRowBO.GetFieldValueAsString('BusProject_ID'));
-             mNewRowBO.SetFieldValueAsDateTime('DeliveryDate$Date',mRowBO.GetFieldValueAsDateTime('DeliveryDate$Date'));
-             mNewRowBO.SetFieldValueAsString('X_PL_StoreCard_ID',mRowBO.GetFieldValueAsString('X_PL_StoreCard_ID'));
-             mNewRowBO.SetFieldValueAsString('X_Origin_ID',mRowBO.OID);
-             mPozklist.Add(mproductCard_ID+';'+NxFloatToIBStr(mRowBO.GetFieldValueAsFloat('Quantity')));
-           end;
-           if mNewBO.NeedSave then mNewBO.save;
-             try
-              mUserXLink:=mOS.CreateObject(Class_UserXLink);
-              mUserXLink.New;
-              mUserXLink.Prefill;
-              mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
-              mUserXLink.SetFieldValueAsString('Source_ID', mBO.OID);
-              mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_IssuedOrder);
-              mUserXLink.SetFieldValueAsString('Destination_ID', mNewBO.OID);
-              mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
-              mUserXLink.SetFieldValueAsString('Description','Vazba');
-              mUserXLink.Save;
-            finally
-              mUserXLink.Free;
-            end;
-           TDynSiteForm(mSite).ShowSite(Site_IssuedOrders,true,'QueryByUserDynSQLCondition;A.ID='+QuotedStr(mNewBO.OID));
-        except
-           NxShowSimpleMessage('Něco se nepovedlo při generování OVKP, kontaktovat IT'+#13#10+ExceptionMessage,msite);
-           CFxLog.SaveLog(NxCreateContext(mOS),'LA','chyba OVx OVKP',ExceptionMessage+#13#10+NxGetUserName,2,Now);
-        end;
-       //konec tvorby OVKP
-       //doplnit generování POZK, a OVKM
-       if mpozklist.count>0 then begin
-          for i:=0 to mPozkList.count-1 do begin
-            mpozbo:=mOS.CreateObject(Class_PLMProduceRequest);
-            mpozbo.New;
-            mpozbo.Prefill;   
-            mpozbo.SetFieldValueAsString('StoreCard_ID',mProductCard_ID);
-            mpozbo.SetFieldValueAsFloat('Quantity',mQuantity);
-            mPOZBO.SetfieldvalueAsString('Firm_ID',mNewBO.GetFieldValueAsString('Firm_ID'));
-            mPozBO.SetFieldvalueasstring('Store_ID','~000000E02');
-            mPoZBO.Save;
-            
-
-          end;
-       end;
-      end;
-     end;
-   end else begin
-     NxShowSimpleMessage('Tlačítko funguje jen pro řadu OV1, OV2, OV4, OVKO nebo OVI.',mSite);
+     result.A['StoreUnits'].Add(mStoreUnitJSON);
    end;
- end;
+  mbo.free;
+ end;   
+
+function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+var
+ mHeaderBO, mRowBO, mIORowBO:TNxCustomBusinessObject;
+ i,j:integer;
+ mRows, mIORows:TNxCustomBusinessMonikerCollection;
+ mOS:TNxCustomObjectSpace;
+ mDocQueue_ID, mStore_ID, mDivision_ID, mIODocQueue_ID, mMainSupplier_ID, mReceivedOrder_ID,mBusProject_ID, mNotFoundCard, mStoreCard_ID, mFirm_ID:string;
+ mInputParams:TNxParameters;
+ mParam:TNxParameter;
+ mImportMan: TNxDocumentImportManager;
+ mPurchasePrice, mKoeficient:extended;
+begin
+ Result := TJSONSuperObject.Create;
+ mOS:=AContext.GetObjectSpace;
+ CFxLog.SaveLog(NxCreateContext(mOS),'LA','DataOrder '+AInput.S['IssuedOrder_ID'],AInput.AsString,2,Now);
+  try
+      mReceivedOrder_ID:=mOS.SQLSelectFirstAsString('Select id from receivedorders where X_IssuedOrderID='+QuotedStr(AInput.S['IssuedOrder_ID']),'');
+      if NxIsEmptyOID(mReceivedOrder_ID) then begin
+          mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
+          mHeaderBO.New;
+          mHeaderBO.prefill;
+          mNotFoundCard:='';
+          mDocQueue_ID:='I700000101';
+          mHeaderBO.SetFieldValueAsString('DocQueue_ID',mDocQueue_ID);
+          mHeaderBO.SetFieldValueAsString('ExternalNumber',AInput.S['DocumentNumber']);
+          mHeaderBO.SetFieldValueAsString('Description',AInput.S['Description']);
+          mHeaderBO.SetFieldValueAsString('X_IssuedOrderID',AInput.S['IssuedOrder_ID']);
+          mFirm_ID:=mOS.SQLSelectFirstAsString('select id from firms where hidden='+QuotedStr('N')+' and firm_id is null and orgidentnumber='+QuotedStr(AInput.S['FirmOrgIdentNumber']),'');
+          mheaderBO.SetFieldValueAsString('Firm_ID',mFirm_ID);
+          mKoeficient:=(100+mHeaderBO.Getfieldvalueasfloat('Firm_ID.U_Percento2Purchase'))/100;
+          mHeaderBO.setfieldvalueasboolean('X_FromAPI',true);
+          mRows:=mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
+           for i:= 0 to AInput.A['Rows'].Length -1 do begin
+             mRowBO:=mRows.AddNewObject;
+             mrowBO.Prefill;
+             mStore_ID:='1210000101';
+             mDivision_ID:='2100000101';
+             mRowBO.SetFieldValueAsInteger('RowType', AInput.A['Rows'].O[i].I['RowType']);
+             if not(NxIsEmptyOID(AInput.A['Rows'].O[i].S['Row_ID'])) then
+              mRowBO.SetFieldValueAsString('X_IssuedOrderRowID',AInput.A['Rows'].O[i].S['Row_ID']);
+             mRowBO.SetFieldValueAsString('Division_ID',mDivision_ID);
+             if AInput.A['Rows'].O[i].I['RowType']=3 then begin
+               mRowBO.SetFieldValueAsString('Store_ID',mStore_ID);
+               mStoreCard_ID:=mOS.SQLSelectFirstAsString('select id from storecards where hidden='+QuotedStr('N')+' and code='+QuotedStr(AInput.A['Rows'].O[i].S['StoreCardCode']),'');
+               mRowBO.SetFieldValueAsString('StoreCard_ID',mStoreCard_ID);
+               if NxIsEmptyOID(mStoreCard_ID) then mNotFoundCard:=mNotFoundCard+NxCrLf+AInput.A['Rows'].O[i].S['StoreCardCode'];
+               //if NxIsEmptyOID(mMainSupplier_ID)  and not(NxIsEmptyOID(mIODocQueue_ID)) then mMainSupplier_ID:=mRowBO.GetFieldValueAsString('Storecard_id.MainSupplier_ID.Firm_ID');
+               mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
+               mPurchasePrice:=mOS.sqlselectfirstAsExtended('Select PurchasePrice*PurchaseCurrRate from storesubcards where storecard_id='+QuotedStr(mStoreCard_ID)+' and store_id='+QuotedStr(mStore_ID),0);
+               if mpurchasePrice>0 then mRowBO.SetFieldValueAsFloat('UnitPrice',mPurchasePrice*mKoeficient);
+               //mRowBO.SetFieldValueAsFloat('TotalPrice',0);
+             end else begin
+               if AInput.A['Rows'].O[i].I['RowType']=2 then begin
+                mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
+                mrowBO.SetFieldValueAsString('QUnit',AInput.A['Rows'].O[i].S['QUnit']);
+               end;
+               mRowBO.SetFieldValueAsString('Text',AInput.A['Rows'].O[i].S['Text']);
+             end;
+           end;
+          mHeaderBO.save;
+          
+          Result.S['ID']:=mHeaderBO.OID;
+          Result.S['Code']:=mHeaderBO.DisplayName;
+          Result.S['Status']:='Ok';
+          mHeaderBO.Free;
+      end else begin
+        mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
+        mHeaderBO.Load(mReceivedOrder_ID,nil);
+        Result.S['ID']:=mHeaderBO.OID;
+        Result.S['Code']:=mHeaderBO.DisplayName;
+        Result.S['Status']:='Ok';
+        mHeaderBO.free;
+      end;
+  except
+      Result.S['ID']:='';
+      Result.S['Code']:=ExceptionMessage+nxCrLf+'Nenalezené karty:'+NxCrlF+mNotFoundCard;
+      Result.S['Status']:='Error';
+      mHeaderBO.Free;
+  end;
 end;
+
+function API_PUT(aJSON:TJSONSuperObject; AObjectName, AID:string; aIndex: integer = 0):TJSONSuperObject;
+var
+ mWinHTTP:Variant;
+ mResultJSON:TJSONSuperObject;
+ mURL, mAuth:string;
+begin
+  try
+    mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
+    mWinHTTP.Open('PUT', 'https://api.barton.cz:8444/Srouby_Matice/' + AObjectName + '/' + AID + '?select=id');
+    mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
+    mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.UTF8.GetBytes('API:ApiHeslo')));
+    mWinHTTP.Send(aJSON.AsJson);
+    Result:=TJSONSuperObject.ParseString(ConvertToText(mWinHTTP.Responsebody), True);
+  except
+    Result:=TJSONSuperObject.create;
+    Result.S['error']:='error';
+  end;
+end;
+
+function ConvertToText(aUnicodeBytes: TBytes): String;
+var
+  mUnicodeBites: TBytes;
+begin
+  mUnicodeBites := TEncoding.Convert(aUnicodeBytes,Encoding_cpUTF_8,Encoding_cpUTF_16);
+  Result := TEncoding.Unicode.GetString(mUnicodeBites);
+end;
+
 
 begin
 end.
