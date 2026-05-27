@@ -36,6 +36,7 @@ var
  mStoreCardJSON, mResultJSON, mJSON: TJSONSuperObject;
  mStoreCardArray: TJSONSuperObjectArray;
  mUnits, mEANs: TNxCustomBusinessMonikerCollection;
+ mExistingEANs: TStringList;
 begin
   mSite := TComponent(Sender).BusRollSite;
   mList := TStringList.Create;
@@ -64,16 +65,35 @@ begin
                for i:=0 to munits.count-1 do begin
                   mUnitBO:=munits.BusinessObject[i];
                   for m:=0 to mResultJSON.A['StoreUnits'].Length-1 do begin
-                    if mUnitBO.GetFieldValueAsString('Code')=mResultJSON.A['StoreUnits'].O[m].S['Code'] then begin
-                      if munitbo.GetFieldValueAsString('EAN')='' then
-                        mUnitBO.SetFieldValueAsString('EAN',mResultJSON.A['StoreUnits'].O[m].S['EAN']);
+                    if mUnitBO.GetFieldValueAsString('Code')=mResultJSON.A['StoreUnits'].O[m].S['Code'] then begin                        
                       if mUnitBO.GetFieldValueAsString('Description')='' then  
                         mUnitBO.SetFieldValueAsString('Description',mResultJSON.A['StoreUnits'].O[m].S['Description']);                
                       means:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
-                      for n:=0 to means.count-1 do means.BusinessObject[n].MarkForDelete;
-                      for j:=0 to mResultJSON.A['StoreUnits'].O[m].A['EANs'].Length-1 do begin
-                        mEANBO:=means.AddNewObject;
-                        mEANBO.SetFieldValueAsString('EAN',mResultJSON.A['StoreUnits'].O[m].A['EANs'].O[j].S['EAN']);
+                      mExistingEANs := TStringList.Create;
+                      try
+                        mExistingEANs.Sorted := True;
+                        mExistingEANs.Duplicates := dupIgnore;
+                        mExistingEANs.Add(mUnitBO.GetFieldValueAsString('EAN'));
+                        for n:=0 to means.Count-1 do
+                          mExistingEANs.Add(means.BusinessObject[n].GetFieldValueAsString('EAN'));
+                        for j:=0 to mResultJSON.A['StoreUnits'].O[m].A['EANs'].Length-1 do begin
+                          if mResultJSON.A['StoreUnits'].O[m].A['EANs'].O[j].S['EAN'] <> '' then
+                          begin
+                            if mExistingEANs.IndexOf(mResultJSON.A['StoreUnits'].O[m].A['EANs'].O[j].S['EAN']) = -1 then
+                            begin
+                              mEANBO:=means.AddNewObject;
+                              mEANBO.SetFieldValueAsString('EAN', mResultJSON.A['StoreUnits'].O[m].A['EANs'].O[j].S['EAN']);
+                              mExistingEANs.Add(mResultJSON.A['StoreUnits'].O[m].A['EANs'].O[j].S['EAN']);
+                            end;
+                          end;
+                        end;
+                      finally
+                        mExistingEANs.Free;
+                      end;
+                      //NxShowsimpleMessage('#'+munitbo.GetFieldValueAsString('EAN')+'#',msite);
+                      if Length(munitbo.GetFieldValueAsString('EAN'))<7 then begin
+                        //NxShowsimpleMessage('EAN nebyl numeric! '+mResultJSON.A['StoreUnits'].O[m].S['EAN'],mSite);
+                        mUnitBO.SetFieldValueAsString('EAN',mResultJSON.A['StoreUnits'].O[m].S['EAN']);
                       end;
                     end;
                   end;
@@ -101,6 +121,7 @@ var
   mList: TStringList;
   mBO, mUnitBO, mEANBO, mStorePriceBO, mStorePriceRowBO: TNxCustomBusinessObject;
   mUnits, mEANs, mStorePrices: TNxCustomBusinessMonikerCollection;
+  mExistingEANs: TStringList;
   i,j: integer;
 begin
   mSite := TComponent(Sender).BusRollSite;
@@ -180,11 +201,25 @@ begin
           mUnitBO.SetFieldValueAsString('Description', mResultJSON.A['StoreUnits'].O[i].S['Description']);
           mUnitBO.SetFieldValueAsFloat('UnitRate', mResultJSON.A['StoreUnits'].O[i].D['UnitRate']);
           mEANs:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
-          for j:=0 to mResultJSON.A['StoreUnits'].O[i].A['EANs'].Length-1 do begin
-           if not(mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']=mResultJSON.A['StoreUnits'].O[i].S['EAN']) then begin
-             mEANBO:=mEANs.AddNewObject;
-             mEANBO.SetFieldValueAsString('EAN', mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']);
+          mExistingEANs := TStringList.Create;
+          try
+            mExistingEANs.Sorted := True;
+            mExistingEANs.Duplicates := dupIgnore;
+            mExistingEANs.Add(mResultJSON.A['StoreUnits'].O[i].S['EAN']);
+            for j:=0 to mResultJSON.A['StoreUnits'].O[i].A['EANs'].Length-1 do
+            begin
+              if mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN'] <> '' then
+              begin
+                if mExistingEANs.IndexOf(mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']) = -1 then
+                begin
+                  mEANBO:=mEANs.AddNewObject;
+                  mEANBO.SetFieldValueAsString('EAN', mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']);
+                  mExistingEANs.Add(mResultJSON.A['StoreUnits'].O[i].A['EANs'].O[j].S['EAN']);
+                end;
+              end;
             end;
+          finally
+            mExistingEANs.Free;
           end;
         end; 
 

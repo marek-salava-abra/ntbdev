@@ -1,175 +1,87 @@
-function POST_StoreCards(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
-var
-    mOS: TNxCustomObjectSpace;
-    mCode, mName, mErrorMessage: string;
-    mStoreUnitJSON, mEANJSON: TJSONSuperObject;
-    mBO, mUnitBO, mEANBO: TNxCustomBusinessObject;
-    mUnits, mEANs: TNxCustomBusinessMonikerCollection;
-    i,j,k: integer;
-    mSite: TDynSiteForm;
-    mPrice:extended;
-begin
-  Result := TJSONSuperObject.Create; 
-  mOS := AContext.GetObjectSpace;
-  mBO:=mOS.createobject(Class_StoreCard);
-  mbo.load(AInput.S['id'],nil);
-  mPrice:=NxEvalObjectExprAsFloatDef(mBO,'NxGetStoreCardUnitPriceDef('+Quotedstr('')+', '+Quotedstr('')+', ' + QuotedStr(mBO.OID) + 
-                    ','+Quotedstr('1000000101')+', '+Quotedstr(mBO.GetFieldValueAsString('MainUnitCode'))+',false,'+QuotedStr('0000CZK000')+','+inttostr(trunc(Date))+')',0);
-   result.S['ID']:=mBO.OID;
-   Result.S['Code']:=mBO.GetFieldValueAsString('Code');
-   result.s['Name']:=mBO.GetFieldValueAsString('Name');
-   Result.S['StoreCardCategoryCode']:=mBO.GetFieldValueAsString('StoreCardCategory_ID.Code');
-   //Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
-   Result.S['StoreMenuText']:=mBO.GetFieldValueAsString('StoreMenuItem_ID.Text');
-   Result.S['VATRate_ID']:= mBO.GetFieldValueAsString('VATRate_ID');
-   REsult.S['MainUnitCode']:=mBO.GetFieldValueAsString('MainUnitCode');
-   Result.S['X_Name_35']:=mBO.GetFieldValueAsString('x_Name_35');
-   Result.S['X_DIN']:=mBO.GetFieldValueAsString('x_DIN');
-   Result.S['X_ISO']:=mBO.GetFieldValueAsString('x_ISO');
-   Result.S['X_CSN']:=mBO.GetFieldValueAsString('x_CSN');
-   Result.S['X_Rozmer']:=mBO.GetFieldValueAsString('X_Rozmer');
-   Result.S['StoreAssortmentGroupCode']:=mBO.GetFieldValueAsString('StoreAssortmentGroup_ID.Code');
-   Result.S['BMSMaterialCode']:=mBO.GetfieldValueAsString('X_BMS_Material_ID.Code');
-   Result.S['BMSSkupinaCode']:=mBO.GetfieldValueAsString('X_BMS_Skupina_ID.Code');
-   Result.S['BMSPovrchCode']:=mBO.GetfieldValueAsString('X_BMS_povrchUprava_ID.Code');
-   Result.S['BMSTvarHlavaCode']:=mBO.GetfieldValueAsString('X_BMS_tvarhlava_ID.Code');
-   Result.S['BMSObalCode']:=mBO.GetfieldValueAsString('X_BMS_Obal_ID.Code');
-   Result.S['Specification']:=mBO.GetFieldValueAsString('Specification');
-   Result.I['X_Prumer']:=mBO.GetFieldValueAsInteger('X_Prumer');
-   Result.I['X_Delka']:=mBO.GetFieldValueAsInteger('X_delka');
-   Result.I['X_Typ_Zavitu']:=mBO.GetFieldValueAsInteger('X_Typ_Zavitu');
-   Result.D['Price']:=mPrice;
-   Result.O['StoreUnits']:=Result.CreateJSONArray;
-   munits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
-   for i:=0 to munits.count-1 do begin
-     mUnitBO:=munits.BusinessObject[i];
-     mStoreUnitJSON:=TJSONSuperObject.Create;
-     mStoreUnitJSON.S['Code']:=mUnitBO.GetFieldValueAsString('Code');
-     mStoreUnitJSON.S['EAN']:=mUnitBO.GetFieldValueAsString('EAN');
-     mStoreUnitJSON.I['PLU']:=mUnitBO.GetFieldValueAsInteger('PLU');
-     mStoreUnitJSON.S['Description']:=mUnitBO.GetFieldValueAsString('Description');
-     mStoreunitjson.D['UnitRate']:=mUnitBO.GetFieldValueAsFloat('UnitRate');
-     mStoreunitJSON.O['EANs']:=mStoreUnitJSON.CreateJSONArray;
-     means:=mUnitBO.GetLoadedCollectionMonikerForFieldCode(mUnitBO.GetFieldCode('StoreEANs'));
-     for j:=0 to means.count-1 do begin
-       mEANBO:=means.BusinessObject[j];
-       mEANJSON:=TJSONSuperObject.Create;
-       mEANJSON.S['EAN']:=mEANBO.GetFieldValueAsString('EAN');
-       mStoreUnitJSON.A['EANs'].Add(mEANJSON);
-     end;
-     result.A['StoreUnits'].Add(mStoreUnitJSON);
-   end;
-  mbo.free;
- end;   
+Const
+   cDocQueue_DL_ID = 'P600000101'; //DL
+   cDocQueue_VPZ_ID = '2900000101'; //VPZ
+   cStoreGateway_ID = '1010000101'; // Vyskladnovací místo
+   cStoreMan_ID = '5000000101'; // Skladník
 
-function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+   cNxSameGoodsInPositionStrategyID = '{BD31E23F-18B7-43B9-93B6-B652714090F1}';
+   cNxOldestStorageStrategyID = '{37A351FA-D60D-4A98-9A58-1FD1ACAD5339}';
+   cNxFreePositionsStrategyID = '{CBF7FC08-CAB3-4172-9A01-A7456BD4BC35}';
+   cNxMinimumPositionsStrategyID = '{C8F75D91-DDC3-40B4-A89E-24CDCBBDD523}';
+   cNxAccessibilityInputStrategyID = '{4F47491B-EAFC-4B9E-A905-45B7471C6723}';
+   cNxAccessibilityOutputStrategyID = '{0881618E-DF24-4A2E-87BC-DD75BD1E3F51}';
+   cNxMinimumAccessiblePositionsStrategyID = '{96BA5D26-14C5-4704-AF1A-157438752679}';
+   cNxFreeNoPreferredPositionsStrategyID = '{CFF06E40-E587-4DFF-9680-880751B3F359}';
+
+procedure CreateBOD (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
 var
- mHeaderBO, mRowBO, mIORowBO:TNxCustomBusinessObject;
- i,j:integer;
- mRows, mIORows:TNxCustomBusinessMonikerCollection;
- mOS:TNxCustomObjectSpace;
- mDocQueue_ID, mStore_ID, mDivision_ID, mIODocQueue_ID, mMainSupplier_ID, mReceivedOrder_ID,mBusProject_ID, mNotFoundCard, mStoreCard_ID, mFirm_ID:string;
- mInputParams:TNxParameters;
+ mList,mValidateErrors, mLogs:TStringList;
+ i:integer;
+ mBO, mBoDBO:TNxCustomBusinessObject;
+ mImportMan, mImportMan2:TNxDocumentImportManager;
+ mInputParams, mInputParams2:TNxParameters;
  mParam:TNxParameter;
- mImportMan: TNxDocumentImportManager;
- mPurchasePrice, mKoeficient:extended;
 begin
- Result := TJSONSuperObject.Create;
- mOS:=AContext.GetObjectSpace;
- CFxLog.SaveLog(NxCreateContext(mOS),'LA','DataOrder '+AInput.S['IssuedOrder_ID'],AInput.AsString,2,Now);
-  try
-      mReceivedOrder_ID:=mOS.SQLSelectFirstAsString('Select id from receivedorders where X_IssuedOrderID='+QuotedStr(AInput.S['IssuedOrder_ID']),'');
-      if NxIsEmptyOID(mReceivedOrder_ID) then begin
-          mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
-          mHeaderBO.New;
-          mHeaderBO.prefill;
-          mNotFoundCard:='';
-          mDocQueue_ID:='I700000101';
-          mHeaderBO.SetFieldValueAsString('DocQueue_ID',mDocQueue_ID);
-          mHeaderBO.SetFieldValueAsString('ExternalNumber',AInput.S['DocumentNumber']);
-          mHeaderBO.SetFieldValueAsString('Description',AInput.S['Description']);
-          mHeaderBO.SetFieldValueAsString('X_IssuedOrderID',AInput.S['IssuedOrder_ID']);
-          mFirm_ID:=mOS.SQLSelectFirstAsString('select id from firms where hidden='+QuotedStr('N')+' and firm_id is null and orgidentnumber='+QuotedStr(AInput.S['FirmOrgIdentNumber']),'');
-          mheaderBO.SetFieldValueAsString('Firm_ID',mFirm_ID);
-          mKoeficient:=(100+mHeaderBO.Getfieldvalueasfloat('Firm_ID.U_Percento2Purchase'))/100;
-          mHeaderBO.setfieldvalueasboolean('X_FromAPI',true);
-          mRows:=mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
-           for i:= 0 to AInput.A['Rows'].Length -1 do begin
-             mRowBO:=mRows.AddNewObject;
-             mrowBO.Prefill;
-             mStore_ID:='1210000101';
-             mDivision_ID:='2100000101';
-             mRowBO.SetFieldValueAsInteger('RowType', AInput.A['Rows'].O[i].I['RowType']);
-             if not(NxIsEmptyOID(AInput.A['Rows'].O[i].S['Row_ID'])) then
-              mRowBO.SetFieldValueAsString('X_IssuedOrderRowID',AInput.A['Rows'].O[i].S['Row_ID']);
-             mRowBO.SetFieldValueAsString('Division_ID',mDivision_ID);
-             if AInput.A['Rows'].O[i].I['RowType']=3 then begin
-               mRowBO.SetFieldValueAsString('Store_ID',mStore_ID);
-               mStoreCard_ID:=mOS.SQLSelectFirstAsString('select id from storecards where hidden='+QuotedStr('N')+' and code='+QuotedStr(AInput.A['Rows'].O[i].S['StoreCardCode']),'');
-               mRowBO.SetFieldValueAsString('StoreCard_ID',mStoreCard_ID);
-               if NxIsEmptyOID(mStoreCard_ID) then mNotFoundCard:=mNotFoundCard+NxCrLf+AInput.A['Rows'].O[i].S['StoreCardCode'];
-               //if NxIsEmptyOID(mMainSupplier_ID)  and not(NxIsEmptyOID(mIODocQueue_ID)) then mMainSupplier_ID:=mRowBO.GetFieldValueAsString('Storecard_id.MainSupplier_ID.Firm_ID');
-               mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
-               mPurchasePrice:=mOS.sqlselectfirstAsExtended('Select PurchasePrice*PurchaseCurrRate from storesubcards where storecard_id='+QuotedStr(mStoreCard_ID)+' and store_id='+QuotedStr(mStore_ID),0);
-               if mpurchasePrice>0 then mRowBO.SetFieldValueAsFloat('UnitPrice',mPurchasePrice*mKoeficient);
-               //mRowBO.SetFieldValueAsFloat('TotalPrice',0);
-             end else begin
-               if AInput.A['Rows'].O[i].I['RowType']=2 then begin
-                mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
-                mrowBO.SetFieldValueAsString('QUnit',AInput.A['Rows'].O[i].S['QUnit']);
-               end;
-               mRowBO.SetFieldValueAsString('Text',AInput.A['Rows'].O[i].S['Text']);
-             end;
-           end;
-          mHeaderBO.save;
-          
-          Result.S['ID']:=mHeaderBO.OID;
-          Result.S['Code']:=mHeaderBO.DisplayName;
-          Result.S['Status']:='Ok';
-          mHeaderBO.Free;
-      end else begin
-        mHeaderBO:=mOS.CreateObject(Class_ReceivedOrder);
-        mHeaderBO.Load(mReceivedOrder_ID,nil);
-        Result.S['ID']:=mHeaderBO.OID;
-        Result.S['Code']:=mHeaderBO.DisplayName;
-        Result.S['Status']:='Ok';
-        mHeaderBO.free;
-      end;
-  except
-      Result.S['ID']:='';
-      Result.S['Code']:=ExceptionMessage+nxCrLf+'Nenalezené karty:'+NxCrlF+mNotFoundCard;
-      Result.S['Status']:='Error';
-      mHeaderBO.Free;
+  mList:=TStringList.Create;
+  mLogs:=TStringList.Create;
+  mValidateErrors:= TStringList.Create;
+  OS.SQLSelect('SELECT A.ID FROM ReceivedOrders A WHERE (A.IsAvailableForDelivery = ''A'')  AND (a.X_FromAPI=''A'')' , mList);
+  if mlist.Count>0 then begin
+   for i:=0 to mList.count-1 do begin
+      mBO:=OS.CreateObject(Class_ReceivedOrder);
+      mBO.Load(mlist.Strings[i],nil);
+            mLogs.add('Objednávka '+mbo.DisplayName);
+            try
+              mImportMan := NxCreateDocumentImportManager(OS, Class_ReceivedOrder, Class_BillOfDelivery);
+              mImportMan.AddInputDocument(mBO.OID);
+              mImportMan.SelectedHeader:= mImportMan.InputDocuments[0];
+              mInputParams := TNxParameters.Create;
+              mParam := mInputParams.GetOrCreateParam(dtstring,'DocQueue_ID');
+              mParam.AsString:=cDocQueue_DL_ID;
+              mImportMan.LoadParams(mInputParams);
+              mImportMan.Execute;
+              mImportMan.OutputDocument.save;
+              
+                            try
+                              mValidateErrors.Clear;
+                              mImportMan2 := NxCreateDocumentImportManager(OS, Class_BillOfDelivery, Class_LogStoreOutput);
+                              mInputParams2 := TNxParameters.Create;
+                              mImportMan2.AddInputDocument(mImportMan.OutputDocument.OID);
+                              mImportMan2.SelectedHeader:= mImportMan2.InputDocuments[0];
+                              mInputParams2.GetOrCreateParam(dtString, 'StoreGateway_ID').AsString := cStoreGateway_ID;
+                              mInputParams2.GetOrCreateParam(dtString, 'DocQueue_ID').AsString := cDocQueue_VPZ_ID;
+                              mInputParams2.GetOrCreateParam(dtString, 'StoreMan_ID').AsString := cStoreMan_ID;
+                              mInputParams2.GetOrCreateParam(dtBoolean, 'AutoPrefillPosition').AsBoolean := True;
+                              mInputParams2.GetOrCreateParam(dtString, 'Strategy_ID').AsString := cNxFreePositionsStrategyID;
+                              mInputParams2.GetOrCreateParam(dtBoolean, 'IsAccessibilityLimitFilter').AsBoolean := False;
+                              mInputParams2.GetOrCreateParam(dtInteger, 'AccessibilityLimit').AsInteger := 0;
+
+                              mImportMan2.LoadParams(mInputParams2);
+                              mImportMan2.Execute;
+                              if mImportMan2.OutputDocument.Validate then
+                              begin
+                                 mImportMan2.OutputDocument.Save;
+                                 mBODBO := OS.CreateObject(Class_BillOfDelivery);
+                                 mBODBO.Load(mImportMan.OutputDocument.OID, nil);
+                                 mBODBO.PMChangeState('2010000101');
+                                 mbodbo.free;
+                                 mLogs.Add(' - Vytvořen polohovací doklad:'+mImportMan2.OutputDocument.DisplayName);
+                              end else begin
+                                 mImportMan2.OutputDocument.GetValidateErrors(mValidateErrors);
+                                 mLogs.Add(' - Polohovací doklad nebylo možné uložit, chyby:'+mValidateErrors.Text);
+                              end;
+                           finally
+                              mImportMan2.Free;
+                           end;
+            except
+              mLogs.add('Výjimka '+ExceptionMessage);
+            end;
+            mLogs.Add('Dodací list '+mImportMan.OutputDocument.DisplayName);
+   end;
   end;
+  Success := True;
+  LogInfoStr := ''+NxCrlf+mLogs.Text;
 end;
-
-function API_PUT(aJSON:TJSONSuperObject; AObjectName, AID:string; aIndex: integer = 0):TJSONSuperObject;
-var
- mWinHTTP:Variant;
- mResultJSON:TJSONSuperObject;
- mURL, mAuth:string;
-begin
-  try
-    mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
-    mWinHTTP.Open('PUT', 'https://api.barton.cz:8444/Srouby_Matice/' + AObjectName + '/' + AID + '?select=id');
-    mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
-    mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.UTF8.GetBytes('API:ApiHeslo')));
-    mWinHTTP.Send(aJSON.AsJson);
-    Result:=TJSONSuperObject.ParseString(ConvertToText(mWinHTTP.Responsebody), True);
-  except
-    Result:=TJSONSuperObject.create;
-    Result.S['error']:='error';
-  end;
-end;
-
-function ConvertToText(aUnicodeBytes: TBytes): String;
-var
-  mUnicodeBites: TBytes;
-begin
-  mUnicodeBites := TEncoding.Convert(aUnicodeBytes,Encoding_cpUTF_8,Encoding_cpUTF_16);
-  Result := TEncoding.Unicode.GetString(mUnicodeBites);
-end;
-
 
 begin
 end.

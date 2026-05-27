@@ -17,7 +17,7 @@ procedure CreateBOD (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfo
 var
  mList,mValidateErrors, mLogs:TStringList;
  i:integer;
- mBO:TNxCustomBusinessObject;
+ mBO, mBoDBO:TNxCustomBusinessObject;
  mImportMan, mImportMan2:TNxDocumentImportManager;
  mInputParams, mInputParams2:TNxParameters;
  mParam:TNxParameter;
@@ -41,6 +41,7 @@ begin
               mImportMan.LoadParams(mInputParams);
               mImportMan.Execute;
               mImportMan.OutputDocument.save;
+              
                             try
                               mValidateErrors.Clear;
                               mImportMan2 := NxCreateDocumentImportManager(OS, Class_BillOfDelivery, Class_LogStoreOutput);
@@ -60,6 +61,10 @@ begin
                               if mImportMan2.OutputDocument.Validate then
                               begin
                                  mImportMan2.OutputDocument.Save;
+                                 mBODBO := OS.CreateObject(Class_BillOfDelivery);
+                                 mBODBO.Load(mImportMan.OutputDocument.OID, nil);
+                                 mBODBO.PMChangeState('2010000101');
+                                 mbodbo.free;
                                  mLogs.Add(' - Vytvořen polohovací doklad:'+mImportMan2.OutputDocument.DisplayName);
                               end else begin
                                  mImportMan2.OutputDocument.GetValidateErrors(mValidateErrors);
