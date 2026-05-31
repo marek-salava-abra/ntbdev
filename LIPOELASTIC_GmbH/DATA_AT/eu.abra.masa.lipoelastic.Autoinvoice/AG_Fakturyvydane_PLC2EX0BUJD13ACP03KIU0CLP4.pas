@@ -83,7 +83,7 @@ begin
                  mIIPrintList.add(mInvoiceBO.OID);
                  if mIIPrintList.Count>0 then begin
                     mFileName:=NxSearchReplace(mInvoiceBO.DisplayName,'/','-',[srall])+'.pdf';
-
+                    if not(mSameFirm) then mto:='';
                     if not(NxIsValidEMail(mTO,false)) then mTO:=mInvoiceBO.GetFieldValueAsString('Firm_ID.ElectronicAddress_ID.Email');
                     if not(NxIsValidEMail(mTO,false)) then mTO:=mInvoiceBO.GetFieldValueAsString('Firm_ID.ResidenceAddress_ID.Email');
                     if not(NxIsValidEMail(mTO,false)) then mTO:='odavidek@lipoelastic.com';
@@ -317,7 +317,7 @@ begin
       for idx := 0 to firmCount - 1 do begin
         firmOID := mFirmGroups.Strings[idx];
         mIDsForFirm := TStringList(mFirmGroups.Objects[idx]);
-        //mTO:='';
+        mTO:='';
         if (mIDsForFirm = nil) or (mIDsForFirm.Count = 0) then begin
           WaitWin.StepIt;
           Continue;

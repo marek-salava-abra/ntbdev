@@ -64,7 +64,7 @@ begin
                mCNPrintList.add(mCreditNoteBO.OID);
                if mCNPrintList.Count>0 then begin
                   mFileName:=NxSearchReplace(mCreditNoteBO.DisplayName,'/','-',[srall])+'.pdf';
-                  if not(NxIsValidEMail(mTO,false)) and not(mSameFirm) then
+                  if not(mSameFirm) then
                    mTO:=mCreditNoteBO.GetFieldValueAsString('Firm_ID.ElectronicAddress_ID.Email');
                   //mTO:='odavidek@lipoelastic.com';
                   if not(NxIsValidEMail(mTO,false)) then mTO:=mCreditNoteBO.GetFieldValueAsString('Firm_ID.ResidenceAddress_ID.Email');
