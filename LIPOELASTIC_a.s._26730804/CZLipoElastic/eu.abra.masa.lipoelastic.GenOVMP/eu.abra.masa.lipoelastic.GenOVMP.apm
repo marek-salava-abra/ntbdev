@@ -5,7 +5,7 @@
     "id": "~000000N01",
     "name": "eu.abra.masa.lipoelastic.GenOVMP",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 122,
+    "objversion": 126,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,14 +17,14 @@
       "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
       "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
       "scriptkind": 2,
-      "objversion": 117,
+      "objversion": 120,
       "posindex": 1
     },
     {
       "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
       "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 54,
+      "objversion": 56,
       "posindex": 2
     }
   ]

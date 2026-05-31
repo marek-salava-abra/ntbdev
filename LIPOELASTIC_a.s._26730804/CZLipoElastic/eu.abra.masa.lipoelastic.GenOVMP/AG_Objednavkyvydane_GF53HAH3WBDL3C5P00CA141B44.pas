@@ -425,27 +425,29 @@ begin
                 end;
               end else begin
                 // Karta, která NEZAČÍNÁ s 'D-' - přidat do mOVKM
-                mStoreCardID := mInputBO.GetFieldValueAsString('RealStoreCard_ID');
-                mNewQuantity := mInputBO.GetFieldValueAsFloat('Quantity') * mPOZBO.GetFieldValueAsFloat('Quantity');
-                mFoundIdx := -1;
-                
-                // Hledat, zda karta již existuje v seznamu
-                for k := 0 to mOVKM.Count - 1 do begin
-                  if Copy(mOVKM.Strings[k], 1, Pos(';', mOVKM.Strings[k]) - 1) = mStoreCardID then begin
-                    mFoundIdx := k;
-                    Break;
-                  end;
-                end;
-                
-                if mFoundIdx >= 0 then begin
-                  // Karta existuje, sečíst množství
-                  mExistingEntry := mOVKM.Strings[mFoundIdx];
-                  mExistingQuantity := NxIBStrToFloat(NxTrapStrTrim(mExistingEntry, ';'));
-                  mOVKM.Strings[mFoundIdx] := mStoreCardID + ';' + FloatToStr(mExistingQuantity + mNewQuantity);
-                end else begin
-                  // Nová karta, přidat do seznamu
-                  mOVKM.Add(mStoreCardID + ';' + FloatToStr(mNewQuantity));
-                end;
+               if not(minputbo.GetFieldValueAsString('RealStoreCard_ID')=mPozBO.Getfieldvalueasstring('storecard_ID')) then begin
+                    mStoreCardID := mInputBO.GetFieldValueAsString('RealStoreCard_ID');
+                    mNewQuantity := mInputBO.GetFieldValueAsFloat('Quantity') * mPOZBO.GetFieldValueAsFloat('Quantity');
+                    mFoundIdx := -1;
+                    
+                    // Hledat, zda karta již existuje v seznamu
+                    for k := 0 to mOVKM.Count - 1 do begin
+                      if Copy(mOVKM.Strings[k], 1, Pos(';', mOVKM.Strings[k]) - 1) = mStoreCardID then begin
+                        mFoundIdx := k;
+                        Break;
+                      end;
+                    end;
+                    
+                    if mFoundIdx >= 0 then begin
+                      // Karta existuje, sečíst množství
+                      mExistingEntry := mOVKM.Strings[mFoundIdx];
+                      mExistingQuantity := NxIBStrToFloat(NxTrapStrTrim(mExistingEntry, ';'));
+                      mOVKM.Strings[mFoundIdx] := mStoreCardID + ';' + FloatToStr(mExistingQuantity + mNewQuantity);
+                    end else begin
+                      // Nová karta, přidat do seznamu
+                      mOVKM.Add(mStoreCardID + ';' + FloatToStr(mNewQuantity));
+                    end;
+                 end; 
               end;
             end;
             mPOZBO.free;
