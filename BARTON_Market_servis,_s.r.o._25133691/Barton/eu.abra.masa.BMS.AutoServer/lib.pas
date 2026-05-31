@@ -83,5 +83,19 @@ begin
   LogInfoStr := ''+NxCrlf+mLogs.Text;
 end;
 
+procedure SendBOD2SM (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
+var
+ mList, mLogs:TStringList;
+ i:integer;
+ mBO:TNxCustomBusinessObject;
+ mHeaderJSON, mRowJSON:TJSONObject;
+begin
+  mList:=TStringList.Create;
+  mlogs:=TStringList.Create;
+   OS.SQLSelect('SELECT A.ID FROM BillOfDelivery A WHERE (A.X_FromAPI = ''N'') and (A.X_FromAPI = ''A'') AND (A.State_ID = ''2010000101'')', mList); 
+  Success := True;
+  LogInfoStr := ''+NxCrlf+mLogs.Text;
+end;
+
 begin
 end.
