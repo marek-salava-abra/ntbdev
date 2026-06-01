@@ -493,7 +493,7 @@ begin
           
           // Vytvoření objednávek z mOVKM listu (ostatní karty)
           if mOVKM.count > 0 then begin
-              
+              // je to materiál udělat nový doklad typu Objednávka přijatá, aby se následně dala vytvořit převodka výdej
               mNewOrderBO := mOS.CreateObject(Class_IssuedOrder);
               mNewOrderBO.New;
               mNewOrderBO.Prefill;
