@@ -9,8 +9,8 @@ var
  mLastBatch:integer;
  mBody, mMax, mSpecification:string;
 begin
-  if osNew in Self.State then begin
-     self.SetFieldValueAsString('X_StoreAssortmentGroup_ID',self.GetFieldValueAsString('StoreCard_ID.StoreAssortmentGroup_ID'));
+  if (osNew in Self.State) then begin
+      if  not(self.GetFieldValueAsString('DocQueue_ID.Code')='VYPK')  then self.SetFieldValueAsString('X_StoreAssortmentGroup_ID',self.GetFieldValueAsString('StoreCard_ID.StoreAssortmentGroup_ID'));
      mDavka:=self.GetFieldValueAsFloat('StoreCard_ID.X_davka_sici');
      if (mDavka>0) and (self.GetFieldValueAsInteger('StoreCard_ID.Category')=2) then begin
          mBody:='';

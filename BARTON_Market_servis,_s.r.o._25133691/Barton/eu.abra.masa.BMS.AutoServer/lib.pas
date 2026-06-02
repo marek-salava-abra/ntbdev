@@ -86,15 +86,74 @@ end;
 procedure SendBOD2SM (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
 var
  mList, mLogs:TStringList;
- i:integer;
- mBO:TNxCustomBusinessObject;
- mHeaderJSON, mRowJSON:TJSONObject;
+ i,j:integer;
+ mBO, mRowBO:TNxCustomBusinessObject;
+ mRows:TNxCustomBusinessMonikerCollection;
+ mHeaderJSON, mRowJSON, mResultJSON:TJSONSuperObject;
+ mPrice:Extended;
 begin
   mList:=TStringList.Create;
   mlogs:=TStringList.Create;
-   OS.SQLSelect('SELECT A.ID FROM BillOfDelivery A WHERE (A.X_FromAPI = ''N'') and (A.X_FromAPI = ''A'') AND (A.State_ID = ''2010000101'')', mList); 
+  OS.SQLSelect('SELECT A.ID FROM StoreDocuments A WHERE A.Documenttype=''21'' AND (A.X_FromAPI = ''A'') and (A.X_Sent2SM = 0) AND (A.PMState_ID = ''SDDEF00000'')', mList);
+  if mList.Count>0 then begin
+    for i:=0 to mList.count-1 do begin
+      mBO:=OS.CreateObject(Class_BillOfDelivery);
+      mBO.Load(mList.Strings[i],nil);
+      mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
+      mHeaderJSON:=TJSONSuperObject.Create;
+      mHeaderJSON.S['DocNumber']:=mBO.DisplayName;
+      mHeaderJSON.S['IssuedOrder_ID']:=mBO.GetFieldValueAsString('X_IssuedOrderID');
+      mHeaderJSON.O['Rows']:=mHeaderJSON.CreateJSONArray;
+      for j:=0 to mrows.count-1 do begin
+        mRowBO:=mRows.BusinessObject[j];
+        mRowJSON:=TJSONSuperObject.Create;
+        mRowJSON.S['StoreCardCode']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Code');
+        mRowJSON.S['StoreCardName']:=mRowBO.GetFieldValueAsString('StoreCard_ID.Name');
+        mRowJSON.D['Quantity']:=mRowBO.GetFieldValueAsFloat('Quantity');
+        mRowJson.D['TotalPrice']:=OS.SQLSelectFirstAsExtended('Select TotalPrice from receivedorders2 where id='+QuotedStr(mRowBO.GetFieldValueAsString('ProvideRow_ID')),0);
+        mRowJSON.S['IssuedOrderRow_ID']:=OS.SQLSelectFirstAsString('Select X_IssuedOrderRowID from receivedorders2 where id='+QuotedStr(mRowBO.GetFieldValueAsString('ProvideRow_ID')),'');
+        mHeaderJSON.A['Rows'].Add(mRowJSON);
+      end;
+      mLogs.add(mHeaderJSON.AsString);
+      mresultJSON:=API_POST(mHeaderJSON,'BillOfDelivery');
+      if mResultJSON.S['Status']='Ok' then begin   
+         mBO.SetFieldValueAsinteger('X_Sent2SM',1);
+         mbo.Setfieldvalueasstring('Description',mresultJSON.S['DocNumber']);
+         mBO.Save;
+         mLogs.add(' - Odesláno do SM, číslo dokladu v SM: '+mResultJSON.S['DocNumber']);
+         end else begin
+         mLogs.add(' - Chyba při odesílání do SM, odpověď API: '+mResultJSON.AsString);
+      end;       
+    end;
+  end;
   Success := True;
   LogInfoStr := ''+NxCrlf+mLogs.Text;
+end;
+
+
+function API_POST(aJSON:TJSONSuperObject;AName:string; AIsScript: Boolean = True; aIndex: integer = 0):TJSONSuperObject;
+var
+ mWinHTTP:Variant;
+ mResultJSON:TJSONSuperObject;
+ mSuffix, mURL: string;
+begin
+  mSuffix:= 'script/eu.abra.masa.Barton_SM.API/lib/';
+  try
+   mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
+   mURl:='https://api.barton.cz:8444/Srouby_Matice/'+mSuffix+aName;  // UPRAVIT: URL_ENDPOINT nahradit správným URL
+   mWinHTTP.Open('POST', mURL);
+   mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
+   mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.UTF8.GetBytes('API:ApiHeslo')));
+   mWinHTTP.Send(aJSON.AsJson);
+   if mWinHTTP.status='200' then begin
+     Result:=TJSONSuperObject.ParseString(mWinHTTP.ResponseText, True);
+   end else begin
+     Result:=TJSONSuperObject.ParseString(mWinHTTP.ResponseText, True);
+   end;
+  except
+   Result:=TJSONSuperObject.create;
+   Result.S['error']:='error';
+  end;
 end;
 
 begin

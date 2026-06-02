@@ -16,14 +16,14 @@ Procedure GenOVMP(Sender:TComponent);
 var
  mSite:TSiteForm;
  mRows, mNewRows, mInputs:TNxCustomBusinessMonikerCollection;
- i, mProductCount, j, k, mFoundIdx:integer;
+ i, mProductCount, j, k, mFoundIdx, d, mPocet, mPos1, mPos2:integer;
  mOS:TNxCustomObjectSpace;
  mBO, mRowBO, mNewBO, mNewRowBO,mNewOrderBO, mNewOrderRowBO, mUserXLink, mInputBO:TNxCustomBusinessObject;
- mNotFoundList:TStringList;
- mProductCard_ID, mMessage, mXLink_ID, aWar, aErr, mStoreCardID, mExistingEntry:string;
+ mNotFoundList, mLogs:TStringList;
+ mProductCard_ID, mMessage, mXLink_ID, aWar, aErr, mStoreCardID, mExistingEntry, mKoopFirm_ID, mStoreCard_ID, mSupplierID, mSupplierEntry:string;
  mCompleteBatches:Boolean;
- mBatchQuantity, mQuantity, mNewQuantity, mExistingQuantity:Extended;
- mPOZKList, mOVKD, mOVKM:tstringlist;
+ mBatchQuantity, mQuantity, mNewQuantity, mExistingQuantity, mDavka:Extended;
+ mPOZKList, mOVKD, mOVKM, mSupplierList:tstringlist;
  mPOZBO, mVYPBO:TNxCustomBusinessObject;
 begin
  mSite:=TComponent(Sender).DynSite;
@@ -255,6 +255,9 @@ begin
      end;
      if mbo.GetFieldValueAsString('DocQueue_ID.Code')='OVKO' then begin
      if NxMessageBox('Potvrzení', 'Vygenerovat OVKP z objednávky '+mbo.DisplayName+'?', mdConfirm, mdbYesNo, 1, nil, False, msite) = mrYes then begin
+       mlogs:=TStringList.Create;
+       mlogs.clear;
+       mlogs.add(datetimeToStr(Now)+ ' - Spuštěn proces generování OVKP z OVKO - ' + mbo.DisplayName + ' uživatel: ' + NxGetUserName);  
        mCompleteBatches:=True;
        mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
        //kontrola na kompletní existenci šarží (agenda pohyby šarží na OV
@@ -310,6 +313,7 @@ begin
        //konec kontroly kusovníku
        //tvorba OVKP
         try
+           mKoopFirm_ID:='';
            mPozklist:=tstringlist.Create;
            mPOZKList.Clear;
            mNewBO:=mOS.CreateObject(Class_IssuedOrder);
@@ -342,8 +346,10 @@ begin
              mNewRowBO.SetFieldValueAsDateTime('DeliveryDate$Date',mRowBO.GetFieldValueAsDateTime('DeliveryDate$Date'));
              mNewRowBO.SetFieldValueAsString('X_PL_StoreCard_ID',mRowBO.GetFieldValueAsString('X_PL_StoreCard_ID'));
              mNewRowBO.SetFieldValueAsString('X_Origin_ID',mRowBO.OID);
+             if NxIsEmptyOID(mKoopFirm_ID) then mKoopFirm_ID:=mNewRowBO.GetFieldValueAsString('StoreCard_ID.MainSupplier_ID.Firm_ID');
              mPozklist.Add(mproductCard_ID+';'+NxFloatToIBStr(mRowBO.GetFieldValueAsFloat('Quantity')));
            end;
+           if not(NxIsEmptyOID(mKoopFirm_ID)) then mNewBO.SetFieldValueAsString('Firm_ID',mKoopFirm_ID);
            if mNewBO.NeedSave then mNewBO.save;
              try
               mUserXLink:=mOS.CreateObject(Class_UserXLink);
@@ -366,139 +372,175 @@ begin
         end;
        //konec tvorby OVKP
        //doplnit generování POZK, a OVKM
+       mOVKM:=TStringList.create;
+       mOVKD:=TStringList.Create;
+       mSupplierList:=TStringList.Create;
+       mSupplierList.Sorted := True;
+       mSupplierList.Duplicates := dupIgnore;
        if mpozklist.count>0 then begin
-          mOVKM:=TStringList.create;
-          mOVKD:=TStringList.Create;
           for i:=0 to mPozkList.count-1 do begin
-            mProductCard_ID:=NxTrapStrTrim(mPOZKList.Strings[i],';');
-            mQuantity:=NxIBStrToFloat(NxTrapStrTrim(mPOZKList.Strings[i],';'));
-            mPoZBO:=mOS.CreateObject(Class_PLMProduceRequest);
-            mPoZBO.New;
-            mPoZBO.Prefill;
-            mPOZBO.SetFieldValueAsString('DocQueue_ID','~000000O02');
-            mPoZBO.SetFieldValueAsString('StoreCard_ID',mProductCard_ID);
-            mPoZBO.SetFieldValueAsFloat('Quantity',mQuantity);
-            mPoZBO.SetFieldValueAsFloat('CorrectedQuantity',mQuantity);
-            mPOZBO.SetfieldvalueAsString('Firm_ID',mNewBO.GetFieldValueAsString('Firm_ID'));
-            mPozBO.SetFieldvalueasstring('Store_ID','~000000E02');
-            mPOZBO.SetFieldValueAsString('Division_ID','~000000501');
-            mPoZBO.Save;
-            TNxPLMProduceRequest(mPoZBO).GenerateJobOrder('~000000O03' ,mPOZBO.GetFieldValueAsString('Period_ID'),'1000000101','1P30000101','1007000000',aWar,aErr);
-            try
-              mUserXLink:=mOS.CreateObject(Class_UserXLink);
-              mUserXLink.New;
-              mUserXLink.Prefill;
-              mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
-              mUserXLink.SetFieldValueAsString('Source_ID', mNewBO.OID);
-              mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_PLMProduceRequest);
-              mUserXLink.SetFieldValueAsString('Destination_ID', mPoZBO.OID);
-              mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
-              mUserXLink.SetFieldValueAsString('Description','Vazba');
-              mUserXLink.Save;
-            finally
-              mUserXLink.Free;
-            end;
-            mInputs:=mPOZBO.GetLoadedCollectionMonikerForFieldCode(mPOZBO.GetFieldCode('Inputs'));
-            for j:=0 to mInputs.count-1 do begin
-              mInputBO:=mInputs.BusinessObject[j];
-              if Copy(mInputBO.GetFieldValueAsString('RealStoreCard_ID.Code'), 1, 2) = 'D-' then begin
-                mStoreCardID := mInputBO.GetFieldValueAsString('RealStoreCard_ID');
-                mNewQuantity := mInputBO.GetFieldValueAsFloat('Quantity') * mPOZBO.GetFieldValueAsFloat('Quantity');
-                mFoundIdx := -1;
-                
-                // Hledat, zda karta již existuje v seznamu
-                for k := 0 to mOVKD.Count - 1 do begin
-                  if Copy(mOVKD.Strings[k], 1, Pos(';', mOVKD.Strings[k]) - 1) = mStoreCardID then begin
-                    mFoundIdx := k;
-                    Break;
-                  end;
+            mProductCard_ID := Copy(mPOZKList.Strings[i], 1, Pos(';', mPOZKList.Strings[i]) - 1);
+            mQuantity := NxIBStrToFloat(Copy(mPOZKList.Strings[i], Pos(';', mPOZKList.Strings[i]) + 1, 1000));
+            mDavka:=mOS.SQLSelectFirstAsExtended('Select X_Davka_Sici from storecards where id='+QuotedStr(mProductCard_ID),1);
+            mPocet:=Trunc(mQuantity/mDavka);
+            for d:=1 to mPocet do begin
+                mPoZBO:=mOS.CreateObject(Class_PLMProduceRequest);
+                mPoZBO.New;
+                mPoZBO.Prefill;
+                mPOZBO.SetFieldValueAsString('DocQueue_ID','~000000O02');
+                mPoZBO.SetFieldValueAsString('StoreCard_ID',mProductCard_ID);
+                //mPoZBO.SetFieldValueAsFloat('Quantity',mQuantity);
+                //mPoZBO.SetFieldValueAsFloat('CorrectedQuantity',mQuantity);
+                mPoZBO.SetFieldValueAsFloat('Quantity',mDavka);
+                mPoZBO.SetFieldValueAsFloat('CorrectedQuantity',mDavka);
+                mPOZBO.SetfieldvalueAsString('Firm_ID',mNewBO.GetFieldValueAsString('Firm_ID'));
+                mPozBO.SetFieldvalueasstring('Store_ID','~000000E02');
+                mPOZBO.SetFieldValueAsString('Division_ID','~000000501');
+                mPoZBO.Save;
+                TNxPLMProduceRequest(mPoZBO).GenerateJobOrder('~000000O03' ,mPOZBO.GetFieldValueAsString('Period_ID'),'1000000101','1P30000101','1007000000',aWar,aErr);
+                try
+                  mUserXLink:=mOS.CreateObject(Class_UserXLink);
+                  mUserXLink.New;
+                  mUserXLink.Prefill;
+                  mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
+                  mUserXLink.SetFieldValueAsString('Source_ID', mNewBO.OID);
+                  mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_PLMProduceRequest);
+                  mUserXLink.SetFieldValueAsString('Destination_ID', mPoZBO.OID);
+                  mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
+                  mUserXLink.SetFieldValueAsString('Description','Vazba');
+                  mUserXLink.Save;
+                finally
+                  mUserXLink.Free;
                 end;
-                
-                if mFoundIdx >= 0 then begin
-                  // Karta existuje, sečíst množství
-                  mExistingEntry := mOVKD.Strings[mFoundIdx];
-                  mExistingQuantity := NxIBStrToFloat(NxTrapStrTrim(mExistingEntry, ';'));
-                  mOVKD.Strings[mFoundIdx] := mStoreCardID + ';' + FloatToStr(mExistingQuantity + mNewQuantity);
-                end else begin
-                  // Nová karta, přidat do seznamu
-                  mOVKD.Add(mStoreCardID + ';' + FloatToStr(mNewQuantity));
-                end;
-              end else begin
-                // Karta, která NEZAČÍNÁ s 'D-' - přidat do mOVKM
-               if not(minputbo.GetFieldValueAsString('RealStoreCard_ID')=mPozBO.Getfieldvalueasstring('storecard_ID')) then begin
+                mInputs:=mPOZBO.GetLoadedCollectionMonikerForFieldCode(mPOZBO.GetFieldCode('Inputs'));
+                for j:=0 to mInputs.count-1 do begin
+                  mInputBO:=mInputs.BusinessObject[j];
+                  if Copy(mInputBO.GetFieldValueAsString('RealStoreCard_ID.Code'), 1, 2) = 'D-' then begin
                     mStoreCardID := mInputBO.GetFieldValueAsString('RealStoreCard_ID');
+                    mSupplierID := mInputBO.GetFieldValueAsString('RealStoreCard_ID.MainSupplier_ID.Firm_ID');
                     mNewQuantity := mInputBO.GetFieldValueAsFloat('Quantity') * mPOZBO.GetFieldValueAsFloat('Quantity');
                     mFoundIdx := -1;
-                    
+
                     // Hledat, zda karta již existuje v seznamu
-                    for k := 0 to mOVKM.Count - 1 do begin
-                      if Copy(mOVKM.Strings[k], 1, Pos(';', mOVKM.Strings[k]) - 1) = mStoreCardID then begin
+                    for k := 0 to mOVKD.Count - 1 do begin
+                      if Copy(mOVKD.Strings[k], 1, Pos(';', mOVKD.Strings[k]) - 1) = mStoreCardID then begin
                         mFoundIdx := k;
                         Break;
                       end;
                     end;
-                    
+
                     if mFoundIdx >= 0 then begin
                       // Karta existuje, sečíst množství
-                      mExistingEntry := mOVKM.Strings[mFoundIdx];
-                      mExistingQuantity := NxIBStrToFloat(NxTrapStrTrim(mExistingEntry, ';'));
-                      mOVKM.Strings[mFoundIdx] := mStoreCardID + ';' + FloatToStr(mExistingQuantity + mNewQuantity);
+                      mExistingEntry := mOVKD.Strings[mFoundIdx];
+                      mStoreCard_ID := Copy(mExistingEntry, 1, Pos(';', mExistingEntry) - 1);
+                      mSupplierEntry := Copy(mExistingEntry, Pos(';', mExistingEntry) + 1, 1000);
+                      mExistingQuantity := NxIBStrToFloat(Copy(mSupplierEntry, 1, Pos(';', mSupplierEntry) - 1));
+                      mOVKD.Strings[mFoundIdx] := mStoreCardID + ';' + FloatToStr(mExistingQuantity + mNewQuantity) + ';' + mSupplierID;
                     end else begin
                       // Nová karta, přidat do seznamu
-                      mOVKM.Add(mStoreCardID + ';' + FloatToStr(mNewQuantity));
+                      mOVKD.Add(mStoreCardID + ';' + FloatToStr(mNewQuantity) + ';' + mSupplierID);
                     end;
-                 end; 
-              end;
-            end;
-            mPOZBO.free;
+                    if (mSupplierID <> '') and (mSupplierList.IndexOf(mSupplierID) < 0) then
+                      mSupplierList.Add(mSupplierID);
+                  end else begin
+                    // Karta, která NEZAČÍNÁ s 'D-' - přidat do mOVKM
+                   if not(minputbo.GetFieldValueAsString('RealStoreCard_ID')=mPozBO.Getfieldvalueasstring('storecard_ID')) then begin
+                        mStoreCardID := mInputBO.GetFieldValueAsString('RealStoreCard_ID');
+                        mNewQuantity := mInputBO.GetFieldValueAsFloat('Quantity') * mPOZBO.GetFieldValueAsFloat('Quantity');
+                        mFoundIdx := -1;
 
+                        // Hledat, zda karta již existuje v seznamu
+                        for k := 0 to mOVKM.Count - 1 do begin
+                          if Copy(mOVKM.Strings[k], 1, Pos(';', mOVKM.Strings[k]) - 1) = mStoreCardID then begin
+                            mFoundIdx := k;
+                            Break;
+                          end;
+                        end;
+
+                        if mFoundIdx >= 0 then begin
+                          // Karta existuje, sečíst množství
+                          mExistingEntry := mOVKM.Strings[mFoundIdx];
+                          mStoreCard_ID:=NxtrapStrTrim(mExistingEntry, ';');
+                          mExistingQuantity := NxIBStrToFloat(NxTrapstrTrim(mExistingEntry, ';'));
+                          mOVKM.Strings[mFoundIdx] := mStoreCardID + ';' + FloatToStr(mExistingQuantity + mNewQuantity);
+                        end else begin
+                          // Nová karta, přidat do seznamu
+                          mOVKM.Add(mStoreCardID + ';' + FloatToStr(mNewQuantity));
+                        end;
+                     end;
+                  end;
+                end;
+                mPOZBO.free;
+             end;
           end;
           
           // Vytvoření objednávek z mOVKD listu (karty začínající D-)
           if mOVKD.count > 0 then begin
-              
-              mNewOrderBO := mOS.CreateObject(Class_IssuedOrder);
-              mNewOrderBO.New;
-              mNewOrderBO.Prefill;
-              mNewOrderBO.SetFieldValueAsString('DocQueue_ID', '~000000O01');
-              mNewOrderBO.SetFieldValueAsString('Firm_ID', '7F26300101');
-              mRows := mNewOrderBO.GetLoadedCollectionMonikerForFieldCode(mNewOrderBO.GetFieldCode('Rows'));
-              for i:=0 to movkd.count-1 do begin
-                mProductCard_ID := NxTrapStrTrim(mOVKD.Strings[i], ';');
-                mQuantity := NxIBStrToFloat(NxTrapStrTrim(mOVKD.Strings[i], ';'));
-                mNewOrderRowBO := mRows.AddNewObject;
-                mNewOrderRowBO.SetFieldValueAsInteger('RowType', 3);
-                mNewOrderRowBO.SetFieldValueAsString('Store_ID', '41Y0000101');
-                mNewOrderRowBO.SetFieldValueAsString('StoreCard_ID', mProductCard_ID);
-                mNewOrderRowBO.SetFieldValueAsFloat('Quantity', mQuantity);
-                mNewOrderRowBO.SetFieldValueAsString('Division_ID', '~000000501');
+              // vytvořit jednu objednávku pro každého hlavního dodavatele
+              for i := 0 to mOVKD.Count - 1 do begin
+                mExistingEntry := mOVKD.Strings[i];
+                mPos1 := Pos(';', mExistingEntry);
+                mSupplierEntry := Copy(mExistingEntry, mPos1 + 1, 1000);
+                mPos2 := Pos(';', mSupplierEntry);
+                mSupplierID := Copy(mSupplierEntry, mPos2 + 1, 1000);
+                if (mSupplierID <> '') and (mSupplierList.IndexOf(mSupplierID) < 0) then
+                  mSupplierList.Add(mSupplierID);
               end;
-              if mNewOrderBO.NeedSave then mNewOrderBO.Save;
-              try
-                mUserXLink := mOS.CreateObject(Class_UserXLink);
-                mUserXLink.New;
-                mUserXLink.Prefill;
-                mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
-                mUserXLink.SetFieldValueAsString('Source_ID', mNewBO.OID);
-                mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_issuedorder);
-                mUserXLink.SetFieldValueAsString('Destination_ID', mNewOrderBO.OID);
-                mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
-                mUserXLink.SetFieldValueAsString('Description', 'Vazba');
-                mUserXLink.Save;
-              finally
-                mUserXLink.Free;
+
+              for i := 0 to mSupplierList.Count - 1 do begin
+                mNewOrderBO := mOS.CreateObject(Class_IssuedOrder);
+                mNewOrderBO.New;
+                mNewOrderBO.Prefill;
+                mNewOrderBO.SetFieldValueAsString('DocQueue_ID', '~000000O01');
+                mNewOrderBO.SetFieldValueAsString('Firm_ID', mSupplierList.Strings[i]);
+                mRows := mNewOrderBO.GetLoadedCollectionMonikerForFieldCode(mNewOrderBO.GetFieldCode('Rows'));
+
+                for k := 0 to mOVKD.Count - 1 do begin
+                  mExistingEntry := mOVKD.Strings[k];
+                  mPos1 := Pos(';', mExistingEntry);
+                  mProductCard_ID := Copy(mExistingEntry, 1, mPos1 - 1);
+                  mSupplierEntry := Copy(mExistingEntry, mPos1 + 1, 1000);
+                  mPos2 := Pos(';', mSupplierEntry);
+                  mQuantity := NxIBStrToFloat(Copy(mSupplierEntry, 1, mPos2 - 1));
+                  mSupplierID := Copy(mSupplierEntry, mPos2 + 1, 1000);
+
+                  if mSupplierID = mSupplierList.Strings[i] then begin
+                    mNewOrderRowBO := mRows.AddNewObject;
+                    mNewOrderRowBO.SetFieldValueAsInteger('RowType', 3);
+                    mNewOrderRowBO.SetFieldValueAsString('Store_ID', '41Y0000101');
+                    mNewOrderRowBO.SetFieldValueAsString('StoreCard_ID', mProductCard_ID);
+                    mNewOrderRowBO.SetFieldValueAsFloat('Quantity', mQuantity);
+                    mNewOrderRowBO.SetFieldValueAsString('Division_ID', '~000000501');
+                  end;
+                end;
+
+                if mNewOrderBO.NeedSave then mNewOrderBO.Save;
+                try
+                  mUserXLink := mOS.CreateObject(Class_UserXLink);
+                  mUserXLink.New;
+                  mUserXLink.Prefill;
+                  mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
+                  mUserXLink.SetFieldValueAsString('Source_ID', mNewBO.OID);
+                  mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_issuedorder);
+                  mUserXLink.SetFieldValueAsString('Destination_ID', mNewOrderBO.OID);
+                  mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
+                  mUserXLink.SetFieldValueAsString('Description', 'Vazba');
+                  mUserXLink.Save;
+                finally
+                  mUserXLink.Free;
+                end;
+                mNewOrderBO.free;
               end;
-              mNewOrderBO.free;
           end; 
           
           // Vytvoření objednávek z mOVKM listu (ostatní karty)
           if mOVKM.count > 0 then begin
               // je to materiál udělat nový doklad typu Objednávka přijatá, aby se následně dala vytvořit převodka výdej
-              mNewOrderBO := mOS.CreateObject(Class_IssuedOrder);
+              mNewOrderBO := mOS.CreateObject(Class_ReceivedOrder);
               mNewOrderBO.New;
               mNewOrderBO.Prefill;
-              mNewOrderBO.SetFieldValueAsString('DocQueue_ID', '~000000O06');
-              mNewOrderBO.SetFieldValueAsString('Firm_ID', '7F26300101');
+              mNewOrderBO.SetFieldValueAsString('DocQueue_ID', '~000000O07');
+              mNewOrderBO.SetFieldValueAsString('Firm_ID', mKoopFirm_ID); // 
               mRows := mNewOrderBO.GetLoadedCollectionMonikerForFieldCode(mNewOrderBO.GetFieldCode('Rows'));
               for i:=0 to mOVKM.count-1 do begin
                 mProductCard_ID := NxTrapStrTrim(mOVKM.Strings[i], ';');
@@ -517,7 +559,7 @@ begin
                 mUserXLink.Prefill;
                 mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedOrder);
                 mUserXLink.SetFieldValueAsString('Source_ID', mNewBO.OID);
-                mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_issuedorder);
+                mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_ReceivedOrder);
                 mUserXLink.SetFieldValueAsString('Destination_ID', mNewOrderBO.OID);
                 mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
                 mUserXLink.SetFieldValueAsString('Description', 'Vazba');
@@ -527,7 +569,8 @@ begin
               end;
               mNewOrderBO.free;
           end; 
-
+          mlogs.add(datetimeToStr(Now)+ ' - Ukončen proces generování OVKP z OVKO - ' + mbo.DisplayName + ' uživatel: ' + NxGetUserName); 
+          NxShowsimpleMessage(mlogs.Text, mSite);
        end;
       end;
      end;
