@@ -1,4 +1,4 @@
-uses '.lib';
+﻿uses '.lib';
 
 // ===== SYNCHRONIZACE OBJEDÁVEK VYDANÝCH Z FIRMY =====
 // Skript slouží pro odesílání dokladů objedávek vydaných v JSON formátu na vzdálené API
@@ -12,7 +12,7 @@ begin
   mAction.ShowControl := True;
   mAction.ShowMenuItem := True;
   mAction.Name := 'actSyncOrdersAPI';
-  mAction.Caption := '##Odeslat do Š&M##';
+  mAction.Caption := '##Odeslat do BMS##';
   mAction.Hint := 'Odesle objednávku na vzdálené API v JSON formátu';
   mAction.Category := 'tabList';
   mAction.OnExecute := @SyncOrdersAPI;

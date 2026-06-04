@@ -5,7 +5,7 @@
     "id": "1010000101",
     "name": "eu.abra.masa.Barton_SM.API",
     "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
-    "objversion": 211,
+    "objversion": 212,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -24,7 +24,7 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 114,
+      "objversion": 115,
       "posindex": 2
     },
     {

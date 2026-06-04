@@ -5,7 +5,7 @@
     "id": "10J0000101",
     "name": "eu.abra.masa.BMS.API",
     "license_holder": "BARTON_Market_servis,_s.r.o._25133691",
-    "objversion": 88,
+    "objversion": 105,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,15 +17,22 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 72,
+      "objversion": 82,
       "posindex": 1
     },
     {
       "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
       "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 45,
+      "objversion": 54,
       "posindex": 2
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 3
     }
   ]
 }

@@ -122,6 +122,71 @@ begin
   Result := TEncoding.Unicode.GetString(mUnicodeBites);
 end;
 
+function POST_IssuedOrders(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+var
+ mHeaderBO, mRowBO, mIORowBO:TNxCustomBusinessObject;
+ i,j:integer;
+ mRows, mIORows:TNxCustomBusinessMonikerCollection;
+ mOS:TNxCustomObjectSpace;
+ mDocQueue_ID, mStore_ID, mDivision_ID, mIODocQueue_ID, mMainSupplier_ID, mReceivedOrder_ID,mBusProject_ID, mNotFoundCard, mStoreCard_ID, mFirm_ID:string;
+ mInputParams:TNxParameters;
+ mParam:TNxParameter;
+ mImportMan: TNxDocumentImportManager;
+ mPurchasePrice, mKoeficient:extended;
+begin
+ Result := TJSONSuperObject.Create;
+ mOS:=AContext.GetObjectSpace;
+ try
+          mHeaderBO:=mOS.CreateObject(Class_IssuedOrder);
+          mHeaderBO.New;
+          mHeaderBO.prefill;
+          mNotFoundCard:='';
+          mDocQueue_ID:='T100000101';
+          mHeaderBO.SetFieldValueAsString('DocQueue_ID',mDocQueue_ID);
+          mHeaderBO.SetFieldValueAsString('ExternalNumber',AInput.S['DocumentNumber']);
+          mHeaderBO.SetFieldValueAsString('Description',AInput.S['Description']);
+           mFirm_ID:=mOS.SQLSelectFirstAsString('select id from firms where hidden='+QuotedStr('N')+' and firm_id is null and orgidentnumber='+QuotedStr(AInput.S['FirmOrgIdentNumber']),'');
+          mheaderBO.SetFieldValueAsString('Firm_ID',mFirm_ID);
+          mRows:=mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
+           for i:= 0 to AInput.A['Rows'].Length -1 do begin
+             mRowBO:=mRows.AddNewObject;
+             mrowBO.Prefill;
+             mStore_ID:='1000000101';
+             mDivision_ID:='1000000101';
+             mRowBO.SetFieldValueAsInteger('RowType', AInput.A['Rows'].O[i].I['RowType']);
+             mRowBO.SetFieldValueAsString('Division_ID',mDivision_ID);
+             if AInput.A['Rows'].O[i].I['RowType']=3 then begin
+               mRowBO.SetFieldValueAsString('Store_ID',mStore_ID);
+               mStoreCard_ID:=mOS.SQLSelectFirstAsString('select id from storecards where hidden='+QuotedStr('N')+' and code='+QuotedStr(AInput.A['Rows'].O[i].S['StoreCardCode']),'');
+               mRowBO.SetFieldValueAsString('StoreCard_ID',mStoreCard_ID);
+               if NxIsEmptyOID(mStoreCard_ID) then mNotFoundCard:=mNotFoundCard+NxCrLf+AInput.A['Rows'].O[i].S['StoreCardCode'];
+               //if NxIsEmptyOID(mMainSupplier_ID)  and not(NxIsEmptyOID(mIODocQueue_ID)) then mMainSupplier_ID:=mRowBO.GetFieldValueAsString('Storecard_id.MainSupplier_ID.Firm_ID');
+               mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
+
+               //mRowBO.SetFieldValueAsFloat('TotalPrice',0);
+             end else begin
+               if AInput.A['Rows'].O[i].I['RowType']=2 then begin
+                mRowBO.SetFieldValueAsFloat('Quantity',AInput.A['Rows'].O[i].D['Quantity']);
+                mrowBO.SetFieldValueAsString('QUnit',AInput.A['Rows'].O[i].S['QUnit']);
+               end;
+               mRowBO.SetFieldValueAsString('Text',AInput.A['Rows'].O[i].S['Text']);
+             end;
+           end;
+          mHeaderBO.save;
+
+          Result.S['ID']:=mHeaderBO.OID;
+          Result.S['Code']:=mHeaderBO.DisplayName;
+          Result.S['Status']:='Ok';
+          mHeaderBO.Free;
+
+  except
+      Result.S['ID']:='';
+      Result.S['Code']:=ExceptionMessage+nxCrLf+'Nenalezené karty:'+NxCrlF+mNotFoundCard;
+      Result.S['Status']:='Error';
+      mHeaderBO.Free;
+  end;
+end;
+
 
 
 begin
