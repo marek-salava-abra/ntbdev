@@ -12,7 +12,7 @@ begin
   mAction.ShowControl := True;
   mAction.ShowMenuItem := True;
   mAction.Name := 'actSyncOrdersAPI';
-  mAction.Caption := '##Odeslat do BMS##';
+  mAction.Caption := '##Odeslat do Š&M##';
   mAction.Hint := 'Odesle objednávku na vzdálené API v JSON formátu';
   mAction.Category := 'tabList';
   mAction.OnExecute := @SyncOrdersAPI;
