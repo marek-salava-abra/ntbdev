@@ -788,6 +788,59 @@ begin
  end;
 end;
 
+procedure POST_CoopProductReceipt(AContext:TNxContext; ARequest: TAPIRequest; AResponse: TAPIResponse);
+var
+ mInputJSON, mOutputJSON:TJSONSuperObject;
+ mPrintList:TStringList;
+ mJobOrder_ID, mStoreBatchName, mReport_ID, mPrinterName:string;
+ mOS:TNxCustomObjectSpace;
+ mQuantity:extended;
+begin
+  mOS:=AContext.GetObjectSpace;
+  mInputJSON:=TJSONSuperObject.Create;
+  mOutputJSON:=TJSONSuperObject.Create;
+  mInputJSON:=TJSONSuperObject.ParseString(ARequest.Body,True);
+  if mInputJSON.N['storebatch'].DataType<> jtNull then begin
+    mStoreBatchName:=mInputJSON.S['storebatch'];
+    mQuantity:=mInputJSON.D['quantity'];
+    mReport_ID:=mInputJSON.S['reportId'];
+    mPrinterName:=mInputJSON.S['printerName'];
+    if not(NxIsBlank(mStoreBatchName)) then begin
+      mJobOrder_ID:=mOS.SQLSelectFirstAsString('SELECT top 1 A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
+                                               'LEFT JOIN ProductionTasks PT ON PT.ID=A.ProductionTask_ID WHERE (A.DocQueue_ID=''~000000O03'') and (PT.Quantity=0) AND '+
+                                               '(A.ReleasedAt$DATE > 0) AND (A.ID IN   (SELECT N.Parent_ID FROM PLMJONodes N '+
+                                               'JOIN PLMJOOutputItems MI ON N.ID = MI.Owner_ID '+
+                                               'WHERE N.Parent_ID = A.ID AND (N.ID IN (SELECT SubN.Master_ID FROM PLMJONodes SubN '+
+                                               'JOIN PLMJOInputItems MIPL ON MIPL.Owner_ID = SubN.ID '+
+                                               'join storebatches sb on subn.storecard_id=sb.storecard_id '+
+                                               'WHERE SubN.Master_ID = N.ID AND SubN.Parent_ID = A.ID '+
+                                               'AND sb.name='+QuotedStr(mStoreBatchName)+'))))','');
+      if not(NxIsEmptyOID(mJobOrder_ID)) then begin
+
+      end else begin
+        mOutputJSON.S['status']:='error';
+        mOutputJSON.S['statusMessage']:='Not found any running joborder for '+mStoreBatchName;
+      end;
+    end else begin
+     mOutputJSON.S['status']:='error';
+     mOutputJSON.S['statusMessage']:='Element storebatch was blank';
+    end;
+  end else begin
+    mOutputJSON.S['status']:='error';
+    mOutputJSON.S['statusMessage']:='Element storebatch not found';
+  end;
+  try
+
+        AResponse.Body:=mOutputJSON.AsString;
+        AResponse.SetHeader('Content-Type','application/json');
+        AResponse.Status := 200;
+
+  finally
+    mOutputJSON.Free;
+    mInputJSON.Free;
+  end;
+end;
+
 procedure POST_GetDataFromBatch(AContext:TNxContext; ARequest: TAPIRequest; AResponse: TAPIResponse);
 var
   mHeaders: TStringList;
