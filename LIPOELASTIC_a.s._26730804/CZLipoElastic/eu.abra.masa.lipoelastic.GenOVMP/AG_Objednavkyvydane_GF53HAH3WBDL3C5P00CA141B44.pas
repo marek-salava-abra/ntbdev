@@ -15,16 +15,17 @@ end;
 Procedure GenOVMP(Sender:TComponent);
 var
  mSite:TSiteForm;
- mRows, mNewRows, mInputs:TNxCustomBusinessMonikerCollection;
- i, mProductCount, j, k, mFoundIdx, d, mPocet, mPos1, mPos2:integer;
+ mRows, mNewRows, mInputs, mOutputs, mPLMJobOrdersSN_Rows, mRoutines, mOperationRows:TNxCustomBusinessMonikerCollection;
+ i, mProductCount, j, k, l, mFoundIdx, d, mPocet, mPos1, mPos2, mSN, mOP:integer;
  mOS:TNxCustomObjectSpace;
  mBO, mRowBO, mNewBO, mNewRowBO,mNewOrderBO, mNewOrderRowBO, mUserXLink, mInputBO:TNxCustomBusinessObject;
  mNotFoundList, mLogs:TStringList;
- mProductCard_ID, mMessage, mXLink_ID, aWar, aErr, mStoreCardID, mExistingEntry, mKoopFirm_ID, mStoreCard_ID, mSupplierID, mSupplierEntry:string;
+ mProductCard_ID, mMessage, mXLink_ID, aWar, aErr, mStoreCardID, mExistingEntry, mKoopFirm_ID, mStoreCard_ID, mSupplierID, mSupplierEntry, mTP_ID:string;
  mCompleteBatches:Boolean;
  mBatchQuantity, mQuantity, mNewQuantity, mExistingQuantity, mDavka:Extended;
  mPOZKList, mOVKD, mOVKM, mSupplierList:tstringlist;
- mPOZBO, mVYPBO:TNxCustomBusinessObject;
+ mPOZBO, mVYPBO, mOutputRow, mPLMJobOrdersRoutine, mPLMCooperation, mRow, mPLMCoopRoutine, mPLMCoopSN, mPLMJOOutputItem, mPLMJobOrdersSN, mOperationRow:TNxCustomBusinessObject;
+ mJobOrder_ID, mRoutine_ID:string;
 begin
  mSite:=TComponent(Sender).DynSite;
  mBO:=TDynSiteForm(mSite).CurrentObject;
@@ -396,8 +397,102 @@ begin
                 mPOZBO.SetfieldvalueAsString('Firm_ID',mNewBO.GetFieldValueAsString('Firm_ID'));
                 mPozBO.SetFieldvalueasstring('Store_ID','~000000E02');
                 mPOZBO.SetFieldValueAsString('Division_ID','~000000501');
+                mOutputs:=mPOZBO.GetLoadedCollectionMonikerForFieldCode(mPOZBO.GetFieldCode('OutPuts'));
+                if mOutputs.Count>0 then mOutputRow:=mOutputs.BusinessObject[0] else mOutputRow:=mOutputs.AddNewObject;
+                 mOutputRow.SetFieldValueAsString('RoutineType_ID','~000000301');
+                 mOperationRows:=mOutputRow.GetLoadedCollectionMonikerForFieldCode(mOutputRow.GetFieldCode('PLMReqRoutines'));
+                 for k:=0 to mOperationRows.count-1 do begin
+                   mOperationRows.BusinessObject[k].MarkForDelete;
+                 end;
+                 mOperationRow:=mOperationRows.AddNewObject;
+                 mOperationRow.prefill;
+                 mOperationRow.SetFieldValueAsString('Title','Výroba v kooperaci');
+                 mOperationRow.SetFieldValueAsString('WorkPlace_ID', '4360000101');
+                 mOperationRow.SetFieldValueAsString('SalaryClass_ID','1000000101');
+                 mOperationRow.SetFieldValueAsFloat('TAC',0);
+                 mOperationRow.SetFieldValueAsInteger('TACUnit',0);
+                 mOperationRow.SetFieldValueAsBoolean('Cooperation',true);
+                 mOperationRow.SetFieldValueAsBoolean('Batch',true);
+                 mOperationRow.SetFieldValueAsBoolean('Planned',False);
+                 mOperationRow:=mOperationRows.AddNewObject;
+                 mOperationRow.prefill;
+                 mOperationRow.SetFieldValueAsString('Title','Příjem výrobku v CZ');
+                 mOperationRow.SetFieldValueAsString('WorkPlace_ID', '4360000101');
+                 mOperationRow.SetFieldValueAsString('SalaryClass_ID','1000000101');
+                 mOperationRow.SetFieldValueAsFloat('TAC',0);
+                 mOperationRow.SetFieldValueAsInteger('TACUnit',0);
+                 mOperationRow.SetFieldValueAsBoolean('Batch',true);
+                 mOperationRow.SetFieldValueAsBoolean('Planned',False);
+                 mOperationRow.SetFieldValueAsBoolean('Finished',true);
                 mPoZBO.Save;
                 TNxPLMProduceRequest(mPoZBO).GenerateJobOrder('~000000O03' ,mPOZBO.GetFieldValueAsString('Period_ID'),'1000000101','1P30000101','1007000000',aWar,aErr);
+                mJobOrder_ID:=mPOZBO.GetFieldValueAsString('JobOrder_ID');
+                if not(NxIsEmptyOID(mJobOrder_ID)) then begin
+                  mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
+                  mVYPBO.load(mJobOrder_ID,nil);
+                  TNxPLMJobOrder(mVYPBO).Start(aWar,aErr);
+                  mRoutine_ID:='';
+                  mOutputs:=mVYPBO.GetLoadedCollectionMonikerForFieldCode(mVYPBO.GetFieldCode('OutPuts'));
+                  for mOP:=0 to mOutputs.count-1 do begin
+                    mOutputRow:=mOutputs.BusinessObject[mOP];
+                    mRoutines:=mOutputRow.GetLoadedCollectionMonikerForFieldCode(mOutputRow.GetFieldCode('PLMJobOrdersRoutines'));
+                    for l:=0 to mRoutines.count-1 do begin
+                      if mRoutines.BusinessObject[l].GetFieldValueAsBoolean('Cooperation') then begin
+                        mRoutine_ID:=mRoutines.BusinessObject[l].OID;
+                        break;
+                      end;
+                    end;
+                  end;
+                  //doplnit kooperaci?
+                  if not(NxIsEmptyOID(mRoutine_ID)) then begin
+                    try
+                      mPLMJOOutputItem:= mOS.CreateObject(Class_PLMJOOutputItem);
+                      mPLMJobOrdersRoutine:=mOS.CreateObject(Class_PLMJobOrdersRoutine);
+                      mPLMJobOrdersRoutine.Load(mRoutine_ID, nil);
+                      mPLMCooperation:=mOS.CreateObject(Class_PLMCooperation);
+                      mPLMCooperation.New;
+                      mPLMCooperation.Prefill;
+                      mPLMCooperation.SetFieldValueAsString('DocQueue_ID', '~000000P01');
+                      mPLMCooperation.SetFieldValueAsString('Period_ID',  mVYPBO.GetFieldValueAsString('Period_ID'));
+                      mPLMCooperation.SetFieldValueAsDateTime('AccDate$DATE', Date());
+                      mPLMCooperation.SetFieldValueAsDateTime('DocDate$DATE', Date());
+                      mPLMCooperation.SetFieldValueAsString('JobOrder_ID', mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID.Owner_ID.Parent_ID'));
+                      mPLMCooperation.SetFieldValueAsString('Division_ID', mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID.Owner_ID.Parent_ID.Division_ID'));
+                      mPLMCooperation.SetFieldValueAsString('BusOrder_ID', mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID.Owner_ID.Parent_ID.BusOrder_ID'));
+                      mPLMCooperation.SetFieldValueAsString('BusTransaction_ID', mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID.Owner_ID.Parent_ID.BusTransaction_ID'));
+                      mPLMCooperation.SetFieldValueAsString('BusProject_ID', mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID.Owner_ID.Parent_ID.BusProject_ID'));
+                      mPLMCooperation.SetFieldValueAsString('Firm_ID', mVYPBO.GetFieldValueAsString('Firm_ID'));
+                      mPLMCooperation.SetFieldValueAsDateTime('PlanedTakenOffAt$DATE', date());
+                      mPLMCooperation.SetFieldValueAsBoolean('CompletePrices', False);
+                      // mRows := TNxHeaderBusinessObject(mPLMCooperation).Rows; // mPLMCooperation.GetLoadedCollectionMonikerForFieldCode(mPLMCooperation.GetFieldCode('Rows'));
+                      mRow := TNxHeaderBusinessObject(mPLMCooperation).Rows.AddNewObject;
+                      mRow.Prefill;
+                      mRow.SetFieldValueAsString('JOOutputItem_ID', mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID'));
+                      mRow.SetFieldValueAsFloat('Quantity', mPLMJobOrdersRoutine.GetFieldValueAsFloat('Parent_ID.Quantity'));
+                      mRow.SetFieldValueAsString('QUnit', mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID.QUnit'));
+
+                      mPLMCoopRoutine:= mRow.GetLoadedCollectionMonikerForFieldCode(mRow.GetFieldCode('PLMCoopRoutines')).AddNewObject;
+                      mPLMCoopRoutine.Prefill;
+                      mPLMCoopRoutine.SetFieldValueAsString('JobOrdersRoutine_ID', mPLMJobOrdersRoutine.OID);
+
+                      mPLMJOOutputItem.Load(mPLMJobOrdersRoutine.GetFieldValueAsString('Parent_ID'), nil);
+                      mPLMJobOrdersSN_Rows:= mPLMJOOutputItem.GetLoadedCollectionMonikerForFieldCode(mPLMJOOutputItem.GetFieldCode('PLMJobOrdersSN'));
+                      for mSN := 0 to mPLMJobOrdersSN_Rows.Count - 1 do begin
+                        mPLMJobOrdersSN:= mPLMJobOrdersSN_Rows.BusinessObject[mSN];
+                        mPLMCoopSN:= mRow.GetLoadedCollectionMonikerForFieldCode(mRow.GetFieldCode('PLMCoopSN')).AddNewObject;
+                        mPLMCoopSN.Prefill;
+                        mPLMCoopSN.SetFieldValueAsString('SN_ID', mPLMJobOrdersSN.OID);
+                        mPLMCoopSN.SetFieldValueAsFloat('Quantity', mPLMJobOrdersSN.GetFieldValueAsFloat('Quantity'));
+                        mPLMCoopSN.SetFieldValueAsString('QUnit', mPLMJobOrdersSN.GetFieldValueAsString('QUnit'));
+                      end;
+
+                      mPLMCooperation.Save;
+                    finally
+
+                    end;
+                  end;
+                  mVYPBO.free;
+                end;
                 try
                   mUserXLink:=mOS.CreateObject(Class_UserXLink);
                   mUserXLink.New;

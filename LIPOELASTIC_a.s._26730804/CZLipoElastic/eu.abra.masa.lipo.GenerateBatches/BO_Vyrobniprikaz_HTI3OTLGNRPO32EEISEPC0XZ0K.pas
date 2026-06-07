@@ -20,7 +20,13 @@ begin
           mSpecification:=mSpecification+copy(self.getFieldValueAsstring('Storecard_ID.EAN'),8,5)+
                 FormatDateTime('YY',self.GetFieldValueAsDateTime('DocDate$Date'))+
                 FormatDateTime('MM',self.GetFieldValueAsDateTime('DocDate$Date'));
-          mBody:='1'+     // POZOR ČÍSLO 2 znamená Slovensko, pro ČR je stringově 1
+          if (self.GetFieldValueAsString('DocQueue_ID.Code')='VYPK') then
+           mBody:='5'+     // POZOR ČÍSLO 2 znamená Slovensko, pro ČR je stringově 1, pro kooperace 5
+                FormatDateTime('YY',self.GetFieldValueAsDateTime('DocDate$Date'))+
+                FormatDateTime('MM',self.GetFieldValueAsDateTime('DocDate$Date'))+
+                FormatDateTime('DD',self.GetFieldValueAsDateTime('DocDate$Date'))
+          else
+          mBody:='1'+     // POZOR ČÍSLO 2 znamená Slovensko, pro ČR je stringově 1, pro kooperace 5
                 FormatDateTime('YY',self.GetFieldValueAsDateTime('DocDate$Date'))+
                 FormatDateTime('MM',self.GetFieldValueAsDateTime('DocDate$Date'))+
                 FormatDateTime('DD',self.GetFieldValueAsDateTime('DocDate$Date'));

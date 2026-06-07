@@ -5,7 +5,7 @@
     "id": "~00000000J",
     "name": "eu.abra.masa.lipo.GenerateBatches",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 15,
+    "objversion": 16,
     "description": "#generování šarží do výroby",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,7 +17,7 @@
       "scriptid": "HTI3OTLGNRPO32EEISEPC0XZ0K",
       "filename": "BO_Vyrobniprikaz_HTI3OTLGNRPO32EEISEPC0XZ0K.pas",
       "scriptkind": 1,
-      "objversion": 10,
+      "objversion": 11,
       "posindex": 1
     },
     {
