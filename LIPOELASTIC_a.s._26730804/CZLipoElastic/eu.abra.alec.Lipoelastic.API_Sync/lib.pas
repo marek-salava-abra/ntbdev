@@ -794,7 +794,7 @@ var
  mPrintList:TStringList;
  mJobOrder_ID, mStoreBatchName, mReport_ID, mPrinterName, mBatchCard_ID, mBatch_ID, mVMVName, mOperation_ID, mJobSN_ID:string;
  mOS:TNxCustomObjectSpace;
- mQuantity:extended;
+ mQuantity, mBatchQuantity:extended;
  mImportMan: TNxDocumentImportManager;
  mInputParams: TNxParameters;
  mParam: TNxParameter;
@@ -812,97 +812,110 @@ begin
     mReport_ID:=mInputJSON.S['reportId'];
     mPrinterName:=mInputJSON.S['printerName'];
     if not(NxIsBlank(mStoreBatchName)) then begin
-      mJobOrder_ID:=mOS.SQLSelectFirstAsString('SELECT top 1 A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
-                                               'LEFT JOIN ProductionTasks PT ON PT.ID=A.ProductionTask_ID WHERE (A.DocQueue_ID=''~000000O03'') and (PT.Quantity=0) AND '+
-                                               '(A.ReleasedAt$DATE > 0) AND (A.ID IN   (SELECT N.Parent_ID FROM PLMJONodes N '+
-                                               'JOIN PLMJOOutputItems MI ON N.ID = MI.Owner_ID '+
-                                               'WHERE N.Parent_ID = A.ID AND (N.ID IN (SELECT SubN.Master_ID FROM PLMJONodes SubN '+
-                                               'JOIN PLMJOInputItems MIPL ON MIPL.Owner_ID = SubN.ID '+
-                                               'join storebatches sb on subn.storecard_id=sb.storecard_id '+
-                                               'WHERE SubN.Master_ID = N.ID AND SubN.Parent_ID = A.ID '+
-                                               'AND sb.name='+QuotedStr(mStoreBatchName)+'))))','');
       mBatchCard_ID:=mOS.SQLSelectFirstAsString('Select StoreCard_ID from StoreBatches where hidden=''N'' and name='+QuotedStr(mStoreBatchName),'');
       mBatch_ID:=mOS.SQLSelectFirstAsString('Select ID from StoreBatches where hidden=''N'' and name='+QuotedStr(mStoreBatchName),'');
-      if not(NxIsEmptyOID(mJobOrder_ID)) then begin
-        try
-          mVMVName:='';
-          mOperation_ID:='';
-          mJobSN_ID:='';
-          mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
-          mVYPBO.Load(mJobOrder_ID,nil);
-          mOutputs:=mVYPBO.GetLoadedCollectionMonikerForFieldCode(mVYPBO.GetFieldCode('OutPuts'));
-          for i:=0 to mOutputs.count-1 do begin
-            mOutputBO:=mOutputs.BusinessObject[i];
-            mPLMJobOrdersRoutines:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersRoutines'));
-            for j:=0 to mPLMJobOrdersRoutines.count-1 do begin
-              if NxIsEmptyOID(mOperation_ID) and mPLMJobOrdersRoutines.BusinessObject[j].GetFieldValueAsBoolean('Finished') then
-                mOperation_ID:=mPLMJobOrdersRoutines.BusinessObject[j].OID;
-            end;
-            mPLMJobOrdersSN:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersSN'));
-            for j:=0 to mPLMJobOrdersSN.count-1 do begin
-              if NxIsEmptyOID(mJobSN_ID) then mJobSN_ID:=mPLMJobOrdersSN.BusinessObject[j].OID;
-            end;
-          end;
-          mInputParams := TNxParameters.Create;
-          mParam :=  mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
-          mParam.AsString := '~000000P02';
-          mParam :=  mInputParams.GetOrCreateParam(dtString, 'Firm_ID');
-          mParam.AsString := mVYPBO.GetFieldValueAsString('Firm_ID');
-          mParam :=  mInputParams.GetOrCreateParam(dtInteger, 'MethodOfMD');
-          mParam.AsInteger := 0;
-          mImportMan := NxCreateDocumentImportManager(mVYPBO.ObjectSpace, Class_PLMJobOrder, Class_MaterialDistribution);
-          mImportMan.AddInputDocument(mVYPBO.OID);
-          mImportMan.LoadParams(mInputParams);
-          mImportMan.Execute;
-          mRows:=mImportMan.OutputDocument.GetLoadedCollectionMonikerForFieldCode(mImportMan.OutputDocument.GetFieldCode('Rows'));
-            for z:=0 to mRows.count-1 do begin
-              mRowBO:=mrows.BusinessObject[z];
-              if mRowBO.GetFieldValueAsString('StoreCard_ID')=mBatchCard_ID then begin
-                mDocRowBatches:=mRowBO.GetLoadedCollectionMonikerForFieldCode(mRowBO.GetFieldCode('DocRowBatches'));
-                for y:=0 to mDocRowBatches.count-1 do mDocRowBatches.BusinessObject[y].MarkForDelete;
-                mDRBBO:=mDocRowBatches.AddNewObject;
-                mDRBBO.Prefill;
-                mDRBBO.SetFieldValueAsString('StoreBatch_ID',mBatch_ID);
-                mDRBBO.SetFieldValueAsFloat('Quantity',mVYPBO.GetFieldValueAsFloat('Quantity'));
+      mBatchQuantity:=mOS.SQLSelectFirstAsExtended('Select Quantity from StoreSubBatches where Storebatch_ID='+QuotedStr(mBatch_ID)+ ' and Store_ID='+Quotedstr('~000000E01') ,0);
+      if mBatchQuantity>0 then begin
+          mJobOrder_ID:=mOS.SQLSelectFirstAsString('SELECT top 1 A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
+                                                  'LEFT JOIN ProductionTasks PT ON PT.ID=A.ProductionTask_ID WHERE (A.DocQueue_ID=''~000000O03'') and (PT.Quantity=0) AND '+
+                                                  '(A.ReleasedAt$DATE > 0) AND (A.ID IN   (SELECT N.Parent_ID FROM PLMJONodes N '+
+                                                  'JOIN PLMJOOutputItems MI ON N.ID = MI.Owner_ID '+
+                                                  'WHERE N.Parent_ID = A.ID AND (N.ID IN (SELECT SubN.Master_ID FROM PLMJONodes SubN '+
+                                                  'JOIN PLMJOInputItems MIPL ON MIPL.Owner_ID = SubN.ID '+
+                                                  'join storebatches sb on subn.storecard_id=sb.storecard_id '+
+                                                  'WHERE SubN.Master_ID = N.ID AND SubN.Parent_ID = A.ID '+
+                                                  'AND sb.name='+QuotedStr(mStoreBatchName)+'))))','');
+          
+          if not(NxIsEmptyOID(mJobOrder_ID)) then begin
+            try
+              mVMVName:='';
+              mOperation_ID:='';
+              mJobSN_ID:='';
+              mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
+              mVYPBO.Load(mJobOrder_ID,nil);
+              mOutputs:=mVYPBO.GetLoadedCollectionMonikerForFieldCode(mVYPBO.GetFieldCode('OutPuts'));
+              for i:=0 to mOutputs.count-1 do begin
+                mOutputBO:=mOutputs.BusinessObject[i];
+                mPLMJobOrdersRoutines:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersRoutines'));
+                for j:=0 to mPLMJobOrdersRoutines.count-1 do begin
+                  if NxIsEmptyOID(mOperation_ID) and mPLMJobOrdersRoutines.BusinessObject[j].GetFieldValueAsBoolean('Finished') then
+                    mOperation_ID:=mPLMJobOrdersRoutines.BusinessObject[j].OID;
+                end;
+                mPLMJobOrdersSN:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersSN'));
+                for j:=0 to mPLMJobOrdersSN.count-1 do begin
+                  if NxIsEmptyOID(mJobSN_ID) then mJobSN_ID:=mPLMJobOrdersSN.BusinessObject[j].OID;
+                end;
               end;
-            end;
-          mImportMan.OutputDocument.save;
-          mVMVName:=mImportMan.OutputDocument.DisplayName;
-          mImportMan.free;
-          mPLMOperation:=mOS.CreateObject(Class_PLMOperation);
-          mPLMOperation.new;
-          mPLMOperation.prefill;
-          mPLMOperation.SetFieldValueAsString('JobOrdersRoutines_ID',mOperation_ID);
-          mPLMOperation.SetFieldValueAsDateTime('StartedAt$DATE',now);
-          mPLMOperation.SetFieldValueAsDateTime('FinishedAt$DATE',now);
-          mPLMOperation.SetFieldValueAsString('PerformedBy_ID','6400000101');
-          mPLMOperation.SetFieldValueAsFloat('Quantity', mQuantity);
-          mPLMOperation.SetFieldValueAsBoolean('OperationResult',True);
-          mPLMOperation.SetFieldValueAsString('JobOrdersSN_ID',mJobSN_ID);
-          mPLMOperation.save;
+              mPLMOperation:=mOS.CreateObject(Class_PLMOperation);
+              mPLMOperation.new;
+              mPLMOperation.prefill;
+              mPLMOperation.SetFieldValueAsString('JobOrdersRoutines_ID',mOperation_ID);
+              mPLMOperation.SetFieldValueAsDateTime('StartedAt$DATE',now);
+              mPLMOperation.SetFieldValueAsDateTime('FinishedAt$DATE',now);
+              mPLMOperation.SetFieldValueAsString('PerformedBy_ID','6400000101');
+              mPLMOperation.SetFieldValueAsFloat('Quantity', mQuantity);
+              mPLMOperation.SetFieldValueAsBoolean('OperationResult',True);
+              mPLMOperation.SetFieldValueAsString('JobOrdersSN_ID',mJobSN_ID);
+              mPLMOperation.save;
+              //tisk
 
-          mOutputJSON.S['status']:='ok';
-          mOutputJSON.S['VMVDisplayName']:=mVMVName;
-          mOutputJSON.S['PLMOperationDisplayName']:=mPLMOperation.DisplayName;
-          mOutputJSON.S['statusMessage']:='';
-        except
-          mOutputJSON.S['status']:='error';
-          mOutputJSON.S['statusMessage']:=ExceptionMessage;
-          mOutputJSON.S['PLMOperationDisplayName']:='';
-          mOutputJSON.S['VMVDisplayName']:='';
-        end;
-      end else begin
+              //konec tisku
+              mInputParams := TNxParameters.Create;
+              mParam :=  mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
+              mParam.AsString := '~000000P02';
+              mParam :=  mInputParams.GetOrCreateParam(dtString, 'Firm_ID');
+              mParam.AsString := mVYPBO.GetFieldValueAsString('Firm_ID');
+              mParam :=  mInputParams.GetOrCreateParam(dtInteger, 'MethodOfMD');
+              mParam.AsInteger := 0;
+              mImportMan := NxCreateDocumentImportManager(mVYPBO.ObjectSpace, Class_PLMJobOrder, Class_MaterialDistribution);
+              mImportMan.AddInputDocument(mVYPBO.OID);
+              mImportMan.LoadParams(mInputParams);
+              mImportMan.Execute;
+              mRows:=mImportMan.OutputDocument.GetLoadedCollectionMonikerForFieldCode(mImportMan.OutputDocument.GetFieldCode('Rows'));
+                for z:=0 to mRows.count-1 do begin
+                  mRowBO:=mrows.BusinessObject[z];
+                  if mRowBO.GetFieldValueAsString('StoreCard_ID')=mBatchCard_ID then begin
+                    mDocRowBatches:=mRowBO.GetLoadedCollectionMonikerForFieldCode(mRowBO.GetFieldCode('DocRowBatches'));
+                    for y:=0 to mDocRowBatches.count-1 do mDocRowBatches.BusinessObject[y].MarkForDelete;
+                    mDRBBO:=mDocRowBatches.AddNewObject;
+                    mDRBBO.Prefill;
+                    mDRBBO.SetFieldValueAsString('StoreBatch_ID',mBatch_ID);
+                    mDRBBO.SetFieldValueAsFloat('Quantity',mVYPBO.GetFieldValueAsFloat('Quantity'));
+                  end;
+                end;
+              mImportMan.OutputDocument.save;
+              mVMVName:=mImportMan.OutputDocument.DisplayName;
+              mImportMan.free;
+              //doplnit update šarže na výrobku, vložit do X_
+
+              mOutputJSON.S['status']:='ok';
+              mOutputJSON.S['VMVDisplayName']:=mVMVName;
+              mOutputJSON.S['PLMOperationDisplayName']:=mPLMOperation.DisplayName;
+              mOutputJSON.S['statusMessage']:='';
+            except
+              mOutputJSON.S['status']:='error';
+              mOutputJSON.S['statusMessage']:=ExceptionMessage;
+              mOutputJSON.S['PLMOperationDisplayName']:='';
+              mOutputJSON.S['VMVDisplayName']:='';
+            end;
+          end else begin
+            mOutputJSON.S['status']:='error';
+            mOutputJSON.S['statusMessage']:='Not found any running joborder for '+mStoreBatchName;
+            mOutputJSON.S['VMVDisplayName']:='';
+            mOutputJSON.S['PLMOperationDisplayName']:='';
+          end;
+        end else begin
         mOutputJSON.S['status']:='error';
-        mOutputJSON.S['statusMessage']:='Not found any running joborder for '+mStoreBatchName;
+        mOutputJSON.S['statusMessage']:='Element storebatch was blank';
         mOutputJSON.S['VMVDisplayName']:='';
         mOutputJSON.S['PLMOperationDisplayName']:='';
-      end;
-    end else begin
-     mOutputJSON.S['status']:='error';
-     mOutputJSON.S['statusMessage']:='Element storebatch was blank';
-     mOutputJSON.S['VMVDisplayName']:='';
-     mOutputJSON.S['PLMOperationDisplayName']:='';
-    end;
+        end;
+     end else begin
+      mOutputJSON.S['status']:='error';
+      mOutputJSON.S['statusMessage']:='Not found any quantity for '+mStoreBatchName; 
+      mOutputJSON.S['VMVDisplayName']:='';
+      mOutputJSON.S['PLMOperationDisplayName']:='';
+    end;   
   end else begin
     mOutputJSON.S['status']:='error';
     mOutputJSON.S['statusMessage']:='Element storebatch not found';
