@@ -792,13 +792,13 @@ procedure POST_CoopProductReceipt(AContext:TNxContext; ARequest: TAPIRequest; AR
 var
  mInputJSON, mOutputJSON:TJSONSuperObject;
  mPrintList:TStringList;
- mJobOrder_ID, mStoreBatchName, mReport_ID, mPrinterName, mBatchCard_ID, mBatch_ID, mVMVName, mOperation_ID, mJobSN_ID:string;
+ mJobOrder_ID, mStoreBatchName, mReport_ID, mPrinterName, mBatchCard_ID, mBatch_ID, mVMVName, mOperation_ID, mJobSN_ID, mJOBatch_ID, mDefRoll_ID:string;
  mOS:TNxCustomObjectSpace;
  mQuantity, mBatchQuantity:extended;
  mImportMan: TNxDocumentImportManager;
  mInputParams: TNxParameters;
  mParam: TNxParameter;
- mVYPBO, mRowBO, mDRBBO, mOutputBO, mPLMOperation:TNxCustomBusinessObject;
+ mVYPBO, mRowBO, mDRBBO, mOutputBO, mPLMOperation, mBatchBO, mDefRollBO:TNxCustomBusinessObject;
  mRows, mDocRowBatches, mOutputs, mPLMJobOrdersRoutines, mPLMJobOrdersSN:TNxCustomBusinessMonikerCollection;
  y, z, i, j:integer;
 begin
@@ -831,8 +831,15 @@ begin
               mVMVName:='';
               mOperation_ID:='';
               mJobSN_ID:='';
+              mJOBatch_ID:='';
               mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
               mVYPBO.Load(mJobOrder_ID,nil);
+              mDefRoll_ID:=mOS.SQLSelectFirstAsString('select top 1 df.id from plmproducerequests plmpq join userxlinks xl1 on plmpq.id=xl1.Destination_ID '+
+                                                      'join issuedorders ovkp on ovkp.id=xl1.source_id join issuedorders2 ovkp2 on ovkp.id=ovkp2.parent_id '+
+                                                      'join defrolldata df on df.x_parent_id=ovkp2.X_origin_id collate database_default '+
+                                                      ' where plmpq.joborder_id='+QuotedStr(mVYPBO.OID)+' and xl1.sourceclsid='+
+                                                      QuotedStr(Class_IssuedOrder)+' and xl1.destinationclsid='+QuotedStr(Class_PLMProduceRequest)+
+                                                      ' and ovkp2.storecard_id=plmpq.storecard_id and df.X_SK_Batch='+QuotedStr(''),'');
               mOutputs:=mVYPBO.GetLoadedCollectionMonikerForFieldCode(mVYPBO.GetFieldCode('OutPuts'));
               for i:=0 to mOutputs.count-1 do begin
                 mOutputBO:=mOutputs.BusinessObject[i];
@@ -843,7 +850,10 @@ begin
                 end;
                 mPLMJobOrdersSN:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersSN'));
                 for j:=0 to mPLMJobOrdersSN.count-1 do begin
-                  if NxIsEmptyOID(mJobSN_ID) then mJobSN_ID:=mPLMJobOrdersSN.BusinessObject[j].OID;
+                  if NxIsEmptyOID(mJobSN_ID) then begin
+                   mJobSN_ID:=mPLMJobOrdersSN.BusinessObject[j].OID;
+                   mJOBatch_ID:=mPLMJobOrdersSN.BusinessObject[j].GetFieldValueAsString('StoreBatch_ID');
+                  end;
                 end;
               end;
               mPLMOperation:=mOS.CreateObject(Class_PLMOperation);
@@ -857,9 +867,22 @@ begin
               mPLMOperation.SetFieldValueAsBoolean('OperationResult',True);
               mPLMOperation.SetFieldValueAsString('JobOrdersSN_ID',mJobSN_ID);
               mPLMOperation.save;
-              //tisk
-
-              //konec tisku
+              //zápis šarže
+              if not(NxIsEmptyOID(mDefRoll_ID)) then begin
+                mDefRollBO:=mOS.CreateObject(Class_Pohyby_sarzi_OV_SLARSB0H4CK4T32XPZTP33J3XS);
+                mDefRollBO.load(mDefRoll_ID);
+                mDefrollbo.SetFieldValueAsString('X_SK_Batch', mStoreBatchName);
+                mDefRollBO.Save;
+                mDefRollBO.free;
+              end;
+              if not(NxIsEmptyOID(mJOBatch_ID)) then begin
+                mBatchBO:=mOS.CreateObject(Class_StoreBatch);
+                mBatchBO.Load(mJOBatch_ID,nil);
+                mBatchBO.SetFieldValueAsString('X_External_Name',mStoreBatchName);
+                mBatchBO.save;
+                mBatchBO.free;
+              end;
+              //konec konec zápisu
               mInputParams := TNxParameters.Create;
               mParam :=  mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
               mParam.AsString := '~000000P02';

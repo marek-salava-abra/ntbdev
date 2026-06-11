@@ -5,7 +5,7 @@
     "id": "~000000K01",
     "name": "eu.abra.masa.lipoelastic.CreatePLM",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 26,
+    "objversion": 30,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,43 +17,50 @@
       "scriptid": "ONWLBO0DUPX4B400AJEI4YETD4",
       "filename": "AG_Pozadavkynavyrobu_ONWLBO0DUPX4B400AJEI4YETD4.pas",
       "scriptkind": 2,
-      "objversion": 11,
+      "objversion": 13,
       "posindex": 1
     },
     {
       "scriptid": "YSUQ5LVE4YW4NB0WVYPECNYQR4",
       "filename": "AG_Pracovnilistky_YSUQ5LVE4YW4NB0WVYPECNYQR4.pas",
       "scriptkind": 2,
-      "objversion": 16,
+      "objversion": 18,
       "posindex": 2
     },
     {
       "scriptid": "NWWNX02WFV2ORFJOXIW4BHBLWG",
       "filename": "AG_Kusovniky_NWWNX02WFV2ORFJOXIW4BHBLWG.pas",
       "scriptkind": 2,
-      "objversion": 14,
+      "objversion": 16,
       "posindex": 3
     },
     {
       "scriptid": "Q4EISOIDDKMOLF12IC3WFS0GDS",
       "filename": "AG_Vyrobniprikazy_Q4EISOIDDKMOLF12IC3WFS0GDS.pas",
       "scriptkind": 2,
-      "objversion": 12,
+      "objversion": 14,
       "posindex": 4
     },
     {
       "scriptid": "BAT0KH5TA0Z4F5CFHKEVXBDOVC",
       "filename": "BO_Uzelstromupozadavkunavyrobu_BAT0KH5TA0Z4F5CFHKEVXBDOVC.pas",
       "scriptkind": 1,
-      "objversion": 9,
+      "objversion": 11,
       "posindex": 5
     },
     {
       "scriptid": "EY1VHUCFUEW455OMM2KXYUWR4K",
       "filename": "AG_Technologickepostupy_EY1VHUCFUEW455OMM2KXYUWR4K.pas",
       "scriptkind": 2,
-      "objversion": 7,
+      "objversion": 9,
       "posindex": 6
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 7
     }
   ]
 }
