@@ -24,7 +24,7 @@ begin
         mManager.AddInputDocument(mList.strings[i]);
       	mManager.ForcedParams := True;
       	mManager.SelectedHeader := mManager.InputHeaders(0);
-      	mParams.GetOrCreateParam(dtString, 'DocQueue_ID').AsString := '~000000O03';
+      	mParams.GetOrCreateParam(dtString, 'DocQueue_ID').AsString := '~000000P03';
         mParams.GetOrCreateParam(dtString, 'Firm_ID').AsString := mManager.SelectedHeader.GetFieldValueAsString('Parent_ID.JobOrder_ID.Firm_ID');
         mParams.GetOrCreateParam(dtString, 'Store_ID').AsString:= mManager.SelectedHeader.GetFieldValueAsString('Parent_ID.JobOrder_ID.Store_ID');
       	mManager.LoadParams(mParams);
