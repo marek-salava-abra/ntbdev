@@ -959,6 +959,9 @@ begin
 
         AResponse.Body:=mOutputJSON.AsString;
         AResponse.SetHeader('Content-Type','application/json');
+        if mOutputJSON.S['status']='error' then
+           AResponse.Status := 402
+        else
         AResponse.Status := 200;
 
   finally
