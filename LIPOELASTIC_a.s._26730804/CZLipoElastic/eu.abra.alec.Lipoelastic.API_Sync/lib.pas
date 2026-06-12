@@ -792,7 +792,7 @@ procedure POST_CoopProductReceipt(AContext:TNxContext; ARequest: TAPIRequest; AR
 var
  mInputJSON, mOutputJSON:TJSONSuperObject;
  mPrintList:TStringList;
- mJobOrder_ID, mStoreBatchName, mReport_ID, mPrinterName, mBatchCard_ID, mBatch_ID, mVMVName, mOperation_ID, mJobSN_ID, mJOBatch_ID, mDefRoll_ID:string;
+ mJobOrder_ID, mStoreBatchName, mReport_ID, mPrinterName, mBatchCard_ID, mBatch_ID, mVMVName, mOperation_ID, mJobSN_ID, mJOBatch_ID, mDefRoll_ID, mJOBatchName:string;
  mOS:TNxCustomObjectSpace;
  mQuantity, mBatchQuantity:extended;
  mImportMan: TNxDocumentImportManager;
@@ -800,12 +800,14 @@ var
  mParam: TNxParameter;
  mVYPBO, mRowBO, mDRBBO, mOutputBO, mPLMOperation, mBatchBO, mDefRollBO:TNxCustomBusinessObject;
  mRows, mDocRowBatches, mOutputs, mPLMJobOrdersRoutines, mPLMJobOrdersSN:TNxCustomBusinessMonikerCollection;
+ mSQL:string;
  y, z, i, j:integer;
 begin
   mOS:=AContext.GetObjectSpace;
   mInputJSON:=TJSONSuperObject.Create;
   mOutputJSON:=TJSONSuperObject.Create;
   mInputJSON:=TJSONSuperObject.ParseString(ARequest.Body,True);
+  mPrintList:=TStringList.Create;
   if mInputJSON.N['storebatch'].DataType<> jtNull then begin
     mStoreBatchName:=mInputJSON.S['storebatch'];
     mQuantity:=mInputJSON.D['quantity'];
@@ -816,7 +818,8 @@ begin
       mBatch_ID:=mOS.SQLSelectFirstAsString('Select ID from StoreBatches where hidden=''N'' and name='+QuotedStr(mStoreBatchName),'');
       mBatchQuantity:=mOS.SQLSelectFirstAsExtended('Select Quantity from StoreSubBatches where Storebatch_ID='+QuotedStr(mBatch_ID)+ ' and Store_ID='+Quotedstr('~000000E01') ,0);
       if mBatchQuantity>0 then begin
-          mJobOrder_ID:=mOS.SQLSelectFirstAsString('SELECT top 1 A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
+          mjoborder_id:='';
+          mSQL:='SELECT top 1 A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
                                                   'LEFT JOIN ProductionTasks PT ON PT.ID=A.ProductionTask_ID WHERE (A.DocQueue_ID=''~000000O03'') and (PT.Quantity=0) AND '+
                                                   '(A.ReleasedAt$DATE > 0) AND (A.ID IN   (SELECT N.Parent_ID FROM PLMJONodes N '+
                                                   'JOIN PLMJOOutputItems MI ON N.ID = MI.Owner_ID '+
@@ -824,8 +827,10 @@ begin
                                                   'JOIN PLMJOInputItems MIPL ON MIPL.Owner_ID = SubN.ID '+
                                                   'join storebatches sb on subn.storecard_id=sb.storecard_id '+
                                                   'WHERE SubN.Master_ID = N.ID AND SubN.Parent_ID = A.ID '+
-                                                  'AND sb.name='+QuotedStr(mStoreBatchName)+'))))','');
-          
+                                                  'AND sb.name='+QuotedStr(mStoreBatchName)+')))) and not exists '+
+                                                  '(select id from storedocuments2 where productiontask_id=a.productiontask_id)';
+          mJobOrder_ID:=mOS.SQLSelectFirstAsString(mSQL,'');
+          CFxLog.SaveLog(NxCreateContext(mOS),'LA','log výroby',mJobOrder_ID+nxcrlf+mInputJSON.AsString+NxCrlf+mSQL,2,Now);
           if not(NxIsEmptyOID(mJobOrder_ID)) then begin
             try
               mVMVName:='';
@@ -834,6 +839,9 @@ begin
               mJOBatch_ID:='';
               mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
               mVYPBO.Load(mJobOrder_ID,nil);
+              mprintList.Add(mVYPBO.OID);
+              if not(NxIsEmptyOID(mReport_ID)) then
+               cfxReportManager.PrintByIDs(NxCreateContext(mOS), mPrintList,GetDynSource(mOS,mReport_ID),mReport_ID,rtoPrint,pekPDF,mPrinterName,'');
               mDefRoll_ID:=mOS.SQLSelectFirstAsString('select top 1 df.id from plmproducerequests plmpq join userxlinks xl1 on plmpq.id=xl1.Destination_ID '+
                                                       'join issuedorders ovkp on ovkp.id=xl1.source_id join issuedorders2 ovkp2 on ovkp.id=ovkp2.parent_id '+
                                                       'join defrolldata df on df.x_parent_id=ovkp2.X_origin_id collate database_default '+
@@ -868,20 +876,22 @@ begin
               mPLMOperation.SetFieldValueAsString('JobOrdersSN_ID',mJobSN_ID);
               mPLMOperation.save;
               //zápis šarže
-              if not(NxIsEmptyOID(mDefRoll_ID)) then begin
-                mDefRollBO:=mOS.CreateObject(Class_Pohyby_sarzi_OV_SLARSB0H4CK4T32XPZTP33J3XS);
-                mDefRollBO.load(mDefRoll_ID);
-                mDefrollbo.SetFieldValueAsString('X_SK_Batch', mStoreBatchName);
-                mDefRollBO.Save;
-                mDefRollBO.free;
-              end;
               if not(NxIsEmptyOID(mJOBatch_ID)) then begin
                 mBatchBO:=mOS.CreateObject(Class_StoreBatch);
                 mBatchBO.Load(mJOBatch_ID,nil);
                 mBatchBO.SetFieldValueAsString('X_External_Name',mStoreBatchName);
+                mJOBatchName:=mBatchBO.GetFieldValueAsString('Name');
                 mBatchBO.save;
                 mBatchBO.free;
               end;
+              if not(NxIsEmptyOID(mDefRoll_ID)) then begin
+                mDefRollBO:=mOS.CreateObject(Class_Pohyby_sarzi_OV_SLARSB0H4CK4T32XPZTP33J3XS);
+                mDefRollBO.load(mDefRoll_ID);
+                mDefrollbo.SetFieldValueAsString('X_SK_Batch', mJOBatchName);
+                mDefRollBO.Save;
+                mDefRollBO.free;
+              end;
+              
               //konec konec zápisu
               mInputParams := TNxParameters.Create;
               mParam :=  mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
@@ -929,13 +939,13 @@ begin
           end;
         end else begin
         mOutputJSON.S['status']:='error';
-        mOutputJSON.S['statusMessage']:='Element storebatch was blank';
+        mOutputJSON.S['statusMessage']:='Not found any quantity for '+mStoreBatchName; 
         mOutputJSON.S['VMVDisplayName']:='';
         mOutputJSON.S['PLMOperationDisplayName']:='';
         end;
      end else begin
       mOutputJSON.S['status']:='error';
-      mOutputJSON.S['statusMessage']:='Not found any quantity for '+mStoreBatchName; 
+      mOutputJSON.S['statusMessage']:='Element storebatch was blank';
       mOutputJSON.S['VMVDisplayName']:='';
       mOutputJSON.S['PLMOperationDisplayName']:='';
     end;   
@@ -1604,7 +1614,23 @@ begin
   end;
 end;
 
+function GetDynSource (AOS : TNxCustomObjectSpace; AValue : string) : String;
 
+const
+  cSQL = 'SELECT DataSource FROM Reports WHERE ID=''%s'' ';
+var
+  mList : TStringList;
+begin
+  mList := TStringList.Create;
+  try
+    Result:='';
+    AOS.SQLSelect(Format(cSQL, [ AValue]), mList);
+    if mList.Count > 0 then
+      Result := (mList.Strings[0]);
+  finally
+    mList.Free;
+  end;
+end;
 
 begin
 end.
