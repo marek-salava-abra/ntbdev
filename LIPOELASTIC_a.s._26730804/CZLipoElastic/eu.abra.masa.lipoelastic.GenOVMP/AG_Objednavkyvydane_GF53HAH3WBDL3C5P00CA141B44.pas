@@ -323,6 +323,7 @@ begin
            mNewBO.SetFieldValueAsString('DocQueue_ID',mOS.SQLSelectFirstAsString('Select id from docqueues where hidden=''N'' and code=''OVKP'' ',''));
            mNewBO.SetFieldValueAsString('Firm_ID',mOS.SQLSelectFirstAsString('Select id from firms where firm_id is null and hidden=''N'' and OrgIdentNumber=''53578341'' ',''));
            mNewBO.SetFieldValueAsBoolean('Confirmed',True);
+           mNewBO.SetFieldvalueAsBoolean('Closed',True);
            mNewBO.SetFieldValueAsString('Description',mbo.GetFieldValueAsString('Description'));
            //mNewBO.SetFieldValueAsString('IntrastatDeliveryTerm_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatDeliveryTerm_ID'));
            //mNewBO.SetFieldValueAsString('IntrastatTransportationType_ID',mNewBO.GetFieldValueAsString('Firm_ID.X_IntrastatTransportationType_'));
