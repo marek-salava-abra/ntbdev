@@ -15,7 +15,7 @@ var
   mHeaderJSON, mRowJSON, mStoreBatchJSON, mResultJSON: TJSONSuperObject;
   mBODList: TStringList;
   mProvideRow_ID: string;
-  i, j, k: integer;
+  i, j, k, mAPI_Destination: integer;
 begin
   Success := True;
   LogInfoStr := '';
@@ -46,9 +46,29 @@ begin
           mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
           mHeaderJSON:=TJSONSuperObject.Create;
           case mBO.GetFieldValueAsString('PMState_ID') of
-            cStateToBeSynced:           mHeaderJSON.S['BODType']:= 'VYROBA';
-            cStateToBeSynced_Sales:     mHeaderJSON.S['BODType']:= 'OBCHOD';
-            cStateToBeSynced_Transfers: mHeaderJSON.S['BODType']:= 'PREVOD'
+            cStateToBeSynced:
+              begin
+                mHeaderJSON.S['BODType']:= 'VYROBA';
+                mAPI_Destination:= cAPI_SK;
+              end;
+
+            cStateToBeSynced_Sales:
+              begin
+                mHeaderJSON.S['BODType']:= 'OBCHOD';
+                mAPI_Destination:= cAPI_SK;
+              end;
+
+            cStateToBeSynced_Transfers:
+              begin
+                mHeaderJSON.S['BODType']:= 'PREVOD';
+                mAPI_Destination:= cAPI_SK;
+              end;
+
+            cStateToBeSynced_AT:
+              begin
+                mHeaderJSON.S['BODType']:= 'AT';
+                mAPI_Destination:= cAPI_AT;
+              end;
           end;
           mHeaderJSON.S['ExternalNumber']:=mBO.DisplayName;
           mHeaderJSON.S['Description']:=mBO.GetFieldValueAsString('Description');
@@ -90,7 +110,7 @@ begin
           end;
           mResultJSON:= TJSONSuperObject.Create;
 
-          mResultJSON:= API_POST(mHeaderJSON, 'BillsOfDelivery');
+          mResultJSON:= API_POST(mHeaderJSON, 'BillsOfDelivery', True, mAPI_Destination);
           //NxSleep(30000);
 
           //Když zůstane ResultJSON prázdný

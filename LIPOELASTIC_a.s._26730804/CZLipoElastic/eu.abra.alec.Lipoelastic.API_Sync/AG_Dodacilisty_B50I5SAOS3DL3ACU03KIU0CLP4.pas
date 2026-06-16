@@ -21,6 +21,7 @@ begin
   mMultiAction.Caption := '##Synch. obchod do SK##';
   mMultiAction.Items.Add('##Synch. obchod do SK##');
   mMultiAction.Items.Add('##Synch. převody do SK##');
+  mMultiAction.Items.Add('##Synch. obchod do AT##');
   mMultiAction.Hint := 'Odešle dodací list pro obchodní objednávku na Slovensko';
   mMultiAction.Category := 'tabList';
   mMultiAction.OnExecuteItem := @MarkedForSync_Sales;
@@ -273,6 +274,7 @@ begin
               case AIndex of
                 0: mBO.PMChangeState(cStateToBeSynced_Sales);
                 1: mBO.PMChangeState(cStateToBeSynced_Transfers);
+                2: mBO.PMChangeState(cStateToBeSynced_AT);
               end;
               mListToShow.Add(QuotedStr(mBO.OID));
             end;

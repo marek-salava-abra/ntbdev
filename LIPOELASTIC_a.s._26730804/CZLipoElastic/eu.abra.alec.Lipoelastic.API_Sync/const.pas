@@ -8,9 +8,15 @@
   cStateToBeSynced = '~000000303';
   cStateToBeSynced_Sales = '~000000601';
   cStateToBeSynced_Transfers = '~000000602';
+  cStateToBeSynced_AT = '~000000701';
   cStateSyncOK = '~000000305';
   cStateSyncError = '~000000306';
   cStateFinished = 'SDDEF00000';
+
+
+  cAPI_SK = 0;
+  cAPI_DE = 1;
+  cAPI_AT = 2;
 
   cReceiptCardCodeFieldName = 'U_SK_ReceiptCardCode';
   cStoreCodeFieldName = 'U_SK_StoreCode';
