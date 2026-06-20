@@ -611,6 +611,7 @@ begin
                 end;
 
                 if mNewOrderBO.NeedSave then mNewOrderBO.Save;
+                GenerateOVKDBatches(mOS,mNewOrderBO,mNewBO.OID);
                 try
                   mUserXLink := mOS.CreateObject(Class_UserXLink);
                   mUserXLink.New;
@@ -674,6 +675,105 @@ begin
      NxShowSimpleMessage('Tlačítko funguje jen pro řadu OV1, OV2, OV4, OVKO nebo OVI.',mSite);
    end;
  end;
+end;
+
+Procedure GenerateOVKDBatches(var mOS:TNxCustomObjectSpace; var mBO:TNxCustomBusinessObject; var mOVKP_ID:string);
+var
+ mRows, mOutputs, mPLMJobOrdersSN:TNxCustomBusinessMonikerCollection;
+ i, j, k, l, mPocet, mDavka:integer;
+ mRowBO, mBatchBO, mOVKDRowBatchBO, mVYPBO, mOutputBO, mJOBatchBO, mDefRollBO:TNxCustomBusinessObject;
+ mStartBatchName, mBatchSubName, mJobSN_ID, mJOBatch_ID, mDefRoll_ID, mJOBatchName:string;
+ mBatch_Number:Extended;
+ mVypList:TStringList;
+begin
+  mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
+  mVypList:=TStringList.Create;
+  for i:=0 to mRows.count-1 do begin
+    mRowBO:=mRows.BusinessObject[i];
+    if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
+      mDavka:=mRowBO.GetFieldValueAsInteger('StoreCard_ID.X_Davka_sici');
+      if mDavka=0 then mDavka:=1;
+      mPocet:=Trunc(mRowBO.GetFieldValueAsFloat('Quantity')/mDavka);
+      mStartBatchName:=mRowBO.GetFieldValueAsString('Storecard_ID.StoreCardCategory_ID.X_PerefixBatch')+
+                  copy(mRowBO.getFieldValueAsstring('Storecard_ID.EAN'),8,5) +FormatDateTime('YY',mbo.GetFieldValueAsDateTime('DocDate$Date')) +
+                  RightStr('00' + inttostr(strtoint(FormatDateTime('MM',mbo.GetFieldValueAsDateTime('DocDate$Date'))) + 0),2);
+      if not(NxIsBlank(mRowBO.GetFieldValueAsString('Storecard_ID.StoreCardCategory_ID.X_PerefixBatch')))
+           then mBatch_Number:=1+NxIBStrToFloat(mOS.SQLSelectFirstAsString('Select substring(name,11,3) from StoreBatches where substring(name,1,10) = ' + QuotedStr(mStartBatchName) + ' order by name desc','0'))
+            else mBatch_Number:=1+NxIBStrToFloat(mOS.SQLSelectFirstAsString('Select substring(name,10,3) from StoreBatches where substring(name,1,9) = ' + QuotedStr(mStartBatchName) + ' order by name desc','0'));
+      mVypList.Clear;
+      mOS.SQLSelect('SELECT a.joborder_id FROM PLMProduceRequests A join userxlinks ux on ux.destination_id=a.id '+
+                    'WHERE (A.ID IN   (SELECT N.Parent_ID FROM PLMReqNodes N    JOIN PLMReqOutputItems MI ON N.ID = MI.Owner_ID '+
+                    'WHERE N.Parent_ID = A.ID AND (N.ID IN (SELECT SubN.Master_ID FROM PLMReqNodes SubN '+
+                    'JOIN PLMReqInputItems MIPL ON MIPL.Owner_ID = SubN.ID '+
+                    ' WHERE SubN.Master_ID = N.ID AND SubN.Parent_ID = A.ID AND SubN.StoreCard_ID='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+' )))) '+
+                    ' and ux.source_id='+QuotedStr(mOVKP_ID)+' and ux.sourceclsid='+QuotedStr(Class_IssuedOrder)+
+                    ' and ux.destinationclsid='+QuotedStr(Class_PLMProduceRequest),mVypList);
+      for j:=0 to mPocet-1 do begin
+        mBatchBO:=mOS.CreateObject(Class_StoreBatch);
+        mBatchBO.New;
+        mBatchBO.Prefill;
+        mBatchBO.SetFieldValueAsString('StoreCard_ID', mRowBO.GetFieldValueAsString('StoreCard_ID'));
+        mBatchBO.SetFieldValueAsBoolean('SerialNumber',False);
+        mBatchBO.SetFieldValueAsString('X_parent_ID',mRowBO.GetFieldValueAsString('Storecard_ID.X_parent_ID'));
+        mBatchBO.SetFieldValueAsString('Name',mStartBatchName + (RightStr('00000' + NxFloatToIBStr(mBatch_Number + j),3)));
+        mBatchBO.SetFieldValueAsString('Specification',mStartBatchName);
+        mBatchBO.SetFieldValueAsString('X_Verze',mRowBO.GetFieldValueAsString('Storecard_ID.X_parent_ID.X_verze'));
+        mBatchBO.SetFieldValueAsDateTime('ProductionDate$DATE',Now);
+        mBatchBO.save;
+        //vytvoření pohybu šarže k OVKD
+        mOVKDRowBatchBO:=mOS.CreateObject(Class_Pohyby_sarzi_OV_SLARSB0H4CK4T32XPZTP33J3XS);
+        mOVKDRowBatchBO.new;
+        mOVKDRowBatchBO.prefill;
+        mOVKDRowBatchBO.SetFieldValueAsFloat('X_quantity',mDavka);
+        mOVKDRowBatchBO.SetFieldValueAsstring('Code',mBO.OID);
+        mOVKDRowBatchBO.SetFieldValueAsstring('X_Parent_ID',mRowBO.OID);
+        mOVKDRowBatchBO.SetFieldValueAsstring('X_Firm_ID',mBO.GetFieldValueAsString('Firm_ID'));
+        mOVKDRowBatchBO.SetFieldValueAsstring('X_Parent2_ID',mRowBO.GetFieldValueAsString('Storecard_ID'));
+        mOVKDRowBatchBO.SetFieldValueAsstring('X_Batches',mBatchBO.OID);
+        mOVKDRowBatchBO.SetFieldValueAsString('X_JobOrderID',mVypList.Strings[j]);
+        mOVKDRowBatchBO.SetFieldValueAsstring('Name', copy(mbo.DisplayName +' - ' + mRowBO.GetFieldValueAsString('Storecard_ID.name'),1,40));
+        mOVKDRowBatchBO.save;
+        mOVKDRowBatchBO.free;
+        //konec vytvoření pohybu šarže
+              mJOBatch_ID:='';
+              mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
+              mVYPBO.Load(mVypList.Strings[j],nil);
+              mDefRoll_ID:=mOS.SQLSelectFirstAsString('select top 1 df.id from plmproducerequests plmpq join userxlinks xl1 on plmpq.id=xl1.Destination_ID '+
+                                                      'join issuedorders ovkp on ovkp.id=xl1.source_id join issuedorders2 ovkp2 on ovkp.id=ovkp2.parent_id '+
+                                                      'join defrolldata df on df.x_parent_id=ovkp2.X_origin_id collate database_default '+
+                                                      ' where plmpq.joborder_id='+QuotedStr(mVYPBO.OID)+' and xl1.sourceclsid='+
+                                                      QuotedStr(Class_IssuedOrder)+' and xl1.destinationclsid='+QuotedStr(Class_PLMProduceRequest)+
+                                                      ' and ovkp2.storecard_id=plmpq.storecard_id and df.X_SK_Batch='+QuotedStr(''),'');
+              mOutputs:=mVYPBO.GetLoadedCollectionMonikerForFieldCode(mVYPBO.GetFieldCode('OutPuts'));
+              for k:=0 to mOutputs.count-1 do begin
+                mOutputBO:=mOutputs.BusinessObject[k];
+                mPLMJobOrdersSN:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersSN'));
+                for l:=0 to mPLMJobOrdersSN.count-1 do begin
+                  if NxIsEmptyOID(mJobSN_ID) then begin
+                   mJOBatch_ID:=mPLMJobOrdersSN.BusinessObject[l].GetFieldValueAsString('StoreBatch_ID');
+                  end;
+                end;
+              end;
+              if not(NxIsEmptyOID(mJOBatch_ID)) then begin
+                mJOBatchBO:=mOS.CreateObject(Class_StoreBatch);
+                mJOBatchBO.Load(mJOBatch_ID,nil);
+                mJOBatchBO.SetFieldValueAsString('X_External_Name',mBatchBO.GetFieldValueAsString('Name'));
+                mJOBatchName:=mJOBatchBO.GetFieldValueAsString('Name');
+                mJOBatchBO.save;
+                mJOBatchBO.free;
+              end;
+              if not(NxIsEmptyOID(mDefRoll_ID)) then begin
+                mDefRollBO:=mOS.CreateObject(Class_Pohyby_sarzi_OV_SLARSB0H4CK4T32XPZTP33J3XS);
+                mDefRollBO.load(mDefRoll_ID);
+                mDefrollbo.SetFieldValueAsString('X_SK_Batch', mJOBatchName);
+                mDefRollBO.Save;
+                mDefRollBO.free;
+              end;
+             mVYPBO.free;
+        mBatchBO.free;
+      end;
+    end;
+  end;
 end;
 
 begin
