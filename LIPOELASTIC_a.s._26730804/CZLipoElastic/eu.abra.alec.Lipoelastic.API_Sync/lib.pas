@@ -788,6 +788,88 @@ begin
  end;
 end;
 
+procedure POST_CoopProductReceiptArray(AContext:TNxContext; ARequest: TAPIRequest; AResponse: TAPIResponse);
+var
+ mInputJSON, mOutputJSON, mItem, mRowJSON:TJSONSuperObject;
+ mArray:TJSONSuperObjectArray;
+ mOS:TNxCustomObjectSpace;
+ mQuantity, mBatchQuantity, mKOOPrice:extended;
+ i:integer;
+ mBatch_ID, mBatchCard_ID, mStoreBatchName, mVYP_ID, mKOOP_ID, mPieceList_ID:string;
+ mVYPBO, mPieceListBO, mKOOBO:TNxCustomBusinessObject;
+begin
+  mOS:=AContext.GetObjectSpace;
+  mInputJSON:=TJSONSuperObject.Create;
+  mOutputJSON:=TJSONSuperObject.Create;
+  mOutputJSON.O['items']:=mOutputJSON.CreateJSONArray;
+  mInputJSON:=TJSONSuperObject.ParseString(ARequest.Body,True);
+  CFxLog.SaveLog(NxCreateContext(mOS),'LA','Vstup JSON',mInputJSON.AsString,2,Now);
+  // Kontrola, zda je vstup skutečně pole (Array)
+    if mInputJSON.DataType = jtArray then
+    begin
+      mArray := mInputJSON.AsArray;
+      for i := 0 to mArray.Length - 1 do
+      begin
+        mItem := mArray.O[i];       
+        mStoreBatchName:=mItem.S['storebatch'];
+        mQuantity:=mItem.D['quantity'];
+        mRowJSON:=tjsonsuperobject.Create;
+        if not(NxIsBlank(mStoreBatchName)) then begin
+          mBatchCard_ID:=mOS.SQLSelectFirstAsString('Select StoreCard_ID from StoreBatches where hidden=''N'' and name='+QuotedStr(mStoreBatchName),'');
+          mBatch_ID:=mOS.SQLSelectFirstAsString('Select ID from StoreBatches where hidden=''N'' and name='+QuotedStr(mStoreBatchName),'');
+          mBatchQuantity:=mOS.SQLSelectFirstAsExtended('Select Quantity from StoreSubBatches where Storebatch_ID='+QuotedStr(mBatch_ID)+ ' and Store_ID='+Quotedstr('~000000E01') ,0);
+          mRowJSON.S['VYP']:='';
+          mRowJSON.S['KOO']:='';
+          mRowJSON.D['KOOPrice']:=0;
+          mVYP_ID:=mOS.SQLSelectFirstAsString('SELECT A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
+                                              'WHERE (A.DocQueue_ID=''~000000O03'') and (A.ID IN   (SELECT N.Parent_ID    FROM PLMJobOrdersSN JOSN '+
+                                              'JOIN StoreBatches SB ON SB.ID = JOSN.StoreBatch_ID '+
+                                              'JOIN PLMJOOutputItems MI ON JOSN.Parent_ID = MI.ID '+
+                                              'JOIN PLMJONodes N ON N.ID = MI.Owner_ID WHERE SB.X_External_Name LIKE N'+QuotedStr(mStoreBatchName)+'))','');
+          if not(NxIsEmptyOID(mVYP_ID)) then begin
+            mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
+            mVYPBO.Load(mVYP_ID,nil);
+            mRowJSON.S['VYP']:=mVYPBO.displayname;
+            mPiecelist_ID:=mOS.SqlSelectFirstAsString('Select ID from PLMPieceLists where StoreCard_ID='+QuotedStr(mVYPBO.GetFieldValueAsString('StoreCard_ID')),'');
+            if not(NxIsEmptyOID(mPiecelist_ID)) then begin
+              mPieceListBO:=mOS.CreateObject(Class_PLMPieceList);
+              mPieceListBO.Load(mPiecelist_ID,nil);
+              mKOOPrice:=mpieceListBO.GetFieldValueAsFloat('X_PlanedCooperation');
+              mRowJSON.D['KOOPrice']:=mKOOPrice;
+              mpiecelistBO.free;
+            end;
+            mVYPBO.free;
+          end;
+          mrowJson.S['storebatch']:=mStoreBatchName;
+          mrowJson.D['quantity']:=mQuantity;  
+          mrowJson.D['batchQuantity']:=mBatchQuantity;
+
+        end;
+        moutputJSON.A['items'].Add(mRowJSON);
+      end;
+
+      mOutputJSON.S['status'] := 'ok';
+    end
+    else
+    begin
+      mOutputJSON.S['status'] := 'error';
+      mOutputJSON.S['message'] := 'Očekáváno pole objektů [{},{}].';
+    end;
+  try
+
+        AResponse.Body:=mOutputJSON.AsString;
+        AResponse.SetHeader('Content-Type','application/json');
+        if mOutputJSON.S['status']='error' then
+           AResponse.Status := 402
+        else
+        AResponse.Status := 200;
+
+  finally
+    mOutputJSON.Free;
+    mInputJSON.Free;
+  end;
+end;
+
 procedure POST_CoopProductReceipt(AContext:TNxContext; ARequest: TAPIRequest; AResponse: TAPIResponse);
 var
  mInputJSON, mOutputJSON:TJSONSuperObject;
