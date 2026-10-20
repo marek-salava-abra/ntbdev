@@ -1,642 +1,1806 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0TcuAB42u19S1N\
-bSdKo2N6Y/gWz0ffNnUBqYxoJ\
-8LOZCIHxtBubQwPma/eEowOD3\
-JYBiUDCbTx3+ofenZdesLrrjr\
-hVmVWn3q+jowdYQQDSOfXIysr\
-KzMrMyqpWqiP/uaz0K23y+03l\
-f8H3efLtsrJYOay8qVyQv4uVs\
-0qHfGqTT5uVk0qvskV+z8i3Pf\
-JsQH46lW7lN9LCfGWhQCvPyfM\
-3BevukKc90vcFjIBC8Bhaob9H\
-5E2XPBuQFo8qB6SFduV3AvNPp\
-MdqZQ3KzFdq5LdaucO+7ZH2n5\
-Pfjco+wCHeULg2Ki0oYb6hP/9\
-T+YG82yaf+pVjAtsG6f+SQDAg\
-0F1Vfq08qzyBfqukT7Ufe8mnl\
-d1KVnlBPv2zckpKvCFPD0mZw0\
-qdPGuRnp7kff1Mam0SrGTk/8v\
-KJ1LmA+CkSz49IXXfkd9j8hn7\
-nyc/2/C3SvrnUMtt/FI5JzXOS\
-b+0xy601CFv3pDvpwTW24CBlo\
-GBpmNcFFKc90ZlyVJmk0FCqSM\
-NjwuW1uT6+wQb51D+iI0gXIf2\
-Sdc0xRfFRAdWaFqtDwTSYwZtq\
-OYOqfcBYHsBo2wTvHcix6fXwH\
-VNcYZwh1vISOlD4AkfyH+K4R2\
-gJVofn1wF23gOfXE4KC+jrV3l\
-82Sr3yczcqTRnT4a/zzbWtgjI\
-7kkI+oA3cbh09bOOil/AeNPh4\
-HW6JM670id96T3bfKZzgj9bGv\
-j76S0+fSI1ELeWyM/8rfjylut\
-xx/InPdgffRYqW+dLbbhjfz8d\
-wIppVR72y+BhgeE618CNQzg2x\
-Up/Q/yuwScZJC3kFI/BQpf7/T\
-5cQD6XUYJdqg5duN6PoT56pLn\
-Z4y2jkjNRmWVzO490jJt+zsvL\
-jg0KgbahMpwfpbgGx2VWiKmZ7\
-XGtwYlUW7fJHCZ4/oO6JnqDTq\
-c9UDf1coy9I4jpzye/ohPvPa2\
-ozaHHUvp1GxbM8OO4wW0/gna/\
-+Dg0byHPVKmB7JwA7jCMZOvrj\
-qLgbdUmh4xSdyu/G/yqUXk1Ga\
-wBuKOjhSlWtvJkRaB55wBLeF4\
-zTHwEu42NkAm+drgJdyQZ6wvC\
-vsbmHl32R1GGb0IDCNG6Ny34d\
-dXHjn0kTaaHfL/iEiLQyKt2oG\
-RYAtdDadqCwLjcn2hgQns6bPZ\
-B70JqU2t/SOp+ww0K19trFslZ\
-bcVCkRNjVPxDswZ1uH6oaoBuq\
-isymCokXYagKEmWe/4/x7jOTa\
-Y9Tnqw7OfckjpZxnSPfLJNbMC\
-1hqr9zO86ZKyVDbTuZN3NrqWy\
-jmjaw/3HflpMX3ajXtO931GFQ\
-LnR1acuziHG2NtIjN2SZ1T8sN\
-1dZQkvC+UKu/IOjlmGqa5J+G4\
-wrIboH0L6GiZZfJtF/rdJHuDn\
-8jnp4RKM8J7V4gmu0/+PiO8eZ\
-noQb+Q+j+D/MK29dWh9qXqYq7\
-Rp+NI7smUBfZdRy0KJi4jVKh+\
-yp/XHa3TVlz92p9XI7EkIPoet\
-BUTJnf7YpXo+8OM0fce+bxJ3r\
-8g339mOOpLEqPOeKC8cgQX81F\
-oP9/B7sJej7csOC+nPoSeaia6\
-BaQpSZ07UmmZyvol03Q9x7S8h\
-kIY3ia192Hv+jNpd4983vPU8t\
-FEFXiMPFt2+pd/4makHWhFn61\
-2Emdpj5y36D9676PkNsP1HeIq\
-w/W3AZY5Os8d2LFfBEZvcp2UF\
-lyQ1iNWSREOTGXpCwYZfye4gq\
-1HGyT1CF2Kt95nOwYhzy8dGtO\
-aJu2FBnWpaMxryWMPwarrHqr2\
-oeof5c13HWDYJWWqDtswtznrF\
-uJmzhFsNpIDoltSy/Qnh4WO92\
-VvOSMQtfL26Th+hdp0HLUC/Yl\
-9YREYBZx7gGFKT1x3zgBHaLvs\
-MIiXlLGZdXbA3tSG3ewmoZBdV\
-q+RUA/t+n1m81gDXb1Y7R/Bkt\
-kFWqG46IFtE9tcDrQpLF9Yawt\
-maAC0c8XaWDGwaMO2/M2FSVs9\
-OhK6o7kiUJ0qsDeCden88x57z\
-L6g4lLUF3ZixB3lAu+dkIrSsr\
-3SDZ3aepuUvwD7vGjfBpFsg0Z\
-a7sEevJv3okMl13jG7Mg4X9w2\
-bIdOrrfNrMmXQAFdg/5EPbtt3\
-/b0ygqvvT5i6Jg9P1LqNyLqbw\
-N+zbrNqL65JZ9+26x8zDFoWy/\
-2NsxajXzcoq7PZ7ADn89grbko\
-0Fd/l3w7IuM+YZCpuBNtCBv5O\
-pOUH5y0JcruA+1S2XEuyVcBZ8\
-NRD1fyO+BRx9CP3OsX8n4TdGd\
-zrkQb22ztuNtpK+0sO9rRvSxd\
-tpIph3FxNd0z0SbfT8jfpwDJR\
-/DhdsjnbuXaISfk+jsSvPzTE/\
-J+wCxEy8xHa0oNeyu8Ll29x1J\
-tc9WGfD3bDgoI16M9Uw51BZ9l\
-r4ltJKH29ph17opoCutMtuEa7\
-YGX9BDsvq71HQOtKtmo9Z6uuh\
-OQn6e5zd2ko+HaVumrGG5NHOg\
-Qr5bcPrZ6L6lVARPiYR++URxQ\
-jvgrgXGJtXu/tHZXWYsPDLqnO\
-+zfiRxFHtkGHoD+drrzvsq1Uf\
-68B71UQZd8QfrMCL9/Rvp6BRp\
-1RqTmX+aQ0zQ0bXcP/FJUE7P3\
-0YwsLSzSHDK6X9iHvflzAoer1\
-5dMMtgoTZT6kcD9K/ltWSnGLL\
-dupQGz3JZ1TvVyzbzfB4FyvN+\
-HgXJbhrS1l1zOyzUC5USLTWfJ\
-Zl5m2VlG9Oiei5W8jGsehDxwz\
-UCmzWjDOQeZNqcN5yxk2qw2nP\
-OQafPadM5Dps1s0zkTmTa3Ted\
-MZMrcNp2zkWlz23TOSZbPbdM5\
-J5nUo3tWVvIyrvnYI1DxMg+cZ\
-QQ8D51llnOJtWTRYNpMZztkto\
-MN8uwg5y+PNY6ywXbkLcKNkBt\
-3oWZH2ufMS/voD1Ca1/+N7SdR\
-D34EcUbcZ7oP0rAt9fYb0dowC\
-iBcUvYzol3kmO2uemDzfAQ2lU\
-EuPQQe3kKM1ZFU9p8MbxyDnOf\
-WyH/x9BHYdLsA0W/Qex2e7Rm9\
-vIES9AmHdxc8Z5eAQwobYu2uh\
-mse2dGSeqU+ircB3v0of+/uS5\
-SeD/L4lPbWg+1tJbW3FWivmTT\
-eZnC8zaTxNoPjbSaNtxkc73JC\
-a8vBtraSWvPB1oxsqelpI3Zsv\
-nGtRLax4mwjS1pHWXAdZUnrKA\
-uuoyxpHWXBdZQlraMsuI6ypHW\
-UBddRlrSOsuA6yhLWURZYR1nS\
-OsqC6yiLXEeZZx1l0WPzjWsls\
-g33OqL6S0wbe5690l4kPvY8+N\
-iLxMeeBx/Po1p4rtTHWD/8Ln8\
-+h73cEViqLsFGRT2/HfD0/gQt\
-c0vhS9AhLnK76zHRQKgu0AGdA\
-3Ui/u0p1DkjfaC+cM5snVhqu/\
-KRaEWXbH98Brvm92ARHEhlsS6\
-1VR6BdYLWPQBtrcOi8bBEBnal\
-c/iLkT0cFqH59FnZZ+ST2uI6q\
-dEDyw1ts27VE88UjccGhyiJsY\
-IXTButWvQyufQr6Ddc7gXbd79\
-zljO1Ov3cxTPmB5RnDeMwdiqv\
-5q5ziz+1KHwis3uR24f+BI9FF\
-WLzKQaQZqpggxfWAOqdpD/zeb\
-ylGAGeGZBpVocOozR2wCdUg+j\
-Zx0p5FVeUwq/Yd6qB1hhsbUs9\
-gTte8yx/EqprzuYaGw1q6TTaV\
-e3hLuxAeXzuMsGHOZYOxFqp9b\
-4HO4iIGJbLm3Prxor85K5m0Qy\
-Na0UrK/MJ/1zgWtsn40HarMF/\
-XJN0hX2EMzy/gA3vM7M/U1seW\
-vSuGc3wEtSvhV5FOrsnpA/6vg\
-MtD5jX8AIwz+HAyOC42RsVrN/\
-MDeA8y4D5OK8Z3FUr5CpsNvj1\
-3ematBfkz/ke1GxxQZkns22xl\
-xXt4rPibYZ3vWsGLc5rMUKuyG\
-UaVb+WRw5UQYY8BW/IIcSR0tl\
-cZ3NbU3BXz2MN9H55ZIW7z++T\
-+kT86XjhfFePQ6spklGv5eePj\
-WD5J6SfPsjuPsxlqLxbOqjeQr\
-9koE9OwIfvkwbh8S0b5blOYmo\
-hPB5NxeeCpj0sOHSFBYtekAbr\
-SmL51cTyKu7eMr/aKdjfi1KAz\
-tn17/Fa4aR1wOnT2FRpXYY25l\
-pVTYn2hte0TA0FY1K4dNiA+bz\
-I50jszi5ADl7AWORVlKrNpPKw\
-KuPJe6DJ/Q54PINohzZ4v/twR\
-u43qDtPOPUV85d9Au/TKTt5Wg\
-Xv9AnztyMvkf3kH2Bsn2ANyDN\
-R1c45cynxN/C0/I2dQ7VJngOI\
-BKLt/3WO9yG3+wYg7YGm/WquD\
-drm4Vwb5oPPvaAaG1bQ2z+I1u\
-fsmhLOu/pOn+OQlo5t8Kf+2jO\
-N53ZoPB3YVcm08D3ztjXZ3uhm\
-8IU+w+jnkXABHgF5TeotsN4+E\
-4gpVxiwM2AncL76s8GLOreWF4\
-1WW5brbDCrzwVZjVSynZCx9mC\
-/6edS/r5sMnm0+jmfwR/mqEb+\
-uWLOoqwzrDg16x8AG0KSu3XpR\
-fLtKPey6thbzJ8IHaFf+Zc1/u\
-N1KTPJRyAiZ/qBEaTOaWyvqPN\
-ugt52CpIE5Up5sCxbYRnV7GD+\
-mFOm85lUOrp+N6DNUyhDT4Q2I\
-qCJ3aeNdy/177yk4LXXIG0+A2\
-f9Y+4EOO3/ZaOnpf8T3IWpq7W\
-fU1c1eX/V9+6UXPsrnu2FYs/V\
-5zp8xtMgFIsyDPKeqgWnwTiuh\
-23tJczRxdDt6BKo3FHiORh7HI\
-h9B2niHE8K8bmka+YCqGIAp0I\
-EFDWQdYfQ76+WPD3+uSjWi9pO\
-3TlDxVrfg6eXgDd6moS3GN4N2\
-+dV3mmob1UY+oYGorYtzxDNmt\
-WDNVpjbXOM70E0zWl+lkhIBlM\
-/s53adOdcmmdna7vAJczdmZ0G\
-15i+LOOen+ai2ps+8kXJIoB7Z\
-hp/uwHv38Esmv34IZFxZYPSNy\
-Y+9+PAt4vu9HPJ8mlV1MTpvrI\
-H+DzO908U5wgpSs5LgJK3SdtQ\
-8V63zq48hu/A67RNJMsniLuvM\
-qlFZeY3czzbSUepI/i/KnXvMX\
-3xteRbUukbYX8KJ+dOybiEJtQ\
-C6Sv4Gt1nqdTCo9jmPePYI3Ly\
-mO0+io/jgTEObpk8BMqeh+xIC\
-yxL0ryFKv5lode0seN3hA7XqO\
-mTG66HDUaRtPXXHpxuwrg7IEG\
-4H/ccLI6Uy52BVsT3nRdR+KV7\
-ywWIzpYpZbjRbLLTuade+nhW+\
-ctcHIRNlkGoLFqmNs/fSP/H7G\
-yRnH1m3uBRCO2TZHjvlQbvAdh\
-3QvDaqIVG9OP5grvAkeLgX7HA\
-r0vW1DHEcIyt/AzyCZyZQt9tn\
-+EtDvYHFr4nZMywMKfAix78Af\
-QUB/tDC50XhV1dwXhym55Yfwc\
-wtxUaagw1QspxPkaNsMl4zShH\
-+BSgiVnRMWPbJH85x40bYWPkI\
-/RxV/eeWIbiKZNmNYs+pvIpX0\
-ldRvjKmtzDXnoYz2asb7l6g+P\
-YaHYD9GqoGQ/sO1GsxbGA8LwA\
-PaEHOyv+pg+zI9fBs2x+X+oGQ\
-Owv4zvhIJeLzTF6FpXv9cyZ1f\
-UsIhOpgMqd5/UskM31LJiz9Sw\
-yM6tZboFhVj6ni8/E+eMQtt35\
-R01qlGvaMi+eGbkSHwHn/Ai9d\
-wEvx95WcI3Y28J39rMw6K3yj5\
-Xb/ii9iH2LWDV7jlUjKPcgEIH\
-A+X+onHkGyDfifaAFN4Smvw29\
-/huEH34E3rbL8j3j+aZFab/6J\
-PeT49rf0PJvYfaUeYen78zI9I\
-1y7q2yL9NzsizATsyVqYXueYQ\
-MwCyno+vztWbRktuUe3VnK5e9\
-ssPko3a3E85L7YchlJ86trY7T\
-7W7hfh81e42UvNWx7eUPhehPD\
-9xraTn0Xa3lZZP291OWjZsdzv\
-hbNg+vMRmw1bbEFmxbe99+Wzn\
-I2uInK/2Gvb8rnGlQ21jTi1fZ\
-l8XXmx3KKgl1JsEasG+xCnqOu\
-QU202qhRlgxR0AZi5yH5ziZgB\
-7DvMa2aE1tFxuaivq3QH+3NE3\
-C5O65hCLSbNeEUzG9S6s7+ZbU\
-6rbeo3JF4zxWma+YBmvZsZg90\
-hFn3KMGOZ05r3tWPsyc1Tb+wl\
-Fnz2egF7n05XFyTSOZ5ox9gnQ\
-0/8hP5jZ8y7L04lP+Aral2jcz\
-PfNM+tRKyct8wP8b0K8yBLL+y\
-56+E7pYceShdw+CjVjYHk4fUF\
-GhhgqH693NKzeGRKnMkbvaPi8\
-MxXYfAZnd28CfY6KOu27En2nI\
-2xB/wrgRd/riPy/2K7PIqT682\
-sOzyXOvm7VMufQHiE6fAxSQ4s\
-4UuOMfBFPcjnkuotSXKHwoWMW\
-fbeV0h6rINscF9lsyD02lXmU5\
-8Z14pC/V/GUfupQtPMUbv3qW+\
-OxsGdOJw3r27iZD8M0Gkr4F9u\
-zNiRrPD35JyK3DhU+Nh5omgo0\
-P899Bv5wMgFIlhVI9gAraDs/m\
-gA0Kwo0up4+fnhWFXhQ2/1jDr\
-Xd6wnAc0+BB/cGVTjXink4qS1\
-i/FDdV6B6IkEzflgeaPR8Aj1U\
-Yc99waTeXfj+/yYC38NI+Lp5B\
-ND4YaRazWslKwePWJwk5hoaD1\
-eh8uMLpbX51LQyx8go08/H4+V\
-qFtki32Jhz4x2x9qP/UeVFmW3\
-rfP/sts3OXrZPZg8uuweXFy37\
-H5UPlr+TIc44/h6lNdu2b3aed\
-doe5HHU3dyI/P573Cvyino8/z\
-krqypb5J+njLKS+NZqh7fYeNv\
-OHh4vD9exLeo+wmMbFmXdqKUM\
-6Z6QuYhUrnFzk7ZfLsm1CGvSH\
-GIQy0XgTZ8A3BRaEMtF4HW5vk\
-qDqGttaI4ND2dw2HObG94yGQv\
-alnQyW0WgdDnpS0Oo6/VIlCG/\
-cDFYQ23XQbE5cE33ApWfb3FoQ\
-r5jIvAJvzHxeGy+aCLwOLzR6u\
-njdQ4qVohSejuS8AuRwDVvbCb\
-PtIUbJoaOodAZBFI6R3htp3bE\
-O3Rfv9G9pyL5K/vZ57ZSPU+6o\
-G1qPsoU/Ch107Fhz2yq1x86H3\
-48MEzO4Q1j7VCd9jUPbbfYrpP\
-2h1A7pHzk1V4y8cnKE/jvU/Bc\
-0I5vY9vyids1yw5vZ+xKMePgN\
-3xxbL64lNjo0t9HKheAKOvwEJ\
-x4sUoRher2MRnKiYFhn2RsILv\
-F4G3n1s9jizWIAEzRjurMOOzI\
-jDbonfDEcOhmGMfPbipaBgK4D\
-lazLwsauw333U/Y3EtvfwUpVx\
-O+KUXlCh0X20so9fksem+mlim\
-HhwjerlqGif4B9xfhPcCYmaim\
-kTZ9rechsTbELek/cfs7tP8cP\
-F2g/H55dz3JKgU8tgLK/eU4jy\
-sQd6cGIk0To8fjUHwweKyTE8G\
-Xo7LxxOiEdlHSTmXvHbvVO5ZM\
-uJMxmNpaqaTgkr1W85PDA71/G\
-iMvu2Kf7TvhCY1rvsFxmWLz5m\
-uUT1IHpU7Xnq6RvawhJFN55yp\
-vtq4sdmj0KdtXI0hx1V0vuy+4\
-ljJHKdPDaOj2E6Rla9Z+Hrx6e\
-AhevH5zmP1v3K9d+lYGFfvLl1\
-nnON32fPGBcF86d5a/3jL11Gm\
-D/p4TWR8sMu97iq3a9dGpIsse\
-Ee2EHE7IZ4tvSC8XIW4BbJsAW\
-6/eEu45W+wejhklPu+HusqHgV\
-u/XQzw208blO0sRlei+J1uum1\
-HtRHQ1Zte3TKF3bzzaGRC8ZsQ\
-ZRbgEgpbOsLyJXDynuwlF9KFm\
-da6o85qg+9B3vzJfOl2KE4VMq\
-9h1YQEzRWCkv5bZu1qOgeu9U1\
-LpZpLdomG6fl270c5hhsfo/QS\
-EOatt1bYbZq81+EfFJxFthR2M\
-LjcZ8e8TasJT0dvmmwrKu3EtY\
-j8DPs/nXabO2pO+NptL3fBBv8\
-dNvidcoOS5oOnACnuWVCZXdY3\
-uMBPKf3jdNvJ6QEtd79WlllOf\
-GGawlt/tOzCtVsonqMys1akWn\
-+lNvuV7nd/pXb72e5/f6W2+53\
-uc3+lzg/TKqMSNPKy9Bvh/PTF\
-JWBo/HbfK3akT8zo1u7wVKjmd\
-8YiFJ0lGIeOX3fOD7L4HT45qb\
-HRzc9vrpYGh0/PDfZq3cbvHsz\
-L9/NxvHM2zfz+t1k/N5c71+sF\
-zCmTIwn0VdGxvx2fq9YbIYD/Z\
-nvngp5hkN3RMifY25qvILcng3\
-IdNoCj9QfczQP60rkvY3uO0qH\
-u1Ui5e5G9y0Q1ah7IKqRN0HMM\
-szf7gzzZeUQn2Wqn2Wqv50Z5m\
-nm6peQ85rmh31JoK+Vmi08LUv\
-4zcizXmce43qhjOujxvjXkJ/d\
-nIHRZ2oPZTO3wdti2eRDsqRa+\
-R6ihJoOuP/JqGYHbi56VUBaxk\
-izcUmtFOmULoXKlTYxvD2Gh5f\
-Bq9OkYBFpl6I7VS35vMvPvG3m\
-nPadyedaaN3IiX0z81SPL4PeT\
-r4jpPjkLaL3rKbs4xY8GSTGmS\
-WvTDiK5r4rE4aiGe3KhCElZ13\
-ZY4/PSTe6nmPyzZXZe5FMcmX2\
-Xzw73CihGC/NF831ViYMKXnd3\
-P1OMmObGyq0pYnsX4uA449kJ1\
-FjkQ/lZW4bBxwxGdPqVijqN9b\
-uTH/fgiX0SNrv2OmtJVmQ9bs9\
-6867V03tZBd0kUvwR3B9Um2dW\
-1pbUh5iHerhLOZVZimXTw9VQT\
-P4Yw7zYtNzQ0fQIn36juWMQ00\
-KexpAv5esDSFXFwvY4zGf3iZw\
-CvqM686320rPa1EMLUif1xmGM\
-kKbTwB61MIv8uxzWI5SElIv3t\
-MbW4/y3Q/MDoLQ4b7jArIZ4gp\
-zYXsdPndAj6MatYz9me+hPN/D\
-9Pkf6H14vvfu2y5n/oSZP2F28\
-+3M0zC70fUm3+g6Wj/BmsdLQG\
-eG3ga5m3sJTOqj7/cIVKO13to\
-ttzF6G+9btdjKfcmaVA3uMjwE\
-DetXb7v6bsqErlpQYxwG4pR+b\
-PtB+yiqBXTYoiOIad+173VDX4\
-7N3p9vIc2GXyQ7Qpptvyw7f9F\
-cAm9LjCRXLVZCfowqywCndvk8\
-V4jTjPuE1jgwvDx2DKdwsNuI8\
-Xtjx3gMx53u04e7BMoOtMvtTu\
-e5dkTnYhueUI0Hb13ge6o/c2u\
-afjvdouMmsiJRxjLuF4ls6UEf\
-sXZ0uvt3R2HbfdyunzJ8stPon\
-502X+20+W3lH2rz4/ZeWQvDO0\
-kuLO3WDFtp2nj89pB0/890eIa\
-nx0s8TR7j6fMeT48nedq8ytPg\
-YR5WmsT4lVXvYJmwxHiQy+wvz\
-lMcp43E+YfLOi3l9iEXtTG4PM\
-4xEIWhKbIbCUFkg8YPScyu09d\
-rmicf9VN3a8N5+4Xf/BfQ/7og\
-7XvAN/CWQKoTXJEVjR7xNvz9E\
-04kfmL+AbkEXQf03uAz5hPvQb\
-bNP+ZQjxwwLGEeTbneJ+AR15V\
-DyMR5DPX6gMsPsIdAH/sJ/Edf\
-vuxXf2rELGzAXo2enNwkbVwAl\
-ern3Ibxn9u853ZfuO5N5zdBVZ\
-33OJ6B/x+pO6a0yB+BYzVhk0v\
-L+NDjNuzl9hkviiv9BPbjb72l\
-98j89WE09DOVn/zevU1GgVeOD\
-AD2VuOiStRsIibehH102GxEcl\
-aRLWVVXVVee2eaw7DknDP3aIr\
-i1N4iZtPdgXHS1XHNyvaZtRJz\
-6Q7ye/LapFwV4FP5CGbKPdF0x\
-i7E07yTIm56c4If9mA29LyzjZ\
-yjNAl+ljS7qN02wbOgdiFK4zm\
-014Yz0ejhqFnoQM0jxaHguUgX\
-pUidOrMP+do/YvVFLZ0i6snx5\
-Dg3P0t47yq3AZoSy0Vn7rycb5\
-hf4CQgvfTvCJtdmpwxb/AnUuM\
-QoG7DHB7OncK8ngBtfSLl/jrX\
-Jb9m/BbVMLcJR6J+u+eVV1pMT\
-S15pvkaiJtJ96oW7ejZgU3Mu/\
-ME22fc7j9xrRKzxzvSyqlZ3y+\
-TFVUvdJ4A8c7z4vSU219TVtY9\
-y8r6nmHKb3kN2ySRIv9CVgvlj\
-ydAeRfAiY4JF8I7Wrt5HF8XpA\
-a1NX0GyHiO78857xvAE9R2hBb\
-juyXUlKVituJxtKrh6HFUj1we\
-F+nxXqEe+1Jf6tM72l3BdPf0d\
-zLDj+BtTZkVKun/TiiXvqvDTc\
-INQqd/g2xqGC9mw+uCY/Svk3c\
-jrufc26CODGl13hmLF6ZUpFK6\
-tzxlGvF7qr/NDYAXXin6sp7ZX\
-taeUUrHaND2HdbwesQe+U61pZ\
-iWVI18wcCsa9bs+p2I/aU4+1P\
-Zq6CmIdslZIz+l0Zh86D5HAMc\
-b3JLQkdb85+ZDiNuBJBvFsAdk\
-28WMI63lt8NNBz28dbYOnhJYm\
-PKhV9GL2/H8DZwik9MTvdASzh\
-kOl1or1iFWSCUOfchj3Phsv4q\
-3ztdAmVfspgLuf5/GeOy6yKu+\
-FT7+pu+carzlxarX3ztpe+GXf\
-vC2J3wOmm9vKjqmB0f9pgSAzN\
-PeMEqKf0zKUPjn3crP5BWaLTa\
-MnmySjgO3YnQWLxGZYX8rpO/K\
-5qX0hYhRSFBK9/vhj0H3+0ATG\
-+ZjcleZg+kuLBMCkmte24wHxq\
-31j0BXB3BW+GTnWfxhgcSz9wE\
-PR4t/tWcTz1huNpnMetyLtZt7\
-RbrauVucMXMW6xaRUa4w/j1Kd\
-C9b5SCet0940p6HOQWvIadL8f\
-Z+bAFbr+LW/220yQ+X/JLwNMF\
-uyO+Dd7ulsfCFLJ4PWZ5V+Mio\
-ltR8c6tqJj8liOGm2Ot5Ymebw\
-Vi41vByPdWZFy7WW6BcR7ZZ4T\
-PhN/GZ+treX0rtjNXtI4ZHfoI\
-VvZH6IPb0Otee2U1YIMUt/TEW\
-SpDJQ9Y7gEbpC4JgBr0NsudfM\
-h8FXgKTKUpKomvmZw+z+U0PqN\
-aNz0X1mXRKdR6fc0o+QuWVywS\
-6KFHvop2mKpBw6iNyraKWgSlV\
-9ktJfZygkrpNxkKlz0ppsdH3j\
-5tT68M28+2You6Zvdp9WFduGj\
-BdruPfJtTCp8ZhoOEeEfsyvet\
-03oExtCmeqJgzHYLl+3OLYFBH\
-xcSHCcGnj6z5J6DNLCtewGT7S\
-6uOJhsnDHMjUP83DefbipImUF\
-XnpJ5ZeSPcv3JlsHevBl4nu2H\
-uYT21d7VtK4FaXb8NbFM3YhWE\
-7efySvVfgPasPej2Xdmo7gVoq\
-VZ821WscdjhSJ8S9aoIVhWIMD\
-ZGi8E8o1XLc+NV2Vqw7WZdnsr\
-tVsOm37+a6bzznTemc4703lnO\
-u9M551enZfHqwyrb8kjeO3x8H\
-JIVT8vv0Pa7cuUpRWWVf0y9vN\
-Eeq1Jj9M8n6NDKL7fCeimYvb4\
-Sc7ahMb3HHTeE6bhiDkUMV2v5\
-tpwo1iv8s2ciHtog76KNnlxFg\
-s9nG/A0/TXuRMY1yewbWNdLFG\
-PjFyaBEb4XMZkBjuw3koeF/N0\
-oGDvs6QHmPuCP53Rb9N2i72Ir\
-Cp2a31r6Fvr7dRU/Fb6VvKt9M\
-VvoW8l30Jf7q3z7pVYlqRRb9A\
-bhawJy5vQGdby5c6wo7afDB1O\
-+oxGAhUb6eRlUDjiajK4GV4ax\
-USnce6wBlF8w8Wk/WhEQPas9g\
-V3fGir1JtWxa4E70fdYqdKzuC\
-O1Lg7VrfhtHcPIhLo5x1YMRdg\
-QemARHpdUtypHXv0uxjDFxb7f\
-ApR9mhjoWvhTV6Ww8qtLecGvF\
-WyFj6zmJ9vWPT0Bzjj2wNYuyx\
-SsMrmTLVNuOZN33/SSEe8Vbms\
-/CmIJbmfz9BPT7LQYLSegHuBR\
-da9h9a/QGzKOeEo16BpHMPY+T\
-kFmaPwuD8eHSnv76uV/ybj0T3\
-lMq6wzwFwIYz8++9AZhhVaxDf\
-7wIO/ef6bpZ8TpPVRXJPTKsMj\
-4U3XZbP5LpLrhfLSXKT5X1ZJ3\
-7d+WB86zCM41HI+Wm6UT1Fltk\
-l/rkCwxd4esxWP8pm6r85dEbm\
-h6XKnZlU+eqliu73nEmVmVQZl\
-1Qpdo9BXHaCA7BNDmDeO7l9jW\
-v9fcySP0f56Dvgtqr39T/emw0\
-m632Ni+oI+2BdEdxpMRV1Z4yC\
-eSuA8PHZa5hryOYBl0+6C1vza\
-GzGyE0y6Y6HLrOFcwt4NY9/6A\
-C12Syzw0Yx2CMKip4Ct8VdfFE\
-8CC7Lrzvz8JH13Q6cWjqDk0Wn\
-TJMqally2RdMuo7XFGzUJfNWe\
-vfHr5A7EzH3nPEIfivIMtuZQ9\
-TYnDxOPz6H155jId+CNe2Cfis\
-SfiyFZ23RXuLLz3CmWWZ6c/H7\
-CtdTO644Tfg41nCWzMw4ASrsc\
-O2x0Gn8TsouDfj6FE8wxpFKrf\
-fAXeI06jiKa8I9OXZ6w3c5veU\
-QXHs0iLBOHgvXumcl0LcImRxb\
-I/s+z0GfPGf2UxfMo9orx45xy\
-zvGrRGu48dDruSYtUjPPvZm6z\
-GJJhqe9diY4HpseNdj41asx4Z\
-3PTYmsh5tOytbHFZ5uiueSj5m\
-z48CumscdptWrDZzaqa0ofb4Z\
-cSjxMzU5Y3QrnNyfVPvbdSji4\
-mbjhvXimNFrLCRyT318njyYbI\
-1mDu4nrZTpL4/M4Z9to+7Pfu4\
-zLmPy0a6j0uBzS4rsgnv1Gb7s\
-Zuq/2We/Vg2wf1Y5t2PZbdiP5\
-Z592PZGPZjs93YNK7Ghmc1Nia\
-4Ghve1di4Faux4V2Ns92YHH8f\
-vzqH2Q1k1n1cNoX7uEngxq6tT\
-ssOcBIYWXGs35S942Nv9jczp0\
-N5/mX1rKrfv2w7gZJ6XtX0scZ\
-7auNyyA+g1iCqNI1CaENe1Q4Z\
-b4fdCRGug3TUBzqyneeXM/XJI\
-3eXy8h3ulNqssgIkdfeVsfmkb\
-a3wGkI77XoK3E57thol47js2W\
-Ykc9d6Qz/IWTKlk/S284+LQVz\
-YMq8w4Sbx+Tx3Lo0Dyr+X2H/7\
-7FcJU32fwUy6uIYtixS1ZSo6n\
-5b5jgypxDRgTb764LTU7Lg9Jg\
-uWOyNCxYLnX4jjG7p0us8N55k\
-TjgzJ5yZE84M4HTDlLE50rnqa\
-0sE1S9aFnWMeuCnCnnElIiY74\
-IkegenAa8depM5w4vsFL2atf2\
-z0ro4s0hpgOacCGtoyHHFeYDF\
-wLoaZn2knXhwr2sRcYpWnNH96\
-D3bcoGcQ9zc5/xsyLVViul7rN\
-h12XKuy5Yztta9DzBlkbj/Ycm\
-ie7ukEa/VTNbL40e+7hz5upM7\
-rDu5w/oUYitGRu6DPbk9MjwvO\
-7nmDF/DS8oYqVUmnh8WwHJjhL\
-Tlk8mTp6/RjNylAYW1nsxS162\
-JlIe9B1OCu8wp87Kpl3lV7Sn3\
-O8r3TFwHtAJ3z+KGpnTfJ7V/v\
-AN743vtjqkqaH10J3ip6IAuX5\
-Vde1sNZhfQ79Ax5+OOo31+QmG\
-T8PUF9gn/77D/e05LfWgveX+E\
-cN8FOhHwH5CZTcupENf3PcnOc\
-wA3lND9QJf57lFTHeR6qtCa41\
-ZuCpWZO+0PcCJkwKIGOKVdJVC\
-XTvUqPRTxpbu1h+FPo/MY+jab\
-e/eI9ZELewy3LIon+7Byu5D7/\
-hAs0l3Aaby3JY6SGkP6TmJ74f\
-SqU6ewxnxRcMf5FZ5F+kx2tTy\
-vDsal8LJt8KZ8mci5zMnOX2je\
-4uDEuJV3YNM7BjvFuoJXXHM3k\
-eaahc5VhaSK3db3DxhVyOovrB\
-7283iydeMMcm/0CnC9WPzYIPz\
-WqYvUnXlRRrMOzhx3KrrzPMSf\
-i0u3U60m2am22EnpmY2qHH192\
-TrfpvdjfLaAabZRTRu2xmNpmj\
-4amWZ7UQN2EPHYsnnsbq7N6P4\
-Ujf3mWY2oNJwW/I3bclQml3Fl\
-qDTbUrEY1jKF51l4nF8XjqHfg\
-r0yvRH7KPdluj2KH6z5Wu+yLG\
-nuerrfE+/9pFnHTsn3M2/PZj5\
-cEyc8E4nLZhOeoWHtQg2FdtI1\
-0bUCmui2JSPeIYv+6Y5VQ520b\
-qmv49Vbrh26ffXTrN2NC+rp0M\
-7GN0dl61bjgHx6NaPRj35Uek0\
-M5MPLqHvJ1pJwHNTXK6nufVWS\
-apSSeZSyarQaxUxazaTV1y6tX\
-CtseHl1P0le0RNep7Bn/Vokks\
-sasuKwhsj+oJlF/ubsvtzz3Jy\
-aeZ5uq/qDSDzdLnv6w6kY9U20\
-pN+fAsyN24a+4oi+TOMmj61xl\
-GafvhPyaVqTnidHjagUp3OOnH\
-dklBl9x0csY224bDO+KA5zj96\
-R9KBw7plQZK0vRssOoaBk8VSO\
-XGozahZv8TywL9qpzWJtXpcwp\
-kbBTDj+VpccMU2xvglX+6PNTR\
-iG7rFyY6yIAzzU7qwRp+nwhNs\
-pRFlfWnNp2FaYuj8oEgvUhPPl\
-KWfWaF6fa9LKbL+wAufT0zg/Y\
-vEF4aSHc6csXk493ahnmx4AVa\
-C365it9yuIheIzcflV7kKKaPE\
-3Cfvj2gutzvZCN2hXMN69UDNa\
-t53thaZx7zz+vdDybC80RXuh4\
-WN8HkyRLv2EyV9V+pajRT8eWo\
-9Oi2R6ApmuPszs7sA1Hk5Qkzt\
-mM3H4lWrR96dE/xuPvrtairXu\
-9uu706L5jVvfbcz03Ru8Pxq/v\
-vtgZPpuSPsb/sSkO3p8OXpuyo\
-LIpuUJyRyv4w1rE10roMvtQ8Z\
-GmtHxtsX12eZuVfMFTL9eZBsF\
-1Tkno7XYcdq8YTqFbRTNkiijm\
-Ly3Q9S84bLYPqqlCcpJO/0uBa\
-VD+TkXERdp0dk/wtMvXwWfbt4\
-CPr06NK2Xy6eXZ3x6xqfHhufy\
-+XRjRHzaz3nD7YWytPNdQrkZ2\
-vFGJXq/xREbgz9LO+baKpKlXb\
-5H45A924FMx/TeD73OpXRnuLj\
-BhGdF7uY3fvtuA7fd6jXu+78R\
-X/6c7+4xhrLRyxhN6YPjyV8nh\
-JPY28wRB+6bzH2zLO6qkZ8+Y7\
-Fr8q0Hrlu2zryt67FdNn4Q04J\
-tVKPSd+wcJpTx6L6XS6pzVIMf\
-fc3egTxX3xIZUGefRd4p30r+l\
-oxElPVhsx7Jm1VoV6PhWImEAy\
-GO5fjTqE36aUSd12p+74j89AX\
-kZjghf58C3/tInr8BCw+e5/Td\
-aaK2zldI3NzaazesNsK0G67k2\
-5o63hG4WrVFgrpH4m9lyTGiMt\
-bvqpPKORTfVh4oa0HFurpSpmV\
-1x43lJvCAtL3Y17KWy6Z8n/5y\
-M+k/fkQ3QxKOwwbg2o+pWFa1C\
-BefiZ/pUfGNVHuDn3cUu7P2LF\
-AvTUrGtLVkZG5yz15olUxyDid\
-noXF5JsdzO7Y5X3hT0Dh2BNO3\
-lovatEa/75PxdhMk4milXMgih\
-1CN7s7EKvj4B/moumT2Meubft\
-dX2G733GjJdt/ic2t/V3lUcMr\
-9iia1ckoN9YLZt11xzba5iGnz\
-DlCOz85ja3lpxBbX0c6xzVobu\
-hN1uDk+gpzV7Xxv7r99tUfGIs\
-+A6yZW29MrApXOKWwzqGdbSrs\
-lOK6PB5F9mDftxrX/MLJ9+TbY\
-uJYbmicibVXovNK9SvYg/9cfc\
-3gDhHq/iXpjBGoYGK98JVH9Oc\
-Q9HcEcXcJcVQl9o0X+ovI/MOo\
-TQlvUTn8ClE6xcQRjqgIFH0DJ\
-DvQk8t/rFnv1Rl6ffVx4dEI3u\
-p4GSnWCrQioDqyjUXukYz71lr\
-RxZ312+Rv19mE6Yz9Kt7fj/ZR\
-U7+Tl38JchG83/lG6H34A3E7X\
-ZGkEXC+o//C2O2CVVlcK3iv/G\
-9BLn/zsQds7kIu3pml3dkyjfB\
-G0tEi+Ie+lGoROd4v5E9FOn+h\
-/cruvtT4FvvQ74DheVuGMsowL\
-s66uI/2bwPyfvAUaMfNvosn/x\
-9FO6IyKSlNrBqYW8xI4WhzJgg\
-TZa8dJd3FjFu9hkdAaXeknsNb\
-1bMlxJ/lFWwdM2ojd5Dz5Cd82\
-oX/HVfCXOfstYL059T7XK1gx7\
-vVbDlWpN+3KGHbR1L2cIh5Era\
-5Y+moAff1opS9fVOxo6Kpcmkq\
-nJx8txWmS3xAa+wBy/BQwcQ1y\
-88/8xF1YG/yJ6p3QApUlMfKwm\
-qDn2bXwMun5JdvXvdZoAG0jK/\
-BczEUKbi8AhlR8vmKaxjgwSWP\
-DLwi37rE2akRz/EhKdkjdd/B9\
-nLhe1XCN+K/nsjMO68egqVKbE\
-Wp8eIvNCdvjHMPf64h5EHHzT9\
-iOn2JDpfaqM86Dz2LVus/Bp/t\
-5y/twZ1PboSnSUldBze0FQD+A\
-eP44qrD1IPtN9P20PnbfHZM6P\
-Lo/xtdmM6HNlcg2lxPavB/Z5k\
-rS2HVt17YeN4ESe7CLlqmOU9O\
-C1vqCNHt1qf30lXICbaKlIG2d\
-bEJft32NpK4BlzfIpIxlY2egr\
-sblpNsfYtdTPHz3gvAtDQnf8l\
-DwPRw5fCtDwdcwsufEzPDkeIU\
-vIvMC9rdHIB3F/vkCYIjTWMwY\
-xxR9pWx9RFgGqOZB/Q94Xwxq2\
-8L6MC/dnSPP5KjgWffCsz52eL\
-a88GyNGZ6md76aY5+vZQ80y2O\
-EpemAozk2GDLvesrGvp4yL71k\
-Y6eXzEMv2ZjpJWN7WxOOFYDBv\
-ucyeTWWWKz8f+LlhaI=\
+﻿                                                  uses
+  'eu.abra.mire.EkoKom.Settings',
+  'eu.abra.mire.EkoKom.Lib',
+  'eu.abra.mire.EkoKom.Progress';
+
+const cViewSQL =
+'(' +
+'SELECT ' +
+'  CASE ' +
+'    WHEN sd.Country_ID = (SELECT Country_ID FROM GlobData) AND sd.X_EKO_UzavrenaDohoda = ''N'' THEN X_EKO_ZpoplatneniObalu ' +
+'    WHEN sd.Country_ID = (SELECT Country_ID FROM GlobData) AND sd.X_EKO_UzavrenaDohoda = ''A'' THEN 2 ' +
+'    ELSE 10 ' +
+'  END AS X_EKO_ZpoplatneniObalu, ' +
+'  X_EKO_TypObchodu, ' +
+'  X_EKO_ZpusobUziti, ' +
+'  X_EKO_ZpusobUvedeni, ' +
+'  X_EKO_PuvodMaterialu, ' +
+'  X_EKO_MaterialKompozitu, ' +
+'  X_EKO_OpakovanePouzivany, ' +
+'  X_EKO_LitteringovyObal, ' +
+'  scc.X_EKO_MaterialObalu, ' +
+'  scc.X_EKO_SkupinaMaterialu, ' +
+'  scc.X_EKO_BarvaObalu, ' +
+'  scc.X_EKO_ObsahujeNapoje, ' +
+'  %s ' +
+'  cast ((cast (df.X_EKO_Hmotnost * ' +
+'  case '+
+'  when (df.X_EKO_UnitQuantity > 0) then df.X_EKO_UnitQuantity '+
+'  when (df.X_EKO_Quantity > 0) and (df.X_EKO_UnitRate > 0) then cast(df.X_EKO_Quantity as numeric(15,6)) / df.X_EKO_UnitRate'+
+'  else 0 end'+
+'  as numeric(15,6)) '+
+'  * cast ((sd2.Quantity / su.UnitRate) as numeric(15, 3))) /1000/1000 as Numeric(15, 6)) as Hmotnost, ' +
+'  (sd2.Quantity / su.UnitRate) as Mnozstvi, ' +
+'  sd2.StoreCard_ID, ' +
+'  sd.ID, ' +
+'  sd.DocDate$DATE, ' +
+'  sd.DocumentType, ' +
+'  sc.Name as StoreCardName, ' +
+'  sc.Code as StoreCardCode, ' +
+'  sd.OrdNumber, ' +
+'  sd.Period_ID, ' +
+'  sd.DocQueue_ID, ' +
+'  scc.code as PackageCode, ' +
+'  scc.name as PackageName ' +
+'FROM StoreDocuments2 sd2 ' +
+'JOIN StoreDocuments sd ON sd.ID = sd2.Parent_ID AND sd.DocumentType IN (21, 23, 26) ' +
+'JOIN DocQueues DQ ON DQ.ID = SD.DocQueue_ID AND (DQ.X_IncludeEkoKom = ''A'') '+            //ALEC
+'JOIN StoreCards sc ON sc.ID = sd2.StoreCard_ID ' +
+'JOIN DefRollData df ON df.hidden = ''N'' AND df.CLSID = ''3DROIEGQRFMOH4ZT4I53BZCXKO'' ' +
+'  AND df.X_EKO_StoreCard_ID = sd2.StoreCard_ID ' +
+'  AND ' +
+'  ( ' +
+'    (df.X_EKO_StoreCardUnit = sd2.QUnit) ' +
+'    or ' +
+'    ( ' +
+'      df.X_EKO_StoreCardUnit <> sd2.QUnit ' +
+'      AND (SELECT COALESCE(MAX(dfs.Name), ''A'') FROM DefRollData dfs WHERE dfs.code = ''' + cSettings2Code + ''' AND dfs.CLSID = ''3DROIEGQRFMOH4ZT4I53BZCXKO'') <> ''N'' ' +
+'      AND NOT EXISTS ' +
+'      ( ' +
+'        SELECT ID ' +
+'        FROM DefRollData dfe ' +
+'        WHERE dfe.hidden = ''N'' AND dfe.CLSID = ''3DROIEGQRFMOH4ZT4I53BZCXKO'' ' +
+'          AND dfe.X_EKO_StoreCard_ID = sd2.StoreCard_ID ' +
+'          AND dfe.X_EKO_StoreCardUnit = sd2.QUnit ' +
+'          AND dfe.X_EKO_ContainerStoreCard_ID = df.X_EKO_ContainerStoreCard_ID ' +
+'      ) ' +
+'      AND df.X_EKO_StoreCardUnit = sc.MainUnitCode ' +
+'    ) ' +
+'  ) ' +
+'JOIN StoreUnits su ON su.Parent_ID = sc.ID AND su.Code = df.X_EKO_StoreCardUnit ' +
+'JOIN StoreCards scc ON scc.ID = df.X_EKO_ContainerStoreCard_ID ' +
+') SRC ';
+
+const
+  cViewSQL2 = 'scc.X_EKO_VyrazTypObchodu,';
+  cViewSQL2ORA = 'to_char(scc.X_EKO_VyrazTypObchodu) as X_EKO_VyrazTypObchodu,';
+
+  cStatsTypeOstatni = 0;
+  cStatsTypePaletyEUR = 1;
+  cStatsTypePaletyProste = 2;
+  cStatsTypePaletyProsteJednorazove = 3;
+  cStatsTypeNapojoveKartony = 4;
+
+  cTypObchoduObchodni = 0;
+  cTypObchoduPrumyslove = 1;
+  cTypObchoduVyhodnotit = 2;
+
+  cUzitiProdejni = 0;
+  cUzitiSkupinove = 1;
+  cUzitiPrepravni = 2;
+
+  cUvedeniVyrobene = 0;
+  cUvedeniImportovane = 1;
+  cUvedeniNakoupene = 2;
+
+  cZpoplatneniZpoplatneny = 0;
+  cZpoplatneniPredplaceny = 1;
+  cZpoplatneniNeplaceny = 2;
+  cZpoplatneniPuvodniExport = 3;
+  cZpoplatneniExport = 10;
+
+  cPuvodMaterialuPrimarni = 0;
+  cPuvodMaterialuRecyklat = 1;
+
+  cBarvaBarevne = 0;
+  cBarvaTransparentni = 1;
+  cBarvaPruhledneBarevnéPET = 2;
+  cBarvaNepruhledneBarevnePET = 3;
+  cBarvaKompozitniSklo = 4;
+
+  cSkupinaMekkeFlexibilní = 0;
+  cSkupinaPevnePevneDuteDo3L = 1;
+  cSkupinaPevneDuteNad3L = 2;
+
+  cLitteringovyObalNe = 0;
+  cLitteringovyObalNadobyNaNapoje = 1;
+  cLitteringovyObalSackyABaleniPotraviny = 2;
+  cLitteringovyObalNapojoveKelimkyPlast = 3;
+  cLitteringovyObalNapojoveKelimky = 4;
+  cLitteringovyObalNadobyNaPotravinyPlast = 5;
+  cLitteringovyObalNadobyNaPotraviny = 6;
+  cLitteringovyObalPlastoveTasky10_50 = 7;
+  cLitteringovyObalPlastoveTasky15 = 8;
+
+  cRowValueKontroly = 'Kontola KOMPOZITY SOUČET 1';
+  cSheetKontroly = 2;
+  cSheetKontrolyName = 'KONTROLY';
+  cSheetUvod = 4;
+  cSheetJ1_1A = 5;
+  cSheetJ1_1B = 6;
+  cSheetJ1_1K = 7;
+  cSheetJ1_2A = 8;
+  cSheetJ1_2B = 9;
+  cSheetJ1_2K = 10;
+  cSheetJ1_3 = 11;
+  cSheetJ1_3K = 12;
+  cSheetJ2 = 13;
+  cSheetJ3 = 14;
+  cSheetJ4 = 15;
+  cSheetL = 16;
+  cSheetO1_1A = 17;
+  cSheetO1_1B = 18;
+  cSheetO1_1K = 19;
+  cSheetO1_2A = 20;
+  cSheetO1_2B = 21;
+  cSheetO1_2K = 22;
+  cSheetO1_3 = 23;
+  cSheetO1_3K = 24;
+  cSheetO2 = 25;
+  cSheetO3 = 26;
+  cSheetO4 = 27;
+  cSheetS1 = 28;
+  cSheetS2 = 29;
+  cSheetS3 = 30;
+
+  cSeparatorCSV = ';';
+  cCharAlternative = ',';
+var
+  gStart : TDateTime;
+  gEnd : TDateTime;
+  gPeriodCondition : string;
+
+function GetSheetName(aSheet: Integer): String;
+begin
+  Result := '-';
+  case ASheet of
+  cSheetJ1_1A:
+    Result := 'J1_1A';
+  cSheetJ1_1B:
+    Result := 'J1_1B';
+  cSheetJ1_1K:
+    Result := 'J1_1K';
+  cSheetJ1_2A:
+    Result := 'J1_2A';
+  cSheetJ1_2B:
+    Result := 'J1_2B';
+  cSheetJ1_2K:
+    Result := 'J1_2K';
+  cSheetJ1_3:
+    Result := 'J1_3';
+  cSheetJ1_3K:
+    Result := 'J1_3K';
+  cSheetJ2:
+    Result := 'J2';
+  cSheetJ3:
+    Result := 'J3';
+  cSheetJ4:
+    Result := 'J4';
+  cSheetO1_1A:
+    Result := 'O1_1A';
+  cSheetO1_1B:
+    Result := 'O1_1B';
+  cSheetO1_1K:
+    Result := 'O1_1K';
+  cSheetO1_2A:
+    Result := 'O1_2A';
+  cSheetO1_2B:
+    Result := 'O1_2B';
+  cSheetO1_2K:
+    Result := 'O1_2K';
+  cSheetO1_3:
+    Result := 'O1_3';
+  cSheetO1_3K:
+    Result := 'O1_3K';
+  cSheetO2:
+    Result := 'O2';
+  cSheetO3:
+    Result := 'O3';
+  cSheetO4:
+    Result := 'O4';
+  cSheetS1:
+    Result := 'S1';
+  cSheetS2:
+    Result := 'S2';
+  cSheetS3:
+    Result := 'S3';
+  cSheetL:
+    Result := 'L';
+  end;
+end;
+procedure FillQReportUngrouped(ASite: TSiteForm; ASpace: TNxCustomObjectSpace; AExcel: Variant; AOutputDoc: TStrings; AIsExcel: Boolean);
+var
+  mSheet : Variant;
+  mQuarter : Integer;
+  mYear : Integer;
+  mMonth: Integer;
+begin
+  ProgressInit(ASite, 'Příprava zdrojových dat pro kontrolu...', 6);
+  try
+    ProgressSetPos(0);
+    mYear := yearof(date);
+    mMonth := monthof(date);
+    mQuarter := trunc((mMonth - 1) / 3.0);
+    if mMonth < 4 then
+    begin
+      mYear := mYear - 1;
+      mQuarter := 4;
+    end;
+
+    mYear := StrToInt(InputBox('Zadání období', 'Zadejte rok:',inttostr(mYear)));
+    mQuarter := StrToInt(InputBox('Zadání období', 'Zadejte čtvrtletí:', inttostr(mQuarter)));
+    gStart := GetStartDate(mQuarter, mYear);
+    gEnd := GetEndDate(mQuarter, mYear);
+    gPeriodCondition :=
+      ' WHERE DocDate$DATE >= ' + NxFloatToIBStr(gStart) +
+      ' AND DocDate$DATE <= ' + NxFloatToIBStr(gEnd);
+    InitSettings(ASpace);
+    ProgressSetPos(1);
+    ProgressDispose();
+    ProgressInit(ASite, 'Export zdrojových dat výkazu...', 6);
+    ProgressSetPos(3);
+    FillUngroupedData(ASpace, AExcel, AOutputDoc, AIsExcel);
+    ProgressSetPos(4);
+    ProgressSetPos(5);
+    ProgressSetPos(6);
+  finally
+    ProgressDispose();
+  end;
+
+end;
+
+procedure FillQReport(ASite: TSiteForm; ASpace: TNxCustomObjectSpace; AExcel: Variant);
+var
+  mSheet : Variant;
+  mQuarter : Integer;
+  mYear : Integer;
+begin
+
+  ProgressInit(ASite, 'Příprava výkazu...', 24);
+
+  try
+    ProgressSetPos(0);
+
+    if not GetCorrectSheetOrder(AExcel) then
+    begin
+      ProgressDispose();
+      NxShowSimpleMessage('Byla zvolena nekompatabilní verze výkazu EkoKom.' + #13#10 +
+      'Vyplnění výkazu bylo přerušeno.', ASite);
+      exit;
+    end;
+
+    mQuarter := GetQuarter(AExcel);
+    mYear := GetYear(AExcel);
+    gStart := GetStartDate(mQuarter, mYear);
+    gEnd := GetEndDate(mQuarter, mYear);
+    gPeriodCondition :=
+      ' WHERE DocDate$DATE >= ' + NxFloatToIBStr(gStart) +
+      ' AND DocDate$DATE <= ' + NxFloatToIBStr(gEnd);
+    if(mYear < 2021) then
+    begin
+      ProgressDispose();
+      NxShowSimpleMessage('Byla zvolena stará verze výkazu EkoKom.' + #13#10 +
+      'Prosím, stáhněte aktuální verzi výkazu EkoKom.' + #13#10 +
+      'Vyplnění výkazu bylo přerušeno.', ASite);
+      exit;
+    end;
+
+    InitSettings(ASpace);
+    ProgressSetPos(1);
+
+    ClearWorkbook(AExcel);
+    ProgressSetPos(24);
+
+    ProgressDispose();
+    ProgressInit(ASite, 'Vyplňování výkazu...', 4);
+    FillHeader(ASpace, AExcel.ActiveWorkbook.WorkSheets[cSheetUvod]);
+    ProgressSetPos(1);
+
+    FillValues(ASpace, AExcel);
+    ProgressSetPos(2);
+
+    FillValuesForEvaluate(ASpace, AExcel);
+    ProgressSetPos(3);
+
+    AExcel.ActiveWorkbook.WorkSheets[cSheetUvod].Select();
+    AExcel.ActiveWorkbook.WorkSheets[cSheetUvod].Cells[1,1].Select();
+    ProgressSetPos(4);
+
+  finally
+    ProgressDispose();
+  end;
+
+end;
+
+{
+  Vyplní záložku Úvod
+}
+procedure FillHeader(space : TNxCustomObjectSpace; sheet : Variant);
+var
+  mGlobal : TNxCustomBusinessObject;
+  mAddress : TNxCustomBusinessObject;
+  mUser : TNxCustomBusinessObject;
+  mSettings : TNxCustomBusinessObject;
+  mAddressID : string;
+begin
+
+  mGlobal := space.CreateObject(Class_GlobData);
+  mAddress := space.CreateObject(Class_Address);
+  mUser := space.CreateObject(Class_SecurityUser);
+
+  try
+    mSettings := GetSettingsObject(space);
+
+    mGlobal.Load(GetDataScalar(space,
+      'SELECT ID FROM GlobData'), nil);
+    mAddressID := NxCreateContext(space).GetCompanyCache.AddressID;
+    mAddress.Load(mAddressID, nil);
+    mUser.Load(GetDataScalar(space,
+      'SELECT ID FROM SecurityUsers WHERE ID = ' + QuotedStr(NxGetActualUserID(space))), nil);
+
+    // Název společnosti
+    sheet.Cells[6, 4] := mGlobal.GetFieldValueAsString('CompanyName');
+
+    // Sídlo společnosti
+    sheet.Cells[8, 4] := Format('%s, %s',
+      [mAddress.GetFieldValueAsString('Street'),
+      mAddress.GetFieldValueAsString('City')]);
+
+    // Email pro příjem faktur
+    sheet.Cells[10, 5] := mAddress.GetFieldValueAsString('EMail');
+
+    // IČ
+    sheet.Cells[12, 3] := mGlobal.GetFieldValueAsString('OrgIdentNumber');
+    // DIČ
+    sheet.Cells[12, 6] := mGlobal.GetFieldValueAsString('VATIdentNumber');
+
+    // EKOKOM-ID
+    sheet.Cells[14, 6] := mSettings.GetFieldValueAsString('Name');
+
+    // Kontaktní osoba
+    sheet.Cells[18, 4] := mUser.GetFieldValueAsString('Name');
+    // Kontaktní osoba - tel
+    sheet.Cells[19, 3] := mUser.GetFieldValueAsString('Address_ID.PhoneNumber1');
+    // Kontaktní osoba - fax
+    sheet.Cells[20, 3] := mUser.GetFieldValueAsString('Address_ID.FaxNumber');
+    // Kontaktní osoba - E-mail
+    sheet.Cells[21, 3] := mUser.GetFieldValueAsString('Address_ID.EMail');
+
+  finally
+    mUser.Free();
+    mGlobal.Free();
+    mAddress.Free();
+    mSettings.Free();
+  end;
+
+end;
+
+procedure FillUngroupedData(ASpace : TNxCustomObjectSpace; AExcel: Variant; AOutputDoc: TStrings; AIsExcel: Boolean);
+var
+  mSQL, mViewSQL: string;
+  mData: TMemoryDataset;
+  mRow: Integer;
+  mCol: Integer;
+  mSheet: Integer;
+  mOpakovanePouzivany, mZpoplatneniObalu, mTypObchodu, mLitteringovyObal,
+  mZpusobUziti, mZpusobUvedeni, mPuvodMaterialu, mMaterialKompozitu, mMaterial, mSkupina, mBarva: Integer;
+  mObsahujeNapoje: Boolean;
+  mHmotnost, mMnozstvi: Extended;
+  mHmotnostStr, mMnozstviStr: String;
+  i: Integer;
+  mDisplayNameSQL: String;
+  mSheetV: Variant;
+  mCellV: Variant;
+  mSheetName, mMnozstviStrTmp: String;
+  begin
+  if CFxNxRuntime.NxGetDatabaseCode = 'ORA' then
+    mViewSQL := format(cViewSQL, [cViewSQL2ORA])
+  else
+    mViewSQL := format(cViewSQL, [cViewSQL2]);
+  mSQL :=
+    'SELECT ' +
+    '  X_EKO_ZpoplatneniObalu, ' +
+    '  X_EKO_TypObchodu, ' +
+    '  X_EKO_ZpusobUziti, ' +
+    '  X_EKO_ZpusobUvedeni, ' +
+    '  X_EKO_PuvodMaterialu, ' +
+    '  X_EKO_MaterialKompozitu, ' +
+    '  X_EKO_MaterialObalu, ' +
+    '  X_EKO_VyrazTypObchodu, ' +
+    '  X_EKO_OpakovanePouzivany, ' +
+    '  X_EKO_LitteringovyObal, ' +
+    '  X_EKO_SkupinaMaterialu, ' +
+    '  X_EKO_BarvaObalu, ' +
+    '  X_EKO_ObsahujeNapoje, ' +
+    '  %s '  +
+    ' StoreCardName,' +
+    ' StoreCardCode,' +
+    ' PackageName,' +
+    ' PackageCode,' +
+    ' SRC.DocumentType,' +
+    '  CASE ' +
+    '    WHEN (SRC.DocumentType = 21) OR (SRC.DocumentType = 26) THEN Hmotnost ' +
+    '    ELSE Hmotnost * (-1) ' +
+    '  END AS Hmotnost, ' +
+    '  CASE ' +
+    '    WHEN (SRC.DocumentType = 21) OR (SRC.DocumentType = 26) THEN Mnozstvi ' +
+    '    ELSE Mnozstvi * (-1) ' +
+    '  END AS Mnozstvi ' +
+    'FROM ' +
+    mViewSQL +
+    '  JOIN DocQueues DQ on DQ.ID = SRC.DocQueue_ID  ' +
+    '  JOIN Periods P on P.ID = SRC.Period_ID  ' +
+    gPeriodCondition;
+  if CFxNxRuntime.NxGetDatabaseCode = 'ORA' then
+    mDisplayNameSQL := ' DQ.CODE || ''-'' ||  CAST(SRC.OrdNumber as VARCHAR2(10)) || ''/'' || P.Code as DisplayName,';
+  if CFxNxRuntime.NxGetDatabaseCode = 'MSSQL' then
+    mDisplayNameSQL := ' DQ.CODE + ''-'' +  CAST(SRC.OrdNumber as VARCHAR(10)) + ''/'' + P.Code as DisplayName,';
+  if CFxNxRuntime.NxGetDatabaseCode = 'IB' then
+    mDisplayNameSQL := ' DQ.CODE || ''-'' ||  CAST(SRC.OrdNumber as VARCHAR(10)) || ''/'' || P.Code as DisplayName,';
+
+  mSQL := format(mSQL,[mDisplayNameSQL]);
+  mData := TMemoryDataset.Create(nil);
+
+  if AIsExcel then
+  begin
+    AExcel.ActiveWorkbook.WorkSheets[1].Cells.Select;
+    AExcel.Selection.ClearContents;
+  end;
+
+  try
+    ASpace.SQLSelect2(mSQL, mData);
+    if mData.Active then
+    begin
+      mData.First();
+      i := 1;
+      if AIsExcel then
+      begin
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 1] := 'Záložka';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 2] := 'Řádek';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 3] := 'Sloupec';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 4] := 'Hmotnost';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 5] := 'Množství';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 6] := 'Typ dokladu';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 7] := 'Doklad';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 8] := 'Skl. karta - kód';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 9] := 'Skl. karta - název';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 10] := 'Obal - kód';
+        AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 11] := 'Obal - název';
+      end
+      else
+      begin
+        AOutputDoc.Add('Záložka' + cSeparatorCSV +
+                   'Řádek' + cSeparatorCSV +
+                   'Sloupec' + cSeparatorCSV +
+                   'Hmotnost' + cSeparatorCSV +
+                   'Množství' + cSeparatorCSV +
+                   'Typ dokladu' + cSeparatorCSV +
+                   'Doklad' + cSeparatorCSV +
+                   'Skl. karta - kód' + cSeparatorCSV +
+                   'Skl. karta - název' + cSeparatorCSV +
+                   'Obal - kód' + cSeparatorCSV +
+                   'Obal - název');
+      end;
+      while not mData.EOF do
+      begin
+          i := i + 1;
+          mOpakovanePouzivany := mData.FieldByName('X_EKO_OpakovanePouzivany').AsInteger;
+          mLitteringovyObal := mData.FieldByName('X_EKO_LitteringovyObal').AsInteger;
+          mZpoplatneniObalu := mData.FieldByName('X_EKO_ZpoplatneniObalu').AsInteger;
+          mTypObchodu := mData.FieldByName('X_EKO_TypObchodu').AsInteger;
+          mZpusobUziti := mData.FieldByName('X_EKO_ZpusobUziti').AsInteger;
+          mZpusobUvedeni := mData.FieldByName('X_EKO_ZpusobUvedeni').AsInteger;
+          mPuvodMaterialu := mData.FieldByName('X_EKO_PuvodMaterialu').AsInteger;
+          mMaterialKompozitu := mData.FieldByName('X_EKO_MaterialKompozitu').AsInteger;
+          mMaterial := mData.FieldByName('X_EKO_MaterialObalu').AsInteger;
+          mSkupina := mData.FieldByName('X_EKO_SkupinaMaterialu').AsInteger;
+          mBarva := mData.FieldByName('X_EKO_BarvaObalu').AsInteger;
+          mObsahujeNapoje := GetBoolean(mData.FieldByName('X_EKO_ObsahujeNapoje').AsString);
+          mHmotnost := mData.FieldByName('Hmotnost').AsFloat;
+          mHmotnostStr := FormatFloat('#0.###############', mHmotnost);
+          mMnozstvi := mData.FieldByName('Mnozstvi').AsFloat;
+          mMnozstviStr := FormatFloat('#0.###############', mMnozstvi);
+          if(mZpoplatneniObalu = cZpoplatneniPuvodniExport) then
+            mZpoplatneniObalu := cZpoplatneniZpoplatneny;
+          // Nalezení listu
+          mSheet := GetSheetIndex(mOpakovanePouzivany, mZpoplatneniObalu, mTypObchodu, mZpusobUziti, mMaterialKompozitu, mObsahujeNapoje);
+          // Nalezení řádku
+          mRow := GetRowIndex(mSheet, mMaterial, mBarva);
+          // Nalezení sloupce
+          mCol := GetColIndex(mSheet, mMaterial, mSkupina, mPuvodMaterialu, mZpusobUvedeni, mZpusobUziti, mTypObchodu, mObsahujeNapoje);
+          //ShowMessage('mSheet:' + IntToStr(mSheet) + ', mRow:' + IntToStr(mRow) + ', mCol:' + IntToStr(mCol));
+          //if (mSheet > 0) and (mRow > 0) and (mCol > 0) then
+          //begin
+          if AIsExcel then
+          begin
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 1] := GetSheetName(mSheet);
+            if mRow=0 then
+              AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 2] := '-'
+            else
+              AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 2] := mRow;
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 3] := chr(mCol+64);
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 4] := mHmotnost;
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 5] := '';
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 6] := mData.FieldByName('DocumentType').AsString;
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 7] := mData.FieldByName('DisplayName').AsString;
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 8] := mData.FieldByName('StoreCardCode').AsString;
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 9] := mData.FieldByName('StoreCardName').AsString;
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 10] := mData.FieldByName('PackageCode').AsString;
+            AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 11] := mData.FieldByName('PackageName').AsString;
+          end
+          else
+          begin
+            if mRow=0 then
+              mSheetName := '-'
+            else
+              mSheetName := IntToStr(mRow);
+            AOutputDoc.Add(GetSheetName(mSheet) + cSeparatorCSV +
+                                 mSheetName + cSeparatorCSV +
+                                 chr(mCol+64) + cSeparatorCSV +
+                                 mHmotnostStr + cSeparatorCSV +
+                                 '' + cSeparatorCSV +
+                                 mData.FieldByName('DocumentType').AsString + cSeparatorCSV +
+                                 mData.FieldByName('DisplayName').AsString + cSeparatorCSV +
+                                 StringReplace(mData.FieldByName('StoreCardCode').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]) + cSeparatorCSV +
+                                 StringReplace(mData.FieldByName('StoreCardName').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]) + cSeparatorCSV +
+                                 StringReplace(mData.FieldByName('PackageCode').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]) + cSeparatorCSV +
+                                 StringReplace(mData.FieldByName('PackageName').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]));
+          end;
+          // Litteringové obaly
+          // obaly, které mají uveden, že jsou litteringové a jsou jednorázové
+          if (mLitteringovyObal > 0) and (mOpakovanePouzivany = 0) then
+          begin
+            mRow := GetLitteringRowIndex(mLitteringovyObal);
+            mCol := GetLitteringColIndex(mZpoplatneniObalu);
+            if (mRow > 0) and (mCol > 0) then
+            begin
+              i := i + 1;
+              if AIsExcel then
+              begin
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 1] := GetSheetName(cSheetL);
+                if mRow=0 then
+                  AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 2] := '-'
+                else
+                  AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 2] := mRow;
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 3] := chr(mCol+64);
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 4] := mHmotnost;
+                if mLitteringovyObal in [cLitteringovyObalPlastoveTasky10_50, cLitteringovyObalPlastoveTasky15] then
+                  AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 5] := mMnozstvi
+                else
+                  AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 5] := '';
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 6] := mData.FieldByName('DocumentType').AsString;
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 7] := mData.FieldByName('DisplayName').AsString;
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 8] := mData.FieldByName('StoreCardCode').AsString;
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 9] := mData.FieldByName('StoreCardName').AsString;
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 10] := mData.FieldByName('PackageCode').AsString;
+                AExcel.ActiveWorkbook.WorkSheets[1].Cells[i, 11] := mData.FieldByName('PackageName').AsString;
+              end
+              else
+              begin
+                if mRow=0 then
+                  mSheetName := '-'
+                else
+                  mSheetName := IntToStr(mRow);
+                if mLitteringovyObal in [cLitteringovyObalPlastoveTasky10_50, cLitteringovyObalPlastoveTasky15] then
+                  mMnozstviStrTmp := mMnozstviStr
+                else
+                  mMnozstviStrTmp := '';
+                AOutputDoc.Add(GetSheetName(cSheetL) + cSeparatorCSV +
+                                     mSheetName + cSeparatorCSV +
+                                     chr(mCol+64) + cSeparatorCSV +
+                                     mHmotnostStr + cSeparatorCSV +
+                                     mMnozstviStrTmp + cSeparatorCSV +
+                                     mData.FieldByName('DocumentType').AsString + cSeparatorCSV +
+                                     mData.FieldByName('DisplayName').AsString + cSeparatorCSV +
+                                     StringReplace(mData.FieldByName('StoreCardCode').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]) + cSeparatorCSV +
+                                     StringReplace(mData.FieldByName('StoreCardName').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]) + cSeparatorCSV +
+                                     StringReplace(mData.FieldByName('PackageCode').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]) + cSeparatorCSV +
+                                     StringReplace(mData.FieldByName('PackageName').AsString, cSeparatorCSV, cCharAlternative, [rfReplaceAll, rfIgnoreCase]));
+              end;
+            end;
+          end;
+          //end;
+        mData.Next();
+      end;
+    end;
+  finally
+    mData.Free();
+  end;
+end;
+{
+  Vyplní záložky J1-1A až O4
+}
+procedure FillValues(ASpace : TNxCustomObjectSpace; AExcel : Variant);
+var
+  mSQL, mViewSQL : string;
+  mData : TMemoryDataset;
+begin
+  if CFxNxRuntime.NxGetDatabaseCode = 'ORA' then
+    mViewSQL := format(cViewSQL, [cViewSQL2ORA])
+  else
+    mViewSQL := format(cViewSQL, [cViewSQL2]);
+  mSQL :=
+    'SELECT ' +
+    '  X_EKO_ZpoplatneniObalu, ' +
+    '  X_EKO_LitteringovyObal, ' +
+    '  X_EKO_TypObchodu, ' +
+    '  X_EKO_ZpusobUziti, ' +
+    '  X_EKO_ZpusobUvedeni, ' +
+    '  X_EKO_PuvodMaterialu, ' +
+    '  X_EKO_MaterialKompozitu, ' +
+    '  X_EKO_MaterialObalu, ' +
+    '  X_EKO_VyrazTypObchodu, ' +
+    '  X_EKO_OpakovanePouzivany, ' +
+    '  X_EKO_SkupinaMaterialu, ' +
+    '  X_EKO_BarvaObalu, ' +
+    '  X_EKO_ObsahujeNapoje, ' +
+    '  ROUND(SUM( ' +
+    '  CASE ' +
+    '    WHEN (DocumentType = 21) OR (DocumentType = 26) THEN Hmotnost ' +
+    '    ELSE Hmotnost * (-1) ' +
+    '  END), 3) AS Hmotnost, ' +
+    '  ROUND(SUM( ' +
+    '  CASE ' +
+    '    WHEN (SRC.DocumentType = 21) OR (SRC.DocumentType = 26) THEN Mnozstvi ' +
+    '    ELSE Mnozstvi * (-1) ' +
+    '  END), 3) AS Mnozstvi ' +
+    'FROM ' +
+    mViewSQL +
+    gPeriodCondition +
+    ' AND X_EKO_TypObchodu <> 2 ' +
+    'GROUP BY X_EKO_ZpoplatneniObalu, X_EKO_TypObchodu, X_EKO_ZpusobUziti, ' +
+    '  X_EKO_ZpusobUvedeni, X_EKO_PuvodMaterialu, X_EKO_MaterialKompozitu, X_EKO_MaterialObalu, ' +
+    '  X_EKO_SkupinaMaterialu, X_EKO_BarvaObalu, X_EKO_ObsahujeNapoje, ' +
+    '  X_EKO_VyrazTypObchodu, X_EKO_OpakovanePouzivany, X_EKO_LitteringovyObal ';
+
+  mData := TMemoryDataset.Create(nil);
+
+  try
+    //ShowMessage(mSQL);
+    ASpace.SQLSelect2(mSQL, mData);
+    if mData.Active then
+    begin
+      mData.First();
+
+      while not mData.EOF do
+      begin
+        ProcessDataRow(AExcel,
+          mData.FieldByName('X_EKO_OpakovanePouzivany').AsInteger,
+          mData.FieldByName('X_EKO_LitteringovyObal').AsInteger,
+          mData.FieldByName('X_EKO_ZpoplatneniObalu').AsInteger,
+          mData.FieldByName('X_EKO_TypObchodu').AsInteger,
+          mData.FieldByName('X_EKO_ZpusobUziti').AsInteger,
+          mData.FieldByName('X_EKO_ZpusobUvedeni').AsInteger,
+          mData.FieldByName('X_EKO_PuvodMaterialu').AsInteger,
+          mData.FieldByName('X_EKO_MaterialKompozitu').AsInteger,
+          mData.FieldByName('X_EKO_MaterialObalu').AsInteger,
+          mData.FieldByName('X_EKO_SkupinaMaterialu').AsInteger,
+          mData.FieldByName('X_EKO_BarvaObalu').AsInteger,
+          GetBoolean(mData.FieldByName('X_EKO_ObsahujeNapoje').AsString),
+          CFxFloat.Max6(0, mData.FieldByName('Hmotnost').AsFloat),
+          CFxFloat.Max6(0, mData.FieldByName('Mnozstvi').AsFloat)
+        );
+        mData.Next();
+      end;
+    end;
+  finally
+    mData.Free();
+  end;
+end;
+
+function GetBoolean(AValue: String): Boolean;
+begin
+  Result := (AValue = 'A');
+end;
+
+{
+  Vyplní záložky J1-1A až O4 pro obaly vyžadující vyhodnocení typu obchodu.
+}
+procedure FillValuesForEvaluate(ASpace : TNxCustomObjectSpace; AExcel : Variant);
+var
+  mSQL, mViewSQL : string;
+  mData : TMemoryDataset;
+  mDoc, mDocBillOfDelivery, mDocRefundedBillOfDelivery, mDocInventoryShortFall : TNxCustomBusinessObject;
+begin
+  if CFxNxRuntime.NxGetDatabaseCode = 'ORA' then
+    mViewSQL := format(cViewSQL, [cViewSQL2ORA])
+  else
+    mViewSQL := format(cViewSQL, [cViewSQL2]);
+
+  mSQL :=
+    'SELECT ' +
+    '  X_EKO_ZpoplatneniObalu, ' +
+    '  ID, ' +
+    '  DocumentType, ' +
+    '  X_EKO_ZpusobUziti, ' +
+    '  X_EKO_ZpusobUvedeni, ' +
+    '  X_EKO_PuvodMaterialu, ' +
+    '  X_EKO_MaterialKompozitu, ' +
+    '  X_EKO_MaterialObalu, ' +
+    '  X_EKO_VyrazTypObchodu, ' +
+    '  X_EKO_OpakovanePouzivany, ' +
+    '  X_EKO_LitteringovyObal, ' +
+    '  X_EKO_SkupinaMaterialu, ' +
+    '  X_EKO_BarvaObalu, ' +
+    '  X_EKO_ObsahujeNapoje, ' +
+    '  CASE ' +
+    '    WHEN (DocumentType = 21) OR (DocumentType = 26) THEN Hmotnost ' +
+    '    ELSE Hmotnost * (-1) ' +
+    '  END AS Hmotnost, ' +
+    '  CASE ' +
+    '    WHEN (SRC.DocumentType = 21) OR (SRC.DocumentType = 26) THEN Mnozstvi ' +
+    '    ELSE Mnozstvi * (-1) ' +
+    '  END AS Mnozstvi ' +
+    'FROM ' +
+    mViewSQL +
+    gPeriodCondition +
+    ' AND X_EKO_TypObchodu = 2 ' +
+    'ORDER BY Hmotnost DESC ';
+
+  mData := TMemoryDataset.Create(nil);
+  try
+    mDocBillOfDelivery := ASpace.CreateObject(Class_BillOfDelivery);
+    try
+      mDocRefundedBillOfDelivery := ASpace.CreateObject(Class_RefundedBillOfDelivery);
+      try
+        mDocInventoryShortFall := ASpace.CreateObject(Class_InventoryShortFall);
+        try
+          ASpace.SQLSelect2(mSQL, mData);
+
+          if mData.Active then
+          begin
+            mData.First();
+
+            while not mData.EOF do
+            begin
+              if mData.FieldByName('DocumentType').AsInteger = 21 then
+              begin
+                mDoc := mDocBillOfDelivery;
+              end
+              else
+              if mData.FieldByName('DocumentType').AsInteger = 23 then
+              begin
+                mDoc := mDocRefundedBillOfDelivery;
+              end
+              else
+              if mData.FieldByName('DocumentType').AsInteger = 26 then
+              begin
+                mDoc := mDocInventoryShortFall;
+              end
+              else
+              begin
+                RaiseException('Nepodporovaný typ dokladu.');
+              end;
+              mDoc.Load(mData.FieldByName('ID').AsString, nil);
+
+              ProcessDataRow(AExcel,
+                mData.FieldByName('X_EKO_OpakovanePouzivany').AsInteger,
+                mData.FieldByName('X_EKO_LitteringovyObal').AsInteger,
+                mData.FieldByName('X_EKO_ZpoplatneniObalu').AsInteger,
+                NxEvalObjectExprAsInteger(mDoc, mData.FieldByName('X_EKO_VyrazTypObchodu').AsString),
+                mData.FieldByName('X_EKO_ZpusobUziti').AsInteger,
+                mData.FieldByName('X_EKO_ZpusobUvedeni').AsInteger,
+                mData.FieldByName('X_EKO_PuvodMaterialu').AsInteger,
+                mData.FieldByName('X_EKO_MaterialKompozitu').AsInteger,
+                mData.FieldByName('X_EKO_MaterialObalu').AsInteger,
+                mData.FieldByName('X_EKO_SkupinaMaterialu').AsInteger,
+                mData.FieldByName('X_EKO_BarvaObalu').AsInteger,
+                mData.FieldByName('X_EKO_ObsahujeNapoje').AsBoolean,
+                mData.FieldByName('Hmotnost').AsFloat,
+                mData.FieldByName('Mnozstvi').AsFloat);
+              mData.Next();
+            end;
+          end;
+        finally
+          mDocInventoryShortFall.Free();
+        end;
+      finally
+        mDocRefundedBillOfDelivery.Free();
+      end;
+    finally
+      mDocBillOfDelivery.Free();
+    end;
+  finally
+    mDoc.Free();
+    mData.Free();
+  end;
+end;
+
+{
+  Zkontroluje chyby ve výkazu, chyby oznámí to uživateli a chyby zapíše do servisní knížky.
+}
+Function CheckErrors(ASpace: TNxCustomObjectSpace; AExcel: Variant): string;
+var
+  mRow: Integer;
+  mFoundRow: Integer;
+  mSheetErr: Variant;
+  mErrors: String;
+  mErrorText: String;
+  mErrorDiff: String;
+  mSystemSupportEntryDisplayName: String;
+begin
+  Result := '';
+  mSheetErr := AExcel.ActiveWorkbook.WorkSheets[cSheetKontroly];
+  mFoundRow := 0;
+  mErrors := '';
+  mSystemSupportEntryDisplayName := '';
+  // Pokusíme se najít řádek s kontrolou kompozitních obalů
+  for mRow := 1 to 200 do
+  begin
+    if AnsiLowerCase(mSheetErr.Cells[mRow, 1].Value) = AnsiLowerCase(cRowValueKontroly) then
+    begin
+      // Řádek nalezen
+      mFoundRow := mRow;
+      break;
+    end;
+  end;
+  // Zkontrolujeme, zda nedošlo ke změně záložky KONTROLY
+  if (AnsiLowerCase(mSheetErr.Name) = AnsiLowerCase(cSheetKontrolyName)) and (mFoundRow > 0) then
+  begin
+    try
+      for mRow := mFoundRow+1 to (mFoundRow+32) do
+      begin
+        if StrToFloat(mSheetErr.Cells[mRow, 6].Value) <> 0 then
+        begin
+          // Částka rozdílu není nulová, jedná se tedy o chybu
+          mErrorText := mSheetErr.Cells[mRow, 5].Value;
+          mErrorDiff := mSheetErr.Cells[mRow, 6].Value;
+          mErrors := mErrors + Format('%0:s (rozdíl: %1:s)'#13#10, [mErrorText, mErrorDiff]);
+        end;
+      end;
+      if mErrors <> '' then
+      begin
+        // Byly zjištěny chyby, které zapíšeme do servisní knížky
+        mSystemSupportEntryDisplayName := SaveSystemSupportEntry(ASpace, mErrors);
+        Result := 'Vyplněný výkaz obsahuje chyby!'#13#10'Podrobnosti o chybách jsou uvedeny v servisní knížce (' + mSystemSupportEntryDisplayName + ').';
+      end;
+    except
+      Result := 'Nelze zobrazit chyby ve výkazu z důvodu změny struktury výkazu!';
+    end;
+  end
+  else
+  begin
+    Result := 'Nelze zobrazit chyby ve výkazu z důvodu změny struktury výkazu.';
+  end;
+end;
+
+function SaveSystemSupportEntry(ASpace: TNxCustomObjectSpace; AText: String): string;
+var
+  mBO: TNxCustomBusinessObject;
+begin
+  Result := '';
+  mBO:= ASpace.CreateObject('05AXCRARHBEL3C5V00CA141B44');
+  try
+    mBO.New;
+    mBO.Prefill;
+    mBO.SetFieldValueAsString('ShortDescription', 'Výkaz EkoKom ' + DateTimeToStr(Now) + ' - chyby ve výkazu');
+    mBO.SetFieldValueAsString('ProblemDescription', AText);
+    mBO.Save;
+    Result := mBO.DisplayName;
+  finally
+    mBO.Free;
+  end;
+end;
+
+procedure ProcessDataRowUngrouped(ARow: Integer; AExcel: Variant; AOpakovanePouzivany, ALitteringovyObal, AZpoplatneniObalu, ATypObchodu,
+  AZpusobUziti, AZpusobUvedeni, APuvodMaterialu, AMaterialKompozitu, AMaterial, ASkupina, ABarva: Integer;
+  AObsahujeNapoje: Boolean; AHmotnost : Extended);
+var
+  mRow : Integer;
+  mCol : Integer;
+  mSheet : Integer;
+  mVal : Extended;
+begin
+  // Nastavení zpoplatnění z původní již nepoužívané položky Export na Zpoplatněný
+  if(AZpoplatneniObalu = cZpoplatneniPuvodniExport) then
+    AZpoplatneniObalu := cZpoplatneniZpoplatneny;
+  // Nalezení listu
+  mSheet := GetSheetIndex(AOpakovanePouzivany, AZpoplatneniObalu, ATypObchodu, AZpusobUziti, AMaterialKompozitu, AObsahujeNapoje);
+  // Nalezení řádku
+  mRow := GetRowIndex(mSheet, AMaterial, ABarva);
+  // Nalezení sloupce
+  mCol := GetColIndex(mSheet, AMaterial, ASkupina, APuvodMaterialu, AZpusobUvedeni, AZpusobUziti, ATypObchodu, AObsahujeNapoje);
+  //ShowMessage('mSheet:' + IntToStr(mSheet) + ', mRow:' + IntToStr(mRow) + ', mCol:' + IntToStr(mCol));
+
+  if (mSheet > 0) and (mRow > 0) and (mCol > 0) then
+  begin
+    AExcel.ActiveWorkbook.WorkSheets[1].Cells[ARow, 1] := mSheet;
+    AExcel.ActiveWorkbook.WorkSheets[1].Cells[ARow, 2] := mRow;
+    AExcel.ActiveWorkbook.WorkSheets[1].Cells[ARow, 3] := mCol;
+    AExcel.ActiveWorkbook.WorkSheets[1].Cells[ARow, 4] := AHmotnost;
+  end;
+end;
+
+procedure ProcessDataRow(AExcel: Variant; AOpakovanePouzivany, ALitteringovyObal, AZpoplatneniObalu, ATypObchodu,
+  AZpusobUziti, AZpusobUvedeni, APuvodMaterialu, AMaterialKompozitu, AMaterial, ASkupina, ABarva: Integer;
+  AObsahujeNapoje: Boolean; AHmotnost, AMnozstvi : Extended);
+var
+  mRow : Integer;
+  mCol : Integer;
+  mSheet : Integer;
+  mVal : Extended;
+begin
+  // Nastavení zpoplatnění z původní již nepoužívané položky Export na Zpoplatněný
+  if(AZpoplatneniObalu = cZpoplatneniPuvodniExport) then
+    AZpoplatneniObalu := cZpoplatneniZpoplatneny;
+  // Nalezení listu
+  mSheet := GetSheetIndex(AOpakovanePouzivany, AZpoplatneniObalu, ATypObchodu, AZpusobUziti, AMaterialKompozitu, AObsahujeNapoje);
+  // Nalezení řádku
+  mRow := GetRowIndex(mSheet, AMaterial, ABarva);
+  // Nalezení sloupce
+  mCol := GetColIndex(mSheet, AMaterial, ASkupina, APuvodMaterialu, AZpusobUvedeni, AZpusobUziti, ATypObchodu, AObsahujeNapoje);
+  //ShowMessage('mSheet:' + IntToStr(mSheet) + ', mRow:' + IntToStr(mRow) + ', mCol:' + IntToStr(mCol));
+
+  if (mSheet > 0) and (mRow > 0) and (mCol > 0) then
+  begin
+    if AExcel.ActiveWorkbook.WorkSheets[mSheet].Cells[mRow, mCol].Value = 0 then
+      mVal := 0
+    else
+      mVal := AExcel.ActiveWorkbook.WorkSheets[mSheet].Cells[mRow, mCol].Value;
+
+    mVal := mVal + AHmotnost;
+    if not (AExcel.ActiveWorkbook.WorkSheets[mSheet].Cells[mRow, mCol].Locked) then // Přeskočení nevykazovaných buněk (zamčených)
+    begin
+      AExcel.ActiveWorkbook.WorkSheets[mSheet].Cells[mRow, mCol] := CFxFloat.Max6(0, mVal);
+    end;
+  end;
+  // Vykazování litteringových obalů
+  // obaly, které mají uveden, že jsou litteringové a jsou jednorázové
+  if (ALitteringovyObal > 0) and (AOpakovanePouzivany = 0) then
+  begin
+    mRow := GetLitteringRowIndex(ALitteringovyObal);
+    mCol := GetLitteringColIndex(AZpoplatneniObalu);
+    if (mRow > 0) and (mCol > 0) then
+    begin
+      if AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Value = 0 then
+        mVal := 0
+      else
+        mVal := AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Value;
+
+      mVal := mVal + AHmotnost;
+      if not (AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Locked) then // Přeskočení nevykazovaných buněk (zamčených)
+      begin
+        AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol] := CFxFloat.Max6(0, mVal);
+      end;
+      if mCol = 6 then
+      begin
+        // Jedná se o zpoplatně
+        if ALitteringovyObal in [cLitteringovyObalNapojoveKelimky, cLitteringovyObalNadobyNaPotraviny] then
+        begin
+          // Jedná se o nápojové kelímky nebo nádoby na potraviny částečně vyrobené z plastu
+          if AMaterial < 11 then
+          begin
+            // Materiál obalu je plast, v jiném případě se nevykazuje do sloupce "hmotnost plastu v tunách"
+            mCol := mCol - 1;
+            if AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Value = 0 then
+              mVal := 0
+            else
+              mVal := AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Value;
+            mVal := mVal + AHmotnost;
+            if not (AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Locked) then // Přeskočení nevykazovaných buněk (zamčených)
+            begin
+              AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol] := CFxFloat.Max6(0, mVal);
+            end;
+          end;
+        end
+        else
+        begin
+          if ALitteringovyObal in [cLitteringovyObalPlastoveTasky10_50, cLitteringovyObalPlastoveTasky15] then
+          begin
+            // Jedná se o plastové odnosné tašky
+            mCol := mCol + 1;
+            if AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Value = 0 then
+              mVal := 0
+            else
+              mVal := AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Value;
+            mVal := mVal + AMnozstvi;
+            if not (AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol].Locked) then // Přeskočení nevykazovaných buněk (zamčených)
+            begin
+              AExcel.ActiveWorkbook.WorkSheets[cSheetL].Cells[mRow, mCol] := CFxFloat.Max6(0, mVal);
+            end;
+          end;
+        end;
+      end;
+    end;
+  end;
+end;
+
+{
+  Vrátí index příslušného listu
+}
+function GetSheetIndex(AOpakovanePouzivany, AZpoplatneniObalu, ATypObchodu,
+  AZpusobUziti, AMaterialKompozitu: Integer; AObsahujeNapoje: Boolean): Integer;
+var
+  mSheet: Integer;
+begin
+  mSheet := 0;
+  if (AOpakovanePouzivany = 0) then
+  begin
+    // Obaly na jedno použití
+    if (AZpoplatneniObalu = cZpoplatneniZpoplatneny) then
+    begin
+      // Zpoplatněné obaly
+      if ATypObchodu = cTypObchoduPrumyslove then
+      begin
+        if AMaterialKompozitu = 0 then
+          mSheet := cSheetJ1_3 // List J1-3 - Průmyslové obaly
+        else
+        begin
+          mSheet := cSheetJ1_3K; // List J1-3K - Průmyslové obaly - rozpad kompozitních materiálů
+        end
+      end
+      else
+      if AObsahujeNapoje then
+      begin
+        // Obsahuje nápoje
+        if AMaterialKompozitu = 0 then
+        begin
+          if AZpusobUziti = cUzitiProdejni then
+            mSheet := cSheetJ1_2A // List J1-2A - Prodejní
+          else
+            mSheet := cSheetJ1_2B; // List J1-2B - Skupinové a přepravní
+        end
+        else
+        begin
+          mSheet := cSheetJ1_2K; // List J1-2K - rozpad kompozitních materiálů
+        end;
+      end
+      else
+      begin
+        // Neobsahuje nápoje
+        if AMaterialKompozitu = 0 then
+        begin
+          if AZpusobUziti = cUzitiProdejni then
+            mSheet := cSheetJ1_1A // List J1-1A - Prodejní
+          else
+            mSheet := cSheetJ1_1B; // List J1-1B - Skupinové a přepravní
+        end
+        else
+        begin
+          mSheet := cSheetJ1_1K; // List J1-1K - rozpad kompozitních materiálů
+        end;
+      end;
+    end
+    else if (AZpoplatneniObalu = cZpoplatneniPredplaceny) then
+      mSheet := cSheetJ2 // List J2 - Předplacené
+    else if (AZpoplatneniObalu = cZpoplatneniNeplaceny) then
+      mSheet := cSheetJ3 // List J3 - Neplacené
+    else if (AZpoplatneniObalu = cZpoplatneniExport) then
+      mSheet := cSheetJ4; // List J4 - Exportované
+  end
+  else
+  begin
+    // Obaly opakovaně používané
+    if (AZpoplatneniObalu = cZpoplatneniZpoplatneny) then
+    begin
+      // Zpoplatněné obaly
+      if ATypObchodu = cTypObchoduPrumyslove then
+      begin
+        if AMaterialKompozitu = 0 then
+          mSheet := cSheetO1_3 // List O1-3 - Průmyslové obaly
+        else
+          mSheet := cSheetO1_3K; // List O1-3K - Průmyslové obaly - rozpad kompozitních materiálů
+      end
+      else
+      if AObsahujeNapoje then
+      begin
+        // Obsahuje nápoje
+        if AMaterialKompozitu = 0 then
+        begin
+          if AZpusobUziti = cUzitiProdejni then
+            mSheet := cSheetO1_2A // List O1-2A - Prodejní
+          else
+            mSheet := cSheetO1_2B; // List O1-2B - Skupinové a přepravní
+        end
+        else
+        begin
+          mSheet := cSheetO1_2K; // List O1-2K - rozpad kompozitních materiálů
+        end
+      end
+      else
+      begin
+        // Neobsahuje nápoje
+        if AMaterialKompozitu = 0 then
+        begin
+          if AZpusobUziti = cUzitiProdejni then
+            mSheet := cSheetO1_1A // List O1-1A - Prodejní
+          else
+            mSheet := cSheetO1_1B; // List O1-1B - Skupinové a přepravní
+        end
+        else
+        begin
+          mSheet := cSheetO1_1K; // List O1-1K - rozpad kompozitních materiálů
+        end;
+      end;
+    end
+    else if (AZpoplatneniObalu = cZpoplatneniPredplaceny) and (AMaterialKompozitu = 0) then
+      mSheet := cSheetO2 // List O2 - Předplacené
+    else if (AZpoplatneniObalu = cZpoplatneniNeplaceny) and (AMaterialKompozitu = 0) then
+      mSheet := cSheetO3 // List O3 - Neplacené
+    else if (AZpoplatneniObalu = cZpoplatneniExport) and (AMaterialKompozitu = 0) then
+      mSheet := cSheetO4; // List O4 - Exportované
+  end;
+  Result := mSheet;
+end;
+
+{
+  Vrátí index příslušného řádku
+}
+function GetRowIndex(ASheet, AMaterial, ABarva: Integer): Integer;
+var
+  mRow: Integer;
+  mStartRow: Integer;
+  mCoefficient: Integer;
+  mComposit: Boolean;
+  mBarva: Boolean;
+  mOnly2Colors: Boolean;
+begin
+  mOnly2Colors := False;
+  if AMaterial = 0 then
+  begin
+    // Materiál není zadaný
+    mRow := 0;
+  end
+  else if (AMaterial in [10, 13, 14, 16, 22, 24]) //Kompozitní materiály
+    and (ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetJ1_3K, cSheetJ2, cSheetJ3,
+     cSheetJ4, cSheetL, cSheetO1_1K, cSheetO1_2K, cSheetO1_3K, cSheetO2,
+     cSheetO3, cSheetO4]) then //Záložky na kterých se nenachází kompozitní materiál. Na záložkách se uvede až rozpad kompozitního obalu.
+  begin
+     mRow := 0;
+  end
+  else if AMaterial < 11 then
+  begin
+    //Plasty ----------------------------------------------
+    //Nastavení počátečního řádku
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+    begin
+      mStartRow := 10;
+      mCoefficient := 2;
+    end
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+    begin
+      mStartRow := 10;
+      mCoefficient := 2;
+      mOnly2Colors := True;
+    end
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+    begin
+      mStartRow := 10;
+      mCoefficient := 2;
+      mOnly2Colors := True;
+    end
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+    begin
+      mStartRow := 9;
+      mCoefficient := 1;
+    end
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+    begin
+      mStartRow := 10;
+      mCoefficient := 1;
+    end
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+    begin
+      mStartRow := 8;
+      mCoefficient := 1;
+    end
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+    begin
+      mStartRow := 10;
+      mCoefficient := 2;
+    end ;
+    // Zjištění řádku
+    if mCoefficient = 1 then
+    begin
+      // Nehraje se na barvu obalu
+      if AMaterial < 5 then
+        mRow := mStartRow + AMaterial // PET, PE, PP, PS
+      else if AMaterial = 7 then
+        mRow := mStartRow + AMaterial - 2 // PVC
+      else
+        mRow := mStartRow + 6; // Všechny ostatní plasty
+    end
+    else
+    begin
+      // Materiál včetně barvy
+      if AMaterial = 1 then // PET
+      begin
+        if mOnly2Colors then
+        begin
+          //Pouze 2 barvy
+          if ABarva = cBarvaTransparentni then
+            mRow := mStartRow + 1
+          else
+            mRow := mStartRow + 1; //ostatní zadané barvy se vykážou jako barevné
+        end
+        else
+        begin
+          if ABarva = cBarvaTransparentni then
+            mRow := mStartRow
+          else if ABarva = cBarvaPruhledneBarevnéPET then
+            mRow := mStartRow + 1
+          else
+            mRow := mStartRow + 2;
+        end;
+      end
+      else if (AMaterial > 1) and (AMaterial < 11) then // Plasty mimo PET
+      begin
+      mRow := mStartRow + (AMaterial*mCoefficient);
+      if ABarva = cBarvaTransparentni then
+        mRow := mRow - 1;
+      end;
+    end;
+  end
+  else if AMaterial < 15 then
+  begin
+    //Kovy ----------------------------------------------
+    //Nastavení počátečního řádku
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+    begin
+      mStartRow := 31;
+      mComposit := True;
+    end
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+    begin
+      mStartRow := 31;
+      mComposit := True;
+    end
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+    begin
+      mStartRow := 31;
+      mComposit := True;
+    end
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+    begin
+      mStartRow := 16;
+      mComposit := False;
+    end
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+    begin
+      mStartRow := 17;
+      mComposit := False;
+    end
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+    begin
+      mStartRow := 15;
+      mComposit := False;
+    end
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+    begin
+      mStartRow := 31;
+      mComposit := True;
+    end;
+    if (mComposit = False) and (AMaterial in [13, 14]) then
+    begin
+      // Korekce nekompozitního vykazování - z kompozitního materiálu uděláme nekompozitní
+      AMaterial := AMaterial - 2;
+    end;
+    mRow := mStartRow + AMaterial - 11;
+  end
+  else if AMaterial = 15 then
+  begin
+    //Nápojové kartony ----------------------------------------------
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+    begin
+      mRow := 35;
+    end
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+    begin
+      mRow := 0;
+    end;
+  end
+  else if AMaterial = 16 then
+  begin
+    //Kompozitní materiál ----------------------------------------------
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+    begin
+      mRow := 36;
+    end
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+    begin
+      mRow := 35;
+    end
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+    begin
+      mRow := 35;
+    end
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+    begin
+      mRow := 0;
+    end
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+    begin
+      mRow := 35;
+    end;
+  end
+  else if AMaterial = 17 then
+  begin
+    //Sklo ----------------------------------------------
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+    begin
+      mStartRow := 41;
+      mBarva := True;
+    end
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+    begin
+      mStartRow := 0;
+    end
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+    begin
+      mStartRow := 42;
+      mBarva := True;
+    end
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+    begin
+      mStartRow := 18;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+    begin
+      mStartRow := 19;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+    begin
+      mStartRow := 17;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+    begin
+      mStartRow := 40;
+      mBarva := True;
+    end;
+    if mStartRow = 0 then
+    begin
+      mRow := 0; // Obal se na záložce nevykazuje
+    end
+    else
+    begin
+      if mBarva then
+      begin
+        if ABarva = cBarvaKompozitniSklo then
+          mCoefficient := 2
+        else if ABarva in [cBarvaBarevne, cBarvaNepruhledneBarevnePET] then
+          mCoefficient := 1
+        else
+          mCoefficient := 0;
+        mRow := mStartRow + mCoefficient;
+      end
+      else
+      begin
+        mRow := mStartRow; // Na barva obalu se nerozlišuje
+      end
+    end
+  end
+  else if AMaterial < 23 then
+  begin
+    //Papír ----------------------------------------------
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+    begin
+      mStartRow := 44;
+      mBarva := True; //Myšlen rozpad na jednotlivé druhy papíru
+    end
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+    begin
+      mStartRow := 42;
+      mBarva := True; //Myšlen rozpad na jednotlivé druhy papíru
+    end
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+    begin
+      mStartRow := 45;
+      mBarva := True;
+    end
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+    begin
+      mStartRow := 19;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+    begin
+      mStartRow := 20;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+    begin
+      mStartRow := 18;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+    begin
+      mStartRow := 43;
+      mBarva := True;
+    end;
+    if mStartRow = 0 then
+    begin
+      mRow := 0; // Obal se na záložce nevykazuje
+    end
+    else
+    begin
+      if mBarva then
+      begin
+        mRow := mStartRow + AMaterial - 18;
+      end
+      else
+      begin
+        mRow := mStartRow; // Druh papíru se nerozlišuje
+      end
+    end;
+  end
+  else if AMaterial < 25 then
+  begin
+    //Dřevo ----------------------------------------------
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+    begin
+      mStartRow := 49;
+      mBarva := True; //Myšlen rozpad na jednotlivé druhy dřeva
+    end
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+    begin
+      mStartRow := 47;
+      mBarva := True;
+    end
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+    begin
+      mStartRow := 50;
+      mBarva := True;
+    end
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+    begin
+      mStartRow := 20;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+    begin
+      mStartRow := 21;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+    begin
+      mStartRow := 19;
+      mBarva := False;
+    end
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+    begin
+      mStartRow := 48;
+      mBarva := True;
+    end;
+    if mBarva then
+    begin
+      mRow := mStartRow + AMaterial - 23;
+    end
+    else
+    begin
+      mRow := mStartRow; // Druh dřeva se nerozlišuje
+    end
+  end
+  else if AMaterial = 25 then
+  begin
+    //Textil ----------------------------------------------
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+      mRow := 51
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+      mRow := 49
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+      mRow := 52
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+      mRow := 21
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+      mRow := 22
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+      mRow := 20
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+      mRow := 50
+    else
+      mRow := 0;
+  end
+  else if AMaterial = 26 then
+  begin
+    //Jiné ----------------------------------------------
+    if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+      mRow := 52
+    else if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+      mRow := 50
+    else if ASheet in [cSheetJ1_3, cSheetO1_3] then
+      mRow := 53
+    else if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+      mRow := 21
+    else if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+      mRow := 22
+    else if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+      mRow := 21
+    else if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+      mRow := 51
+    else
+      mRow := 0;
+  end
+  else
+  begin
+    mRow := 0;
+  end;
+  Result := mRow;
+end;
+
+{
+  Vrátí index příslušného sloupce
+}
+function GetColIndex(ASheet, AMaterial, ASkupina, APuvodMaterialu, AZpusobUvedeni, AZpusobUziti, ATypObchodu: Integer; AObsahujeNapoje: Boolean): Integer;
+var
+  mCol: Integer;
+  mZpusobUvedeni: Integer;
+  mSkupina: Integer;
+  mZpusobUziti: Integer;
+  mObsahujeNapoje: Integer;
+begin
+  mCol := 0;
+  if AZpusobUvedeni = cUvedeniImportovane then
+    mZpusobUvedeni := 1
+  else
+    mZpusobUvedeni := 0;
+  if ASheet in [cSheetJ1_1A, cSheetJ1_2A] then
+  begin
+    if AMaterial < 17 then
+      mCol := (((ASkupina+1)*4)+1) + (APuvodMaterialu*2) + (mZpusobUvedeni)
+    else
+      mCol := 5 + (APuvodMaterialu*4) + (mZpusobUvedeni*2);
+  end
+  else
+  if ASheet in [cSheetJ1_1B, cSheetJ1_2B, cSheetO1_1B, cSheetO1_2B] then
+  begin
+    if ASkupina = cSkupinaMekkeFlexibilní then
+      mSkupina := 0
+    else
+      mSkupina := 1;
+    if AZpusobUziti = cUzitiPrepravni then
+      mZpusobUziti := 1
+    else
+      mZpusobUziti := 0;
+    if AMaterial < 17 then
+      mCol := 5 + (mZpusobUziti*8) + (mSkupina*4) + (APuvodMaterialu*2) + (mZpusobUvedeni)
+    else
+      mCol := 5 + (mZpusobUziti*8) + (APuvodMaterialu*4) + (mZpusobUvedeni*2);
+  end
+  else
+  if ASheet in [cSheetJ1_3, cSheetO1_3] then
+  begin
+    if ASkupina = cSkupinaMekkeFlexibilní then
+      mSkupina := 0
+    else
+      mSkupina := 1;
+    if AMaterial < 17 then
+      mCol := 5 + (mObsahujeNapoje*8) + (mSkupina*4) + (APuvodMaterialu*2) + (mZpusobUvedeni)
+    else
+      mCol := 5 + (mObsahujeNapoje*8) + (APuvodMaterialu*4) + (mZpusobUvedeni*2);
+  end
+  else
+  if ASheet in [cSheetJ1_1K, cSheetJ1_2K, cSheetO1_1K, cSheetO1_2K] then
+  begin
+    mCol :=  5 + (AZpusobUziti*2) + (mZpusobUvedeni);
+  end
+  else
+  if ASheet in [cSheetJ1_3K, cSheetO1_3K] then
+  begin
+    if AObsahujeNapoje then
+      mObsahujeNapoje := 1
+    else
+      mObsahujeNapoje := 0;
+    mCol :=  5 + (mObsahujeNapoje*2) + (mZpusobUvedeni);
+  end
+  else
+  if ASheet in [cSheetJ2, cSheetJ3, cSheetJ4, cSheetO2, cSheetO3, cSheetO4] then
+  begin
+     if ATypObchodu = cTypObchoduPrumyslove then
+      mCol :=  11 + (mZpusobUvedeni)
+    else
+      mCol := 5 + (AZpusobUziti*2) + (mZpusobUvedeni);
+  end
+  else
+  if ASheet in [cSheetO1_1A, cSheetO1_2A] then
+  begin
+    if AMaterial < 17 then
+      mCol := 5 + (ASkupina*4) + (APuvodMaterialu*2) + (mZpusobUvedeni)
+    else
+      mCol := 5 + (APuvodMaterialu*4) + (mZpusobUvedeni*2);
+  end;
+  Result := mCol;
+end;
+
+{
+  Vrátí index příslušného řádku litteringového obalu
+}
+function GetLitteringRowIndex(ALitteringovyObal: Integer): Integer;
+begin
+  if ALitteringovyObal > 0 then
+    Result := ALitteringovyObal + 5
+  else
+    Result := 0;
+end;
+
+{
+  Vrátí index příslušného sloupce litteringového obalu
+}
+function GetLitteringColIndex(AZpoplatneniObalu: Integer): Integer;
+begin
+  case AZpoplatneniObalu of
+    cZpoplatneniZpoplatneny:
+      Result := 6;
+    cZpoplatneniPredplaceny:
+      Result := 8;
+    cZpoplatneniNeplaceny:
+      Result := 9;
+    cZpoplatneniExport:
+      Result := 10;
+  else
+    Result := 0;
+  end;
+end;
+
+{
+  Smaže všechny zadané hodnoty
+}
+procedure ClearWorkbook(AExcel : Variant);
+var
+  mSheet : Integer;
+  mRow : Integer;
+  mCol : Integer;
+  i : Integer;
+  mSheetV : Variant;
+  mCellV : Variant;
+begin
+  i := 0;
+
+  // Listy J1-1A až O4
+  for mSheet := cSheetJ1_1A to cSheetO4 do
+  begin
+    i := i+1;
+    ProgressSetPos(i);
+    mSheetV := AExcel.ActiveWorkbook.WorkSheets[mSheet];
+    for mRow := 9 to 53 do
+      for mCol := 5{E} to 20{T} do
+      begin
+        mCellV := mSheetV.Cells[mRow, mCol];
+        if mCellV.Locked = False then
+          mCellV.Value := '';
+      end;
+  end;
+  // Čištění řádků záložky L
+  mSheetV := AExcel.ActiveWorkbook.WorkSheets[cSheetL];
+  for mRow := 6 to 8 do
+  begin
+    for mCol := 5{E} to 10{J} do
+    begin
+      mCellV := mSheetV.Cells[mRow, mCol];
+      if mCellV.Locked = False then
+        mCellV.Value := '';
+    end;
+  end;
+end;
+
+{
+  Vrátí čtvrtletí výkazu
+}
+function GetQuarter(AExcel : Variant) : Integer;
+begin
+  Result := AExcel.ActiveWorkbook.WorkSheets[cSheetUvod].Cells[4, 4].Value;
+end;
+
+{
+  Vrátí rok výkazu
+}
+function GetYear(AExcel : Variant) : Integer;
+begin
+  Result := StrToInt(NxRight(AExcel.ActiveWorkbook.WorkSheets[cSheetUvod].Cells[4, 5].Value, 4));
+end;
+
+{
+  Vrátí datum začátk období
+}
+function GetStartDate(AQuarter : Integer; AYear : Integer) : TDateTime;
+var
+  mDay : Integer;
+  mMonth : Integer;
+begin
+
+  mDay := 1;
+
+  if AQuarter = 1 then
+    mMonth := 1;
+  if AQuarter = 2 then
+    mMonth := 4;
+  if AQuarter = 3 then
+    mMonth := 7;
+  if AQuarter = 4 then
+    mMonth := 10;
+
+  Result := EncodeDate(AYear, mMonth, mDay);
+
+end;
+
+{
+  Vrátí datum konce období
+}
+function GetEndDate(AQuarter : Integer; AYear : Integer) : TDateTime;
+var
+  mDay : Integer;
+  mMonth : Integer;
+begin
+
+  if AQuarter = 1 then
+  begin
+    mMonth := 3;
+    mDay := 31;
+  end
+  else if AQuarter = 2 then
+  begin
+    mMonth := 6;
+    mDay := 30;
+  end
+  else if AQuarter = 3 then
+  begin
+    mMonth := 9;
+    mDay := 30;
+  end
+  else if AQuarter = 4 then
+  begin
+    mMonth := 12;
+    mDay := 31;
+  end;
+
+  Result := EncodeDate(AYear, mMonth, mDay);
+
+end;
+
+function GetCorrectSheetOrder(AExcel : Variant): Boolean;
+begin
+  Result := (AExcel.ActiveWorkbook.WorkSheets[cSheetJ1_1A].name = 'J1-1A') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetJ1_1B].name = 'J1-1B') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetJ1_1K].name = 'J1-1K') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetJ1_2A].name = 'J1-2A') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetJ1_3].name = 'J1-3') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetJ2].name = 'J2') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetO1_1A].name = 'O1-1A') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetO1_2A].name = 'O1-2A') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetO1_3].name = 'O1-3') and
+    (AExcel.ActiveWorkbook.WorkSheets[cSheetO4].name = 'O4');
+end;
+
+
+begin
+end.

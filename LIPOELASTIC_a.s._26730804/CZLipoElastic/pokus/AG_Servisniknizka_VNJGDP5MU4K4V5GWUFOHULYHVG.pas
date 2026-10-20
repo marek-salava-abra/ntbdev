@@ -14,7 +14,22 @@ begin
   mAction.OnExecute := @Pokus;
 end;
 
-Procedure Pokus(sender:TObject);
+Procedure Pokus(Sender:TObject);
+var
+ mOLE, mCoopObject, mCoopData:Variant;
+begin
+ mOLE:=GetAbraOLEApplication;
+ mCoopObject:=mOLE.CreateObject('@PLMCooperation');
+ mCoopData:=mOLE.CreateValues('@PLMCooperation');
+ mCoopData:=mCoopObject.GetValues('~00000030I');
+ if not mCoopObject.TakeOff(0) then
+ NxShowSimpleMessage(mCoopData.OID+NxCrlf+mCoopObject.GetLastMessage,nil);
+ mCoopObject.UpdateValues('~00000030I', mCoopData);
+ //mCoopObject.TakeIn(2222);
+ //NxShowSimpleMessage(mCoopData.OID+NxCrlf+mCoopObject.GetLastMessage,nil);
+end;
+
+Procedure Pokus2(sender:TObject);
 var
  mSite:TSiteForm;
  mPars,mSelectedList:TNxParameters;

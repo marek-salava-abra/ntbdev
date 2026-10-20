@@ -70,7 +70,7 @@ begin
   mTargetList:=tstringlist.create;
     TRY
     //mTargetList.add('http://10.5.5.96:809/CZ_PRE_produkce/');
-    mTargetList.Add(mTargetAPI + '/');
+    mTargetList.Add('http://api.abra-cz.prod.ad.lipoelastic.com:83/SK_Lipoelastic/');
 
     for i:=0 to mTargetList.count-1 do begin // ****cyklus pro jednotlicá spojení
                 mTarget:=mTargetList.strings[i];
@@ -103,7 +103,9 @@ begin
                              // + ' "where": " id = ' + QuotedStr(mBO.OID)
                              // +' " '
                              // +'}',nil);
-
+                             if NxGetActualUserID_1(mbo)='4PU1000101' then begin
+                               NxShowSimpleMessage(mQueryID+NxCrLf+nxCrLf+mTarget+NxCrLf+nxCrLf+mString,nil);
+                             end;
 
                              if (copy(mString,1,3)='200') or (copy(mString,1,3)='201') then begin
 //                                    NxShowSimpleMessage('Dohledán ' + copy(mString,15,10),nil);

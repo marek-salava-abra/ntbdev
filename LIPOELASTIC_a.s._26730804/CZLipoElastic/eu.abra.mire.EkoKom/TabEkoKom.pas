@@ -1,332 +1,833 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0RTTwB42u0923I\
-TSbLt1xPLF8yLXk7YitH6GLCB\
-gdHs+gbDYjBjM8zOTBCEsGVbY\
-EsOyzY2uzv/yiMPfMJEbFZmlb\
-q67tU3NRyFwyCrq/JWWVnZWVl\
-Ze8koGSbj5DxpJXvJZvIk2cbf\
-p8mLpJe8gW+78DvPn/yVP5tPH\
-iQ3kv+BJ+lPtvdqsg8/ovfz5N\
-e5AfzdAzz+vhtJPzmG33P4FRB\
-eJtfJCfT/4ICxjrycQ4sB/N9P\
-zpK15AJ4o7/G8LMNHL2Fz3vIL\
-0G+Dfh24MljoOFR8hN8fgg0bC\
-c/JsvJbyCFZXiyAq3W4K/15J9\
-Io8DPfk8Bzwgg9oG/C/jMaB4j\
-9ZvJO3jyBH5P4PMQ5XmM7RZAP\
-r8gXYJmBuM4uQ99XxifPIAnqw\
-oU1noNno7w7x48a3O6LuGvM3g\
-6wDaPEU4/OUSZUIs3+DfDI+R4\
-AHCoTwt6Mdkswe85fNuyULuo/\
-M3+usC/W6ApreQm/O7DdwKDjr\
-MVDHuc/A6tXsH3qgy6BslktWM\
-AvMXiYb3G1tFgcjkCTENNC/0j\
-b4a4EElfO+kY+G5LnDPqhCTkz\
-zadfQM4hpl5uA4zYQBPmXVYSH\
-Y5FKZDpKe7AKePMNg8O0ddSXV\
-QH+0XALMPEmF6dg2zrodzlSS2\
-wLX0BTylWZrFuIj26BCgt+FzS\
-lcx/p7DswHS0yz+UrqK8fcMnl\
-w1bvQEVcV420LsTeNNUGXm7V8\
-TjPKKyL77j5X3Hq6kWd6Pgfo9\
-sDHxvIuV4WTC5S5yed8jhaxFP\
-QHLcww/o+Q9YnoMrcdokU6Awi\
-2gVv68i9aLyftw0moHrRmteC+\
-RpgGuYDqmTdCVAcp0F3lhUlnH\
-HvsTjlP4W7ytugLY1sEsrucI/\
-QBgXoMUbX309j+DXzKAdoOoPp\
-coOzZ+Mf1+A8pG8HuM4zPE/tc\
-R/behbw/Xp0uUeHjP56BPl9Bv\
-P6LPU6Syz8f3mK+JjAOS2EUEr\
-C3sIaCx0Q73bnR975Y47x9IeE\
-jnCf4jhLQKvc+gLT1ZBe5P+Qz\
-uoc6w+alDyM4aO7xsOxmOaY7G\
-wVFpWoRWP8GnXe6h76Gc5NGah\
-2eb2HYd5NNCrC1Yr3fQcrUMc5\
-h5Wb+At70JbTbh8zrXmEM+KuS\
-nLwPkjpWrtkZval+6GfqJc/F0\
-Aem9Dfh/A76eAKw18PUfwv9b8\
-O1ycgtoXgI/dh3+Zb7/bXi2Dj\
-9Eyy1l5AVUtn73ULInQNsit+A\
-M12uF+i5810q+tfJF3t8Jvvm8\
-4Kumyit5tzL2pzCrjlGz5HHa4\
-DNwBJJdAD566E32HZa6bfBzzT\
-68z0p3rXaacXiGby9szBcyEm0\
-hfqYDqpedvquobypmTha97ybi\
-x8yfbYVoTfQra13IQ2WyZ6vwN\
-Xg8TBf6qAPUk1mUPZDtCFf6ef\
-QdVoFSlyV0rTt5KGErCXs/HgE\
-tKaT8tMjrWXF6ZGh5aTKvlXlp\
-UyENcBTZPMo/gupqnIc2FUYfo\
-DNtZyNK31znpk9fc/NQqENhtF\
-5P5JeXutQjyUNV2lv1UvKPp9/\
-fyUOpH6qbXjPNKn7yTOR3Fn8f\
-O81sBUupku3xfR55WzL8zJeAW\
-Y8D6mvSay99tpUk+zdFY8w0/x\
-/80Jses2SXaPePod83c8PkMzw\
-5Rd07xrc89nnMozjs6ZFhbWpV\
-uNKkWpld4YqPRtwqo9OR9imbl\
-pAVxkSP3K8cmvKsLDpl5tWuOI\
-VF1hedShVacfryri46bTqk4tT\
-lWWV0ylIoxSnKv5rodPlhhdL7\
-HC3guaG9bUXSYewgTWe423Ok9\
-DjAEe3hO9K1AZbrDYZJ8wyjal\
-mYKmWxMfd9HKFmxPamGTNRx1H\
-eAfRHUmGlnPuM/YfJJz7SpPnX\
-ntgqiz5kpc/0Yw+oNkkw+50ud\
-eJ4F+0bw0O9noFereOqc45zQ9\
-6DTNuqMa81aGfu79rTtI1k9i1\
-6G3XnFP9lkn4Dnw4zfo08jvT9\
-gjZGtuiXKoNuhBTsWGQcJJuuE\
-V82niBjWcC51UOZvTbMcRmHHn\
-WgKMsQ+rAIAuPmMeoOs3XnuNY\
-wf3KhRi+1bdmFtEcwQsa9TvpN\
-Fp2NLdtFGWHUrE56Oji+A4Bto\
-qwKOl5P+rnfQ0gmFLlM8b7kPk\
-Rf68eokCG71yz7uigw62ufvu5\
-d4ew75btZMRq3KfWlWPhTbtl6\
-6HWE7mmnK0LWC3CvANm2+tiNc\
-Wd+F32Z/mQVpr8e4qieGFYCEd\
-1k2RlXvFf2u9D9KdHirbfFGKX\
-awnZjScLqylJs34/i/z4cOyhP\
-ikKH7tGRtnUmn8Ssye71xa+GK\
-fxHSME+WpcReFgXoBHrGDW/gK\
-dDLjvCkcbQfb1ULE9Rh1qB9FL\
-rAcDtI68Uwyf61Z0hgr+OunuG\
-+m/yVVslSSqFpMtCp0l4/UNOF\
-/XUv7f7miYYlNsj5htZXTbr9b\
-bM5h0D3CvDs7FiBcWOid6S9pp\
-oFUhXV7Jvgwn1Kc3qPO8aZvqC\
-EZO+iyOsfbb3Isz5c5ydY/xMn\
-vQVjN4B371Sx/9npP9c4jnLN4\
-vNfz/ZM9H9h00LryGzp5tj/ix\
-4eJb1lFnjgeZzhswIoozmgNgp\
-U+24bOnb6EnKcPX5ouuTj47vk\
-x8M+uXbW/NJcFHyBWivi/IBzw\
-z7abJ96gZRLTwP4ZP1+fxT7VT\
-WkpFMU29lHWMXfT4bwjCaessa\
-LzSd5nfbEOsW+4RvDTmNQhJhe\
-4N2rzpdd7sZqC57+zt8ehXt0w\
-kpzFt851g9eYyZv2y0mP1cwrV\
-XcPMtRujT/Wn6vh0U/0j/oh1m\
-t35nbasKtah9VN/w552Rh5AIR\
-1Frpcc6BujrUg6nmu0Z/k5q2s\
-+h2XmJnq4tY1Xvt813gfT5RBg\
-XLJG3PZTYfmY+/YBzrh2FP32r\
-fjGRS0oL21V5ATRuwG8L31z2U\
-P6063yKloHiaj2k4BTXXub3Dz\
-D/hPmvNL/PMZ+c7chdwrMP3DJ\
-/4Br7L4PX28VcFlotelruiyn/\
-ZRX1YwPz+MY8H6aD7b419KX2/\
-4Q3Q9LZ1471XUC0t4jBE/7WKv\
-CG93DRsQttFydvq/Gw03foGG5\
-NO2MCt+lZDGzzfpeAbn6aH342\
-58KEQ24Ri8e1LyVjc7WLwRmy0\
-yTwhrSNwe3bRRJ4fe1icIqZ+h\
-PQTdmvA7R7ApfteQyOH9H6neM\
-6MZbshvp9DEwbvUXoFLzu8Nit\
-KoP0exvENMtwA6M6ws8X6wvD2\
-eIejak/s9oP0Wr/A+O5z9A+sb\
-VmB+35Kvy/Ad+Q1WIa+Gxiwcg\
-ydgtaVjttcobkKvqsLAuT9WI+\
-2nzyv+gFk1yfISz/SvLa0J9lN\
-qr4f48+W9UJfLOgqPkr9JD+Y8\
-jHLnfdrU5zvv7RSaOsfl9Q9jv\
-bmTiK/S3K5AXuK+8FIXvd2fdf\
-99tKS4kurXEv37w3Zcp9voX80\
-/cdA2Vt40m0hUCfvY3aO8TIQd\
-U+d+rzm+ZhNp4bms2rvz+Ys3m\
-LjYE6AjKt9j0mPbbow2zfV4yd\
-f21LVp5ZOi1HRLw8HsL3RsMo9\
-mVpy6MUnp0dlqVt303M4qXcPX\
-3fzw0zPmuyiuxJEyflYXdHlcv\
-dqQx7250PGp3QXfrilMbtNrts\
-cbxe2y1CVtfr5dG9f96EfF6zx\
-EgnpkVxTA6ATntZOQHqjykCW1\
-QmMdnIMfYk21PVYRvW8mxlXH5\
-zeZzZ8VbFW0i+dFX8qbjL5TFP\
-/nW5nPooKI/fItnc5fEcSkV5f\
-OfNEi+P5xAKyuPXFjtM+XyIp0\
-FplySGy7SfyqELZ3mcqZFLE0f\
-l8GPCVB4fdY5MtSOixmjr0DEZ\
-V3mc5DmtUZ6F8GEvj8/8Z0DK4\
-zaMhlie7edIfOdJ/KdEfG9fIl\
-N2wUq3Dbcfrz0b1wXbd+olG4c\
-JO+XiyhjWo7jDgNwGOYsqLsqZ\
-N7qsVpDKRhHy5ZocIo3mbBMdh\
-8jF+0GKjfk5UfMzu5P6RWq+Xd\
-FMFRNGGo1T/l57bskHdb1Bxpy\
-YSjO6f8bV4I+5fkInZ/czOTkX\
-nhzvXWjJ3h/kkdmZZIgMeAVEf\
-5431eCjeMF9nnmhnmagHHB7hq\
-grE9ydBZ4/czsbHxfUm/O3i50\
-8EmeAjpWaUKzi1/tJBRp/Pvgs\
-o3h6GcX2jLnpZM2pMlYt+S7+R\
-ZkBlF/LOFhDO/Ae8Ydm2towVB\
-eZFBTT3nD4bp3u45jsbb5cQ3u\
-+IdUzYHP5LeA6m2QWfpAs8hvM\
-qRtgPdYRr4fZwrdcUb2VWfJF/\
-pP1HWS7EbvLmELJ2pqy9yqFDH\
-rJjTnKOmTr0YW0Pv2JkcYWxq2\
-Q2zl9PMPzGty5DUXyFgjyNDMX\
-8mcvrBpzE6rbU5Y1s41+AOnBC\
-9xrucYM8zH6pkzXv0VsTAsoX4\
-3G6h1/1/mktFbnTj+H9xqmpUO\
-MN/n18z08H/C6JPZMhU14cpCz\
-ihb5IN3S9kTNXquw5yR/YWnNV\
-Wf8+3NZy7LIK1wvcPjt4DoH2e\
-qnYXUOsph3cb65x36X29uPfOz\
-T0e4oujhEe27SR9m7Dq++dqxU\
-rytedU2MY1YKqueSxS2qJJP/9\
-VfE7Bph/85rc/JGTNS5MzFs2R\
-C6xMJ3cQU8vVaDORckJK4SFuc\
-IiePYnuWJkWR12k6XqqH+aIru\
-Xalvuum8zfpZprkZt04Us/KuW\
-EsT54krt2oaq1E391oUaqkWuT\
-Y+8LYTtXwGOANc88n8JHvKK8T\
-uiFMh/rwr0Xu3xJwi8UYme5L2\
-9bt8/GlOU6fivKzquIp58+3U/\
-FZdjOs8+SSdCnNhquTGlkPSqT\
-QHpj6OslkjncqzX6rmzJ0l0qk\
-p86VKLsPyQjo15rxUya0/I6RT\
-U5ZLMS7zZIR0KsxnqYobPR+kU\
-0HuSlXUFx+Dacpez/voVJClUu\
-Vsd2d3dGrIVKmSu5Bsjk5tWSp\
-+TmlPuL5MjJhoYPUZF7GVSim3\
-YQN3RLd4lVJzjVI9E+FLr08as\
-vPYDdp3dJ90NL9L+3b/7FkT7M\
-7Ec7QRv07iSSwiTBGmd7g3MdZ\
-iSkx2aT7FAcZv0yo/LR731m+K\
-3EVeScqreAPKoaaBNNLmZ23+V\
-IWm6s4arp+UkfAc+stQhyhBcz\
-Wz0Fpm4nu5co6rLpyrFpxos8H\
-1JBSmqX1sNbsyatmtoadyH8+h\
-nuGNNte4Z7eEu7d38J5Eig/aa\
-hOrOV5sBbjy1jI8CrgVqlgdw7\
-T3CG1cWq/X9ETtHVvf8URa42i\
-nlvqo34bV7w3PFFFv17HNy0Wp\
-7pmbV3G3UTafxgfVB1Os+eJmC\
-FfejQ/WS/x7wFdAsccubjvSI4\
-2ms82qDQqVoyq9bHalzSa6ZOi\
-Cx2JhadVUgmO6w9cFQ5U87UNn\
-839MN+WZrHBXscOq1Fwns00QT\
-bomwwiBsIqeyuFEPkwP5HYhMH\
-4EnAzG0YSKW8ndoJ6qdE/xe5K\
-u3H4+CJppvOct4xPrGcWNle7F\
-ZvnUc8j8NC5q1lDeZZ+XYskH0\
-PoXXMf6WgXnm1j54EEhTL6IvQ\
-v/SmHssZH1UGkUocke9WbYs+t\
-0h1efKCYFV2S6Spz+CGtV2MMj\
-n1VREBaNrAq7O1J4gHEJEaUpB\
-6M5mlcFpvp4MkfJXJjc2Oh9mO\
-w6vTGzd+fHPEPa7/ktTrw40mD\
-z7r+f6xHejE63c8jVfoiyv1tv\
-8gjN6zR56F2jj66ulCEjRHXQ8\
-lUFCLHxVLs1e6fn7UlGwU1jNO\
-w9jtCRkfcsj+lTndt0F594vCr\
-AZUp/O1ee2C6v3kkjR3IxRwFT\
-jp7w/H/qcwD2V2jOBV8H+tYco\
-xSK6v/kk0H4KZq6NDbcy3Dp36\
-1a9S+luXx9itcmQW2sBhEXzdO\
-IYr5xB6k5wx2FrI7crlVHfFx8\
-yZrj4q15+lT2245dw5Ybugp++\
-RoXw2vzNDD+3dauYyu16pid8q\
-LaVIWWmKltnj7kiTzYNeJurRr\
-hor2JOmGjt+laoecVxmvGvSlq\
-hk5/87UjS3MzNSR/9NCuJ9/Vr\
-id+LpqqLW7Km6czxWO+Nr0x7Y\
-NUqTfhnDRRd8Kob57+FIvY23W\
-n3ohhGBdN1Bs/5c3Tmfh9Frue\
-1BvZc1PeRP2wU9w8vQjfDbPrQ\
-71RPDPFTdQDndLmjX8Z9qDeGN\
-uXYwe+hPkfvnPclPE3U9zkdSC\
-ltHnj7z+dEu9H1hsP9XPQRN1w\
-U908PQk95xOvLXdq1ZZQPpqoM\
-yG0x9TkvMIsHJZbqvbZxlz+U/\
-yXyfwNfDpUKgNsSv3FXdBUlYN\
-yg9qBFVDcNQIpxylbGcSeiRpy\
-G1c8PnPudEfJS/ZlVsknDrrWM\
-wd5M3JlCKYsYFUqJlofSfdLmc\
-7MxNFmPlHTDTxTo1uqR8Y7qXy\
-nbbqR523i8dpP4nRznMXx4TeN\
-WGzG/KPJHThDkAE7MUEn+/aAH\
-pFZZz7554JENcFlXnaQj318yk\
-4wCthPoa2rXYqFqiOpmJ5A+2t\
-ev2YsZQMSzepTG82mMwLEp1xh\
-Vu9nn9EnjlNEZljuPEu/JRNw0\
-puUxVphqkr9oLDdVfF1JCra1u\
-pW9tyUJswogd9uldJayDLchQC\
-K2Sllyls5x9Nt3VrwsLqf5GHV\
-w+EWnhAcobcgagNOR7Z3asNcR\
-iZWVbSZTwz9A3dSqebbO2hRFz\
-XbKIP0Doml6JV0UapIwGxTb5L\
-3/jeA+DfDfRGyld9XPIswuova\
-yvr0rhMkQ5UjUSv2I+aPXeKZ8\
-HeYw99C7TjDiNV0Pbpsb7+Vsf\
-VUrcTN5F5w32qzvW1Y68RlthY\
-+zUhrVF4EY1Itwc3AfmY/UkQT\
-8s18/9zwv23PvJeZ91KmbO8lK\
-1P3XuJjTPV6MTJ9H/F2jXdTo1\
-C1Z7dK9GxYhaAu1oVtlwh1Ff2\
-/Llje6n0mUStfz//9/2c3Z1bz\
-637nC8lyr9dOEkXkpdVPk2oZb\
-5dow2Qps+pW5VtJFjsczZ2ABM\
-e4B36ZfHLazHxYWJ0uwcWI5wi\
-08KaOM7zDoQvrSV1W2pyRP/Nv\
-Z5b6a7PUYWdP6rXVmMM+RzSxW\
-6X+mGNUfZ6atV4u25Yi9LcVWe\
-td3nrAbzqqwlY/x1qKp2iZLzk\
-f07LO8omYmYWeWegyZftd4yy0\
-6/zXdK10Stn0LPVKyf7oGXLHe\
-PrEbwX7y9xOBTb7MY/YnKEs6K\
-zNJ55nJXCWbcOf8bM+F1ixdMh\
-vQeshn7Q/9+scG8sTXi3oCG9G\
-I1rqs/WuvMCZtZ9Z+zJle7cB1\
-j4mD7Zee/8crD1RNi3rfqdkP3\
-wAbT7C/9X44Tu4932Ne4UfQQp\
-1Rpl9p4BnlnNmOb82yxl78n0K\
-3rJE3Tdz0/ST75Zo50yc/VlJF\
-JrFHPY5pr2Ebhmvwi/uazjq83\
-dDzuDPrPfMen9teRZ5ak/Ua8F\
-VCr+Za6HlY/Hpz/y7P6dm0e/N\
-ci00W+qrSzGzo9XZ0eXabEqTo\
-sXTt6OxtVjqtaFm6v6UsmenZT\
-+/a7z9ZBnI+yin60mkdgjfsTX\
-oLWK8WfpO4sfkBr8hrYcnfHt4\
-mxDdoUYUnGKuBu0DDnCVdnnL+\
-TknLmk/k+U4Mu1nsWmi7lKL1X\
-9A2o7xZheWA9kFz65uqm7MfUT\
-sffhE/kIIncs16I0+amG0rUyJ\
-tnySvFP6G6iALkZcZCuNOQ3sR\
-EKPzxg2U44A/ideibiVfI87VE\
-tIBTs9eoa2cTTXhffxaVL6PVK\
-4YqDrXm2+mlob6Os8aXM3uKd+\
-NqT4CR1f/aW4EzEqNHYj4mHyy\
-gK1jBMotjpiM11RdeVmYV0Jrd\
-kWpzPsnf7GXN+qe/m0RNeUmYb\
-4NORWYQ0pVzOeoh35Y26Md/V+\
-rlg/1EpUM/1Q9eN2aRbEVu0rT\
-j9egn/HfJajyjTjynIK8wDzct\
-itvWI0WuhXtdBjUish2asgiXu\
-Ef4enryb6ZL4vWNch/SbMtvFm\
-dRmHqQ6KCZIfzhbWmRIwrgJ6v\
-MA9IbNETe1Nt4uuBPRTdT6sl/\
-sOUVfPh3yfy3Xm1iyPIpVN0vv\
-XB/yW9SXLver+Slxhsvg3vBXM\
-WypyqRDoVjq1Ys4bbJO9jY5Zi\
-zPp1nZbXS473zcr5rsKrinXZK\
-Td3h3O9a2Kuf6hAq6fYUW1/CN\
-9u3Ke/10B11v8vTsv18ulca3v\
-8i0Fcuu/UZtW2iKyo1hFVnaiT\
-Rjc4hbVBFX1YmiMid/53KO68k\
-WM6gZ6cn3DXfX1joFZY/aRulC\
-NsY3L1cSHoX0qu3xDqzWqtRe3\
-eT51tj/dLy5Tv4nxzjco8X2le\
-qBacTOFZatSWXaFSplflfdTjB\
-DuId0X6F+2vDXsFlA+w8lbRvz\
-OzgOMUffQF1811EBpoWc7Qnn2\
-JB9fn1+rlgoqqcSzFfeo3ksPf\
-f1LjFGLui89HrWmyjCiD819mV\
-+5Il2RCjZmK7IaVBFGHcWsXOj\
-pYvJf4gbUFA==\
+﻿const cEKOKOMTab = 'EKO-KOM';
+      cEKOKOMAdd = 'Přidat';
+      cEKOKOMDelete = 'Vymazat';
+      cContainerBusinessObject = '3DROIEGQRFMOH4ZT4I53BZCXKO';
+
+procedure setEkoKomEnabled(AWinControl: TWinControl; AEnabled: Boolean);
+var i: Integer;
+begin
+  for i := 0 to AWinControl.ControlCount - 1 do
+  begin
+    AWinControl.Controls[i].Enabled:= AEnabled;
+    if AWinControl.Controls[i] is TWinControl then
+      setEkoKomEnabled(TWinControl(AWinControl.Controls[i]), AEnabled);
+  end;
+end;
+
+procedure btnEKOKOMCFirst(Sender: TSpeedButton);
+begin
+  TMemoryDataset(IntToObj(Sender.Tag)).First;
+end;
+
+procedure btnEKOKOMCPrior(Sender: TSpeedButton);
+begin
+  TMemoryDataset(IntToObj(Sender.Tag)).Prior;
+end;
+
+procedure btnEKOKOMCNext(Sender: TSpeedButton);
+begin
+  TMemoryDataset(IntToObj(Sender.Tag)).Next;
+end;
+
+procedure btnEKOKOMCLast(Sender: TSpeedButton);
+begin
+  TMemoryDataset(IntToObj(Sender.Tag)).Last;
+end;
+
+{
+  Přidat
+}
+procedure addEKOKOMClick(Sender: TSpeedButton);
+var mDataSet: TMemoryDataset;
+    mAllowedIDs, mOLE, mOLEStrings, mRoll: Variant;
+    mExistStoreCard: TStringList;
+    i: Integer;
+
+    mPrefTyp: Integer;
+    mPrefUziti: Integer;
+    mPrefUvedeni: Integer;
+    mPrefZpoplatneny: Integer;
+    mPrefOpakovan: Integer;
+    mPrefPuvod: Integer;
+    mPrefMaterialKompozitu: Integer;
+    mPrefLittering: Integer;
+begin
+  mDataSet:= TMemoryDataset(IntToObj(Sender.Tag));
+  mOLE:= GetAbraOLEApplication;
+  mOLEStrings:= GetAbraOLEStrings;
+  mAllowedIDs:= GetAbraOLEStrings;
+
+  mOLE.SQLSelect(
+    'SELECT ID FROM StoreCards WHERE Category = 4', mAllowedIDs);
+
+  mRoll:= mOLE.GetRoll('S3WZQKDB5FDL342M01C0CX3FCC', 2);
+  mRoll.Params.add('_Allowed=' + mAllowedIDs.CommaText);
+
+  if mRoll.MultiSelectDialog(False, mOLEStrings) then
+  begin
+    mExistStoreCard:= TStringList.Create();
+    try
+      for i:= 0 to mOLEStrings.Count - 1 do
+      begin
+        mPrefTyp := mDataSet.FieldByName('TypObchodu').AsInteger;
+        mPrefUziti := mDataSet.FieldByName('ZpusobUziti').AsInteger;
+        mPrefUvedeni := mDataSet.FieldByName('ZpusobUvedeni').AsInteger;
+        mPrefZpoplatneny := mDataSet.FieldByName('ZpoplatneniObalu').AsInteger;
+        mPrefOpakovan := mDataSet.FieldByName('OpakovanePouzivany').AsInteger;
+        mPrefLittering := mDataSet.FieldByName('LitteringovyObal').AsInteger;
+        mPrefPuvod := mDataSet.FieldByName('PuvodMaterialu').AsInteger;
+        mPrefMaterialKompozitu := mDataSet.FieldByName('MaterialKompozitu').AsInteger;
+
+        mDataSet.Append;
+        mDataSet.FieldByName('ID').AsString:= '0000000000';
+        mDataSet.FieldByName('ContainerStoreCard_ID').AsString:= mOLEStrings.Strings[i];
+        // Předvyplnění podle posledního
+        mDataSet.FieldByName('TypObchodu').AsInteger := mPrefTyp;
+        mDataSet.FieldByName('ZpusobUziti').AsInteger := mPrefUziti;
+        mDataSet.FieldByName('ZpusobUvedeni').AsInteger := mPrefUvedeni;
+        mDataSet.FieldByName('ZpoplatneniObalu').AsInteger := mPrefZpoplatneny;
+        mDataSet.FieldByName('OpakovanePouzivany').AsInteger := mPrefOpakovan;
+        mDataSet.FieldByName('LitteringovyObal').AsInteger := mPrefLittering;
+        mDataSet.FieldByName('PuvodMaterialu').AsInteger := mPrefPuvod;
+        mDataSet.FieldByName('MaterialKompozitu').AsInteger := mPrefMaterialKompozitu;
+        mDataSet.Post;
+      end;
+      mDataSet.Refresh;
+    finally
+      mExistStoreCard.Free;
+    end;
+  end;
+end;
+
+procedure delEKOKOMClick(Sender: TSpeedButton);
+var mDataSet: TMemoryDataset;
+begin
+  mDataSet:= TMemoryDataset(IntToObj(Sender.Tag));
+  mDataSet.Delete;
+end;
+
+{
+  Počítané fieldy
+}
+procedure dsEKOKOMCalc(DataSet: TDataSet);
+var mObjSpace: TNxCustomObjectSpace;
+    mBO: TNxCustomBusinessObject;
+begin
+  try
+  OutputDebugString(IntToStr(DataSet.Tag));
+  mObjSpace:= TNxCustomObjectSpace(DataSet.Tag);
+  mBO:= mObjSpace.CreateObject(Class_StoreCard);
+  try
+    if not NxIsEmptyOID(DataSet.FieldByName('ContainerStoreCard_ID').AsString) then
+    begin
+      OutputDebugString(DataSet.FieldByName('ContainerStoreCard_ID').AsString);
+      mBO.Load(DataSet.FieldByName('ContainerStoreCard_ID').AsString, nil);
+      DataSet.FieldByName('ContainerStoreCard_ID_Name').AsString:= mBO.GetFieldValueAsString('Name');
+    end;
+  finally
+    mBO.Free;
+  end;
+  except
+    OutputDebugString(ExceptionMessage);
+  end;
+end;
+
+{
+  Refresh
+}
+procedure RefreshContainers(ASite: TSiteForm);
+var mListBox: TListBox;
+    i: Integer;
+    j: Integer;
+    str : string;
+    mDataSet: TMemoryDataset;
+    mSQL: string;
+    mResult: TStringList;
+    mBO, mBOStorCard: TNxCustomBusinessObject;
+    mGridLookupColumn : TNxMultiGridLookupColumn;
+    mMon : TNxCustomBusinessMonikerCollection;
+    mCurrentStoreCard : TNxCustomBusinessObject;
+    mGrd : TMultiGrid;
+    mComponent: TComponent;
+begin
+  mComponent:= ASite.FindComponent('lbxComponents');
+  if mComponent = nil then exit;
+
+  mListBox:= TListBox(mComponent);
+
+  i:= mListBox.Items.IndexOf('StoreCardUnit');
+
+  if i < 0 then
+    Exit;
+
+  mGridLookupColumn := TNxMultiGridLookupColumn(mListBox.Items.Objects(i));
+  mCurrentStoreCard := TBusRollSiteForm(ASite).CurrentObject;
+
+  if mCurrentStoreCard <> nil then
+  begin
+    mGridLookupColumn.Values.Clear();
+    mMon := mCurrentStoreCard.GetLoadedCollectionMonikerForFieldCode(mCurrentStoreCard.GetFieldCode('StoreUnits'));
+
+    for j := 0 to mMon.Count - 1 do
+    begin
+      str := mMon.BusinessObject[j].GetFieldValueAsString('Code');
+      mGridLookupColumn.Values.Insert(0, str + '=' + str);
+    end;
+  end
+  else
+  begin
+    exit;
+  end;
+
+  i:= mListBox.Items.IndexOf('dsEKOKOM');
+  mDataSet:= TMemoryDataset(mListBox.Items.Objects(i));
+  mDataSet.DisableControls;
+  try
+    if not mDataSet.Active then
+      mDataSet.Open;
+
+    if (mDataSet.RecordCount > 0) then
+      mDataSet.EmptyTable;
+
+//TODO nacteni predelat pomoci SQL dotazu viz nize
+{    mSQL:= Format(
+      'SELECT A.ID as ID, '+
+      ' A.X_EKO_StoreCardUnit as StoreCardUnit, '+
+      ' A.X_EKO_ContainerStoreCard_ID as ContainerStoreCard_ID, '+
+      ' SC.Name as ContainerStoreCard_ID_Name, '+
+      ' A.X_EKO_TypObchodu as TypObchodu, '+
+      ' A.X_EKO_ZpusobUziti as ZpusobUziti, '+
+      ' A.X_EKO_ZpusobUvedeni as ZpusobUvedeni, '+
+      ' A.X_EKO_ZpoplatneniObalu as ZpoplatneniObalu, '+
+      ' A.X_EKO_OpakovanePouzivany as OpakovanePouzivany, '+
+      ' A.X_EKO_LitteringovyObal as LitteringovyObal, '+
+      ' A.X_EKO_UnitQuantity as UnitQuantity, '+
+      ' A.X_EKO_Hmotnost as Hmotnost, '+
+      ' A.X_EKO_Quantity as Quantity, '+
+      ' A.X_EKO_UnitRate as UnitRate '+
+      ' FROM DefRollData A ' +
+      ' LEFT JOIN STORECARDS SC ON SC.ID = A.X_EKO_ContainerStoreCard_ID ' +
+      ' WHERE A.CLSID=''%s'' AND A.X_EKO_StoreCard_ID=''%s''',
+      [cContainerBusinessObject, mCurrentStoreCard.OID]);}
+
+    mSQL:= Format(
+      'SELECT A.ID as ID '+
+      ' FROM DefRollData A ' +
+      ' WHERE A.CLSID=''%s'' AND A.X_EKO_StoreCard_ID=''%s''',
+      [cContainerBusinessObject, mCurrentStoreCard.OID]);
+
+{    if (mDataSet.Active) then begin
+      mDataSet.Edit;
+      mDataSet.Fields.Clear;
+    end;
+    ASite.BaseObjectSpace.SQLSelect2(mSQL, mDataSet);
+    if (not mDataSet.Active) and (mDataSet.RecordCount > 0) then
+      mDataSet.Open;}
+
+    mResult:= TStringList.Create;
+
+    try
+      ASite.BaseObjectSpace.SQLSelect(mSQL, mResult);
+      mBO:= ASite.BaseObjectSpace.CreateObject(cContainerBusinessObject);
+
+      try
+        mBOStorCard:= ASite.BaseObjectSpace.CreateObject(Class_StoreCard);
+        try
+          for i:= 0 to mResult.Count - 1 do
+          begin
+            mBO.Load(mResult[i], nil);
+
+            mDataSet.Append;
+            mDataSet.FieldByName('ID').AsString:= mResult[i];
+            mDataSet.FieldByName('StoreCardUnit').AsString:= mBO.GetFieldValueAsString('X_EKO_StoreCardUnit');
+
+            if not NxIsEmptyOID(mBO.GetFieldValueAsString('X_EKO_ContainerStoreCard_ID')) then
+            begin
+              mBOStorCard.Load(mBO.GetFieldValueAsString('X_EKO_ContainerStoreCard_ID'), nil);
+              mDataSet.FieldByName('ContainerStoreCard_ID').AsString:= mBOStorCard.OID;
+              mDataSet.FieldByName('ContainerStoreCard_ID_Name').AsString:= mBOStorCard.GetFieldValueAsString('Name');
+            end;
+
+            mDataSet.FieldByName('TypObchodu').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_TypObchodu');
+            mDataSet.FieldByName('ZpusobUziti').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_ZpusobUziti');
+            mDataSet.FieldByName('ZpusobUvedeni').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_ZpusobUvedeni');
+            mDataSet.FieldByName('ZpoplatneniObalu').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_ZpoplatneniObalu');
+            mDataSet.FieldByName('OpakovanePouzivany').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_OpakovanePouzivany');
+            mDataSet.FieldByName('LitteringovyObal').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_LitteringovyObal');
+            mDataSet.FieldByName('UnitQuantity').AsFloat := mBO.GetFieldValueAsFloat('X_EKO_UnitQuantity');
+            mDataSet.FieldByName('Hmotnost').AsFloat:= mBO.GetFieldValueAsFloat('X_EKO_Hmotnost');
+            mDataSet.FieldByName('Quantity').AsFloat := mBO.GetFieldValueAsFloat('X_EKO_Quantity');
+            mDataSet.FieldByName('UnitRate').AsFloat := mBO.GetFieldValueAsFloat('X_EKO_UnitRate');
+            mDataSet.FieldByName('PuvodMaterialu').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_PuvodMaterialu');
+            mDataSet.FieldByName('MaterialKompozitu').AsInteger:= mBO.GetFieldValueAsInteger('X_EKO_MaterialKompozitu');
+            mDataSet.Post;
+          end;
+        finally
+          mBOStorCard.Free();
+        end;
+      finally
+        mBO.Free;
+      end;
+    finally
+      mResult.Free;
+    end;
+  finally
+    mDataSet.EnableControls;
+    if mDataSet.RecordCount > 0 then begin
+      mDataSet.First;
+      i:= mListBox.Items.IndexOf('grdEKOKOM');
+
+      if i >= 0 then begin
+        mGrd :=  TMultiGrid(mListBox.Items.Objects(i));
+        mGrd.RepaintGrid;
+      end;
+
+    end;
+  end;
+end;
+
+{
+  Uložení datasetu
+}
+procedure SaveEKOKOMRelations(ASite: TSiteForm; AOID: String);
+var
+  mListBox: TListBox;
+  i: Integer;
+  mDataSet: TMemoryDataset;
+  mSQL, mID: string;
+  mBO: TNxCustomBusinessObject;
+  mOldIDs, mNewIDs: TStringList;
+  mComponent: TComponent;
+begin
+  mComponent:= ASite.FindComponent('lbxComponents');
+  if mComponent = nil then exit;
+
+  mListBox:= TListBox(mComponent);
+
+  i:= mListBox.Items.IndexOf('dsEKOKOM');
+
+  mDataSet:= TMemoryDataset(mListBox.Items.Objects(i));
+
+  if mDataSet.State <> dsBrowse then
+  begin
+    if mDataSet.FieldByName('ContainerStoreCard_ID').AsString <> '' then
+      mDataSet.Post;
+  end;
+
+  mDataSet.DisableControls;
+
+  try
+    // Nejdrive z databazi co se vymazalo....
+    mOldIDs:= TStringList.Create;
+    mNewIDs:= TStringList.Create;
+
+    try
+      // Načtení uložených obalů
+      mSQL:= Format(
+        'SELECT A.ID FROM DefRollData A ' +
+        'WHERE A.CLSID=''%s'' AND A.X_EKO_StoreCard_ID=''%s''',
+        [cContainerBusinessObject, AOID]);
+
+      ASite.BaseObjectSpace.SQLSelect(mSQL, mOldIDs); // Tady jsou v+sechny ID které jsou v databaze
+      mDataSet.First;
+
+      // Načtení nových obalů
+      while not mDataSet.Eof do
+      begin
+        mID:= mDataSet.FieldByName('ID').AsString;
+        if mID <> '0000000000' then
+          mNewIDs.Add(mID);
+        mDataSet.Next;
+      end;
+      mNewIDs.Sort;
+
+      // Smazání obalů, které nejsou v datasetu
+      for i:= 0 to mOldIDs.Count - 1 do
+      begin
+        if mNewIDs.IndexOf(mOldIDs[i]) = -1 then
+        begin
+          mBO:= ASite.BaseObjectSpace.CreateObject(cContainerBusinessObject);
+          try
+            mBO.Load(mOldIDs[i], nil);
+            mBO.Delete;
+          finally
+            mBO.Free;
+          end;
+        end;
+      end;
+    finally
+      mOldIDs.Free;
+      mNewIDs.Free;
+    end;
+
+    // Uložení obalů z datasetu
+    mDataSet.First;
+
+    while not mDataSet.Eof do
+    begin
+      mBO:= ASite.BaseObjectSpace.CreateObject(cContainerBusinessObject);
+      try
+        mID:= mDataSet.FieldByName('ID').AsString;
+        if mID = '0000000000' then
+        begin
+          mBO.New;
+          mBO.Prefill;
+        end
+        else
+          mBO.Load(mID, nil);
+
+        mBO.SetFieldValueAsString('X_EKO_StoreCard_ID', AOID);
+        mBO.SetFieldValueAsString('X_EKO_StoreCardUnit', mDataSet.FieldByName('StoreCardUnit').AsString);
+        mBO.SetFieldValueAsString('X_EKO_ContainerStoreCard_ID', mDataSet.FieldByName('ContainerStoreCard_ID').AsString);
+        mBO.SetFieldValueAsInteger('X_EKO_TypObchodu', mDataSet.FieldByName('TypObchodu').AsInteger);
+        mBO.SetFieldValueAsInteger('X_EKO_ZpusobUziti', mDataSet.FieldByName('ZpusobUziti').AsInteger);
+        mBO.SetFieldValueAsInteger('X_EKO_ZpusobUvedeni', mDataSet.FieldByName('ZpusobUvedeni').AsInteger);
+        mBO.SetFieldValueAsInteger('X_EKO_ZpoplatneniObalu', mDataSet.FieldByName('ZpoplatneniObalu').AsInteger);
+        mBO.SetFieldValueAsInteger('X_EKO_OpakovanePouzivany', mDataSet.FieldByName('OpakovanePouzivany').AsInteger);
+        mBO.SetFieldValueAsInteger('X_EKO_LitteringovyObal', mDataSet.FieldByName('LitteringovyObal').AsInteger);
+        mBO.SetFieldValueAsFloat('X_EKO_UnitQuantity', mDataSet.FieldByName('UnitQuantity').AsFloat);
+        mBO.SetFieldValueAsFloat('X_EKO_Hmotnost', mDataSet.FieldByName('Hmotnost').AsFloat);
+        mBO.SetFieldValueAsFloat('X_EKO_Quantity', mDataSet.FieldByName('Quantity').AsFloat);
+        mBO.SetFieldValueAsFloat('X_EKO_UnitRate', mDataSet.FieldByName('UnitRate').AsFloat);
+        mBO.SetFieldValueAsInteger('X_EKO_PuvodMaterialu', mDataSet.FieldByName('PuvodMaterialu').AsInteger);
+        mBO.SetFieldValueAsInteger('X_EKO_MaterialKompozitu', mDataSet.FieldByName('MaterialKompozitu').AsInteger);
+        mBO.Save;
+      finally
+        mBO.Free;
+      end;
+      mDataSet.Next;
+    end;
+  finally
+    mDataSet.EnableControls;
+  end;
+end;
+
+procedure grdDlbLClik(Sender: TMultiGrid);
+var mDataSet: TMemoryDataset;
+begin
+  mDataSet:= TMemoryDataset(IntToObj(Sender.Tag));
+  if mDataSet.State = dsBrowse then
+    mDataSet.Edit else
+    mDataSet.Post;
+end;
+
+{
+  Vytvoření záložky s datasetem
+}
+function AddEKOKOMTabSheet(APageControl: TPageControl): TTabSheet;
+var mBottomPnl: TPanel;
+    mGrd: TMultiGrid;
+    mGridColumn: TNxMultiGridColumn;
+    mGridDateColumn: TNxMultiGridDateColumn;
+    mGridLookupColumn: TNxMultiGridLookupColumn;
+    mBtn: array [0..6] of TSpeedButton;
+    i, x: Integer;
+    h: Integer;
+    mDataSet: TMemoryDataset;
+    mDataSource: TDataSource;
+    mListBox: TListBox;
+    mFieldDef: TFieldDef;
+begin
+  try
+    mListBox:= TListBox.Create(APageControl.Site);
+    mListBox.Parent:= APageControl.Site;
+    mListBox.Name:= 'lbxComponents';
+    mListBox.Visible:= False;
+
+    Result:= TTabSheet.Create(APageControl);
+    Result.PageControl:= APageControl;
+    Result.Caption:= cEKOKOMTab;
+    Result.Name:= 'tabEKOKOM';
+
+    mBottomPnl:= TPanel.Create(Result);
+    mBottomPnl.Parent:= Result;
+    mBottomPnl.Align:= alBottom;
+    mBottomPnl.Height:= 27;
+    mBottomPnl.Name:= 'pnlEKOBottom';
+    mBottomPnl.Caption:= '';
+
+    mDataSet:= TMemoryDataset.Create(Result);
+    mDataSet.Name:= 'dsEKOKOM';
+
+    mDataSet.FieldDefs.Add('ID', ftWideString, 10);
+    mDataSet.FieldDefs.Add('StoreCardUnit', ftWideString, 5);
+    mDataSet.FieldDefs.Add('ContainerStoreCard_ID', ftWideString, 10);
+
+    mDataSet.FieldDefs.Add('TypObchodu', ftInteger, 0);
+    mDataSet.FieldDefs.Add('ZpusobUziti', ftInteger, 0);
+    mDataSet.FieldDefs.Add('ZpoplatneniObalu', ftInteger, 0);
+    mDataSet.FieldDefs.Add('OpakovanePouzivany', ftInteger, 0);
+    mDataSet.FieldDefs.Add('LitteringovyObal', ftInteger, 0);
+    mDataSet.FieldDefs.Add('UnitQuantity', ftFloat, 0);
+    mDataSet.FieldDefs.Add('Hmotnost', ftFloat, 0);
+    mDataSet.FieldDefs.Add('Quantity', ftFloat, 0);
+    mDataSet.FieldDefs.Add('UnitRate', ftFloat, 0);
+
+    mDataSet.Tag:= ObjToInt(APageControl.Site.CompanyObjectSpace);
+    mDataSet.onCalcFields:= @dsEKOKOMCalc;
+
+    try
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'ContainerStoreCard_ID_Name', ftWideString, 100, False, 300001);
+      with mFieldDef.CreateField(mDataSet, nil, 'xContainerStoreCard_ID_Name', False) do
+      begin
+        Size:= 100;
+        FieldKind:= fkCalculated;
+        FieldName:= 'ContainerStoreCard_ID_Name';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'ID', ftWideString, 10, False, 300002);
+      with mFieldDef.CreateField(mDataSet, nil, 'xID', False) do
+      begin
+        Size:= 10;
+        FieldKind:= fkData;
+        FieldName:= 'ID';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'StoreCardUnit', ftWideString, 5, True, 300003);
+      with mFieldDef.CreateField(mDataSet, nil, 'xStoreCardUnit', False) do
+      begin
+        Size:= 10;
+        FieldKind:= fkData;
+        FieldName:= 'StoreCardUnit';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'ContainerStoreCard_ID', ftWideString, 10, True, 300004);
+      with mFieldDef.CreateField(mDataSet, nil, 'xContainerStoreCard_ID', False) do
+      begin
+        Size:= 10;
+        FieldKind:= fkData;
+        FieldName:= 'ContainerStoreCard_ID';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'TypObchodu', ftInteger, 0, True, 300005);
+      with mFieldDef.CreateField(mDataSet, nil, 'xTypObchodu', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'TypObchodu';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'ZpusobUziti', ftInteger, 0, True, 300007);
+      with mFieldDef.CreateField(mDataSet, nil, 'xZpusobUziti', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'ZpusobUziti';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'ZpusobUvedeni', ftInteger, 0, True, 300008);
+      with mFieldDef.CreateField(mDataSet, nil, 'xZpusobUvedeni', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'ZpusobUvedeni';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'ZpoplatneniObalu', ftInteger, 0, True, 300009);
+      with mFieldDef.CreateField(mDataSet, nil, 'xZpoplatneniObalu', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'ZpoplatneniObalu';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'OpakovanePouzivany', ftInteger, 0, True, 300010);
+      with mFieldDef.CreateField(mDataSet, nil, 'xOpakovanePouzivany', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'OpakovanePouzivany';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'LitteringovyObal', ftInteger, 0, True, 300011);
+      with mFieldDef.CreateField(mDataSet, nil, 'xLitteringovyObal', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'LitteringovyObal';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'UnitQuantity', ftFloat, 0, True, 300012);
+      with mFieldDef.CreateField(mDataSet, nil, 'xUnitQuantity', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'UnitQuantity';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'Hmotnost', ftFloat, 0, True, 300013);
+      with mFieldDef.CreateField(mDataSet, nil, 'xHmotnost', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'Hmotnost';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'Quantity', ftFloat, 0, True, 300014);
+      with mFieldDef.CreateField(mDataSet, nil, 'xQuantity', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'Quantity';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'UnitRate', ftFloat, 0, True, 300014);
+      with mFieldDef.CreateField(mDataSet, nil, 'xUnitRate', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'UnitRate';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'PuvodMaterialu', ftInteger, 0, True, 300015);
+      with mFieldDef.CreateField(mDataSet, nil, 'xPuvodMaterialu', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'PuvodMaterialu';
+      end;
+
+      mFieldDef:= TFieldDef.Create(mDataSet.FieldDefs, 'MaterialKompozitu', ftInteger, 0, True, 300016);
+      with mFieldDef.CreateField(mDataSet, nil, 'xMaterialKompozitu', False) do
+      begin
+        FieldKind:= fkData;
+        FieldName:= 'MaterialKompozitu';
+      end;
+
+    except
+      OutputDebugString(ExceptionMessage);
+    end;
+
+    mListBox.Items.AddObject(mDataSet.Name, mDataSet);
+    mListBox.Items.AddObject(Result.Name, Result);
+
+    mDataSource:= TDataSource.Create(Result);
+    mDataSource.DataSet:= mDataSet;
+
+    mGrd:= TMultiGrid.Create(Result);
+    mGridColumn:= TNxMultiGridColumn.Create(mGrd);
+    mGridDateColumn:= TNxMultiGridDateColumn.Create(mGrd);
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+
+    mGrd.Parent:= Result;
+    mGrd.OnDblClick:= @grdDlbLClik;
+    mGrd.OnGetColumnReadOnly:= @MGColumnReadOnly;
+  //  mGrd.OnKeyPress:= @grdKeyPress;
+    mGrd.Align:= alClient;
+    mGrd.DataSource:= mDataSource;
+
+    mGrd.Tag:= ObjToInt(mDataSet);
+    mGrd.Name := 'grdEKOKOM';
+    mListBox.Items.AddObject(mGrd.Name, mGrd);
+
+    // StoreCardUnit
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 60;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'StoreCardUnit';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Jednotka';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 0;
+    mGridLookupColumn.Values.add('?=?');
+    mGrd.AddColumn(mGridLookupColumn);
+    mListBox.Items.AddObject(TNxMultiGridCustomColumn(mGridLookupColumn).FieldName, mGridLookupColumn);
+    // Název skl. karty
+    mGridColumn:= TNxMultiGridColumn.Create(mGrd);
+    mGridColumn.Layout:= 0;
+    mGridColumn.Width:= 180;
+    mGridColumn.FieldName:= 'ContainerStoreCard_ID_Name';
+    mGridColumn.Name:= 'ContainerStoreCard_ID_Name';
+    mGridColumn.Caption:= 'Název skl. karty obalu';
+    mGridColumn.Order:= 1;
+    mGridColumn.ReadOnly:= True;
+    mGrd.AddColumn(mGridColumn);
+    // MaterialKompozitu
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 85;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'MaterialKompozitu';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Materiál kompozitu';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 2;
+    mGridLookupColumn.Values.add('Ne=0');
+    mGridLookupColumn.Values.add('Ano=1');
+    mGrd.AddColumn(mGridLookupColumn);
+    // TypObchodu
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:=TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 60;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'TypObchodu';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Typ obchodu';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 3;
+    mGridLookupColumn.Values.add('Obchodní=0');
+    mGridLookupColumn.Values.add('Průmyslové=1');
+    mGridLookupColumn.Values.add('Vyhodnotit výraz=2');
+    mGrd.AddColumn(mGridLookupColumn);
+    // ZpusobUziti
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 60;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'ZpusobUziti';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Způsob užití';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 4;
+    mGridLookupColumn.Values.add('Prodejní=0');
+    mGridLookupColumn.Values.add('Skupinové=1');
+    mGridLookupColumn.Values.add('Přepravní=2');
+    mGrd.AddColumn(mGridLookupColumn);
+    // ZpusobUvedeni
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 90;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'ZpusobUvedeni';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Způsob uvedení';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 5;
+    mGridLookupColumn.Values.add('Vyrobené v ČR=0');
+    mGridLookupColumn.Values.add('Importované do ČR=1');
+    mGridLookupColumn.Values.add('Nakoupené na vnitřním trhu ČR=2');
+    mGrd.AddColumn(mGridLookupColumn);
+    // PuvodMaterialu
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 70;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'PuvodMaterialu';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Původ';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 6;
+    mGridLookupColumn.Values.add('Primární=0');
+    mGridLookupColumn.Values.add('Recyklát=1');
+    mGrd.AddColumn(mGridLookupColumn);
+    // ZpoplatneniObalu
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 70;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'ZpoplatneniObalu';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Zpoplatnění';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 7;
+    mGridLookupColumn.Values.add('Zpoplatněný=0');
+    mGridLookupColumn.Values.add('Předplacený=1');
+    mGridLookupColumn.Values.add('Neplacený=2');
+    mGrd.AddColumn(mGridLookupColumn);
+    // OpakovanePouzivany
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 30;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 85;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'OpakovanePouzivany';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Opakovaně používaný';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 8;
+    mGridLookupColumn.Values.add('Ne=0');
+    mGridLookupColumn.Values.add('Ano=1');
+    mGrd.AddColumn(mGridLookupColumn);
+    // LitteringovyObal
+    mGridLookupColumn:= TNxMultiGridLookupColumn.Create(mGrd);
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= TNxMultiGridCustomColumn(mGridLookupColumn).Width + 45;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Layout:= 0;
+    TNxMultiGridCustomColumn(mGridLookupColumn).Width:= 95;
+    TNxMultiGridCustomColumn(mGridLookupColumn).FieldName:= 'LitteringovyObal';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Caption:= 'Litteringový obal';
+    TNxMultiGridCustomColumn(mGridLookupColumn).Order:= 9;
+    mGridLookupColumn.Values.add('Ne=0');
+    mGridLookupColumn.Values.add('Nádoby na nápoje=1');
+    mGridLookupColumn.Values.add('Sáčky a balení na potraviny=2');
+    mGridLookupColumn.Values.add('Nápojové kelímky vyrobené z plastu=3');
+    mGridLookupColumn.Values.add('Nápojové kelímky částečně vyrobené z plastu=4');
+    mGridLookupColumn.Values.add('Nádoby na potraviny vyrobené z plastu=5');
+    mGridLookupColumn.Values.add('Nádoby na potraviny částečně vyrobené z plastu=6');
+    mGridLookupColumn.Values.add('Plastové odnosné tašky lehké 10 < 50 mikronů=7');
+    mGridLookupColumn.Values.add('Plastové odnosné tašky < 15 mikronů=8');
+    mGrd.AddColumn(mGridLookupColumn);
+    // Hmotnost
+    mGridColumn:= TNxMultiGridColumn.Create(mGrd);
+    mGridColumn.Layout:= 0;
+    mGridColumn.Width:= 70;
+    mGridColumn.Order:= 10;
+    mGridColumn.FieldName:= 'Hmotnost';
+    mGridColumn.Caption:= 'Hmotnost [g]';
+    mGrd.AddColumn(mGridColumn);
+    // UnitQuantity
+    mGridColumn:= TNxMultiGridColumn.Create(mGrd);
+    mGridColumn.Layout:= 0;
+    mGridColumn.Width:= 70;
+    mGridColumn.Order:= 11;
+    mGridColumn.FieldName:= 'UnitQuantity';
+    mGridColumn.Caption:= 'Počet';
+    mGrd.AddColumn(mGridColumn);
+
+    // Quantity
+    mGridColumn:= TNxMultiGridColumn.Create(mGrd);
+    mGridColumn.Layout:= 0;
+    mGridColumn.Width:= 70;
+    mGridColumn.Order:= 12;
+    mGridColumn.FieldName:= 'Quantity';
+    mGridColumn.Caption:= 'Množství';
+    mGrd.AddColumn(mGridColumn);
+
+    // UnitRate
+    mGridColumn:= TNxMultiGridColumn.Create(mGrd);
+    mGridColumn.Layout:= 0;
+    mGridColumn.Width:= 70;
+    mGridColumn.Order:= 13;
+    mGridColumn.FieldName:= 'UnitRate';
+    mGridColumn.Caption:= 'Vztah';
+    mGrd.AddColumn(mGridColumn);
+
+    x:= 1;
+    for i:= 0 to 5 do
+    begin
+      mBtn[i]:= TSpeedButton.Create(mBottomPnl);
+      mBtn[i].Parent:= mBottomPnl;
+      mBtn[i].Left:= x;
+      mBtn[i].Top:= 1;
+      mBtn[i].Height:= 25;
+      mBtn[i].Width:= 25;
+      mBtn[i].Caption:= '';
+      mBtn[i].Flat:= True;
+      mBtn[i].Tag:= ObjToInt(mDataSet);
+      if i = 0 then
+      begin
+        mBtn[i].Caption:= '|<';
+        mBtn[i].onClick:= @btnEKOKOMCFirst;
+      end;
+      if i = 1 then
+      begin
+        mBtn[i].Caption:= '<';
+        mBtn[i].onClick:= @btnEKOKOMCPrior;
+      end;
+      if i = 2 then
+      begin
+        mBtn[i].Caption:= '>';
+        mBtn[i].onClick:= @btnEKOKOMCNext;
+      end;
+      if i = 3 then
+      begin
+        mBtn[i].Caption:= '>|';
+        mBtn[i].onClick:= @btnEKOKOMCLast;
+      end;
+      if i = 4 then
+      begin
+        mBtn[i].Width:= 80;
+        mBtn[i].Caption:= cEKOKOMAdd;
+        mBtn[i].onClick:= @addEKOKOMClick;
+        mBtn[i].Tag:= ObjToInt(mDataSet);
+        mBtn[i].Name:= 'btnAdd';
+      end;
+      if i = 5 then
+      begin
+        mBtn[i].Width:= 80;
+        mBtn[i].Caption:= cEKOKOMDelete;
+        mBtn[i].Tag:= ObjToInt(mDataSet);
+        mBtn[i].onClick:= @delEKOKOMClick;
+      end;
+      x:= x + mBtn[i].Width;
+    end;
+
+    mDataSet.Open;
+    setEKOKOMEnabled(Result, False);
+  except
+    OutputDebugString(ExceptionMessage);
+  end;
+end;
+
+procedure MGColumnReadOnly(Sender: TNxMultiGridCustomColumn; var AReadOnly: Boolean);
+begin
+  AReadOnly:= False;
+  //skladova karta nazev
+  if Sender.Name = 'ContainerStoreCard_ID_Name' then
+    AReadOnly:= True;
+end;
+
+begin
+end.

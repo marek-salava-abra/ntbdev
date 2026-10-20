@@ -1,57 +1,63 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0QOFAB42t1XbU/\
-TUBQ++2rCL/BLE2NgmSBvARlC\
-onMCEdBsE6PGkMI6mKzr7LrJS\
-/ix/oD9BBOf+9y+t+MthBDT9L\
-b39Nzz8tznnLaH4khX+uLJhDw\
-RA8dLHJ9lX7alLYdi4aka9zFr\
-cuZB5xxnCxIXEhuyEeYbshjaO\
-PRXb8iA6wxZwzkpF/IWxzuZxb\
-gs8/JGpilZkgXcLUpVKpAqWZX\
-yaVmB3ivczWHVMtZVobuE8RLW\
-VmP+PomJ8QTjEWLaxdXGNfC7K\
-R35I2bB8mOtygf5COtq3MHzkj\
-yDhwWOswm7W8BmDzn0kYkJK9q\
-ih8wHsJ/W3AWaXo5+i/f9cIU6\
-L8K13xC3Q2RdXDtY+ZOxnwM5E\
-1c96+GJCZ0uMjFwH9+dGdq65N\
-ijFSVtwpLLtRU5xlXhk9zVKcb\
-UQXxlaDUQ/6l8geRA6hhdGfra\
-fSCo9HqUFv0shojHDbPo00afW\
-bRh/8jXOsCaI0oCTQte2tCL0G\
-sjAgMaDtnVoEcvE+s4jF/Qb5H\
-7ckz9wK46atBpM88q/CpLPei1\
-ifgU9r6OmYlc0piWyZwkM0r0o\
-+NWes3YfrYQjVoZ2L4qj6DmDL\
-A0nkkZaDnkgIV5F9YNH2UDVhz\
-guAVpC3d14pxGvEhJ2kZ2r2xU\
-k+KS4obe+WDegCU7wWwb7HGYm\
-0etM39NmxKL9eYm9IPquykf7F\
-i9llkv7+HRhUTFpPbI8FltAHG\
-HldCVp4UTzJ/Dg9onxYHvY/vA\
-j3DXjDFIBp4nE31F87KCeE5ZG\
-zUfB43RDGVRbdVw/cWO57L6dp\
-il0h3gfIMuVsO4R7z6IQMVu1T\
-0cxxXEjw2ctDSnLbImQ45pCPX\
-UVYgVZg78Lid6hG6l5nkeZM8T\
-HbpOEZZltzMxwZGL1x3vQ+NcD\
-Ifk5VlYHU8AuV/NoVONewk+r2\
-leojFuCx0Tyu3V8a9qzXzsKp4\
-1YV/xbOvBYveh2C6Yl3w1rDp2\
-fIzH5JnI+7QgJ3WwNnDk3Nyd7\
-OgdbxbZJvMd50ZB/PiWFxeUxL\
-NSzjniVTxRlwaX+NrjFXLmwmv\
-07G4VjPWdJZ26j2Y15uDo45nj\
-vxGxShk+n71qspv5CCe3E/Vo6\
-MOUsI82rmR38U1KlGPC6o+nlP\
-R19K9xGO3Cd7DZszKFlFK2kij\
-F9nSzBqhMiYhTedu+V8FeZhc3\
-aX+J1yyDKpmvhA0WtEbN17BPc\
-aUrtf7qtbrq23Or7T8+lzP6Vv\
-jK/Hx1I7F783b8OTx8Pv2sWc5\
-mPeOTX/H342zya/dpJ+H5sguv\
-/bPaKFLS8GbM473REFX1AlkI8\
-yy2HdpJ+oNXX5nB38sf++5+z1\
-c1HfdZ8vvBUGOt/mSy/5dxq2n\
-/zuSdvXTGfkHy0pshQ==\
+﻿const
+  //U_Licence_ident z firemní G4
+  cLicGuid = '{BBD0B72A-BB63-4EC2-BEBB-978B1D70E66E}';
+  cPackageName = 'Hlášení EKO-KOM'+#13#10;
+  cIsVisual = true;
+  cIsNotVisual = false;
+
+{
+  Zkontroluje zda je platná licence.
+}
+procedure CheckLicence(self: TNxWebServicesHelper);
+var
+  s: string;
+begin
+  exit;
+  if not TestLicence(cIsNotVisual, s) then
+    RaiseException('Stav licence: '+#13#10+s);
+end;
+
+function TestLicence(const mVisual:boolean; var LogInfoStr: string): boolean;
+var
+  mDate : TDateTime;
+  mCountDay : integer;
+  mName: string;
+begin
+  mName := Format(' pro doplněk %s ', [cPackageName]);
+  LogInfoStr := '';
+  if CFxNxRuntime.NxCheckRequiredMinimumABRAVersion(13, 1, 9) then begin
+    Result := CFxCustomLicence.IsValid(cLicGuid);
+    mDate := CFxCustomLicence.GetDate(cLicGuid);
+    if Result and (mDate = 0) then Exit; // neomezená licence
+    //20 dnu před vypršením testovací budu upozorňovat
+    if Result and ((mDate >= Date) and (mDate < (Date + 20))) then begin
+      mCountDay := Round(mDate-Date);
+      if mVisual then
+        ShowMessage('Testovací licence'+mName+'vyprší: ' + DateToStr(mDate) + ', to je za ' + IntToStr(mCountDay) + ' dní.')
+      else
+        LogInfoStr := 'Testovací licence'+mName+'vyprší: ' + DateToStr(mDate) + ', to je za ' + IntToStr(mCountDay) + ' dní.';
+      Exit;
+    end;
+    //po vypršení testovací budu upozorňovat
+    if (mDate < (Date + 1)) and (mDate > 0) then begin
+      if mVisual then
+        ShowMessage('Testovací licence'+mName+'vypršela: ' + DateToStr(mDate))
+      else
+        LogInfoStr := 'Testovací licence'+mName+'vypršela: ' + DateToStr(mDate);
+      Result := false;
+      Exit;
+    end;
+    if not Result then begin
+      if mVisual then
+        ShowMessage('Nebyl nalezen licenční klíč'+mName+'nebo je neplatný')
+      else
+        LogInfoStr := 'Nebyl nalezen licenční klíč'+mName+'nebo je neplatný';
+      Exit;
+    end;
+  end else begin
+    Result := true;
+  end;
+end;
+
+begin
+end.

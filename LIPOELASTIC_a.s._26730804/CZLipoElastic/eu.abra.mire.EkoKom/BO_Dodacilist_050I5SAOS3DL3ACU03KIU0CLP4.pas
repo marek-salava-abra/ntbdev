@@ -1,39 +1,32 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0Rw7wB42rVVTW/\
-TQBCdXJH6C7jsLYlUhTsVh6Sl\
-tAK1lQoIuFhp7RQ3jh05diBB8\
-F977KEn/gBvnu1k/ZEQKirL3t\
-3Zmdk3b9+uf8iePJO+jCWRVIY\
-SiC9LtNfiiREX3xEsoUQyhzXB\
-OMDoHnNT2AK8v1pjWWD8SRx5L\
-W/lHO0H5phLDP8QvSP4fcXroq\
-+Rn1s+2qVM5HkrxGu4Sozxgnh\
-+8juFJSISF9hiInKAdUQcsVzi\
-m8gxIhWVKx+JP8XIkRNERqiqQ\
-68AMS8R/V7O5LscwmeGyAjrDd\
-jXCj20M6C/klv0rzF/gIi+lf+\
-QFXjMdIoIRXFDJJnnev31Whew\
-xXgnxLr2PUfPR7RPfoIdY7uIV\
-mbmnNGewTMpIfMryNZex7B4yK\
-05Q9Q6okcfnjFnJtythFkG5C+\
-ARX3LWbKdGqCGx3Cqma6ITz2K\
-vC/wGPmSKyKlSmKq7g6VPRBbp\
-rkUuvEsFak6fGRWzeo40+o99a\
-Yau8MbksV0tZqP2g20EQHdGTJ\
-8y3kzK7X00EtyxXdhT5DPs/DW\
-K7CruMWMslHgHstvoKyfmYJLB\
-3o6KmXKEGotCVpl+BQZdY+msC\
-zAqUZ0LLxvNp6GPiK1mph4bxD\
-VrqzcRo1NVW6utKw7AyW8KrFX\
-RVN4Nq99UMudMXnBM5ySuxnXy\
-fTxUOFyuJXLNZ9Np9kQuV1LEw\
-vbmaifjDoj9im4BPrsju1h3Zi\
-nTJVm+3QwE8CuJ8hZ5W7iqr56\
-T96hmiHq+Z8K2acifcRsQlHo3\
-77PDe8CwzO410rye8bk/4NM4e\
-kT/Ws2MbXbPVjsYZXb7TyWb05\
-lcle07b/welJh7PF/4GVlh/Qu\
-9fL7utifkJ4uT2BALTUhs+/Lp\
-2Jl/592rVvDqXa3wmzVZo/tfv\
-1vlc325A9r3IA5\
+﻿{
+Aktualizace definovatelné položky X_EKO_UzavrenaDohoda při změně firmy
+}
+procedure _AfterSetFieldValue_Hook(Self: TNxCustomBusinessObject; AFieldCode: Integer; AValue: TNxParameter; AOriginalValue: TNxParameter);
+var
+  mCode: integer;
+  mFeeTransferAgreement: Boolean;
+  mFirmBO: TNxCustomBusinessObject;
+begin
+  // Změnu provádíme pouze při editaci nového záznamu
+  if (osNew in Self.State) then
+  begin
+    // Zjistíme kód položky Firm_ID
+    if not NxIsemptyOID(Self.GetFieldValueAsString('Firm_ID')) then
+    begin
+      mCode := Self.GetFieldCode('Firm_ID');
+      // Pokud se mění položka Firm_ID
+      if AFieldCode = mCode then
+      begin
+        mFirmBO := Self.ObjectSpace.CreateObject(Class_Firm);
+        mFirmBO.Load(Self.GetFieldValueAsString('Firm_ID'), nil);
+        // Z firmy si načteme hodnotu definovatelné položky X_EKO_UzavrenaDohoda
+        mFeeTransferAgreement := mFirmBO.GetFieldValueAsBoolean('X_EKO_UzavrenaDohoda');
+        // Hodnotu položky X_EKO_UzavrenaDohoda z firmy přeneseme na doklad
+        Self.SetFieldValueAsBoolean('X_EKO_UzavrenaDohoda', mFeeTransferAgreement)
+      end;
+    end;
+  end;
+end;
+
+begin
+end.

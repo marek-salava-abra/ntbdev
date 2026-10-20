@@ -5,7 +5,7 @@
     "id": "~00000030P",
     "name": "eu.abra.masa.lipoelastic.CN",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 159,
+    "objversion": 195,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,28 +17,28 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 122,
+      "objversion": 146,
       "posindex": 1
     },
     {
       "scriptid": "auto",
       "filename": "auto.pas",
       "scriptkind": 0,
-      "objversion": 67,
+      "objversion": 87,
       "posindex": 2
     },
     {
       "scriptid": "dataMatrix",
       "filename": "dataMatrix.pas",
       "scriptkind": 0,
-      "objversion": 59,
+      "objversion": 88,
       "posindex": 3
     },
     {
       "scriptid": "VNJGDP5MU4K4V5GWUFOHULYHVG",
       "filename": "AG_Servisniknizka_VNJGDP5MU4K4V5GWUFOHULYHVG.pas",
       "scriptkind": 2,
-      "objversion": 61,
+      "objversion": 83,
       "posindex": 4
     }
   ]

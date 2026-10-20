@@ -945,6 +945,8 @@ end;
 
 
 function APICallRest(mSO: TNxCustomBusinessObject; mTyp: string;mUrl: string;mHead: string;mID: string;mRequest:string;mStatus:Boolean):string;
+const
+  cTIMEOUT_MS = 60000; //1 min
 var
   mWinHTTP: Variant;
   AOS: TNxCustomObjectSpace;
@@ -952,6 +954,7 @@ begin
   AOS := mSO.ObjectSpace;
     try
          if GetHTTP(mWinHTTP) then begin
+              mWinHTTP.SetTimeouts(cTIMEOUT_MS, cTIMEOUT_MS, cTIMEOUT_MS, cTIMEOUT_MS);
               mWinHTTP.Open(mTyp, mUrl +mHead +mid);      //   NxShowSimpleMessage(mTyp + ' - ' +mUrl +mHead +mid + mRequest, nil);
               mWinHTTP.SetRequestHeader('Authorization', 'Basic QVBJX1N5bmNocm9uaXphY2U6YzNsdVkyaHliMjVwZW1GalpRPT0=');
               //    mWinHTTP.SetRequestHeader('Content-Type', 'application/json; charset=CP1250'); //');

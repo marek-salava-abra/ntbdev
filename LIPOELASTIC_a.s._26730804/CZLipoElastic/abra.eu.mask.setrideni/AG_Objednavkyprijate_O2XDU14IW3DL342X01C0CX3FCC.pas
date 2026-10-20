@@ -106,7 +106,7 @@ begin
     end;
   end;
 end;
-
+{
 procedure FormCreate_Hook(Self: TSiteForm);
 var
   mmAction: TMultiAction;
@@ -125,7 +125,7 @@ mMAction := Self.GetNewMultiAction;
           mMAction.OnExecuteItem := @NewDLExecute;
           mmAction.OnExecute := @NewDLExecute;
 
-end;
+end;  }
 
 begin
 end.

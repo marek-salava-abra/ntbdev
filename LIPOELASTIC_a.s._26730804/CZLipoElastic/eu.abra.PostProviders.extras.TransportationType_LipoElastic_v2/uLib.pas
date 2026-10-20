@@ -214,7 +214,11 @@ begin
       if not AIsRelatedDoc then begin
         mAmount := 0;
       end else begin
-        mAmount := mPackagesDataSet.FieldByName(cFDAmount).AsFloat;
+        {mBORO.Load(mDataRO.FieldByName('ID').AsString ,nil);
+        if mBORO.GetFieldValueAsString('DocQueue_ID.code')='OPDS' then
+         mAmount:=mAmount+mBORO.GetFieldValueAsFloat('U_dobirka')
+        else}
+        mAmount := mAmount +  mDataRO.FieldByName('TAmount').AsFloat;
       end;
 
 
@@ -227,7 +231,10 @@ begin
         end else begin
           gLog.add(Format(' přičítám částku: %s',[ FloatToStr(mDataRO.FieldByName('TAmount').AsFloat)   ]));
         end;
-
+        {mBORO.Load(mDataRO.FieldByName('ID').AsString ,nil);
+        if mBORO.GetFieldValueAsString('DocQueue_ID.code')='OPDS' then
+         mAmount:=mAmount+mBORO.GetFieldValueAsFloat('U_dobirka')
+        else }
         mAmount := mAmount +  mDataRO.FieldByName('TAmount').AsFloat;
         mDataRO.Next;
       end;
@@ -618,7 +625,7 @@ begin
 
                 mBranchID := '';
                 if mDocBO.HasField('X_Delivery_adress_id' ) then
-                  if not CFxOID.IsEmptyOrFull(mDocBO.GetFieldValueAsString('X_Delivery_adress_id' )) then
+                  if not CFxOID.IsEmptyOrFull(mDocBO.GetFieldValueAsString('X_Delivery_adress_id')) then
                     mBranchID := mOS.SQLSelectFirstAsString( Format('select X_PickupPoint from addresses where id = ''%s'' ',[ mDocBO.GetFieldValueAsString('X_Delivery_adress_id' ) ]));
 
                 OutputDebugString('LIPO X_Delivery_adress_id.X_PickupPoint: '+mBranchID);
@@ -631,13 +638,16 @@ begin
                 mSQL := format(cSQLBranches, [QuotedStr(mPostProvider_ID), QuotedStr(  mBranchID  )  ]);
 
                 mServiceType_ID := GetFirstRecordFromSQL(mOS, mSQL); //X_PD_BB_Branches
+                OutputDebugString('msql: '+mSQL);
+                OutputDebugString('mServiceType_ID: '+mServiceType_ID);
+                CFxLog.SaveLog(NxCreateContext_1(mDocBO),'LB','Log BB pro '+mDocBO.DisplayName,'msql: '+mSQL+NxCrlF+'mServiceType_ID: '+mServiceType_ID,2,now);
               end;
 
               if not CFxOID.IsEmptyOrFull(mIssuedContent_ID) then
                 mPackagesDataSet.FieldByName(cFDContentType).AsString := mIssuedContent_ID;
               if not CFxOID.IsEmptyOrFull(mServiceType_ID) then
                 mPackagesDataSet.FieldByName(cFDPDMServiceType+IntToStr(0)).AsString := mServiceType_ID;
-
+              OutputDebugString('mServiceType_ID 642: '+mServiceType_ID);
 
 
             end;

@@ -1,38 +1,76 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0Ti1gB42tVWUU/\
-bMBC+50n8h7yRCBEBGy8gHqCT\
-tUkwoabankMb2khrGiVlwL/f5\
-7PdJI7TpgQmTZET+3L33fl8d7\
-4D+kR/KKaCDjDz8MzpHqsVvgU\
-lVOIRWBW0xL8LjMlmfckyZuQs\
-NYXMjJ5Y1mshfaeMUlqTT9cU8\
-SzZoJp1he6BawTbctBTUDPNW2\
-JdgJIBWXHdgeuFfuL9G7oNptQ\
-mEecYBQXa3gemSOndO76gq8aO\
-Q9gjeWLGre/CoG/HC+mGZzO2K\
-ILkKyxOtJ4HcE7wfwXaL7Zwhv\
-lzT+R7zEq2RvlKYeaYRzgVyZ+\
-AOuL3mvX3wx3BmlRLSatm+C40\
-+hmekzfgfMM3BdcCc4N03hvHj\
-ogrR6RUsSnxntkvCz5LG/mGo9\
-8+2W4LAqDIczHY7XjyOPJjlsw\
-2O+xGvGxI3uLvY80vzb8yPvKd\
-iN3e9ugYo02x9dgnvX+EKNwvF\
-u4P+GW5ifhDrhpzfQaHFq/K6u\
-qE7Sw3vAlnSvPEt9kbwTqZV34\
-ja69hS847mXIUqDgKNc5Uo9zp\
-b8xVpaxh2Fb0qYdfoaXkHC1B2\
-b8+Kd8r6WGWRPiutYd9vCsv71\
-NJu7LL37oHoWvdCOeSQqucrVh\
-jwbXQb8VJgCfU1qroqFs81Auq\
-kv4vXnDX/bhxGx5hnNZi/d9aO\
-AZSDkrKvP3zdMyVUNEXVrZuv2\
-NNdyCrpWC+jLuOwNL+3jn/CH9\
-nkKtuJ8E2TdgDMlOXHDsytuo3\
-RNVvuDqhwNl3qa7NaHBxtCNT9\
-Opq3LbVvS96djOyvsW877lDek\
-jHInp0J6foKU52yLQ7kc8Nmf0\
-7BzGoSxCDOgLxQbe/ePeb3nV3\
-y/WYffsEPS6P2PnWNZreVlIh/\
-QXyFQoE\
+﻿
+var
+  gProgressForm : TForm;
+
+
+procedure ProgressInit(ASite : TSiteForm; ACaption : string; AMaxValue : Integer);
+begin
+  gProgressForm:= TForm.Create(ASite);
+  gProgressForm.BorderStyle:= bsToolWindow;
+  gProgressForm.Position:= poScreenCenter;
+  gProgressForm.ClientWidth:= 220;
+  gProgressForm.ClientHeight:= 25;
+  gProgressForm.Caption := ACaption;
+
+  with TProgressBar.Create(gProgressForm) do
+  begin
+    Parent:= gProgressForm;
+    Left:= 2;
+    Top:= gProgressForm.ClientHeight - Height - 2;
+    Width:= gProgressForm.ClientWidth - 4;
+    Name:= 'prgBar';
+    Max := AMaxValue
+  end;
+
+  gProgressForm.Show();
+  Application.ProcessMessages();
+end;
+
+procedure ProgressDispose;
+begin
+  gProgressForm.Close();
+end;
+
+procedure ProgressSetMax(aValue: Integer);
+begin
+  TProgressBar(gProgressForm.FindChildControl('prgBar')).Max:= aValue;
+end;
+
+procedure ProgressSetPos(aValue: Integer);
+begin
+  TProgressBar(gProgressForm.FindChildControl('prgBar')).Position:= aValue + 1;
+  TProgressBar(gProgressForm.FindChildControl('prgBar')).Repaint;
+
+  gProgressForm.Refresh();
+  gProgressForm.BringToFront();
+
+  Application.ProcessMessages();
+end;
+
+function FrmTeplomer(aParentForm: TSiteForm): TForm;
+var Frm: TForm;
+begin
+  Frm:= TForm.Create(aParentForm);
+  Frm.BorderStyle:= bsDialog;
+  Frm.Position:= poScreenCenter;
+  Frm.ClientWidth:= 150;
+  Frm.ClientHeight:= 30;
+  with TProgressBar.Create(Frm) do
+  begin
+    Parent:= Frm;
+    Left:= 2;
+    Top:= Frm.ClientHeight - Height - 2;
+    Width:= Frm.ClientWidth - 4;
+    Name:= 'prgBar'
+  end;
+  Result:= Frm;
+end;
+
+
+
+
+
+
+
+begin
+end.

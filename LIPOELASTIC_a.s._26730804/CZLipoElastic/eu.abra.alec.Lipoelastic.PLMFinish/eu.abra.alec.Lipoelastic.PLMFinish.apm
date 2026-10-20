@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000001101",
+    "name": "eu.abra.alec.Lipoelastic.PLMFinish",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 1,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "auto",
+      "filename": "auto.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 1
+    }
+  ]
+}

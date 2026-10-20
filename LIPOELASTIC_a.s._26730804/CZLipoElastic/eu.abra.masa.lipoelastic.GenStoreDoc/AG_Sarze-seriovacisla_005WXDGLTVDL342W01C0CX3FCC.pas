@@ -11,6 +11,8 @@ begin
   mAction.Items.Add('##Vytvoř záměnu výdej##');
   mAction.Items.Add('##Vytvoř přeměnu výdej##');
   mAction.Items.Add('##Vytvoř příjemku##');
+  mAction.Items.Add('##Vytvoř přebytek##');
+  mAction.Items.Add('##Vytvoř manko##');
   mAction.Category := 'tabList';
   mAction.OnExecuteItem := @CreateSD;
 end;
@@ -73,6 +75,16 @@ begin
                 mClass:= Class_ReceiptCard;
                 mMsite:= Site_ReceiptCards;
                 mName:=  'příjemku';
+            end;
+            5: begin
+                mClass:= Class_InventoryOverPlus;
+                mMsite:= Site_InventoryOverPlus;
+                mName:=  'přebytek'
+            end;
+            6: begin
+                mClass:= Class_InventoryShortFall;
+                mMsite:= Site_InventoryShortFalls;
+                mName:=  'manko'
             end;
 
  end;

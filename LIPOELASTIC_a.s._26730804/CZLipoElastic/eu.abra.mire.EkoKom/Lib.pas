@@ -1,47 +1,59 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0TccwB42q1W2W7\
-aQBS9fa3EP6C+YEsEpdtL3UZi\
-SRpaAk1AUVNURY7Z3LKFJQmq+\
-sn9h557ZwbvhC6yPMzMXc7dTY\
-6ekkczmtKSVpTDKY/Hozb1cV6\
-RD8oQtCp4erjL0zu8BbzH9JFa\
-8p7RAdWphltnh4YXj+poUYXK1\
-KBr+oL3FLsyXVITuq/pA3hr2L\
-eoA/6rCFaVxuQCYQm+sEaD8xK\
-SF7ipg/qezrE/AbUFhFdA6mCt\
-02twVXCq0meRNvrN+2OLdkkbe\
-HUHX66e/MJ5Jeg57Ff0Hbd5nP\
-I0gZ9TWovUT1nntADVw30P9wu\
-JQ1V+XUj24asn0eJcWBK9MQ3o\
-Dbg6OPnCcwLqArodwfUFuy88n\
-L2FjjVTR7JfZdBc7HsiuxCOT9\
-Cr+PkmnEVTGezRGhKMWhe+Ce7\
-zIu1CZoF1g/0MNkcRVRa6iGiB\
-vpKttd+JlMGZRLxXPlckpz7uw\
-7TANl+j17Xdw5DtN3Jm/IB7kO\
-FDlw5hV57e0pFUS0FiO5L8Gem\
-kjYzNfpk8lVBZXO9NrPeoLoMT\
-zaq91chSS6x/ixDXG1RrUlMJO\
-kbY3UsHTiU3M+g0CB2c19DqPC\
-p/pqvaRG9/DVVkc57wLajhbMl\
-TXZlGxlT2bixVEdwtm61kAbcu\
-aqMmcXTBP6aiWMG3DZy5bguxW\
-P575XQy6yFquQ3bW/g9pgfo8C\
-DDSPFYR7t3/3pK052u83/6n+x\
-EfgaSGdPDbMGhyPL0bIj8UDRZ\
-qbg2uA7oOdYeJMJ6/zTagc4Sa\
-D08Voanfmh2qXhzvNQ5vA++FW\
-rqD6BtGulq1cU1qVEXneVhHcs\
-0tMBxQ98kPyugznHr6SyxX03k\
-rgp9S4nUBPkMuNtbbkey1aZb3\
-eHJ+T+RDhiAX3ma5DJfzoLEOq\
-kjOcGXITz+XgXcpq+yJvMFbpb\
-aElULcfucGIqZOWkopcg3NZBM\
-jyxPtnPIqhmrqNY2ekWNZ0e+O\
-twNlqaUZKKu9Xw6kjq29+4Co6\
-MD6kNowql71V1OqkRN7PVhqa+\
-/2cGMK0b+G6VHOBw5ps6lAjki\
-VgSddT3TOnntQmoQkyhjN97RH\
-WG7TyQ3/Yy+iUZJUUv0G1Uzn9\
-k=\
+﻿
+const
+  cSettingsCode = ' EKOKOM-ID';
+  cSettings2Code = ' EKOKOM-OBAL_Z_HLAVNI_JEDNOTKY';
+  Class_EKOKOM = '3DROIEGQRFMOH4ZT4I53BZCXKO';
+
+
+{
+  Vytvoří tlačítko a menu
+}
+procedure CreateAction(Self: TSiteForm; title: string; hint: string; handler: Pointer;
+  const multiItems : array of string = ['']);
+var
+  mAction: TBasicAction;
+  i : Integer;
+begin
+  if multiItems[0] <> '' then
+    mAction := Self.GetNewMultiAction()
+  else
+    mAction := Self.GetNewAction();
+
+  mAction.ShowControl := True;
+  mAction.ShowMenuItem := True;
+  mAction.Caption := title;
+  mAction.Hint := hint;
+  mAction.Category := 'tabDetail, tabList';
+
+  if multiItems[0] <> '' then
+    TMultiAction(mAction).OnExecuteItem := handler
+  else
+    mAction.OnExecute := handler;
+
+  if multiItems[0] <> '' then
+  begin
+    for i := 0 to Length(multiItems) -1 do
+      TMultiAction(mAction).Items.Add(multiItems[i]);
+  end;
+end;
+
+{
+}
+function GetDataScalar(objectspace : TNxCustomObjectSpace; mSql : string; mDefault : string = '') : string;
+var
+  sql : TStringList;
+begin
+  Result:= mDefault;
+  sql:= TStringList.Create;
+  objectspace.SQLSelect(mSql,sql);
+  if (sql.Count > 0) then
+  begin
+    sql.Text := sql[0];
+    sql.Delimiter := ',';
+    Result:= StringReplace(sql[0],'"','',[rfReplaceAll]);
+  end;
+  sql.Free;
+end;
+
+begin
+end.

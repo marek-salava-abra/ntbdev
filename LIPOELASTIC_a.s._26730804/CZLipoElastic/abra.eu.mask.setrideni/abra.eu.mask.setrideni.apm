@@ -5,7 +5,7 @@
     "id": "2A20000101",
     "name": "abra.eu.mask.setrideni",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 43,
+    "objversion": 44,
     "description": "Seskupení OV",
     "cryptForExport": false,
     "usageState": 2,
@@ -24,7 +24,7 @@
       "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
       "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
       "scriptkind": 2,
-      "objversion": 18,
+      "objversion": 19,
       "posindex": 2
     },
     {

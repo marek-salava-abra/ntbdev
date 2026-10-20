@@ -8,7 +8,7 @@
 
 //R
 procedure BBExport(AOS: TNxCustomObjectSpace; const AIDs: TStringList; var AErrorLog: String; const ADriver:Integer; const APostProviderBO : TNxCustomBusinessObject);
-var mErrorList, mTMP : TStringList;
+var mErrorList, mTMP, mFileContent : TStringList;
     mJSONResponseBody : TJSONSuperObject;
     mResponseText, mStatusError, mPackageError, mFileName, mExport_ID,mExportDataSource : String;
     mStatusCode, mSoftError, mError : Integer;
@@ -68,6 +68,10 @@ begin
           cBBServiceType_B2A : mStatusCode := WSPostFile_2(NxCreateContext(AOS), mFileName, ( mPostProviderBO.GetFieldValueAsString('X_PD_WS')) +GetSubModulName(mPostProviderBO.GetFieldValueAsInteger('X_PD_BB_ProviderModul'))+'/b2a', mResponseText,mIssuedDocBO);
           cBBServiceType_B2C : mStatusCode := WSPostFile_2(NxCreateContext(AOS), mFileName, ( mPostProviderBO.GetFieldValueAsString('X_PD_WS')) +GetSubModulName(mPostProviderBO.GetFieldValueAsInteger('X_PD_BB_ProviderModul'))+'/b2c', mResponseText,mIssuedDocBO);
         end;
+        //vložit do logu odesílaný JSON
+        mFileContent:=TStringList.create;
+        mFileContent.LoadFromFile(mFileName);
+        mFileContent.free;
         //FileOpen(mFileName,fmShareDenyNone);
         if not DeleteFile(mFileName) then
           RaiseException(lng_msg_ExportDeleteError+mFileName);
@@ -78,8 +82,6 @@ begin
         mStatusCode := -1;  //reciklace
 
         mJSONResponseBody:= TJSONSuperObject.ParseString(mResponseText,true);
-
-        //dohledá v JSON existenci "status" elementu
         mStatusCode := GetStatusCode(mJSONResponseBody);
 
 

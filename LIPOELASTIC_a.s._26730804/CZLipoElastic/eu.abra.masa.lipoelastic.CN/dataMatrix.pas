@@ -144,8 +144,9 @@ end;
 
 
 if mStorecard_ID='' then begin
-    if ((copy(mdatamatrix,1,9)='010859184') or (copy(mdatamatrix,1,9)='010222000')) and
-       ((copy(mdatamatrix,(Length(mdatamatrix)-7),2)='17') or (copy(mdatamatrix,(Length(mdatamatrix)-8),2)='17'))
+    if ((copy(mdatamatrix,1,9)='010859184') or (copy(mdatamatrix,1,9)='010222000') or (copy(mdatamatrix,1,9)='010843505')) and
+       (((copy(mdatamatrix,(Length(mdatamatrix)-7),2)='17') or (copy(mdatamatrix,(Length(mdatamatrix)-8),2)='17')) or
+        ((copy(mdatamatrix,(Length(mdatamatrix)-7),2)='11') or (copy(mdatamatrix,(Length(mdatamatrix)-8),2)='11')))
     then begin
          //(Pos('~17', mDatamatrix)<>0) and (Pos('~11', mDatamatrix)<>0)  then begin
 
@@ -156,11 +157,23 @@ if mStorecard_ID='' then begin
                  mNameBatch:='0000000000000' +mNameBatch;
                  mNameBatch:=RightStr(mNameBatch,12);
            end;
-
-
+           if (copy(mdatamatrix,1,9)='010843505') then mNameBatch:=AnsiLeftStr(mNameBatch,Length(mNameBatch)-8);
+           //NxShowSimpleMessage('mNameBatch: '+mNameBatch,nil);
            if mNameBatch<>'' then begin
                  mr:=tstringlist.create;
                         try
+                            if (copy(mdatamatrix,1,9)='010843505') then begin
+                              os.SQLSelect('select a.id,sc.ID from StoreBatches a left join storecards sc on sc.id=a.storecard_id where a.Name='
+                                           + quotedstr(mNameBatch)+' and sc.code='+QuotedStr(copy(mDatamatrix,4,13)),mr);
+                              if mr.count>0 then begin
+                                  mStoreBatch_ID:=copy(mr.strings[0],1,10);
+                                  mStorecard_ID:=copy(mr.strings[0],12,10);
+                                  mQuantity:= '1';
+                              end else begin
+                               //   NxShowSimpleMessage(mNameBatch + ' - ' + mStoreBatch_ID ,nil);
+                              end;
+
+                            end else begin
                               os.SQLSelect('select id,Storecard_ID from StoreBatches where Name=' + quotedstr(mNameBatch),mr);
                               if mr.count>0 then begin
                                   mStoreBatch_ID:=copy(mr.strings[0],1,10);
@@ -169,6 +182,7 @@ if mStorecard_ID='' then begin
                               end else begin
                                //   NxShowSimpleMessage(mNameBatch + ' - ' + mStoreBatch_ID ,nil);
                               end;
+                            end;
                         finally
                             mr.free;
                         end;

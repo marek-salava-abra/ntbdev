@@ -83,7 +83,7 @@ begin
   try
     if aIndex=0 then mURL:=cURL + AObjectName + '/' + AID + '?select=id';
     if aIndex=2 then mURL:=cURLAT + AObjectName + '/' + AID + '?select=id';
-    mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
+    
     if aIndex=0 then mAuth:=cAuthorization;
     if aIndex=2 then mAuth:=cAuthorizationAT;
     mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');

@@ -5,7 +5,7 @@
     "id": "4KW0000101",
     "name": "QRFunctions",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 69,
+    "objversion": 71,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,7 +17,7 @@
       "scriptid": "QR",
       "filename": "QR.pas",
       "scriptkind": 0,
-      "objversion": 68,
+      "objversion": 70,
       "posindex": 1
     }
   ]

@@ -266,7 +266,9 @@ begin
                                                 //Blat_File:=NxGetTempDir+aname;
 
                                                 mxid:='';
-                                                mxid:=iSendMailx(os, Blat_subject, Blat_body, blat_to, mS_CopyEmail,'archiv@lipoelastic.com','2140000101', Blat_File,mDivision_ID,mIssuedInvoice);
+                                                mxid:=iSendMailx(os, Blat_subject, Blat_body, blat_to, mS_CopyEmail,'archiv@lipoelastic.com','~000000101', Blat_File,mDivision_ID,mIssuedInvoice);
+                                                // -- Puvodne -- mxid:=iSendMailx(os, Blat_subject, Blat_body, blat_to, mS_CopyEmail,'archiv@lipoelastic.com','2140000101', Blat_File,mDivision_ID,mIssuedInvoice);
+
                                                 if mxid<>'' then begin
                                                         mi:=os.SQLExecute('update issuedinvoices set x_SendEmail$Date=' +NxFloatToIBStr(Now) + ', X_Email_ID=' + QuotedStr(mxid) + ' where id=' + quotedstr(mIssuedInvoice.oid));
                                                 end else begin

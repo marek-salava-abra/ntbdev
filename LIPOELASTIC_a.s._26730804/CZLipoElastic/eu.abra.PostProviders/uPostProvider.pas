@@ -23,10 +23,12 @@ begin
   APostProviderBO := nil;
   mList := TStringList.Create;
   try
+    OutputDebugString('AID: '+AID);
     if (ADriver = cDriverBalikobot) and (AID <> '') then
       mList.add(GetProviderID(AOS, AID));
     if mList.Count = 0 then
       AOS.SQLSelect(cSQL+IntToStr(ADriver), mList);
+    OutputDebugString('message: '+cSQL+IntToStr(ADriver)+NxCrlf+mlist.DelimitedText);
     //if NxGetActualUserID(AOS)='4PU1000101' then NxShowSimpleMessage(cSQL+IntToStr(ADriver)+NxCrlf+mlist.DelimitedText,nil);
     if (mList.Count = 1) then begin
       APostProviderBO := AOS.CreateObject(Class_PDMPostProvider);

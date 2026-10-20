@@ -30,6 +30,7 @@ var
  mCompleteOrder: boolean;
  mTempStr, mEOID, mSC_ID, mBatch_ID: string;
  mQuantity: Extended;
+ mRowJSON:TJSONSuperObject;
 begin
  Result := TJSONSuperObject.Create;
  mOS:=AContext.GetObjectSpace;
@@ -85,20 +86,24 @@ begin
         mCompleteOrder:= True;
 
         //Projdu dataset a porovnám ho s JSON na vracené položky a vracené množství. Pokud se vrací vše označím jako Complete
-
+        Result.O['Rows2'] := Result.CreateJSONArray;
         while not mDS.Eof do begin
           mDS.Edit;
           for i:= 0 to ABody.A['lines'].Length -1 do begin
             //Pokud existují šarže zkontroluji jestli sedí
             if ABody.A['lines'].O[i].A['batches'].Length > 0 then begin
               for j:= 0 to ABody.A['lines'].O[i].A['batches'].Length -1 do begin
+                mRowJSON:=TJSONSuperObject.Create;
                 //Použijeme funkci na dekodování šarže z datamatrix kodu
+                mRowJSON.S['inputstr']:=ABody.A['lines'].O[i].A['batches'].O[j].AsString;
                 mTempStr:= DatamatrixDecodeBatches(mOS, ABody.A['lines'].O[i].A['batches'].O[j].AsString);
+                mRowJSON.S['mTempStr']:=mTempStr;
                 mEOID:= NxTrapStr(mTempStr, ';');
                 mStoreCard_ID:= NxTrapStr(mTempStr, ';');
                 mBatch_ID:= NxTrapStr(mTempStr, ';');
                 mQuantity:= 1;
                 mTempStr:= '';
+                mRowJSON.S['mBatch_ID']:=mBatch_ID;
                 //OutputDebugString('Batch: '+mBatch_ID);
                 //OutputDebugString('ParsedSC: '+mStoreCard_ID);
                 //OutputDebugString('SCCode: '+mDS.FieldByName('StoreCardCode').AsString);
@@ -131,6 +136,7 @@ begin
           if mDS.FieldByName('Reason').AsString = 'R' then
             mReclamation:= true;
           mDS.Post;
+          Result.A['Rows2'].Add(mRowJSON);
           //OutputDebugString('mDS loop');
           mDS.Next;
         end;
@@ -157,11 +163,29 @@ begin
           end;
         end;
         //Projdu a udělám si seznam vracených řádků
+        Result.O['Rows'] := Result.CreateJSONArray;
         mDS.First;
         while not mDS.Eof do begin
           if mDS.FieldByName('ToReturn').AsFloat > 0 then begin
             mInvoiceRowList.Add(mDS.FieldByName('ID').AsString);
           end;
+          mRowJSON:=TJSONSuperObject.create;
+          mRowJson.S['output']:=(
+            'ID: '+mDS.FieldByName('ID').AsString + nxCrLf +
+            'StoreCardCode: '+mDS.FieldByName('StoreCardCode').AsString + nxCrLf +
+            'SCCategory: '+mDS.FieldByName('SCCategory').AsString + nxCrLf +
+            'Store_ID: '+mDS.FieldByName('Store_ID').AsString + nxCrLf +
+            'Quantity: '+mDS.FieldByName('Quantity').AsString + nxCrLf +
+            'BusOrder_ID: '+mDS.FieldByName('BusOrder_ID').AsString + nxCrLf +
+            'BusTransaction_ID: '+mDS.FieldByName('BusTransaction_ID').AsString + nxCrLf +
+            'BusProject_ID: '+mDS.FieldByName('BusProject_ID').AsString + nxCrLf +
+            'StoreBatch_ID: '+mDS.FieldByName('StoreBatch_ID').AsString + nxCrLf +
+            'StoreBatch: '+mDS.FieldByName('StoreBatch').AsString + nxCrLf +
+            'BatchQuantity: '+mDS.FieldByName('BatchQuantity').AsString + nxCrLf +
+            'Complete: '+mDS.FieldByName('Complete').AsString + nxCrLf +
+            'ToReturn: '+mDS.FieldByName('ToReturn').AsString +NxCrlf+
+            'mBatch_ID: '+mBatch_ID
+            );
           OutputDebugString(
             'ID: '+mDS.FieldByName('ID').AsString + nxCrLf +
             'StoreCardCode: '+mDS.FieldByName('StoreCardCode').AsString + nxCrLf +
@@ -177,6 +201,7 @@ begin
             'Complete: '+mDS.FieldByName('Complete').AsString + nxCrLf +
             'ToReturn: '+mDS.FieldByName('ToReturn').AsString
             );
+          Result.A['Rows'].Add(mRowJSON);
           mDS.Next;
         end;
 

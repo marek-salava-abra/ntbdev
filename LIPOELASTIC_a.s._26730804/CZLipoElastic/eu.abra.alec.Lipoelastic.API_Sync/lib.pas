@@ -3,6 +3,65 @@
 var
   gUpdated, gCreated: Integer;
 
+
+{POST_StoreBatchMovements}
+
+procedure POST_StoreBatchMovements(AContext:TNxContext; ARequest: TAPIRequest; AResponse: TAPIResponse);
+var
+  i: Integer;
+  mInputJSON, mOutputJSON, mDocJSON:TJSONSuperObject;
+  mList:TStringList;
+  mSQL:string;
+  mBO, mParentBO:TNxCustomBusinessObject;
+begin
+  mOutputJSON:=TJSONSuperObject.Create;
+  mInputJSON:=TJSONSuperObject.Create;
+  try
+   mInputJSON:=TJSONSuperObject.ParseString(ARequest.Body,True);
+   if not(NxIsEmptyOID(mInputJSON.S['storebatch_id'])) then begin
+     mList:=TStringList.Create;
+     mSQL:='Select distinct(sd2.id) from storedocuments2 sd2 join docrowbatches drb on drb.parent_id=sd2.id where sd2.flowType=''21'' and drb.storebatch_id='+QuotedStr(mInputJSON.S['storebatch_id']);
+     AContext.SQLSelect(mSQL,mList);
+     if mList.count>0 then begin
+        mOutputJSON.O['StoreDocs'] := mOutputJSON.CreateJSONArray;
+        mBO:=AContext.GetObjectSpace.CreateObject(Class_CustomStoreDocumentRow);
+        for i:=0 to mList.count-1 do  begin
+           mBO.load(mlist.Strings[i],nil);
+           mParentBO:=mbo.GetMonikerForFieldCode(mbo.GetFieldCode('Parent_ID')).BusinessObject;
+           mDocJSON:=TJSONSuperObject.Create;
+           mDocJSON.S['ID']:=mList.strings[i];
+           mDocJSON.S['DisplayName']:=mParentBO.DisplayName;
+           mDocJSON.S['Firm_Name']:=mParentBO.GetFieldValueAsString('Firm_ID.Name');
+           mDocJSON.S['Firm_Street']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.Street');
+           mDocJSON.S['Firm_City']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.City');
+           mDocJSON.S['Firm_PostCode']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.PostCode');
+           mDocJSON.S['Firm_Email']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.Email');
+           mDocJSON.S['Firm_Phone1']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.PhoneNumber1');
+           mDocJSON.DT8601['DocDate']:=mParentBO.GetFieldValueAsDateTime('DocDate$Date');
+           mOutputJSON.A['StoreDocs'].Add(mDocJSON);
+        end;
+        mBO.free;
+        mOutputJSON.S['Status']:='ok';
+        mOutputJSON.I['DocumentCount']:=mlist.Count;
+        AResponse.Body:=mOutputJSON.AsString;
+        AResponse.SetHeader('Content-Type','application/json');
+        AResponse.Status := 200;
+    end else begin
+        mOutputJSON.S['Status']:='error';
+        mOutputJSON.I['DocumentCount']:=mlist.Count;
+        AResponse.Body:=mOutputJSON.AsString;
+        AResponse.SetHeader('Content-Type','application/json');
+        AResponse.Status := 422;
+    end;
+
+
+   end;
+  finally
+    mInputJSON.free;
+    mOutputJSON.free;
+  end;
+end;
+
 procedure StoreCardAPISync2(ABO: TNxCustomBusinessObject; var AResultStr: string;var aIndex:integer; var aResult_ID:string);
 var
   mOS: TNxCustomObjectSpace;
@@ -270,8 +329,8 @@ begin
       mResultJSON:= TJSONSuperObject.Create;
       mResultJSON:= API_POST(mJSON, 'StoreCards',True,aIndex);
       aResult_ID:=mResultJSON.S['ID'];
-      if NxGetActualUserID(mOS) = '4PX1000101' then      //uživatel ALEC
-          NxShowEditorSite(NxCreateContext(mOS), mResultJSON.AsString, true);
+      //if NxGetActualUserID(mOS) = '4PX1000101' then      //uživatel ALEC
+      //    NxShowEditorSite(NxCreateContext(mOS), mResultJSON.AsString, true);
       //if aIndex=2 then
       // NxShowEditorSite(NxCreateContext(mOS), mJSON.AsString +nxCrLf+ mResultJSON.AsString, True);
       if NxIsEmptyOID(mResultJSON.S['ID']) then begin
@@ -794,9 +853,15 @@ var
  mArray:TJSONSuperObjectArray;
  mOS:TNxCustomObjectSpace;
  mQuantity, mBatchQuantity, mKOOPrice:extended;
- i:integer;
- mBatch_ID, mBatchCard_ID, mStoreBatchName, mVYP_ID, mKOOP_ID, mPieceList_ID:string;
- mVYPBO, mPieceListBO, mKOOBO:TNxCustomBusinessObject;
+ i,j,k,l,n,z,y:integer;
+ mBatch_ID, mBatchCard_ID, mStoreBatchName, mVYP_ID, mKOOP_ID, mPieceList_ID, mOperation_ID, mJobSN_ID, mVMVName, aWarr, aErr, mDefRoll_ID:string;
+ mVYPBO, mPieceListBO, mKOOBO, mOutputBO,mPLMOperation, mRowBO, mDRBBO, mBatchBO,mDefRollBO:TNxCustomBusinessObject;
+ mPLMJobOrdersSN, mOutputs, mPLMJobOrdersRoutines, mRows, mDocRowBatches:TNxCustomBusinessMonikerCollection;
+ mImportMan: TNxDocumentImportManager;
+ mInputParams: TNxParameters;
+ mParam: TNxParameter;
+ mJOBatch_ID,mJOBatchName:string;
+ mOLE, mCoopObject, mCoopData:Variant;
 begin
   mOS:=AContext.GetObjectSpace;
   mInputJSON:=TJSONSuperObject.Create;
@@ -808,9 +873,9 @@ begin
     if mInputJSON.DataType = jtArray then
     begin
       mArray := mInputJSON.AsArray;
-      for i := 0 to mArray.Length - 1 do
+      for n := 0 to mArray.Length - 1 do
       begin
-        mItem := mArray.O[i];       
+        mItem := mArray.O[n];
         mStoreBatchName:=mItem.S['storebatch'];
         mQuantity:=mItem.D['quantity'];
         mRowJSON:=tjsonsuperobject.Create;
@@ -821,24 +886,125 @@ begin
           mRowJSON.S['VYP']:='';
           mRowJSON.S['KOO']:='';
           mRowJSON.D['KOOPrice']:=0;
-          mVYP_ID:=mOS.SQLSelectFirstAsString('SELECT A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
-                                              'WHERE (A.DocQueue_ID=''~000000O03'') and (A.ID IN   (SELECT N.Parent_ID    FROM PLMJobOrdersSN JOSN '+
-                                              'JOIN StoreBatches SB ON SB.ID = JOSN.StoreBatch_ID '+
-                                              'JOIN PLMJOOutputItems MI ON JOSN.Parent_ID = MI.ID '+
-                                              'JOIN PLMJONodes N ON N.ID = MI.Owner_ID WHERE SB.X_External_Name LIKE N'+QuotedStr(mStoreBatchName)+'))','');
-          if not(NxIsEmptyOID(mVYP_ID)) then begin
-            mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
-            mVYPBO.Load(mVYP_ID,nil);
-            mRowJSON.S['VYP']:=mVYPBO.displayname;
-            mPiecelist_ID:=mOS.SqlSelectFirstAsString('Select ID from PLMPieceLists where StoreCard_ID='+QuotedStr(mVYPBO.GetFieldValueAsString('StoreCard_ID')),'');
-            if not(NxIsEmptyOID(mPiecelist_ID)) then begin
-              mPieceListBO:=mOS.CreateObject(Class_PLMPieceList);
-              mPieceListBO.Load(mPiecelist_ID,nil);
-              mKOOPrice:=mpieceListBO.GetFieldValueAsFloat('X_PlanedCooperation');
-              mRowJSON.D['KOOPrice']:=mKOOPrice;
-              mpiecelistBO.free;
-            end;
-            mVYPBO.free;
+          mRowJSON.S['VMV']:='';
+          mRowJSON.S['Except']:='';
+          if mBatchQuantity>0 then begin
+           //musím mít množství
+              mVYP_ID:=mOS.SQLSelectFirstAsString('SELECT A.ID FROM PLMJobOrders A JOIN StoreCards SC ON SC.ID=A.StoreCard_ID '+
+                                                  'WHERE (A.DocQueue_ID=''~000000O03'') and (A.ID IN   (SELECT N.Parent_ID    FROM PLMJobOrdersSN JOSN '+
+                                                  'JOIN StoreBatches SB ON SB.ID = JOSN.StoreBatch_ID '+
+                                                  'JOIN PLMJOOutputItems MI ON JOSN.Parent_ID = MI.ID '+
+                                                  'JOIN PLMJONodes N ON N.ID = MI.Owner_ID WHERE SB.X_External_Name LIKE N'+QuotedStr(mStoreBatchName)+'))','');
+              mOperation_ID:='';
+              if not(NxIsEmptyOID(mVYP_ID)) then begin
+                mJobSN_ID:='';
+                mVYPBO:=mOS.CreateObject(Class_PLMJobOrder);
+                mVYPBO.Load(mVYP_ID,nil);
+                mRowJSON.S['VYP']:=mVYPBO.displayname;
+                mPiecelist_ID:=mOS.SqlSelectFirstAsString('Select ID from PLMPieceLists where StoreCard_ID='+QuotedStr(mVYPBO.GetFieldValueAsString('StoreCard_ID')),'');
+                if not(NxIsEmptyOID(mPiecelist_ID)) then begin
+                  mPieceListBO:=mOS.CreateObject(Class_PLMPieceList);
+                  mPieceListBO.Load(mPiecelist_ID,nil);
+                  mKOOPrice:=mpieceListBO.GetFieldValueAsFloat('X_PlanedCooperation');
+                  mKOOPrice:=NxEvalObjectExprAsFloatDef(mPieceListBO,'NxConvertCurrency('+NxFloatToIBStr(mKOOPrice)+','+QuotedStr(mpieceListBO.GetFieldValueAsString('X_Currency_ID'))+','+QuotedStr('0000CZK000')+')',0);
+                  mRowJSON.D['KOOPrice']:=mKOOPrice;
+                  mpiecelistBO.free;
+                end;
+                mKOOP_ID:=mOS.SQLSelectFirstAsString('Select id from plmcooperations where joborder_id='+QuotedStr(mVYPBO.OID),'');
+                if not(NxIsEmptyOID(mKOOP_ID)) then begin
+                  mKOOBO:=mOS.CreateObject(Class_PLMCooperation);
+                  mKOOBO.Load(mKOOP_ID,nil);
+                  mRowJSON.S['KOO']:=mKOOBO.displayName;
+                  mKooBO.SetFieldValueAsFloat('RealWorkPrice',mKOOPrice*mQuantity);
+                  mKOOBO.SetFieldValueAsBoolean('CompletePrices',true);
+                  mKOOBO.save;
+                    if mKOOBO.GetFieldValueAsDateTime('TakenOffAt$DATE')>0 then begin
+                      mOLE:=GetAbraOLEApplication;
+                      mCoopObject:=mOLE.CreateObject('@PLMCooperation');
+                      mCoopData:=mOLE.CreateValues('@PLMCooperation');
+                      mCoopData:=mCoopObject.GetValues(mKOOBO.OID);
+                      mCoopObject.TakeIn(0);
+                      mCoopObject.UpdateValues(mKOOBO.OID, mCoopData);
+                     end;
+                  mKOOBO.free;
+                end;
+                {mDefRoll_ID:=mOS.SQLSelectFirstAsString('select top 1 df.id from plmproducerequests plmpq join userxlinks xl1 on plmpq.id=xl1.Destination_ID '+
+                                                      'join issuedorders ovkp on ovkp.id=xl1.source_id join issuedorders2 ovkp2 on ovkp.id=ovkp2.parent_id '+
+                                                      'join defrolldata df on df.x_parent_id=ovkp2.X_origin_id collate database_default '+
+                                                      ' where plmpq.joborder_id='+QuotedStr(mVYPBO.OID)+' and xl1.sourceclsid='+
+                                                      QuotedStr(Class_IssuedOrder)+' and xl1.destinationclsid='+QuotedStr(Class_PLMProduceRequest)+
+                                                      ' and ovkp2.storecard_id=plmpq.storecard_id and df.X_SK_Batch='+QuotedStr(''),'');
+                mRowJSON.S['select']:='select top 1 df.id from plmproducerequests plmpq join userxlinks xl1 on plmpq.id=xl1.Destination_ID '+
+                                                      'join issuedorders ovkp on ovkp.id=xl1.source_id join issuedorders2 ovkp2 on ovkp.id=ovkp2.parent_id '+
+                                                      'join defrolldata df on df.x_parent_id=ovkp2.X_origin_id collate database_default '+
+                                                      ' where plmpq.joborder_id='+QuotedStr(mVYPBO.OID)+' and xl1.sourceclsid='+
+                                                      QuotedStr(Class_IssuedOrder)+' and xl1.destinationclsid='+QuotedStr(Class_PLMProduceRequest)+
+                                                      ' and ovkp2.storecard_id=plmpq.storecard_id and df.X_SK_Batch='+QuotedStr(''); }
+                mOutputs:=mVYPBO.GetLoadedCollectionMonikerForFieldCode(mVYPBO.GetFieldCode('OutPuts'));
+                for i:=0 to mOutputs.count-1 do begin
+                  mOutputBO:=mOutputs.BusinessObject[i];
+                  mPLMJobOrdersRoutines:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersRoutines'));
+                  for j:=0 to mPLMJobOrdersRoutines.count-1 do begin
+                    if NxIsEmptyOID(mOperation_ID) and mPLMJobOrdersRoutines.BusinessObject[j].GetFieldValueAsBoolean('Finished') then
+                      mOperation_ID:=mPLMJobOrdersRoutines.BusinessObject[j].OID;
+                  end;
+                  mPLMJobOrdersSN:=mOutputBO.GetLoadedCollectionMonikerForFieldCode(mOutputBO.GetFieldCode('PLMJobOrdersSN'));
+                  for j:=0 to mPLMJobOrdersSN.count-1 do begin
+                    if NxIsEmptyOID(mJobSN_ID) then begin
+                     mJobSN_ID:=mPLMJobOrdersSN.BusinessObject[j].OID;
+                     mJOBatch_ID:=mPLMJobOrdersSN.BusinessObject[j].GetFieldValueAsString('StoreBatch_ID');
+                    end;
+                  end;
+                end;
+
+                mPLMOperation:=mOS.CreateObject(Class_PLMOperation);
+                mPLMOperation.new;
+                mPLMOperation.prefill;
+                mPLMOperation.SetFieldValueAsString('JobOrdersRoutines_ID',mOperation_ID);
+                mPLMOperation.SetFieldValueAsDateTime('StartedAt$DATE',now);
+                mPLMOperation.SetFieldValueAsDateTime('FinishedAt$DATE',now);
+                mPLMOperation.SetFieldValueAsString('PerformedBy_ID','6400000101');
+                mPLMOperation.SetFieldValueAsFloat('Quantity', mQuantity);
+                mPLMOperation.SetFieldValueAsBoolean('OperationResult',True);
+                mPLMOperation.SetFieldValueAsString('JobOrdersSN_ID',mJobSN_ID);
+                mPLMOperation.save;
+                mrowJson.S['operation']:=mPLMOperation.DisplayName;
+                mInputParams := TNxParameters.Create;
+                mParam :=  mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
+                mParam.AsString := '~000000P02';
+                mParam :=  mInputParams.GetOrCreateParam(dtString, 'Firm_ID');
+                mParam.AsString := mVYPBO.GetFieldValueAsString('Firm_ID');
+                mParam :=  mInputParams.GetOrCreateParam(dtInteger, 'MethodOfMD');
+                mParam.AsInteger := 0;
+                mImportMan := NxCreateDocumentImportManager(mVYPBO.ObjectSpace, Class_PLMJobOrder, Class_MaterialDistribution);
+                mImportMan.AddInputDocument(mVYPBO.OID);
+                mImportMan.LoadParams(mInputParams);
+                mImportMan.Execute;
+                mRows:=mImportMan.OutputDocument.GetLoadedCollectionMonikerForFieldCode(mImportMan.OutputDocument.GetFieldCode('Rows'));
+                  for z:=0 to mRows.count-1 do begin
+                    mRowBO:=mrows.BusinessObject[z];
+                    if mRowBO.GetFieldValueAsString('StoreCard_ID')=mBatchCard_ID then begin
+                      mDocRowBatches:=mRowBO.GetLoadedCollectionMonikerForFieldCode(mRowBO.GetFieldCode('DocRowBatches'));
+                      for y:=0 to mDocRowBatches.count-1 do mDocRowBatches.BusinessObject[y].MarkForDelete;
+                      mDRBBO:=mDocRowBatches.AddNewObject;
+                      mDRBBO.Prefill;
+                      mDRBBO.SetFieldValueAsString('StoreBatch_ID',mBatch_ID);
+                      mDRBBO.SetFieldValueAsFloat('Quantity',mVYPBO.GetFieldValueAsFloat('Quantity'));
+                    end;
+                  end;
+                mImportMan.OutputDocument.save;
+                mVMVName:=mImportMan.OutputDocument.DisplayName;
+                mImportMan.free;
+                mRowJSON.S['VMV']:=mVMVName;
+                {try
+                 TNxPLMJobOrder(mVYPBO).Finish(Date,aWarr,aErr);
+                 mRowJSON.S['Warning']:=aWarr;
+                 mRowJSON.S['Error']:=aErr;
+                except
+                 mRowJSON.S['Except']:=ExceptionMessage;
+                end;   }
+                mVYPBO.free;
+              end;
           end;
           mrowJson.S['storebatch']:=mStoreBatchName;
           mrowJson.D['quantity']:=mQuantity;  
@@ -856,7 +1022,7 @@ begin
       mOutputJSON.S['message'] := 'Očekáváno pole objektů [{},{}].';
     end;
   try
-
+        CFxLog.SaveLog(NxCreateContext(mOS),'LA','Výstup JSON',mOutputJSON.AsString,2,Now);
         AResponse.Body:=mOutputJSON.AsString;
         AResponse.SetHeader('Content-Type','application/json');
         if mOutputJSON.S['status']='error' then

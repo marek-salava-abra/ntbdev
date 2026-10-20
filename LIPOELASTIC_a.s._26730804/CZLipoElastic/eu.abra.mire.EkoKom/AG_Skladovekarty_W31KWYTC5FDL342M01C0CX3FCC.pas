@@ -1,64 +1,130 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0SF3AB42u1Y227\
-TQBCdvCLxBbz4LQmqzDulSKW0\
-UNFS1AQQvFRukha3ThzFTmhB9\
-F/7AXwCEmeO1/G9Tk2RQCDL1n\
-o9O3vmcma9O5dARrjvyz2xcLX\
-xNhdbHDmWGZ62jMVFa4TWtpyL\
-L69wj/HWp0y6ry1rDfTMZQ9fB\
-vgy4bMt69Si99elvo+QjjR9oe\
-R39H2Ra/HQf9U6l0u8D/ElhIS\
-LXh33jc8pRvnUPMRcisCSI3kD\
-uVO0t+QTWhO2j+QlJH2g60gP7\
-56cyGNI9+UQvR6uHnSH+LKD9x\
-nQdw3WBXTMlljH0OpDZ8iZPaM\
-j27e+lJ5i7oE8T2GP5BOExXHH\
-6D+F7KRyTgtaNvCM7bCBWeWHt\
-FhnGeZGdOD5Ipb20kadxYUmSz\
-aRLwHapxitXu0UZu9CyuFsVsl\
-X1RPcYKOODoFylLKvaHG572K7\
-q3SXYV3P6IxsLGq2GfUBciig1\
-UWM1Tj1OsSXE+ZfgHExBoeyI/\
-QHwNaXZ9RflW9JXnYLuEf0d9K\
-Xfk+387xygOZazpasUttcIlPO\
-1PGoR8kZnttmnHLLhw1hJZtut\
-rGKU3vMmhCjfbkwmrJ96zk2jI\
-HZp3fV0wkLs/3JqIAyATPDZU2\
-oYluUIxNoCal1xFHZOtbBcxf9\
-ryn1jkjnsMlDldRZ0lmuXr+gH\
-+psqOJ0XlLZ7AH5Rcm3oJTVZf\
-NZnG9imFWFtjpGGyVR6pTO1M3\
-p6pF521glDnjvoz3hauKZmtOX\
-97S+yO/sfDaioPk1Rp8NTcfM9\
-QH9UCe9S++qtQfwkfo0NKtegq\
-tNLnYZ1T5QzCHfreXdW66ByKh\
-Wc975+PafdXfLugNIh0CqT63+\
-x2id0tsxOs0CSx7+8rVaFLNM/\
-bdrgsbgMrPm/Z1VYof5GKTqhG\
-X8pxk8xeiyNbzaC6vlbPb/wzI\
-Y2wUvJ9FPcmqLlWdm4pL2jiVP\
-5GlJPjT5+0n+bYqIfsVG3RlEW\
-dW+lcdvqt7RviOu3b7xyDk0zW\
-tr9yYwhrQ65v0hvdl8/1GslU3\
-8nbe3Dn0P+hbcN/2OtedfXhdW\
-8XE2l2O5dM05ZAwcjHEZ/3TM1\
-1bkt9bCXVhc/0fzDlVpwQhf06\
-Mj7qJ88/yEr+ozi/XZwrtHxMq\
-fMRnqMD8DVvQ5948edZyZmCyo\
-6UPrO54O5B+01AblYCSj5wHZM\
-wInd0ag72n/2LVM3TeMeZ5Bl4\
-7OwKwo3g3sbfbnFZ2v9JiTI2Z\
-2pC3fn8Siihl3UcfL97XlKDdK\
-cXbAvYsVTiEStC84LvbXJmI0X\
-XptjWdMVets2Y6+7NQij7F761\
-19/J+U12Sz7ctnUx2qV8Zq3U3\
-reHp8/lSg2UlBmtuLEn5r7Bb0\
-arwiusykAW7lsQseRvsay5zK6\
-CyX8gioo3jOqftDS88HtZZYjP\
-mE/8cWWeVA6qrlohXz/Qx6r1p\
-xRclrcs26H7CeTCH1g1yIsin2\
-pFb6sLYS7NKaJBfvmuu3OS/8E\
-08p0th/16lj8RSxScXaBIJhpm\
-IU69Rtzg67K/KoGKFIwpaf1KL\
-BcA==\
+﻿uses
+  'eu.abra.mire.EkoKom.TabEkoKom',
+  'eu.abra.mire.EkoKom.uLicence';
+
+{
+  Zobrazení záložky detail
+}
+procedure _PageChange_Hook(Self: TRollSiteForm);
+var
+  mControl: TControl;
+  pgcDetail: TPageControl;
+begin
+  mControl := Self.FindChildControl('pgcDetail');
+  if Assigned(mControl) and (mControl is TPageControl) then
+  begin
+    pgcDetail := TPageControl(mControl);
+    if pgcDetail.Focused then
+    begin
+      RefreshContainers(TBusRollSiteForm(Self));
+    end;
+  end;
+end;
+
+{
+  Zahájení editace
+}
+procedure _StartEdit_PostHook(Self: TBusRollSiteForm);
+var
+  mListBox: TListBox;
+  mComponent: TComponent;
+  s: string;
+begin
+  if not TestLicence(cIsNotVisual, s) then exit;
+  mComponent:= Self.FindComponent('lbxComponents');
+  if mComponent = nil then exit;
+
+  mListBox:= TListBox(mComponent);
+
+  SetEKOKOMEnabled(TWinControl(mListBox.Items.Objects(mListBox.Items.IndexOf('tabEKOKOM'))), True);
+end;
+
+{
+  Ukončení editace
+}
+procedure _StopEdit_PostHook(Self: TBusRollSiteForm);
+var
+  mListBox: TListBox;
+  mComponent: TComponent;
+  s: string;
+begin
+  if not TestLicence(cIsNotVisual, s) then exit;
+  OutputDebugString(' ********************************* _StopEdit_PostHook');
+  mComponent:= Self.FindComponent('lbxComponents');
+  if mComponent = nil then exit;
+
+  mListBox:= TListBox(mComponent);
+
+  try
+    SetEKOKOMEnabled(TWinControl(mListBox.Items.Objects(mListBox.Items.IndexOf('tabEKOKOM'))), False);
+  except
+  end;
+
+  try
+    OutputDebugString('Refresh tab');
+
+    if Self.CurrentObject <> nil then
+      RefreshContainers(Self);
+
+    OutputDebugString('Refresh tab done');
+  except
+  end;
+end;
+
+{
+  Uložení objektu
+}
+procedure _AfterEditRec_Hook(Self: TRollSiteForm);
+begin
+  RefreshContainers(Self);
+end;
+
+procedure _AfterSave_PostHook(Self: TBusRollSiteForm);
+var
+  s: string;
+begin
+  if not TestLicence(cIsNotVisual, s) then exit;
+  OutputDebugString(' ********************************* _AfterSave_PostHook');
+  SaveEKOKOMRelations(Self, Self.CurrentObject.OID);
+end;
+
+{
+  Vyvolá se po pohybu na hlavním datasetu ale jen v případě, že je zobrazena záložka EKOKOM.
+}
+procedure _MainDatasetAfterScroll_Hook(Self: TBusRollSiteForm);
+var
+  mTabSheet : TTabSheet;
+
+begin
+  if Self.CurrentObject <> nil then
+  begin
+    mTabSheet := TTabSheet(NxFindChildControl(Self.GetSiteAppForm, 'tabEKOKOM'));
+    if Assigned(mTabSheet) then
+    begin
+      if mTabSheet.Showing then
+      begin
+        RefreshContainers(Self);
+      end;
+    end;
+  end;
+end;
+
+{
+Vyvolává se po provedení inicializace agendy/formuláře. V tento okamžik je již na formuláři dostupný SiteContext.
+}
+procedure InitSite_Hook(Self: TBusRollSiteForm);
+var
+  mControl: TControl;
+  s: string;
+begin
+  if not TestLicence(cIsNotVisual, s) then exit;
+  mControl:= Self.FindChildControl('pgcDetail');
+  if mControl <> nil then
+  begin
+    AddEKOKOMTabSheet(TPageControl(mControl));
+  end;
+end;
+
+
+begin
+end.

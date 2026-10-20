@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000001201",
+    "name": "BANKA",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 12,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "MGL3OIVTAZL4VJ30UW4UMP3BPG",
+      "filename": "AG_Naplanovaneulohy_MGL3OIVTAZL4VJ30UW4UMP3BPG.pas",
+      "scriptkind": 2,
+      "objversion": 11,
+      "posindex": 1
+    },
+    {
+      "scriptid": "GSOF0GVELBCO50DTXAWJRL5K1W",
+      "filename": "BO_Naplanovanauloha_GSOF0GVELBCO50DTXAWJRL5K1W.pas",
+      "scriptkind": 1,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

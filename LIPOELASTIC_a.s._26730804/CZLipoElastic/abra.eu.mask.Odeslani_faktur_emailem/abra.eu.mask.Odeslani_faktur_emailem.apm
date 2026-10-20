@@ -5,7 +5,7 @@
     "id": "2B40000101",
     "name": "abra.eu.mask.Odeslani_faktur_emailem",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 264,
+    "objversion": 266,
     "description": "Automatický email s fv",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,14 +17,14 @@
       "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
       "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 183,
+      "objversion": 184,
       "posindex": 1
     },
     {
       "scriptid": "Auto_email",
       "filename": "Auto_email.pas",
       "scriptkind": 0,
-      "objversion": 238,
+      "objversion": 240,
       "posindex": 2
     }
   ]

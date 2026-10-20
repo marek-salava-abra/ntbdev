@@ -1,40 +1,51 @@
-﻿BVVURjE2KDU0RUVBOEZBM0RBQ\
-kRBMjM2MjI2RkQ2MkEyQUVDN0\
-VGQTMyQ0UxQ0TO2QB42u2WW28\
-SURDHh1eTfod9o8RKjI9FTaBS\
-azRtLLbxEmOAXVpaYBtYSFuj3\
-5UP4Ecw8Tezd6CoFaoPZnNuc+\
-Z2/jNn9oxlJB5tQ+6Jw1dkNZa\
-yNKUlQ/qy9KXLzGNWl3Px5SWt\
-z+oV9Bb8FZPV9tn6Y7mSCTw9m\
-TJO0akWHLmQdwVPXGYdOK6Rbq\
-PvO7ocLPaQ+Mr+QL4ZZQKliWR\
-glLacQnOhBIw+ds/Qec5qbHQ/\
-2VW/p2hXf9WbL9ZfcAIfLWp/b\
-KdxpEbfgaqrBnITxk+yB8VH8y\
-Y0Dx86sg3vG9mXS9lBVj3S89d\
-s3sU7RW8kB5FPbfZLESYTtA4T\
-ZPvI+9hX29uGSsCuajiJ+Fvsn\
-RglRlTluvjgZPwpy3Nmgeyyox\
-QXxJuMY1ZVtDYyejeJT2y1iF+\
-OPKG1TVfAF3KNEp6SoZv6HH7r\
-tf0oZz0g0l6EQGy/DvZddio5X\
-PJ4qu7bevmWuNfJ6wPGhsVXc2\
-LHoudCeyHP0Jk/y327Kw9o4Xw\
-9to/g05MXk5xycrYat4zGVg6/\
-0l9Gdp91P4NsNvaK74c7RDmO7\
-Meksv0J4unJbkZcs92dq6JHcG\
-tF3CuMra7ovdSa2KUPvXWsvih\
-FK1+b8WcV7zjDH6ys2lUiT4aM\
-VTk0Dq3ngemqmYUe1CbSpYWVL\
-q1yA3iDOT1pVXDos7Xgf328uT\
-7GuPy6d7v2F9bcmL0z8Q15Da/\
-GMbDVVcbvhzZrWi47K7G53FYp\
-lxXz+ZS/tVXsunP5XycWQ4vnM\
-n9j9H8Hky2rIe+hq+SZWdMXkC\
-8bBS95w4Q4lGequ7Mg/8Mq3DE\
-JfU2l3NnqsZp7dHf5kr9Fae6s\
-L3sey9OFtud9WB0Gh1G2LTt7/\
-M3S/50sz55icXYPzMvwJT/hXa\
-9/hWt7kZ+uMMdn/5Z5TMLdsvw\
-AfZQJxg==\
+﻿uses
+  'eu.abra.mire.EkoKom.Lib';
+
+{
+Vyvolává se před fyzickým uložením vlastních dat objektu do databáze.
+}
+procedure BeforeSave_Hook(Self: TNxCustomBusinessObject);
+var
+  mCode : string;
+begin
+
+  if (Self.GetFieldValueAsString('Code') = cSettingsCode) or
+     (Self.GetFieldValueAsString('Code') = cSettings2Code) then
+    Exit;
+
+  mCode := Self.GetFieldValueAsString('X_EKO_StoreCard_ID.Code') + '-' + Self.GetFieldValueAsString('X_EKO_StoreCardUnit');
+  Self.SetFieldValueAsString('Code', mCode);
+
+  mCode := Self.GetFieldValueAsString('X_EKO_StoreCard_ID.Name') +
+    ' [' + Self.GetFieldValueAsString('X_EKO_StoreCardUnit') + ']';
+  Self.SetFieldValueAsString('Name', mCode);
+
+end;
+
+{
+Umožňuje ovlivnit validaci.
+}
+procedure Validate_Hook(Self: TNxCustomBusinessObject; var AResult: Boolean);
+begin
+  if not AResult then exit;
+  if (Self.GetFieldValueAsString('Code') = cSettingsCode) or
+     (Self.GetFieldValueAsString('Code') = cSettings2Code) then
+    Exit;
+
+  if ((Self.GetFieldValueAsFloat('X_EKO_UnitQuantity') = 0) and (Self.GetFieldValueAsFloat('X_EKO_Quantity') = 0)) then begin
+    Self.AddValidateError(Self.GetFieldCode('X_EKO_UnitQuantity'), 'Zadejte počet obalu.');
+    AResult := false;
+  end;
+  if not AResult then exit;
+  if ((Self.GetFieldValueAsFloat('X_EKO_UnitQuantity') = 0)
+     and ((Self.GetFieldValueAsFloat('X_EKO_Quantity') <> 0)
+         and (Self.GetFieldValueAsFloat('X_EKO_UnitRate') = 0)
+         )
+     ) then begin
+    Self.AddValidateError(Self.GetFieldCode('X_EKO_UnitRate'), 'Zadejte nenulový vztah.');
+    AResult := false;
+  end;
+end;
+
+begin
+end.

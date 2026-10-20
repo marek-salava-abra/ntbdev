@@ -50,7 +50,7 @@ var
 begin
   try
     mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
-    mWinHTTP.Open('POST', 'http://10.5.5.38:26300' + '/api/v1/data-matrixes');
+    mWinHTTP.Open('POST', 'http://10.5.5.209:24500' + '/api/v1/data-matrixes');
     mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
 
     mRequest :='{"data":["'+AValue+ '"],'+
@@ -94,7 +94,7 @@ var
 begin
   try
     mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
-    mWinHTTP.Open('POST', 'http://10.5.5.38:26300' + '/api/v1/data-matrixes');
+    mWinHTTP.Open('POST', 'http://10.5.5.209:24500' + '/api/v1/data-matrixes');
     mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
 
     mRequest :='{"data":["'+AValue+'","' + avalue2 + '"],'+
@@ -140,7 +140,7 @@ var
 begin
   try
     mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
-    mWinHTTP.Open('POST', 'http://10.5.5.38:26300' + '/api/v1/data-matrixes');
+    mWinHTTP.Open('POST', 'http://10.5.5.209:24500' + '/api/v1/data-matrixes');
     mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
 
     mRequest :='{"data":["'+AValue+'","' + avalue2 + '","' + avalue3 + '"],'+
@@ -182,7 +182,7 @@ var
 begin
   try
     mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
-    mWinHTTP.Open('POST', 'http://10.5.5.38:26300' + '/api/v1/data-matrixes');
+    mWinHTTP.Open('POST', 'http://10.5.5.209:24500' + '/api/v1/data-matrixes');
     mWinHTTP.SetRequestHeader('Content-Type', 'application/json');
 
     mRequest :='{"data":["'+AValue+'","' + avalue2 + '","' + avalue3 + '"],'+

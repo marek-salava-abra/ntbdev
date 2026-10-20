@@ -5,7 +5,7 @@
     "id": "4K90000101",
     "name": "abra.eu.mask_import_pay",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 362,
+    "objversion": 370,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,21 +17,21 @@
       "scriptid": "Pay",
       "filename": "Pay.pas",
       "scriptkind": 0,
-      "objversion": 192,
+      "objversion": 200,
       "posindex": 1
     },
     {
       "scriptid": "R1C2EX0BUJD13ACP03KIU0CLP4",
       "filename": "AG_Bankovnivypisy_R1C2EX0BUJD13ACP03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 313,
+      "objversion": 317,
       "posindex": 2
     },
     {
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 106,
+      "objversion": 110,
       "posindex": 3
     }
   ]

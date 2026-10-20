@@ -1,16 +1,19 @@
 ﻿uses 'abra.eu.mask_import_pay.lib';
 
 
-
-
-
 function iExtractDate(AString: String): TDateTime;
   begin
+    if ContainsText(AString, '. ') then begin
+       AString:=NxSearchReplace(AString, '. ', '/', [srAll]) ;
+    end;
     Result := EncodeDate(StrToInt(Copy(AString,7,4)),StrToInt(Copy(AString,4,2)),StrToInt(Copy(AString,1,2)));
   end;
 
-  function iExtractDateeu(AString: String): TDateTime;
+function iExtractDateeu(AString: String): TDateTime;
   begin
+    if ContainsText(AString, '. ') then begin
+       AString:=NxSearchReplace(AString, '. ', '/', [srAll]) ;
+    end;
     Result := EncodeDate(StrToInt(Copy(AString,1,4)),StrToInt(Copy(AString,6,2)),StrToInt(Copy(AString,9,2)));
   end;
 

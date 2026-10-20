@@ -5,7 +5,7 @@
     "id": "~000000H05",
     "name": "pokus",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 41,
+    "objversion": 68,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,7 +17,7 @@
       "scriptid": "VNJGDP5MU4K4V5GWUFOHULYHVG",
       "filename": "AG_Servisniknizka_VNJGDP5MU4K4V5GWUFOHULYHVG.pas",
       "scriptkind": 2,
-      "objversion": 38,
+      "objversion": 65,
       "posindex": 1
     }
   ]

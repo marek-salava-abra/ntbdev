@@ -65,7 +65,7 @@ begin
       if aPrintType = 1 then
       begin
         if GetExtrasSetings('PDFXCview','Enabled','N') = 'A' then
-          DoPrintXChange(mPrinterName , mFileName, GetExtrasSetings('PDFXCview','Path','xx') )
+          DoPrintXChange(mPrinterName, mFileName, GetExtrasSetings('PDFXCview','Path','xx'), Trim(GetExtrasSetings('PrintLabel','Pages','')))
         else
         begin
           OutputDebugString('ShellAPI.PrintFile '+'"'+NxTrim( GetExtrasSetings('PrintLabel','PrinterName',''), '"')+'"' +' ; ' +mFileName);
@@ -76,7 +76,7 @@ begin
       else
       begin
         if GetExtrasSetings('PDFXCview','Enabled','N') = 'A' then
-          DoPrintXChange( mPrinterName, mFileName, GetExtrasSetings('PDFXCview','Path','xx') )
+          DoPrintXChange(mPrinterName, mFileName, GetExtrasSetings('PDFXCview','Path','xx'), Trim(GetExtrasSetings('Print','Pages','')))
         else
         begin
           ShellAPI.PrintFile(mFileName,'"'+NxTrim (GetExtrasSetings('Print','PrinterName',''),'"')+'"');
@@ -105,11 +105,11 @@ end;
 
 
 //řeší dohledání v rámci problému s redirectem
-function DoPrintXChange(const APrinterName:String;const AFileName:String; PathToPDFXCahnge: String = 'S:\ABRA-APPS\PDFXCview\PDFXCview.exe'):String;
+function DoPrintXChange(const APrinterName:String;const AFileName:String; PathToPDFXCahnge: String = 'S:\ABRA-APPS\PDFXCview\PDFXCview.exe'; APages: String = ''):String;
 var  mList : TStringList;
     i:integer;
     mPrinters : TPrinter;
-    mPar1,mPar2,mSettingFile, mResPrinterName:String;
+    mPar1,mPar2,mSettingFile, mResPrinterName, mPagesFrom, mPagesTo:String;
 
 begin
   mSettingFile :='';
@@ -136,10 +136,29 @@ begin
       end;
     end;
 
+     // PDFXCview bez pages: /printto:default=no "PRINTER" "FILE"
+     // PDFXCview s pages:   /printto:showui=no&pages=first-last "PRINTER" "FILE"
      if UpperCase(GetExtrasSetings('PDFXCview','ShowUI','N')) = 'A' then
       mPar1:=' '+'"'+AFileName+'" '
      else
-      mPar1:=' /printto:default=no "'+mResPrinterName+'" "'+AFileName+'" ';
+     begin
+       if APages <> '' then
+       begin
+         if Pos('-', APages) > 0 then
+         begin
+           mPagesFrom := Trim(Copy(APages, 1, Pos('-', APages) - 1));
+           mPagesTo   := Trim(Copy(APages, Pos('-', APages) + 1, Length(APages)));
+         end
+         else
+         begin
+           mPagesFrom := Trim(APages);
+           mPagesTo   := Trim(APages);
+         end;
+         mPar1 := ' /printto:showui=no&pages='+mPagesFrom+'-'+mPagesTo+' "'+mResPrinterName+'" "'+AFileName+'" ';
+       end
+       else
+         mPar1:=' /printto:default=no "'+mResPrinterName+'" "'+AFileName+'" ';
+     end;
 
      if (Trim(GetExtrasSetings('PDFXCview','SettingFile','')) <> '') then
      begin
