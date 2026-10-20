@@ -78,7 +78,7 @@ begin
             end;
             5: begin
                 mClass:= Class_InventoryOverPlus;
-                mMsite:= Site_InventoryOverPlus;
+                mMsite:= Site_InventoryOverPluses;
                 mName:=  'přebytek'
             end;
             6: begin

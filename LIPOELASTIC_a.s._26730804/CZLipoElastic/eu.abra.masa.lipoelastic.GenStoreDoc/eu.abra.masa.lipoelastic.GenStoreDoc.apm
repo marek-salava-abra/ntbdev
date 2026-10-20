@@ -5,7 +5,7 @@
     "id": "~000000208",
     "name": "eu.abra.masa.lipoelastic.GenStoreDoc",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 97,
+    "objversion": 101,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,14 +17,14 @@
       "scriptid": "005WXDGLTVDL342W01C0CX3FCC",
       "filename": "AG_Sarze-seriovacisla_005WXDGLTVDL342W01C0CX3FCC.pas",
       "scriptkind": 2,
-      "objversion": 90,
+      "objversion": 94,
       "posindex": 1
     },
     {
       "scriptid": "HEXW4ANPOVOONHN5GTAHG4KKHC",
       "filename": "AG_Premeny-prijmy_HEXW4ANPOVOONHN5GTAHG4KKHC.pas",
       "scriptkind": 2,
-      "objversion": 59,
+      "objversion": 61,
       "posindex": 2
     }
   ]
