@@ -14,8 +14,8 @@ begin
   mJSON2:=TJSONSuperObject.Create;
   mJSONArray:=TJSONSuperObjectArray.Create;
    mJSON:=API_GET('https://api.kingtony.cz/data/StoreSubcards?Select=StoreCard_ID.Code as code,Quantity&where=(Store_ID eq '+
-                    QuotedStr('1000000101')+') and storecard_id in (class storecards select id where ((StoreAssortmentGroup_ID eq '+
-                    QuotedStr('1000000101')+') or (StoreAssortmentGroup_ID eq '+QuotedStr('1100000101')+')))');
+                    QuotedStr('1000000101')+') and storecard_id in (class storecards select id where  (((Producer_ID eq ''32L7000101'') and (X_send_to_B2B eq ''A'')) or ((StoreAssortmentGroup_ID eq '+
+                    QuotedStr('1000000101')+') or (StoreAssortmentGroup_ID eq '+QuotedStr('1100000101')+'))))');
   //CFxLog.SaveLog(NxCreateContext(OS),'ERR','GetKingtony',mJSON.AsString,2,Now);
   //(Store_ID eq '1000000101') or (Store_ID eq '1420000101')
   mJSONArray:=mJSON.AsArray;
@@ -42,7 +42,9 @@ begin
       end;
   end;
   Success := True;
-  LogInfoStr := 'Records KT: '+IntToStr(j)+'  Records Simon: '+IntToStr(k);
+  LogInfoStr := 'Records KT: '+IntToStr(j)+'  Records Simon: '+IntToStr(k)+NxCrlF+'https://api.kingtony.cz/data/StoreSubcards?Select=StoreCard_ID.Code as code,Quantity&where=(Store_ID eq '+
+                    QuotedStr('1000000101')+') and storecard_id in (class storecards select id where ((StoreAssortmentGroup_ID eq '+
+                    QuotedStr('1000000101')+') or (StoreAssortmentGroup_ID eq '+QuotedStr('1100000101')+')))';
 end;
 
 

@@ -11,7 +11,7 @@ var
 begin
  mUser:=self.ObjectSpace.CreateObject(Class_SecurityUser);
  mUser.Load(NxGetActualUserID_1(self),nil);
- if self.GetFieldValueAsBoolean('X_ESCard') and muser.GetFieldValueAsBoolean('U_eshop') then begin
+ if (self.GetFieldValueAsBoolean('X_ESCard') and muser.GetFieldValueAsBoolean('U_eshop')) or (CFxNxRuntime.NxGetEnvironmentType=reWebServices) then begin
   mPictures:=self.GetLoadedCollectionMonikerForFieldCode(self.GetFieldCode('Pictures'));
   for i:=0 to mPictures.Count-1 do begin
    //if not(mPictures.BusinessObject[i].GetFieldValueAsBoolean('X_AES_Send')) then begin
@@ -41,7 +41,7 @@ begin
              mftp.Put(mOrigFile,mfileName);
              mFTP.Free;
            except
-             NxShowSimpleMessage(ExceptionMessage,nil);
+             if CFxNxRuntime.NxGetEnvironmentType=reRuntimeExe then NxShowSimpleMessage(ExceptionMessage,nil);
            end;
       mbo.SetFieldValueAsString('PathAndFileName',mOrigFile);
       mbo.save;

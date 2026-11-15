@@ -7,12 +7,22 @@ var
  i, mMailCount:integer;
  mAvailableQuantity,mOrderedQuantity, mStorePrice: Extended;
  mNotOnStore, mZapornaMarze: Boolean;
- mOrigPMState_ID, mZLV_ID, mAccount_ID,mTO, mSubject, mBody,mFileName,mFileName2:string;
+ mOrigPMState_ID, mZLV_ID, mDZV_ID, mAccount_ID,mTO, mSubject, mBody,mFileName,mFileName2:string;
  mList,mFileList:TStringList;
  mLogList:TStringList;
- mLogFileName:string;
+ mLogFileName, mHorizontalSplitter, mLog_ID, mNew:string;
+ mLogBO:TNxCustomBusinessObject;
 begin
+
    mLogList:=TStringList.Create;
+   mHorizontalSplitter:=GetHorizontalSplitter(60);
+   mLogList.Add(mHorizontalSplitter);
+   mLogList.add(DateTimeToStr(Now)+'  Začátek kontroly');
+   mLogList.Add(mHorizontalSplitter);
+   if osNew in self.state then begin
+    mLogList.Add(DateTimeToStr(Now)+' doklad je nový');
+    mLogList.Add(mHorizontalSplitter);
+   end;
    if self.GetFieldValueAsString('DocQueue_ID')='1W10000101' then begin
      if self.GetFieldValueAsString('U_OrderState_ID.Code')='STOBJ06' then begin
       self.SetFieldValueAsString('PMState_ID','9010000101');
@@ -48,30 +58,32 @@ begin
                        '   Příznak není skladem '+BoolToStr(mNotOnStore,true)+'   Příznak záporná marže '+BoolToStr(mZapornaMarze,true));
         end;
         if not(mNotOnStore) then self.SetFieldValueAsString('PMState_ID','2000000101');
-        mLogList.add('Řádek 49 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        mLogList.add('Řádek 56 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if mZapornaMarze then self.SetFieldValueAsString('PMState_ID','1010000101');
-         mLogList.add('Řádek 51 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        if self.GetFieldValueAsBoolean('Firm_ID.X_Problem') then self.SetFieldValueAsString('PMState_ID','1010000101');
+         mLogList.add('Řádek 59 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if GetValidSKPostcode(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PostCode')) then self.SetFieldValueAsString('PMState_ID','1010000101');
-         mLogList.add('Řádek 53 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+         mLogList.add('Řádek 61 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if not(GetValidCZPhonenumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1'))) then self.SetFieldValueAsString('PMState_ID','1010000101');
         // if self.GetFieldValueAsString('TransportationType_ID')='5100000101' then self.SetFieldValueAsString('PMState_ID','1010000101');  //zakomentováno dne 20.6.2024
-         mLogList.add('Řádek 56 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+         mLogList.add('Řádek 64 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if (self.GetFieldValueAsString('PaymentType_ID')='6000000101') and
          not((Self.GetFieldValueAsString('U_orderState_ID')='IURB000101') or  (Self.GetFieldValueAsString('U_orderState_ID')='90F7000101')      //doplnění stavů 02 a 08 dne 18.10.2024
          or (Self.GetFieldValueAsString('U_orderState_ID')='6C92000101') or (Self.GetFieldValueAsString('U_orderState_ID')='70T5000101')) then
          self.SetFieldValueAsString('PMState_ID','1010000101');
-         mLogList.add('Řádek 60 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+         mLogList.add('Řádek 69 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') then self.SetFieldValueAsString('PMState_ID','1010000101');  //doplněn dne 5.4.2024
-         mLogList.add('Řádek 62 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+         mLogList.add('Řádek 71 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         //if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and (mNotOnStore) then self.SetFieldValueAsString('PMState_ID','1010000101');
         if {(mOrigPMState_ID='2030000101') and} mNotOnStore then self.SetFieldValueAsString('PMState_ID','2030000101');
-        mLogList.add('Řádek 65 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        mLogList.add('Řádek 74 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if not(self.GetFieldValueAsString('X_AES_Description')='') then self.SetFieldValueAsString('PMState_ID','1010000101');
-         mLogList.add('Řádek 67 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+         mLogList.add('Řádek 76 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         mZLV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select id from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),'');
+        mDZV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select pDocument_ID from IssuedDepositUsages where depositdocument_id='+QuotedStr(mZLV_ID),'');
           if not(mNotOnStore) and (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and not(NxIsEmptyOID(mZLV_ID)) {not (self.GetFieldValueAsString('PMSTate_ID')='1010000101')}
-          and NxIsBlank(self.GetFieldValueAsString('X_AES_Description')) and not(mZapornaMarze) then begin
-          mLogList.add('Řádek 70 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+          and NxIsBlank(self.GetFieldValueAsString('X_AES_Description')) and not(mZapornaMarze) and NxIsEmptyOID(mDZV_ID) then begin
+          mLogList.add('Řádek 81 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
           self.SetFieldValueAsString('PMState_ID','5010000101');
           self.SetFieldValueAsString('U_orderState_ID','7C92000101');
           mLogList.add('Řádek 73 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
@@ -125,18 +137,32 @@ begin
           //konec kolotoče
         end;
       end;
+      mLogList.Add(mHorizontalSplitter);
+      mLogList.add(DateTimeToStr(Now)+'  Konec kontroly');
+      mLogList.Add(mHorizontalSplitter);
       if not(CFxNxRuntime.NxGetEnvironmentType=reRuntimeExe) then begin
-       try
-        mLogList.SaveToFile('d:\wamp\www\kontrola_opes\'+mLogFileName+'.txt');
-       except
-        mLogList.add(ExceptionMessage);
-        mloglist.savetofile('F:\logy\ps\'+mLogFileName+'.txt');
+       mLog_ID:=self.ObjectSpace.SQLSelectFirstAsString('select pl.id from prflogs pl where pl.docqueue_id='+QuotedStr('6RX0000101')+' and pl.code='+QuotedStr('Kontrola '+Self.DisplayName),'');
+       if NxIsEmptyOID(mLog_ID) then
+          CFxLog.SaveLog(NxCreateContext(Self.ObjectSpace),'LOPES', 'Kontrola '+Self.DisplayName, mLogList.text,ltScripting,now)
+       else begin
+         mLogBO:=self.ObjectSpace.CreateObject(Class_PRFLog);
+         mLogBO.Load(mLog_ID,nil);
+         mLogBO.SetFieldValueAsString('Note',mLogBO.GetFieldValueAsString('Note')+nxCrLf+mLogList.Text);
+         mLogBO.save;
+         mLogBO.free;
        end;
       end;
    end;
 end;
 
-
+function GetHorizontalSplitter(aLength: Integer): string;
+var
+  i: Integer;
+begin
+  Result := '';
+  for i := 1 to aLength do
+    Result := Result + '─';
+end;
 
 
 procedure AfterSave_Hook(Self: TNxCustomBusinessObject);

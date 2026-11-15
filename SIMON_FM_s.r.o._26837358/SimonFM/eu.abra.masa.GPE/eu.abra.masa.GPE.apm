@@ -5,7 +5,7 @@
     "id": "3SM1000101",
     "name": "eu.abra.masa.GPE",
     "license_holder": "SIMON_FM_s.r.o._26837358",
-    "objversion": 63,
+    "objversion": 64,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,7 +17,7 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 63,
+      "objversion": 64,
       "posindex": 1
     }
   ]

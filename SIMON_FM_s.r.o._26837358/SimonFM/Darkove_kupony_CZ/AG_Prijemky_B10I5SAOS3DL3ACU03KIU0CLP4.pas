@@ -32,7 +32,7 @@ begin
         //Import_AddRows(ARows : TNxCustomBusinessMonikerCollection; AList : TStringList; ADivision_ID : string; AStore_ID : string)
         mBO := TDynSiteForm(mSite).CurrentObject;
         if Index = 0 then
-          Import_AddRows(mBO.GetCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows')), mList, '3100000101', '1400000101');
+          Import_AddRows(mBO.GetCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows')), mList, '4100000101', '1E00000101');
         // po přidání řádku provedu refresh
         mGRows := TMultiGrid(NxFindChildControl(NxGetSiteAppForm(mSite), 'grdRows'));
         if Assigned(mGRows) then
@@ -79,7 +79,7 @@ begin
   for i := 0 to AList.Count - 1 do begin
     mRowTxt := Alist.strings[i];
     mBatchCode:= NxToken(mRowTxt, ';');
-    mStoreCardCode := 'DPB0100S';
+    mStoreCardCode := 'DPV0500';
     mos:=arows.ObjectSpace;
     mStoreCard_ID:=scrGetOrder_ID(mos,mStoreCardCode);
     mQuantity := 1;

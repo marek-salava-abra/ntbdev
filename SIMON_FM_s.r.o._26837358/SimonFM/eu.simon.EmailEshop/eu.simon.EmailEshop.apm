@@ -5,7 +5,7 @@
     "id": "2I30000101",
     "name": "eu.simon.EmailEshop",
     "license_holder": "SIMON_FM_s.r.o._26837358",
-    "objversion": 45,
+    "objversion": 49,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,14 +17,14 @@
       "scriptid": "mail",
       "filename": "mail.pas",
       "scriptkind": 0,
-      "objversion": 16,
+      "objversion": 18,
       "posindex": 1
     },
     {
       "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
       "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 40,
+      "objversion": 44,
       "posindex": 2
     }
   ]

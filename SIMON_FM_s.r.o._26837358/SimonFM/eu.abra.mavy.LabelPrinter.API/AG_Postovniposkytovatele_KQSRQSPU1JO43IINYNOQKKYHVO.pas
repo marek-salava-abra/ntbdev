@@ -80,6 +80,37 @@ begin
               end;
               mBO.Save;
               mBO.Free;
+            end
+            else begin
+              mBO:= mOS.CreateObject(Class_PDMPostProvider);
+              mBO.Load(mPostProvider_ID,nil);
+              mBO.SetFieldValueAsString('Code', NxLeft(mShippersArray.O[i].S['code'],10));
+              mBO.SetFieldValueAsString('Name', mShippersArray.O[i].S['name']);
+              mRows := mBo.GetLoadedCollectionMonikerForFieldCode(mBo.GetFieldCode('Rows'));
+              mShipperRowsArray:= mShippersArray.O[i].A['services'];
+              for a:= 0 to mShipperRowsArray.Length -1 do begin
+                mIssuedContentType_ID:= SQLSingleSelect(mOS, 'SELECT ID FROM PDMIssuedContentTypes WHERE Hidden = ''N'' and X_LP_Shipper = '+QuotedStr(mShippersArray.O[i].S['code'])+' and X_LP_Code = '+QuotedStr(mShipperRowsArray.O[a].S['code']));
+
+                if NxIsEmptyOID(mIssuedContentType_ID) then begin
+                  mContentType:= mOS.CreateObject(Class_PDMIssuedContentType);
+                  mContentType.New;
+                  mContentType.SetFieldValueAsString('Code', NxLeft(mShipperRowsArray.O[a].S['code'],10));
+                  mContentType.SetFieldValueAsString('X_LP_Code', mShipperRowsArray.O[a].S['code']);
+                  mContentType.SetFieldValueAsString('Name', mShipperRowsArray.O[a].S['name']);
+                  mContentType.SetFieldValueAsString('X_LP_Shipper', mShippersArray.O[i].S['code']);
+                  mContentType.Save;
+                  mIssuedContentType_ID:= mContentType.OID;
+                  mContentType.Free;
+
+                  mRow:= mRows.AddNewObject;
+                  mRow.Prefill;
+                  mRow.SetFieldValueAsString('IssuedContentType_ID', mIssuedContentType_ID);
+                  mRow.SetFieldValueAsString('PriceList_ID', cPDMPriceListID);
+                end;
+              end;
+              if mBO.NeedSave then
+                mBO.Save;
+              mBO.Free;
             end;
           end;
         end;

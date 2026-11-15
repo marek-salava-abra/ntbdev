@@ -192,6 +192,7 @@ begin
      then Result:= Result + ' and SD.DocQueue_ID in (''7RB0000101'',''X200000101'') ';
    if (ADocType = DOC_ReceiptCard) and (AUser_ID in ['3EI0000101','2620000101','4EP0000101','3EB0000101','4EY0000101']) then Result:= Result + ' and SD.DocQueue_ID =  ''6N20000101''';
    if (ADocType = DOC_ReceiptCard) and (AUser_ID = '3EJ0000101') then Result:= Result + ' and SD.DocQueue_ID =  ''7RD0000101''';
+   if (ADocType = DOC_ReceiptCard) and (AUser_ID = '4EN0000101') then Result:= Result + ' and ((SD.DocQueue_ID =  ''Y200000101'') or (SD.DocQueue_ID =''1000000101'') or (SD.DocQueue_ID =''7RD0000101''))';
    if (ADocType = DOC_BillOfDelivery) and (AUser_ID in ['3EI0000101','2620000101','4EP0000101','3EB0000101','4EY0000101']) then Result:= Result + ' and SD.DocQueue_ID =  ''8RC0000101''';
     //DL03 pro velkoobchodní uživatele
    if (ADocType = DOC_BillOfDelivery) and (AUser_ID in ['3EJ0000101','3I00000101','5EM0000101','1O00000101','4EN0000101','3N10000101','3E40000101','3EY0000101']) then

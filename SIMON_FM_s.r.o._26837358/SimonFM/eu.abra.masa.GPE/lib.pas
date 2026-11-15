@@ -1,7 +1,7 @@
 ﻿procedure CheckPaymentAPI(OS: TNxCustomObjectSpace;  var Success: Boolean; var LogInfoStr: String);
 var
  mSignList, mRunBat, mOrderList:TStringList;
- mResultMessage, mSubject, mMailText, mFirmMail, mZLV_ID:string;
+ mResultMessage, mSubject, mMailText, mFirmMail, mZLV_ID, mRow_ID:string;
  i,j:integer;
  mCurrBO, mZLVBO,mZLVRowBO,mRowBO, mTextBO:TNxCustomBusinessObject;
  mRows, mZLVRows:TNxCustomBusinessMonikerCollection;
@@ -29,6 +29,8 @@ begin
                 if mResult.N['appliedFee'].DataType<>jtNull then begin
                   mFee:=NxIBStrToFloat(mResult.S['appliedFee'])/100;
                   if mFee>0 then begin
+                    mRow_ID:=OS.SQLSelectFirstAsString('Select id from receivedorders2 where incometype_id=''3SC0000101'' and parent_id='+QuotedStr(mCurrBO.OID),'');
+                    if NxIsEmptyOID(mRow_ID) then begin
                     mRows:=mCurrBO.GetLoadedCollectionMonikerForFieldCode(mCurrBO.GetFieldCode('Rows'));
                     mRowBO:=mRows.AddNewObject;
                     mRowBO.prefill;
@@ -54,6 +56,7 @@ begin
                       except
 
                       end;
+                     end;
                     end;
                   end;
                 end;

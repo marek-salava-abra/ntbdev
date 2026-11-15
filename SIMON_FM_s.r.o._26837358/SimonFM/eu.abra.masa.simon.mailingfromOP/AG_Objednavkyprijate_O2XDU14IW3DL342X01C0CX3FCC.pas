@@ -50,6 +50,17 @@ begin
                   mDLBO.free;
             end;
           end;
+              mrows:=mCurrBO.GetLoadedCollectionMonikerForFieldCode(mCurrBO.GetFieldCode('Rows'));
+              for i:=0 to mrows.count-1 do begin
+                 mReservation_ID:=mOS.SQLSelectFirstAsString('Select id from reservations where ownerkind=0 and owner_id='+QuotedStr(mrows.BusinessObject[i].OID),'');
+                 if not(NxIsEmptyOID(mReservation_ID)) then begin
+                    mResBO:=mOS.CreateObject(Class_Reservation);
+                    mresbo.Load(mReservation_ID,nil);
+                    mResBO.SetFieldValueAsFloat('Reserved',0);
+                    mresbo.save;
+                    mresbo.Free;
+                 end;
+              end;
           if NxIsBlank(mCurrBO.GetFieldValueAsString('Description')) then begin
             //mos.SQLExecute('Update receivedorders set description=''Storno'', PMState_ID=''9010000101'' where id='+QuotedStr(mCurrBO.oid));
             //mCurrBO.PMChangeState('9010000101');

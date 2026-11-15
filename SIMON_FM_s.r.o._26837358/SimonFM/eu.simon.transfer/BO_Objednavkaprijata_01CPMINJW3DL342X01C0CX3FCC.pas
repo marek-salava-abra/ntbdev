@@ -4,14 +4,14 @@
 
 procedure AfterSave_Hook(Self: TNxCustomBusinessObject);
 Var
- mList:TStringList;
+  mList, mLogs:TStringList;
   i,j,k:integer;
-  mAvailableQuantity,mOrderedQuantity, mQuantityMO, mQuantity05, mQuantityLogStore,mDodano, mRowQ, mQuantity, mUnpaidAmount:Extended;
+  mAvailableQuantity, mOrderedQuantity, mQuantityMO, mQuantity05, mQuantityLogStore,mDodano, mRowQ, mQuantity, mUnpaidAmount:Extended;
   mRowBO, mOrderBOForPMState:TNxCustomBusinessObject;
   mRows:TNxCustomBusinessMonikerCollection;
   mNotOnStore, mRowAdded, mNextStore, mUnpaidZLV:Boolean;
   mNotLogisticStoreList, mLogisticStoreList:TStringList;
-  mResult, mDestinationStore_ID, mDivision_ID:String;
+  mResult, mDestinationStore_ID, mDivision_ID, mHorizontalSplitter:String;
   mImportMan:TNxDocumentImportManager;
   mInputParams:TNxParameters;
   mParam:TNxParameter;
@@ -19,11 +19,15 @@ Var
 begin
  OS:=self.ObjectSpace;
  try
-   if (osnew in self.state) and (self.GetFieldValueAsString('DocQueue_ID')='1W10000101') then begin
+   if ((osnew in self.state) and (self.GetFieldValueAsString('DocQueue_ID')='1W10000101')) then begin
+     mLogs:=TStringList.Create;
+     mHorizontalSplitter:=GetHorizontalSplitter(50);
      try
       mResult:='';
       NxScriptingLog.EnterSection('Převodka výdej',logInfo);
       NxScriptingLog.WriteEvent(logInfo,'Tvorba převodky výdej pro doklad '+self.DisplayName);
+      mLogs.add(DateTimeToStr(now)+'  začátek tvorby převodky výdej');
+      mLogs.add(mHorizontalSplitter);
       mLogisticStoreList:=TStringList.Create;
       mNotLogisticStoreList:=TStringList.create;
       mLogisticStoreList.Clear;
@@ -32,19 +36,20 @@ begin
       for j:=0 to mrows.Count-1 do begin
               mRowBO:=mRows.BusinessObject[j];
                if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
+                // ignorovat karty dle zadání Marek a Martin
                 if NxIsEmptyOID(mDestinationStore_ID) then mDestinationStore_ID:=mRowBO.GetFieldValueAsString('Store_ID');
                 if NxIsEmptyOID(mDivision_ID) then mDivision_ID:=mRowBO.GetFieldValueAsString('Division_ID');
                 mAvailableQuantity:=GetAvailableQuantity(OS,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'));
                 mQuantity:=GetQuantity(OS,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'));
                 mOrderedQuantity:=GetOrderedQuantity(OS,mRowBO.GetFieldValueAsString('StoreCard_ID'), mRowBO.OID,mRowBO.GetFieldValueAsString('Store_ID'),
                                   self.GetFieldValueAsDateTime('CreatedAt$DATE'));
-                NxScriptingLog.WriteEvent(logInfo,'Karta '+mRowBO.GetFieldValueAsString('StoreCard_ID.Code')+' '+mRowBO.GetFieldValueAsString('StoreCard_ID.Name')+
+                mlogs.add('Karta '+mRowBO.GetFieldValueAsString('StoreCard_ID.Code')+' '+mRowBO.GetFieldValueAsString('StoreCard_ID.Name')+
                                                   '   AvailableQuantity: '+FloatToStr(mAvailableQuantity)+
                                                   '   Quantity: '+FloatToStr(mQuantity)+
                                                   '   mOrderedQuantity: '+FloatToStr(mOrderedQuantity)+
                                                   '   RowQuantity: '+FloatToStr(mRowBO.GetFieldValueAsFloat('Quantity')));
                 if (mAvailableQuantity-mOrderedQuantity-mRowBO.GetFieldValueAsFloat('Quantity'))<0 then begin
-                NxScriptingLog.WriteEvent(logInfo,'Karta '+mRowBO.GetFieldValueAsString('StoreCard_ID.Code')+' výsledek '+FloatToStr((mAvailableQuantity-mOrderedQuantity-mRowBO.GetFieldValueAsFloat('Quantity'))));
+                mLogs.add('Karta '+mRowBO.GetFieldValueAsString('StoreCard_ID.Code')+' výsledek '+FloatToStr((mAvailableQuantity-mOrderedQuantity-mRowBO.GetFieldValueAsFloat('Quantity'))));
                   mRowQ:=mRowBO.GetFieldValueAsFloat('Quantity');
                   mNotOnStore:=True;
                   if mRowQ>mQuantity then begin
@@ -52,21 +57,14 @@ begin
                       mQuantityMO:=GetAvailableQuantity(OS,'1E00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')); //sklad MO
                       mQuantityLogStore:=GetAvailableQuantity(OS,'4P00000101', mRowBO.GetFieldValueAsString('StoreCard_ID'))//sklad VO
                       -NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('4P00000101')+')',0);
-                      NxScriptingLog.WriteEvent(logInfo,mRowBO.GetFieldValueAsString('StoreCard_ID.code')+' '+
+                      mlogs.add(mRowBO.GetFieldValueAsString('StoreCard_ID.code')+' '+
                                                   mRowBO.GetFieldValueAsString('StoreCard_ID.Name')+#13#10+
                                                  'mQuantity05 '+FloatToStr(mQuantity05)+#13#10+
                                                  'mQuantityMO '+FloatToStr(mQuantityMO)+#13#10+
                                                  'mQuantityLogStore '+FloatToStr(mQuantityLogStore)+#13#10+
                                                  'bez rezervace '+FloatToStr(GetAvailableQuantity(OS,'4P00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')))+#13#10+
                                                  'rezervace '+FloatToStr(NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('4P00000101')+')',0)));
-                      {CFxLog.SaveLog(NxCreateContext_1(mRowBO),'ERR',mOrderBO.DisplayName,mRowBO.GetFieldValueAsString('StoreCard_ID.code')+' '+
-                                                                                          mRowBO.GetFieldValueAsString('StoreCard_ID.Name')+#13#10+
-                                                                                         'mQuantity05 '+FloatToStr(mQuantity05)+#13#10+
-                                                                                         'mQuantityMO '+FloatToStr(mQuantityMO)+#13#10+
-                                                                                         'mQuantityLogStore '+FloatToStr(mQuantityLogStore)+#13#10+
-                                                                                         'bez rezervace '+FloatToStr(GetAvailableQuantity(OS,'1L00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')))+#13#10+
-                                                                                         'rezervace '+FloatToStr(NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1L00000101')+')',0))
-                                                                                         ,2,now);}
+
                       if ((mQuantity05+mQuantityMO+mQuantityLogStore)>0)  and ((mRowQ-mQuantity)<=(mQuantity05+mQuantityMO+mQuantityLogStore)) then begin
                          mDodano:=0;
                          mNextStore:=True;
@@ -80,7 +78,8 @@ begin
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantityLogStore;
                             end;
-                           NxScriptingLog.WriteEvent(logInfo,'Dodáno :'+FloatToStr(mDodano)+'       4P00000101');
+                            mLogs.add('Dodáno :'+FloatToStr(mDodano)+'       ze skladu 01-VO');
+                            mLogs.add(mHorizontalSplitter);
                        end;
                        if (mQuantity05>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
                             if mQuantity05>=(mRowQ-mDodano) then begin
@@ -92,7 +91,8 @@ begin
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantity05;
                             end;
-                           NxScriptingLog.WriteEvent(logInfo,'Dodáno :'+FloatToStr(mDodano)+'       2D00000101');
+                            mlogs.add('Dodáno :'+FloatToStr(mDodano)+'       ze skladu 05');
+                            mLogs.add(mHorizontalSplitter);
                          end;
                          if (mQuantityMO>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
                             if mQuantityMO>=(mRowQ-mDodano) then begin
@@ -104,7 +104,7 @@ begin
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantityMO;
                             end;
-                            NxScriptingLog.WriteEvent(logInfo,'Dodáno :'+FloatToStr(mDodano)+'       1E00000101');
+                            mlogs.add('Dodáno :'+FloatToStr(mDodano)+'       ze skladu MO-II');
                          end;
                       end;
                    end;
@@ -115,7 +115,7 @@ begin
               try
                mNotLogisticStoreList.SaveToFile('f:\logy\OutgoingTransfers\'+NxSearchReplace(self.DisplayName,'/','-',[srAll])+'_nonlog.txt');
               Except
-               NxScriptingLog.WriteEvent(logInfo,'chyba řádek 99'+#13#10+ExceptionMessage);
+               mLogs.Add('chyba řádek 123'+#13#10+ExceptionMessage);
               end;
               mResult:=mResult+#13#10+'Výdej z nepolohovaných skladu '+self.DisplayName;
               for k:=0 to mNotLogisticStoreList.Count-1 do begin
@@ -128,19 +128,24 @@ begin
               try
                mLogisticStoreList.SaveToFile('f:\logy\OutgoingTransfers\'+NxSearchReplace(self.DisplayName,'/','-',[srAll])+'_log.txt');
               except
-                NxScriptingLog.WriteEvent(logInfo,'chyba řádek 112'+#13#10+ExceptionMessage);
+                mlogs.add('chyba řádek 136'+#13#10+ExceptionMessage);
               end;
               for k:=0 to mLogisticStoreList.Count-1 do begin
                 mResult:=mResult+#13#10+mLogisticStoreList.Strings[k];
               end;
               mResult:=mResult+#13#10+CreateTransfer(OS,self,mLogisticStoreList,'Z200000101',mDestinationStore_ID, mDivision_ID, True);
             end;
-     NxScriptingLog.WriteEvent(logInfo,'Výsledek: '+#13#10+mResult);
+     mlogs.add('Výsledek: '+#13#10+mResult);
      NxScriptingLog.LeaveSection('Převodka výdej',logInfo);
     Except
-      NxScriptingLog.WriteEvent(logInfo,'Chyba mResult:'+#13#10+mResult+#13#10+ExceptionMessage);
+      mlogs.add('Chyba mResult:'+#13#10+mResult+#13#10+ExceptionMessage);
+      CFxLog.SaveLog(NxCreateContext(OS),'LPV', 'Převod k '+Self.DisplayName, mLogs.text,ltScripting,now);
+      mLogs.free;
       NxScriptingLog.LeaveSection('Převodka výdej',logInfo);
     end;
+    if (mNotLogisticStoreList.count+mLogisticStoreList.Count)>0 then
+       CFxLog.SaveLog(NxCreateContext(OS),'LPV', 'Převod k '+Self.DisplayName, mLogs.text,ltScripting,now);
+    mLogs.free;
  end;
 
  except
@@ -148,6 +153,15 @@ begin
  end;
 
 
+end;
+
+function GetHorizontalSplitter(aLength: Integer): string;
+var
+  i: Integer;
+begin
+  Result := '';
+  for i := 1 to aLength do
+    Result := Result + '─';
 end;
 
 {

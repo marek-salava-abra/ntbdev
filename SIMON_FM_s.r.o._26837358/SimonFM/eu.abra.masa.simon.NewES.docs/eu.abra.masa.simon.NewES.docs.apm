@@ -5,7 +5,7 @@
     "id": "3S41000101",
     "name": "eu.abra.masa.simon.NewES.docs",
     "license_holder": "SIMON_FM_s.r.o._26837358",
-    "objversion": 123,
+    "objversion": 127,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,35 +17,35 @@
       "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
       "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
       "scriptkind": 2,
-      "objversion": 93,
+      "objversion": 95,
       "posindex": 1
     },
     {
       "scriptid": "C03HFKOASUP4J1D3KKGVQGAING",
       "filename": "BO_Obrazekkeskladovekarte_C03HFKOASUP4J1D3KKGVQGAING.pas",
       "scriptkind": 1,
-      "objversion": 52,
+      "objversion": 54,
       "posindex": 2
     },
     {
       "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
       "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 70,
+      "objversion": 74,
       "posindex": 3
     },
     {
       "scriptid": "const",
       "filename": "const.pas",
       "scriptkind": 0,
-      "objversion": 50,
+      "objversion": 52,
       "posindex": 4
     },
     {
       "scriptid": "4MP1E2VUANDL342Q01C0CX3FCC",
       "filename": "AG_Skladovemenu_4MP1E2VUANDL342Q01C0CX3FCC.pas",
       "scriptkind": 2,
-      "objversion": 29,
+      "objversion": 31,
       "posindex": 5
     }
   ]

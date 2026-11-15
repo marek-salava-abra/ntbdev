@@ -203,7 +203,7 @@ begin
             mFirmOffice.SetFieldValueAsString('Name', Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '+mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname')));
             if AnsiLeftStr(mFirmOffice.GetFieldValueAsString('Name'),10)='Balíkovna ' then mFirmOffice.SetFieldValueAsString('Name',Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')));
             if AnsiLeftStr(mFirmOffice.GetFieldValueAsString('Name'),6)='Pošta ' then mFirmOffice.SetFieldValueAsString('Name',Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')));
-            if mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.code')='P93' then mFirmOffice.SetFieldValueAsString('Name',Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')));
+            if mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.code') in ['P93', 'P97', 'P108', 'P109', 'P110'] then mFirmOffice.SetFieldValueAsString('Name',Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')));
             mFirmOffice.SetFieldValueAsBoolean('SynchronizeAddress', False);
             mFirmOffice.GetMonikerForFieldCode(mFirmOffice.GetFieldCode('Address_ID')).BusinessObject.SetFieldValueAsString('City',mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.city'));
             mFirmOffice.GetMonikerForFieldCode(mFirmOffice.GetFieldCode('Address_ID')).BusinessObject.SetFieldValueAsString('PostCode',AnsiLeftStr(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.zip'),10));
@@ -241,6 +241,7 @@ begin
     if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID'))) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID',mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID'));
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2260000101','4260000101','5260000101','6260000101','7260000101','8260000101','9260000101','C260000101','2280000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2230000101');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['D260000101','E260000101','F260000101','G260000101','H260000101','I260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2000000101');
+    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['22B0000101','22C0000101','32C0000101','42C0000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3250000101');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['A260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','00000P1000');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['B260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4100000101');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2270000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','00000O1000');
@@ -251,7 +252,7 @@ begin
         mReceivedOrderBO.SetFieldValueAsString('X_LP_DeliveryPointID',Ansileftstr(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.ID_Balikovna'),30));
     end;
     if mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='4100000101' then mReceivedOrderBO.SetFieldValueAsString('X_LP_DeliveryPointID',Ansileftstr(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.zip'),30));
-    if mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.code')='P93' then mReceivedOrderBO.SetFieldValueAsString('X_LP_DeliveryPointID',Ansileftstr(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.Code'),30));
+    if mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.code') in ['P93', 'P97', 'P107', 'P108', 'P109', 'P110'] then mReceivedOrderBO.SetFieldValueAsString('X_LP_DeliveryPointID',Ansileftstr(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.Code'),30));
     if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].payment.System_ID'))) then mReceivedOrderBO.SetFieldValueAsString('PaymentType_ID',mXMLHead.getElementAsString('order['+inttostr(i)+'].payment.System_ID'));
     try
      mReceivedOrderBO.SetFieldValueAsString('X_ComgateID',mXMLHead.getElementAsString('order['+inttostr(i)+'].payment.Comgate_ID'));
@@ -261,6 +262,7 @@ begin
     if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4220000101');
     if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and not(mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2200000101');
     if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2240000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3240000101');
+    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3250000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='3100000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','22B0000101');
     mReceivedOrderBO.SetFieldValueAsInteger('DealerDiscountKind',0);
     if Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.COUNTRY_CODE'))='SLOVENSKO' then begin
      if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3220000101') and

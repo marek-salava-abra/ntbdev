@@ -5,7 +5,7 @@
     "id": "5SH1000101",
     "name": "eu.abra.masa.simon.mailingfromOP",
     "license_holder": "SIMON_FM_s.r.o._26837358",
-    "objversion": 94,
+    "objversion": 96,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,21 +17,21 @@
       "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
       "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 70,
+      "objversion": 71,
       "posindex": 1
     },
     {
       "scriptid": "fce",
       "filename": "fce.pas",
       "scriptkind": 0,
-      "objversion": 55,
+      "objversion": 56,
       "posindex": 2
     },
     {
       "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
       "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
       "scriptkind": 2,
-      "objversion": 53,
+      "objversion": 55,
       "posindex": 3
     }
   ]

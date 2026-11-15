@@ -16,11 +16,12 @@ var
  mSite:TSiteForm;
  mList:TStringList;
  mSaveDialog: TSaveDialog;
- i:integer;
+ i, mCount:integer;
 begin
  mSite:=TComponent(sender).BusRollSite;
  mList:=TStringList.Create;
- for i:=1 to 200 do begin
+ mCount:=StrToInt(InputBox('Počet', 'Kolik','100',mSite));
+ for i:=1 to mCount do begin
    mlist.Add(GenerateNum(8));
  end;
  mSaveDialog:= TSaveDialog.Create(nil);

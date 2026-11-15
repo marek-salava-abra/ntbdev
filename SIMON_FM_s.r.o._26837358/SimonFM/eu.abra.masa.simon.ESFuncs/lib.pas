@@ -31,13 +31,15 @@ var
   mBool, mNotOnStore,mZapornaMarze:Boolean;
   mAmount, mAvailableQuantity,mOrderedQuantity, mStorePrice:Extended;
   mZLV_ID, mDZVE_ID, mSubject, mBody, mFileName, mFileName2, mTO:string;
-begin
+begin                                                                                                // vyhozen PMState ro.pmstate_id='+QuotedStr('5010000101')+' and
   mList:=TStringList.Create;
   os.SQLSelect(format('SELECT a.receivedorder_id FROM IssuedDInvoices A '+
                       'left join receivedorders ro on ro.id=a.receivedorder_id '+
-                      'WHERE (A.Amount  <= A.PaidAmount) '+
+                      'WHERE (A.Amount  <= A.PaidAmount) and A.Amount>0 '+
                       'AND (EXISTS (SELECT 1 FROM PaymentsForDocument_VIEW PFD   WHERE (PFD.DocDate$DATE >= %s) and (PFD.DocDate$DATE < %s) '+
-                      'and PFD.PDocumentType = '+QuotedStr('10')+' and PFD.PDocument_ID = A.ID)) and ro.pmstate_id='+QuotedStr('5010000101')+' and ro.docqueue_id='+Quotedstr('1W10000101'),[IntToStr(Trunc(date-15)), IntToStr(trunc(date+1))]),mList);
+                      'and PFD.PDocumentType = '+QuotedStr('10')+
+                      ' and PFD.PDocument_ID = A.ID)) and not(ro.pmstate_id in ('+QuotedStr('9010000101')+','+QuotedStr('4010000101')+','+QuotedStr('6010000101')
+                      +','+QuotedStr('3010000101')+','+QuotedStr('1050000101')+','+QuotedStr('2010000101')+','+QuotedStr('2000000101')+')) and ro.docqueue_id='+Quotedstr('1W10000101'),[IntToStr(Trunc(date-15)), IntToStr(trunc(date+1))]),mList);
   if mList.count>0 then begin
    for i:=0 to mlist.count-1 do begin
     mOrderBO:=OS.CreateObject(Class_ReceivedOrder);
@@ -63,7 +65,7 @@ begin
     if mNotOnStore then mOrderBO.SetFieldValueAsString('PMState_ID','2030000101') else
     mOrderBO.SetFieldValueAsString('PMState_ID','2000000101');
     mOrderBO.SetFieldValueAsString('U_OrderState_ID','90F7000101');
-    mOrderBO.Save;
+    if mOrderBO.NeedSave then mOrderBO.Save;
     // tlačítko DZVE
       mZLV_ID:=OS.SQLSelectFirstAsString('Select id from issueddinvoices where receivedorder_id='+QuotedStr(mOrderBO.OID),'');
       if not(NxIsEmptyOID(mZLV_ID)) then begin
@@ -72,6 +74,7 @@ begin
         if not(mZLVBO.GetFieldValueAsString('Currency_ID.Code')='EUR') then begin
         OutputDebugString('zálohový list vydaný '+mZLVBO.DisplayName);
         mDZVE_ID:=CreateDocDZL(mZLVBO, mZLVBO.GetFieldValueAsFloat('PaidAmount')- mZLVBO.GetFieldValueAsFloat('UsedAmount'), mOrderBO.OID, Date);
+         if not(NxIsEmptyOID(mDZVE_ID)) then begin
           mPrintList:=TStringList.create;
           mFileList:=TStringList.Create;
           mDZVBO:=OS.CreateObject(Class_VATIssuedDepositInvoice);
@@ -105,6 +108,7 @@ begin
           DeleteFile(NxGetTempDir+'\'+ mFileName2 + '.pdf');
           mPrintList.Free;
         end;
+       end;
       end;
     // tlačítko DZVE
     mOrderBO.Free;
@@ -129,6 +133,7 @@ begin
   mOP := AZL.ObjectSpace.CreateObject(Class_ReceivedOrder);
   mParams := TNxParameters.Create();
   //mList := tStringlist.create;
+  try
   try
     if not NxIsEmptyOID(mOP_ID) then begin
       //potrebujeme radek objednávky
@@ -202,6 +207,9 @@ begin
     mParams.free;
     //mList.Free;
   end;
+  except
+
+  end;
 end;
 
 Function HledejID(What,Where,When,Alias,Res:string;mOS:TNxCustomObjectSpace):string;
@@ -229,9 +237,11 @@ Function HledejID(What,Where,When,Alias,Res:string;mOS:TNxCustomObjectSpace):str
                            ASubject:String; ABody:String; AAtachement, AAtachement2:String; AFirm_ID:String; ADivision_ID:String; ABusTransaction_ID:String; aAccount_ID:string;
                            aOrder_ID, aOrderState_ID:string);
 Var
-  mMailBO, mUserXLink:TNxCustomBusinessObject;
+  mMailBO, mUserXLink, mInvoiceBO:TNxCustomBusinessObject;
   mMRecipients:TNxCustomBusinessMonikerCollection;
   mMailRecipient:TNxCustomBusinessObject;
+  mInvoice_ID, mFileName:string;
+  mPrintList:TStringList;
 begin
   if not(ato='') then begin
      mMailBO:=AOS.CreateObject('5C1HWDQDR3J4NAAYZRO5PWHLWK');
@@ -277,6 +287,25 @@ begin
             TNxEmailSent(mMailBO).AttachFile('d:\AbraGen\dokumenty\reklamacni-rad-simon-eshop.pdf');
           if FileExists('d:\AbraGen\dokumenty\op-e-shop-simon-k-25.2.2026.pdf') then
             TNxEmailSent(mMailBO).AttachFile('d:\AbraGen\dokumenty\op-e-shop-simon-k-25.2.2026.pdf');
+       // doplnit kontrolu na fakturu zaplacenou
+      { mInvoice_ID:=aOS.SQLSelectFirstAsString('Select distinct(ii2.parent_ID) from storedocuments2 sd2 left join issuedinvoices2 ii2 in ii2.providerow_id=sd2.id where sd2.flowtype=''21'' and sd2.provide_id='+QuotedStr(aOrder_ID),'');
+       if not(NxIsEmptyOID(mInvoice_ID)) then begin
+         try
+           mInvoiceBO:=AOS.CreateObject(Class_IssuedInvoice);
+           mInvoiceBO.load(mInvoice_ID,nil);
+           if mInvoiceBO.GetFieldValueAsFloat('PaidAmount')-mInvoiceBO.GetFieldValueAsFloat('Amount')=0 then begin
+            mFileName:=NxSearchReplace(mInvoiceBO.DisplayName,'/','-',[srAll])+'.pdf';
+            mPrintList:=TStringList.Create;
+            mPrintList.Add(mInvoiceBO.OID);
+            CFxReportManager.PrintByIDs(NxCreateContext_1(mInvoiceBO),mPrintList,GetDynSource(AOS,'4N70000101'),'4N70000101',rtoFile,pekPDF,NxGetTempDir,mFileName);
+            if FileExists(NxGetTempDir+'\'+mFileName) then
+             TNxEmailSent(mMailBO).AttachFile(NxGetTempDir+'\'+mFileName);
+           end;
+           mInvoiceBO.free;
+         except
+
+         end;
+       end; }
      end;
 
      mMailBO.Save;

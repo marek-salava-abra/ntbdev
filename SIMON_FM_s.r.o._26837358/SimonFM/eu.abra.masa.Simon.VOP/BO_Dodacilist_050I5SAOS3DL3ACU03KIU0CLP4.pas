@@ -67,6 +67,7 @@ begin
                end;
              end;
             mcloneBO.SetFieldValueAsString('PMState_ID','2060000101');
+            mCloneBO.SetFieldValueAsDateTime('DocDate$date',date);
             if NxIsBlank(mCloneBO.GetFieldValueAsString('U_OrigOrderID')) then mCloneBO.SetFieldValueAsString('U_OrigOrderID',mBO.OID);
             try
               mbo.SetFieldValueAsBoolean('Closed',True);
