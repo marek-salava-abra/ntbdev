@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2Z30000101",
+    "name": "abra.eu.MASK.funkce_ctecky2017_vyr",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 24,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 16,
+      "posindex": 1
+    },
+    {
+      "scriptid": "D42ABO5BCI3O1CC4PH21RIL2OW",
+      "filename": "AG_Pohybynaobjednavkachvydanych_D42ABO5BCI3O1CC4PH21RIL2OW.pas",
+      "scriptkind": 2,
+      "objversion": 15,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Base_function",
+      "filename": "Base_function.pas",
+      "scriptkind": 0,
+      "objversion": 17,
+      "posindex": 3
+    },
+    {
+      "scriptid": "LIBS",
+      "filename": "LIBS.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 4
+    },
+    {
+      "scriptid": "Forms",
+      "filename": "Forms.pas",
+      "scriptkind": 0,
+      "objversion": 15,
+      "posindex": 5
+    }
+  ]
+}

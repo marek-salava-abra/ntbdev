@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~00000030C",
+    "name": "eu.abra.alec.Lipoelastic.POZ_AvailableQty",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 9,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ONWLBO0DUPX4B400AJEI4YETD4",
+      "filename": "AG_Pozadavkynavyrobu_ONWLBO0DUPX4B400AJEI4YETD4.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 1
+    }
+  ]
+}

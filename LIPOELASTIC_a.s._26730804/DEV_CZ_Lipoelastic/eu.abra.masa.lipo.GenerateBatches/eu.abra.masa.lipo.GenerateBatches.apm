@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~00000000J",
+    "name": "eu.abra.masa.lipo.GenerateBatches",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 11,
+    "description": "#generování šarží do výroby",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "HTI3OTLGNRPO32EEISEPC0XZ0K",
+      "filename": "BO_Vyrobniprikaz_HTI3OTLGNRPO32EEISEPC0XZ0K.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 1
+    },
+    {
+      "scriptid": "IVJSI1K34CJORFG1QBJOMTSVAG",
+      "filename": "BO_Pozadaveknavyrobu_IVJSI1K34CJORFG1QBJOMTSVAG.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 2
+    }
+  ]
+}

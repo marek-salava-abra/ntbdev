@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1010000101",
+    "name": "abra.eu.MASK.LIPOELASTIC.Porizeni_dokladu",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 16,
+    "description": "Skript doplnující informaci, jak vznikl doklad, z abry , nebo jinak.",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "filename": "BO_Prijemka_E03ZNUMDTCC4PDAUIEY1MBTJC0.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 1
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "1T0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Vratkadodacichlistu_1T0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 3
+    },
+    {
+      "scriptid": "3OKSI2XXYK2OB2JRPZ3U4UXTGK",
+      "filename": "BO_Vratkaprijemek_3OKSI2XXYK2OB2JRPZ3U4UXTGK.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 4
+    },
+    {
+      "scriptid": "1D0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkaprijem_1D0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 5
+    },
+    {
+      "scriptid": "0P0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej_0P0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 6
+    },
+    {
+      "scriptid": "2T0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Inventarnimanko_2T0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 7
+    },
+    {
+      "scriptid": "2D0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Inventarniprebytek_2D0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 8
+    }
+  ]
+}

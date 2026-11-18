@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4K22000101",
+    "name": "digitalizace_vyroby",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 150,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "DQTZF3V3XIC4B1WR3ERGIXKXDO",
+      "filename": "AG_Pracenaoperacich_DQTZF3V3XIC4B1WR3ERGIXKXDO.pas",
+      "scriptkind": 2,
+      "objversion": 102,
+      "posindex": 2
+    },
+    {
+      "scriptid": "3KHZXPR1T5145JROOCIYSV00OO",
+      "filename": "BO_Technologickypostup-radek_3KHZXPR1T5145JROOCIYSV00OO.pas",
+      "scriptkind": 1,
+      "objversion": 53,
+      "posindex": 3
+    },
+    {
+      "scriptid": "RMBJ1K5KJKJOVGZZPKYSUS5N3O",
+      "filename": "BO_Pozadaveknavyrobu-technologickypostup_RMBJ1K5KJKJOVGZZPKYSUS5N3O.pas",
+      "scriptkind": 1,
+      "objversion": 54,
+      "posindex": 5
+    },
+    {
+      "scriptid": "DLUH2Z5HXIN4LGIZR5BHPE4CY4",
+      "filename": "RL_Pracoviste_DLUH2Z5HXIN4LGIZR5BHPE4CY4.pas",
+      "scriptkind": 3,
+      "objversion": 7,
+      "posindex": 6
+    }
+  ]
+}

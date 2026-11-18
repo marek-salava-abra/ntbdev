@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1540000101",
+    "name": "abra.eu.MASK.funkce_ctecky2017",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 26,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 10
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 12,
+      "posindex": 1
+    },
+    {
+      "scriptid": "T2FWDKF0NSSOBC2KLELLUBPBXW",
+      "filename": "AG_Pohybynaobjednavkachprijatych_T2FWDKF0NSSOBC2KLELLUBPBXW.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Base_function",
+      "filename": "Base_function.pas",
+      "scriptkind": 0,
+      "objversion": 8,
+      "posindex": 3
+    },
+    {
+      "scriptid": "LIBS",
+      "filename": "LIBS.pas",
+      "scriptkind": 0,
+      "objversion": 6,
+      "posindex": 4
+    },
+    {
+      "scriptid": "Forms",
+      "filename": "Forms.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 5
+    },
+    {
+      "scriptid": "0H0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist-radek_0H0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 14,
+      "posindex": 6
+    },
+    {
+      "scriptid": "5JXY100I12P4TITWSNE0LD1IKS",
+      "filename": "IM_Import_5JXY100I12P4TITWSNE0LD1IKS_5JXY100I12P4TITWSNE0LD1IKS.pas",
+      "scriptkind": 4,
+      "objversion": 7,
+      "posindex": 7
+    }
+  ]
+}

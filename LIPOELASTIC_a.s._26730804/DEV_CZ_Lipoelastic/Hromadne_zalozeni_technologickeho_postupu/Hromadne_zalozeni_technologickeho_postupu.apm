@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KO3000101",
+    "name": "Hromadne_zalozeni_technologickeho_postupu",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 26,
+    "description": "oprava a změna skladové karty ",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 1
+    },
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 2
+    }
+  ]
+}

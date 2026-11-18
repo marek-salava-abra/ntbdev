@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~00000030I",
+    "name": "eu.abra.masa.lipoelastic.UseOnlyConfirmedCards",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 17,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 1
+    },
+    {
+      "scriptid": "S3WZQKDB5FDL342M01C0CX3FCC",
+      "filename": "RL_Skladovekarty_S3WZQKDB5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 3,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 3
+    },
+    {
+      "scriptid": "CHMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana-radek_CHMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 4
+    },
+    {
+      "scriptid": "0H0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist-radek_0H0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 5
+    },
+    {
+      "scriptid": "FLQIA44IVWM4B20GYRHC42BHGW",
+      "filename": "BO_Prijemka-radek_FLQIA44IVWM4B20GYRHC42BHGW.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 6
+    },
+    {
+      "scriptid": "1L0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkaprijem-radek_1L0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 7
+    },
+    {
+      "scriptid": "110I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej-radek_110I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 8
+    },
+    {
+      "scriptid": "GD3TIXIXYZYOLEF0E50WT0OCHG",
+      "filename": "BO_Zamenaprijem-radek_GD3TIXIXYZYOLEF0E50WT0OCHG.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 9
+    },
+    {
+      "scriptid": "2JJLNTOOPL0OZE4DJJNNOQI0WW",
+      "filename": "BO_Zamenavydej-radek_2JJLNTOOPL0OZE4DJJNNOQI0WW.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 10
+    }
+  ]
+}

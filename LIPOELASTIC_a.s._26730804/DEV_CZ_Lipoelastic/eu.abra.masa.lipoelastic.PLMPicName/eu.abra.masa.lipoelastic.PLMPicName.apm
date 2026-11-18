@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000B03",
+    "name": "eu.abra.masa.lipoelastic.PLMPicName",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 17,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "KCBDEFEPAYUOZ3D0GK3URSGKIO",
+      "filename": "BO_Obrazektechnologickychpostupu_KCBDEFEPAYUOZ3D0GK3URSGKIO.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 1
+    },
+    {
+      "scriptid": "J5O4HSHO3RY4HACKL1G0D0Y404",
+      "filename": "AG_Obrazkytechnologickychpostupu_J5O4HSHO3RY4HACKL1G0D0Y404.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 2
+    }
+  ]
+}

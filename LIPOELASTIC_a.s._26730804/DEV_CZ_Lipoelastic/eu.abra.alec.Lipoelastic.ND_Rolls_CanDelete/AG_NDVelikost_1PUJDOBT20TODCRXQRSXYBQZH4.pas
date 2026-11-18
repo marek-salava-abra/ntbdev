@@ -1,0 +1,4 @@
+﻿uses '.common';
+
+begin
+end.

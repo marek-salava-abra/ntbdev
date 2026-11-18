@@ -5,7 +5,7 @@
     "id": "1340000101",
     "name": "abra.eu.mask_import.2018",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 1043,
+    "objversion": 1046,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,70 +17,70 @@
       "scriptid": "Objednavka_prijata",
       "filename": "Objednavka_prijata.pas",
       "scriptkind": 0,
-      "objversion": 826,
+      "objversion": 829,
       "posindex": 1
     },
     {
       "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
       "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
       "scriptkind": 2,
-      "objversion": 682,
+      "objversion": 684,
       "posindex": 2
     },
     {
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 475,
+      "objversion": 477,
       "posindex": 3
     },
     {
       "scriptid": "QSGQOA2NYGF4L1Q5KKKU5MTPJK",
       "filename": "IM_Import_QSGQOA2NYGF4L1Q5KKKU5MTPJK_QSGQOA2NYGF4L1Q5KKKU5MTPJK.pas",
       "scriptkind": 4,
-      "objversion": 400,
+      "objversion": 402,
       "posindex": 4
     },
     {
       "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
       "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 363,
+      "objversion": 365,
       "posindex": 7
     },
     {
       "scriptid": "WEN033MLM3DL35J301C0CX3F40",
       "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
       "scriptkind": 1,
-      "objversion": 298,
+      "objversion": 300,
       "posindex": 8
     },
     {
       "scriptid": "22KUHRO1VHC4R0YJ5V5O4GYMEK",
       "filename": "IM_Import_22KUHRO1VHC4R0YJ5V5O4GYMEK_22KUHRO1VHC4R0YJ5V5O4GYMEK.pas",
       "scriptkind": 4,
-      "objversion": 283,
+      "objversion": 285,
       "posindex": 9
     },
     {
       "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
       "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
       "scriptkind": 4,
-      "objversion": 155,
+      "objversion": 157,
       "posindex": 10
     },
     {
       "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
       "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 148,
+      "objversion": 150,
       "posindex": 11
     },
     {
       "scriptid": "CZ4A2VHL421OXDDUPQO4U4M1UC",
       "filename": "IM_Import_CZ4A2VHL421OXDDUPQO4U4M1UC_CZ4A2VHL421OXDDUPQO4U4M1UC.pas",
       "scriptkind": 4,
-      "objversion": 79,
+      "objversion": 81,
       "posindex": 12
     }
   ]

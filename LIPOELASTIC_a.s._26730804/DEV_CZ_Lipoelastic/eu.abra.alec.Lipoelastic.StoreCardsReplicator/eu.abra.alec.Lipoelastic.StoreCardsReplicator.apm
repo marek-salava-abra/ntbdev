@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000005",
+    "name": "eu.abra.alec.Lipoelastic.StoreCardsReplicator",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 103,
+    "description": "@@",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 69,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 53,
+      "posindex": 2
+    },
+    {
+      "scriptid": "core",
+      "filename": "core.pas",
+      "scriptkind": 0,
+      "objversion": 83,
+      "posindex": 3
+    }
+  ]
+}

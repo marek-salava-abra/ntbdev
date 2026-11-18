@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1940000101",
+    "name": "abra.eu.mask.dodaci_adresa",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 60,
+    "description": "uPRAVA A DOPLNĚNÍ DODACÍ ADRESY",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 50,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 36,
+      "posindex": 2
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 3
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 25,
+      "posindex": 4
+    },
+    {
+      "scriptid": "QVSAA1X2BWEOHH22MEPGEAGI0W",
+      "filename": "AG_Odeslanaposta_QVSAA1X2BWEOHH22MEPGEAGI0W.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 5
+    }
+  ]
+}

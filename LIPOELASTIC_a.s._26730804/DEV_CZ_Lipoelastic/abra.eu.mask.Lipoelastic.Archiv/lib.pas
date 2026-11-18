@@ -1,0 +1,102 @@
+﻿const
+  constStoragePath = '\\10.5.5.150\archiv\';
+  constNewDirStr = '%s\%s';
+
+
+
+function Create_folder(mCustomBusinessObject:TNxCustomBusinessObject):Boolean;
+var
+mresult:boolean;
+begin
+  //  if NxIsBlank(mCustomBusinessObject.GetFieldValueAsString('X_PrintReport_ID')) then  begin
+                        if DirectoryExists(Format('%s', [constStoragePath]))  then begin   // uloziste je pristupne
+                                mResult:=DirectoryExists(Format('%s\%s', [constStoragePath, mCustomBusinessObject.GetFieldValueAsString('Period_id.code')]));
+                                if  not mresult then begin    // období
+                                        mResult:=NxCreateDir(Format('%s\%s', [constStoragePath, mCustomBusinessObject.GetFieldValueAsString('Period_id.code')]));
+
+
+                                end;
+                                mResult:=DirectoryExists(Format('%s\%s\%s', [constStoragePath, mCustomBusinessObject.GetFieldValueAsString('Period_id.code'),mCustomBusinessObject.GetFieldValueAsString('Docqueue_id.code')]));
+                                if not mresult then begin    // řada
+                                        mResult:=NxCreateDir(Format('%s\%s\%s', [constStoragePath, mCustomBusinessObject.GetFieldValueAsString('Period_id.code'),mCustomBusinessObject.GetFieldValueAsString('Docqueue_id.code')]));
+
+                                end;
+                        //showmessage('Úložiště je vytvořeno');
+                        end else begin
+                                showmessage('Úložiště není přístupné');
+                                result:=false;
+                        end;
+
+    //  end;
+
+             // mCustomBusinessObject.SetFieldValueAsString('X_path',(Format('%s\%s\%s\%s\%s', [mBO_ServiceDocument.GetFieldValueAsString('ServicedObject_ID'),'Servisni listy',mCustomBusinessObject.GetFieldValueAsString('ServiceDocument_ID'),'ML',mCustomBusinessObject.GetFieldValueAsString('ID')])));
+
+end;
+{
+  function iSelectPrintReport(AOLE: Variant) : TNxOID;
+var
+  mRoll : variant;
+  mXX : string;
+begin
+  Result := '';
+  mXX := '0000000000';
+  mRoll.Params.Add('_PROGPOINT=40SBPEINEFD13ACM03KIU0CLP4');
+  mRoll := AOLE.GetRoll('4CQONRMN0ND13BYP02K2DBYMG4', 0);
+
+//  mRoll.Params.Add('_FilterUser=OnlyMy');
+//  Result := mRoll.SelectDialog2(False, mXX);
+end;
+     }
+
+function iPrintDocument(Obj:TNxCustomBusinessObject;ADynCLSID:string;ReportID:string;Acontext:TNxContext;mprintlist:TStrings;AName:string;Adir:string):string;
+var
+        mOLEApp: Variant;
+        mCommand: Variant;
+        mCond: Variant;
+        FName:string;
+        mbo: TNxCustomBusinessObject;
+        mDynCLSID:string;
+begin
+        if  NxIsBlank(ADynCLSID) then begin
+            mDynCLSID := Obj.DefaultDynSourceID;
+        end else begin
+            mDynCLSID:=ADynCLSID;
+        end;
+        try
+                mOLEApp := GetAbraOLEApplication;
+                        mCommand := mOLEApp.CreateCustomCommand(mDynCLSID);  // ZL
+                        mCond := mCommand.ConstraintByID('ID');
+                        mCond.UsedKind := 1;
+                        mCond.Value := QuotedStr(Obj.OID);
+                mCommand.Execute;
+        finally
+        end;
+        //FName:=GetFileNameBOLog(Obj,aname);
+        if not (mCommand.RowSets[0].EOF) then
+                begin
+                        FName:=GetFileNameBOLog(Obj,aname);
+                       // FName:=aname+'.pdf';;
+        //                mCommand.Print(ReportID,8,adir,FName);
+                end;
+               // NxShowSimpleMessage(adir+ FName,nil);
+                NxPrintByIDs(Acontext, mPrintList, mDynCLSID, ReportID, rtofile, pekpdf, adir, FName) ;
+                result:=adir+FName;
+end;
+
+function GetFileNameBOLog(mBO:TNxCustomBusinessObject;aname:string):string;
+var s:string;
+begin
+        s:=aname;
+        s:=NxRemoveDiacritics(s);
+                while pos('.',s)>0 do delete(s,pos('.',s),1);
+                while pos('/',s)>0 do delete(s,pos('/',s),1);
+                while pos('-',s)>0 do delete(s,pos('-',s),1);
+                while pos(':',s)>0 do delete(s,pos(':',s),1);
+                while pos(',',s)>0 do delete(s,pos(',',s),1);
+                while pos(' ',s)>0 do delete(s,pos(' ',s),1);
+                while pos('"',s)>0 do delete(s,pos('"',s),1);
+                result:=s+'.pdf';
+end;
+
+begin
+end.

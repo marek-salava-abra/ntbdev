@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000I05",
+    "name": "eu.abra.matl.hide.delete.button",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 7,
+    "description": "skryje tlačítko vymazat na dokončených výrobcích",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "4JD5M0AUN3NOB5EXFME5MCH1D4",
+      "filename": "AG_Dokoncenevyrobky_4JD5M0AUN3NOB5EXFME5MCH1D4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

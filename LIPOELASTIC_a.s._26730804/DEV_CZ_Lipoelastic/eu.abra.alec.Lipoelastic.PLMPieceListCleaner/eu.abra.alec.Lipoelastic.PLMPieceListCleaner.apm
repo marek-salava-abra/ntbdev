@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "EK74000101",
+    "name": "eu.abra.alec.Lipoelastic.PLMPieceListCleaner",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 5,
+    "description": "@@",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "NWWNX02WFV2ORFJOXIW4BHBLWG",
+      "filename": "AG_Kusovniky_NWWNX02WFV2ORFJOXIW4BHBLWG.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "9KW3000101",
+    "name": "Automaticke_cisteni",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 7,
+    "description": "Naplánované úlohy",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Naplanovane_ulohy",
+      "filename": "Naplanovane_ulohy.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

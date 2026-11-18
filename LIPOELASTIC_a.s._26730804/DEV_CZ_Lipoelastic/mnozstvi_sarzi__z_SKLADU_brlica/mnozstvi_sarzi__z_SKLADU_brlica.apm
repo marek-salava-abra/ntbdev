@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "9KS3000101",
+    "name": "mnozstvi_sarzi__z_SKLADU_brlica",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 51,
+    "description": "doplní počty šarží podle stavu skladu",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 29,
+      "posindex": 1
+    },
+    {
+      "scriptid": "0P0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Prevodkavydej_0P0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 31,
+      "posindex": 2
+    }
+  ]
+}

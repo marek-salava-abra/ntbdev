@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "9K34000101",
+    "name": "Synchronizace_automaticka",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 39,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Export",
+      "filename": "Export.pas",
+      "scriptkind": 0,
+      "objversion": 38,
+      "posindex": 1
+    }
+  ]
+}

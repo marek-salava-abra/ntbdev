@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000Z01",
+    "name": "eu.abra.lipoelastic.MessageQueue",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 199,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "SKXUTU2T1EYOF13NYPA2CREU4G",
+      "filename": "BO_Messagequeue-Frontazprav_SKXUTU2T1EYOF13NYPA2CREU4G.pas",
+      "scriptkind": 1,
+      "objversion": 102,
+      "posindex": 1
+    },
+    {
+      "scriptid": "AutoServer",
+      "filename": "AutoServer.pas",
+      "scriptkind": 0,
+      "objversion": 119,
+      "posindex": 2
+    },
+    {
+      "scriptid": "API",
+      "filename": "API.pas",
+      "scriptkind": 0,
+      "objversion": 107,
+      "posindex": 3
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 98,
+      "posindex": 4
+    },
+    {
+      "scriptid": "receivedOrder",
+      "filename": "receivedOrder.pas",
+      "scriptkind": 0,
+      "objversion": 97,
+      "posindex": 5
+    },
+    {
+      "scriptid": "EVC2INUZZLWOJ3PLP2ZCBEOSSO",
+      "filename": "AG_Messagequeue-Frontazprav_EVC2INUZZLWOJ3PLP2ZCBEOSSO.pas",
+      "scriptkind": 2,
+      "objversion": 82,
+      "posindex": 6
+    },
+    {
+      "scriptid": "BillOfDelivery_JSON",
+      "filename": "BillOfDelivery_JSON.pas",
+      "scriptkind": 0,
+      "objversion": 64,
+      "posindex": 7
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 75,
+      "posindex": 8
+    },
+    {
+      "scriptid": "EFMK3ZXZQGE4B1SSCYEBDGMCCK",
+      "filename": "BO_Odeslanaposta_EFMK3ZXZQGE4B1SSCYEBDGMCCK.pas",
+      "scriptkind": 1,
+      "objversion": 71,
+      "posindex": 9
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 64,
+      "posindex": 10
+    }
+  ]
+}

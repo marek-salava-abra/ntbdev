@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "DK64000101",
+    "name": "eu.abra.alec.Lipoelastic.PLMImports",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 35,
+    "description": "@@",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "NWWNX02WFV2ORFJOXIW4BHBLWG",
+      "filename": "AG_Kusovniky_NWWNX02WFV2ORFJOXIW4BHBLWG.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 20,
+      "posindex": 2
+    },
+    {
+      "scriptid": "EY1VHUCFUEW455OMM2KXYUWR4K",
+      "filename": "AG_Technologickepostupy_EY1VHUCFUEW455OMM2KXYUWR4K.pas",
+      "scriptkind": 2,
+      "objversion": 31,
+      "posindex": 3
+    }
+  ]
+}

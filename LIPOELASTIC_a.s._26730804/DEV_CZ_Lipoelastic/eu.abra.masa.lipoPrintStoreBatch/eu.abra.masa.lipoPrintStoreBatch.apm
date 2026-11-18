@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000103",
+    "name": "eu.abra.masa.lipoPrintStoreBatch",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 18,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 15,
+      "posindex": 1
+    }
+  ]
+}

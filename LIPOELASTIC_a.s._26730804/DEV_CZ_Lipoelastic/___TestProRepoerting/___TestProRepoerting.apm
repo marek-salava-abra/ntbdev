@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KK2000101",
+    "name": "___TestProRepoerting",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 11,
+    "description": "______",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "MGL3OIVTAZL4VJ30UW4UMP3BPG",
+      "filename": "AG_Naplanovaneulohy_MGL3OIVTAZL4VJ30UW4UMP3BPG.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Reporting",
+      "filename": "Reporting.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 2
+    }
+  ]
+}

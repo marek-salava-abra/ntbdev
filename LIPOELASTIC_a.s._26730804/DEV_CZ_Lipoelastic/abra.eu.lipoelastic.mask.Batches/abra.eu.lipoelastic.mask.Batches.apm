@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1C10000101",
+    "name": "abra.eu.lipoelastic.mask.Batches",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 13,
+    "description": "Mazání data na nové šarži",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "C32QXZWCTVDL342W01C0CX3FCC",
+      "filename": "BO_Sarze-seriovecislo_C32QXZWCTVDL342W01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 1
+    },
+    {
+      "scriptid": "42QPPHD3TZDL342W01C0CX3FCC",
+      "filename": "BO_Dilcisarze-seriovecislo_42QPPHD3TZDL342W01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 6,
+      "posindex": 2
+    }
+  ]
+}

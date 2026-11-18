@@ -1,0 +1,178 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000H07",
+    "name": "Tanaka.DigiToo",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 7,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "CSYC3ULUW3R4PCPPYIETE43NGW",
+      "filename": "AG_Digitoo.ai_CSYC3ULUW3R4PCPPYIETE43NGW.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Main",
+      "filename": "Main.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Constants",
+      "filename": "Constants.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 3
+    },
+    {
+      "scriptid": "OFTMKVQH3ZD13ACL03KIU0CLP4",
+      "filename": "BO_Radadokladu_OFTMKVQH3ZD13ACL03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O1X54EUXPZCL35CH000ILPWJF4",
+      "filename": "BO_Stredisko_O1X54EUXPZCL35CH000ILPWJF4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 5
+    },
+    {
+      "scriptid": "K2WTYL304VD13ACL03KIU0CLP4",
+      "filename": "BO_Zakazka_K2WTYL304VD13ACL03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 6
+    },
+    {
+      "scriptid": "0AVVSAICKNDL3ACT03KIU0CLP4",
+      "filename": "BO_Typvydaje_0AVVSAICKNDL3ACT03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 7
+    },
+    {
+      "scriptid": "Tasks",
+      "filename": "Tasks.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 8
+    },
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 9
+    },
+    {
+      "scriptid": "Common",
+      "filename": "Common.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 10
+    },
+    {
+      "scriptid": "T5C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Zalohovelistyprijate_T5C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 11
+    },
+    {
+      "scriptid": "UYQKGUQWDC3OD2XUW0334DG5PC",
+      "filename": "AG_Danovezalohovelistyprijate_UYQKGUQWDC3OD2XUW0334DG5PC.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 12
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 13
+    },
+    {
+      "scriptid": "W41A21CP33DL35IV01C0CX3F40",
+      "filename": "AG_Ostatnivydaje_W41A21CP33DL35IV01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 14
+    },
+    {
+      "scriptid": "S1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Pokladnivydeje_S1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 15
+    },
+    {
+      "scriptid": "DoimportPriloh",
+      "filename": "DoimportPriloh.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 16
+    },
+    {
+      "scriptid": "42HE04FZGJD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturaprijata_42HE04FZGJD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 17
+    },
+    {
+      "scriptid": "5424DE5KKZDL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistprijaty_5424DE5KKZDL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 18
+    },
+    {
+      "scriptid": "ZJYWUH5I34J4VAAIHOB0ZA1FIO",
+      "filename": "BO_Danovyzalohovylistprijaty_ZJYWUH5I34J4VAAIHOB0ZA1FIO.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 19
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 20
+    },
+    {
+      "scriptid": "1DHHWWVMXVD13ACQ03KIU0CLP4",
+      "filename": "BO_Ostatnivydaj_1DHHWWVMXVD13ACQ03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 21
+    },
+    {
+      "scriptid": "4AHE04FZGJD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturaprijata-radek_4AHE04FZGJD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 1,
+      "posindex": 22
+    },
+    {
+      "scriptid": "DoimportCasovychRazitek",
+      "filename": "DoimportCasovychRazitek.pas",
+      "scriptkind": 0,
+      "objversion": 1,
+      "posindex": 23
+    }
+  ]
+}

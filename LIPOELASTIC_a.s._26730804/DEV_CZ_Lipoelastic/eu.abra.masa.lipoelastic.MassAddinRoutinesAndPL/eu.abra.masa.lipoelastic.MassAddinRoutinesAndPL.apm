@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000206",
+    "name": "eu.abra.masa.lipoelastic.MassAddinRoutinesAndPL",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 45,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "EY1VHUCFUEW455OMM2KXYUWR4K",
+      "filename": "AG_Technologickepostupy_EY1VHUCFUEW455OMM2KXYUWR4K.pas",
+      "scriptkind": 2,
+      "objversion": 25,
+      "posindex": 1
+    },
+    {
+      "scriptid": "NWWNX02WFV2ORFJOXIW4BHBLWG",
+      "filename": "AG_Kusovniky_NWWNX02WFV2ORFJOXIW4BHBLWG.pas",
+      "scriptkind": 2,
+      "objversion": 27,
+      "posindex": 2
+    },
+    {
+      "scriptid": "dlg",
+      "filename": "dlg.pas",
+      "scriptkind": 0,
+      "objversion": 42,
+      "posindex": 3
+    }
+  ]
+}

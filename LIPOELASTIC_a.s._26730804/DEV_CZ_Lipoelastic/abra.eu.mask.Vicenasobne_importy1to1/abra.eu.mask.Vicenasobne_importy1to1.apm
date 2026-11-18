@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4K11000101",
+    "name": "abra.eu.mask.Vicenasobne_importy1to1",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 106,
+    "description": "Neslučování objednávek vydaných a přijatých",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 20
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 74,
+      "posindex": 1
+    },
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 25,
+      "posindex": 2
+    },
+    {
+      "scriptid": "BL0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Vratkydodacichlistu_BL0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 3
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 13,
+      "posindex": 4
+    },
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 5
+    },
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 6
+    },
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 7
+    }
+  ]
+}

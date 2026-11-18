@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000A01",
+    "name": "Filtrovani_v_ciselniku",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 5,
+    "description": "Filtrování číselníku zakázek na extra položce v osobách",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "W0M2B3FES0S45JD2AW0S5KTUS4",
+      "filename": "RL_Druh_W0M2B3FES0S45JD2AW0S5KTUS4.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 2
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 3
+    },
+    {
+      "scriptid": "U2PF3CCG24EO5CD2EVS3YECLM4",
+      "filename": "RL_Velikost_U2PF3CCG24EO5CD2EVS3YECLM4.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 4
+    },
+    {
+      "scriptid": "5MOUIGCKCPW43HPSH4SN1SRSW4",
+      "filename": "RL_Barva_5MOUIGCKCPW43HPSH4SN1SRSW4.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 5
+    },
+    {
+      "scriptid": "V0QYI5OU4XN4H2YNEAMSASYTAK",
+      "filename": "RL_Provedeni_V0QYI5OU4XN4H2YNEAMSASYTAK.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 6
+    },
+    {
+      "scriptid": "ABNAUAGQGK14JE34HMPPN5JUMS",
+      "filename": "RL_Agendazdravotnichprostredku_ABNAUAGQGK14JE34HMPPN5JUMS.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 7
+    },
+    {
+      "scriptid": "BIQBHO2KCNH4FHSDF0ZXQYG14S",
+      "filename": "RL_Skupiny_BIQBHO2KCNH4FHSDF0ZXQYG14S.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 8
+    },
+    {
+      "scriptid": "FVSIYDWGWSBOXFZERLB132TKNS",
+      "filename": "RL_Material_FVSIYDWGWSBOXFZERLB132TKNS.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 9
+    },
+    {
+      "scriptid": "PSQA35UDNBZOV1I5NWRZZGTKMO",
+      "filename": "RL_MnozstviVBaleni_PSQA35UDNBZOV1I5NWRZZGTKMO.pas",
+      "scriptkind": 3,
+      "objversion": 2,
+      "posindex": 10
+    }
+  ]
+}

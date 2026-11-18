@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1I10000101",
+    "name": "abra.eu.mask.Lipoelastic.Archiv",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 349,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 266,
+      "posindex": 3
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 153,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 129,
+      "posindex": 5
+    },
+    {
+      "scriptid": "Auto_archiv",
+      "filename": "Auto_archiv.pas",
+      "scriptkind": 0,
+      "objversion": 129,
+      "posindex": 6
+    },
+    {
+      "scriptid": "QRfunkce",
+      "filename": "QRfunkce.pas",
+      "scriptkind": 0,
+      "objversion": 84,
+      "posindex": 7
+    },
+    {
+      "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 81,
+      "posindex": 8
+    },
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 9
+    }
+  ]
+}

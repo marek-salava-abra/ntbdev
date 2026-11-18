@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "AK54000101",
+    "name": "NxApiProp",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 39,
+    "description": "Parametry pro import api ",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Prop",
+      "filename": "Prop.pas",
+      "scriptkind": 0,
+      "objversion": 35,
+      "posindex": 1
+    }
+  ]
+}

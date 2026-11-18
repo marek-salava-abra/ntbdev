@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1800000101",
+    "name": "abra.eu.MASK.Lipo.NAskladňovací_ceny_vyrobku",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 281,
+    "description": "Předvyplňování cen na příjmu",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "FLQIA44IVWM4B20GYRHC42BHGW",
+      "filename": "BO_Prijemka-radek_FLQIA44IVWM4B20GYRHC42BHGW.pas",
+      "scriptkind": 1,
+      "objversion": 188,
+      "posindex": 1
+    },
+    {
+      "scriptid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "filename": "BO_Prijemka_E03ZNUMDTCC4PDAUIEY1MBTJC0.pas",
+      "scriptkind": 1,
+      "objversion": 96,
+      "posindex": 2
+    },
+    {
+      "scriptid": "BT0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarnimanka_BT0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 111,
+      "posindex": 3
+    },
+    {
+      "scriptid": "OFZO2K155FDL3CL100C4RHECN0",
+      "filename": "AG_Sklady_OFZO2K155FDL3CL100C4RHECN0.pas",
+      "scriptkind": 2,
+      "objversion": 108,
+      "posindex": 5
+    },
+    {
+      "scriptid": "BP0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarniprebytky_BP0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 66,
+      "posindex": 6
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 78,
+      "posindex": 7
+    }
+  ]
+}

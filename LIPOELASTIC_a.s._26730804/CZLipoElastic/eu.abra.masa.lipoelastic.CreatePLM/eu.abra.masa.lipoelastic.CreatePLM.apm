@@ -5,7 +5,7 @@
     "id": "~000000K01",
     "name": "eu.abra.masa.lipoelastic.CreatePLM",
     "license_holder": "LIPOELASTIC_a.s._26730804",
-    "objversion": 34,
+    "objversion": 36,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -59,7 +59,7 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 6,
+      "objversion": 8,
       "posindex": 7
     }
   ]

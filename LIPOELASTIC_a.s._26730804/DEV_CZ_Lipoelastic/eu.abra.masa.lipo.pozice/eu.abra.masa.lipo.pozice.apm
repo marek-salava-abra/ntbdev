@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~00000000C",
+    "name": "eu.abra.masa.lipo.pozice",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 9,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "DBG4IHIKXAK4RDZSV0HO1HB3FW",
+      "filename": "AG_Skladovepozice_DBG4IHIKXAK4RDZSV0HO1HB3FW.pas",
+      "scriptkind": 2,
+      "objversion": 6,
+      "posindex": 1
+    }
+  ]
+}

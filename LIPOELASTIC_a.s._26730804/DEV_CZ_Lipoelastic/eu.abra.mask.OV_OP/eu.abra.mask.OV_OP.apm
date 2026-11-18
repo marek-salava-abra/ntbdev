@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KQ0000101",
+    "name": "eu.abra.mask.OV_OP",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 32,
+    "description": "Příklad akce, která vygeneruje z příjemky dodací list",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 1
+    },
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 14,
+      "posindex": 2
+    }
+  ]
+}

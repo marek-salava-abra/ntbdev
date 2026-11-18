@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000101",
+    "name": "RámcoveSmlouvy",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 37,
+    "description": "rámcové smlouvy - zpětné propojení dokladů",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "D42ABO5BCI3O1CC4PH21RIL2OW",
+      "filename": "AG_Pohybynaobjednavkachvydanych_D42ABO5BCI3O1CC4PH21RIL2OW.pas",
+      "scriptkind": 2,
+      "objversion": 31,
+      "posindex": 1
+    },
+    {
+      "scriptid": "05O2XT2S23E13HBT00C5OG4NF4",
+      "filename": "AG_Skladovepohyby_05O2XT2S23E13HBT00C5OG4NF4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

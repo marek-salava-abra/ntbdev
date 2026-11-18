@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000009",
+    "name": "eu.abra.masa.LE.KALK",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 13,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "IVJSI1K34CJORFG1QBJOMTSVAG",
+      "filename": "BO_Pozadaveknavyrobu_IVJSI1K34CJORFG1QBJOMTSVAG.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ONWLBO0DUPX4B400AJEI4YETD4",
+      "filename": "AG_Pozadavkynavyrobu_ONWLBO0DUPX4B400AJEI4YETD4.pas",
+      "scriptkind": 2,
+      "objversion": 8,
+      "posindex": 2
+    }
+  ]
+}

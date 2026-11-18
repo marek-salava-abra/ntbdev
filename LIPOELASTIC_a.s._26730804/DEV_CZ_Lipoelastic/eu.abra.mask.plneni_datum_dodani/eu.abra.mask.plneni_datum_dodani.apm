@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1D20000101",
+    "name": "eu.abra.mask.plnění_datum_dodani",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 100,
+    "description": "Příklad akce, která vygeneruje z příjemky dodací list",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 88,
+      "posindex": 1
+    },
+    {
+      "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 41,
+      "posindex": 2
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 23,
+      "posindex": 3
+    },
+    {
+      "scriptid": "GF1U1H4R1ZE13HS401K0LEYWLS",
+      "filename": "BO_Skladovydoklad_GF1U1H4R1ZE13HS401K0LEYWLS.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 4
+    }
+  ]
+}

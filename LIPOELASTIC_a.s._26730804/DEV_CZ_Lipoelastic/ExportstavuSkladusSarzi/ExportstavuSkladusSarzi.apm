@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KI2000101",
+    "name": "ExportstavuSkladusSarzi",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 165,
+    "description": "Automatické export XMLz skladových karet",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Reporting",
+      "filename": "Reporting.pas",
+      "scriptkind": 0,
+      "objversion": 160,
+      "posindex": 1
+    },
+    {
+      "scriptid": "MGL3OIVTAZL4VJ30UW4UMP3BPG",
+      "filename": "AG_Naplanovaneulohy_MGL3OIVTAZL4VJ30UW4UMP3BPG.pas",
+      "scriptkind": 2,
+      "objversion": 93,
+      "posindex": 2
+    }
+  ]
+}

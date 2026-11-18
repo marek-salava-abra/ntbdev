@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "AKL3000101",
+    "name": "abra.eu.Hromadny_dobropisPRWork",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 229,
+    "description": "Dobropisy FV",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "BGNME5QQIEQ4LIEDG1ZR4TU31G",
+      "filename": "AG_Pozadavkynadobropisy(TMP)_BGNME5QQIEQ4LIEDG1ZR4TU31G.pas",
+      "scriptkind": 2,
+      "objversion": 217,
+      "posindex": 1
+    },
+    {
+      "scriptid": "42VOLQXZBRDL3A2D01C0CSUFSG",
+      "filename": "AG_Dobropisyfakturprijatych_42VOLQXZBRDL3A2D01C0CSUFSG.pas",
+      "scriptkind": 2,
+      "objversion": 64,
+      "posindex": 2
+    },
+    {
+      "scriptid": "45D1XVW5EY24JBXTOE01EHYRSG",
+      "filename": "BO_Pozadavkynadobropisy(TMP)_45D1XVW5EY24JBXTOE01EHYRSG.pas",
+      "scriptkind": 1,
+      "objversion": 29,
+      "posindex": 3
+    },
+    {
+      "scriptid": "W402MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Dobropisfakturyvydane_W402MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 23,
+      "posindex": 4
+    },
+    {
+      "scriptid": "WC02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Dobropisfakturyvydane-radek_WC02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 23,
+      "posindex": 5
+    },
+    {
+      "scriptid": "Libs",
+      "filename": "Libs.pas",
+      "scriptkind": 0,
+      "objversion": 22,
+      "posindex": 6
+    }
+  ]
+}

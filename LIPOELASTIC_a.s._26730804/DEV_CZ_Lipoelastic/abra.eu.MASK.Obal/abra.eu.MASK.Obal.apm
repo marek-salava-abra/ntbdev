@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1Z20000101",
+    "name": "abra.eu.MASK.Obal",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 256,
+    "description": "Obalový materiál - krabičky",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 252,
+      "posindex": 2
+    }
+  ]
+}

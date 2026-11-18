@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000U02",
+    "name": "eu.abra.masa.lipo.SKbatch2CZBatch",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 25,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "S1X0KZC0NJE13C5U00CA141B44",
+      "filename": "AG_Pohybysarzi-seriovychcisel_S1X0KZC0NJE13C5U00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 22,
+      "posindex": 1
+    }
+  ]
+}

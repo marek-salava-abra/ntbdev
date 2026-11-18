@@ -1,0 +1,4 @@
+﻿uses '.fce';
+
+begin
+end.

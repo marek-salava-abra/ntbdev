@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000G02",
+    "name": "eu.abra.alec.Lipoelastic.GetIssuedOrderFromReceipt",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 30,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "FLQIA44IVWM4B20GYRHC42BHGW",
+      "filename": "BO_Prijemka-radek_FLQIA44IVWM4B20GYRHC42BHGW.pas",
+      "scriptkind": 1,
+      "objversion": 19,
+      "posindex": 1
+    },
+    {
+      "scriptid": "VNJGDP5MU4K4V5GWUFOHULYHVG",
+      "filename": "AG_Servisniknizka_VNJGDP5MU4K4V5GWUFOHULYHVG.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 2
+    }
+  ]
+}

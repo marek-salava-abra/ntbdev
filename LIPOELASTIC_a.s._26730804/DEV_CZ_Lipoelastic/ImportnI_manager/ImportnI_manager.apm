@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KZ2000101",
+    "name": "ImportnI_manager",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 13,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZCYYYNQCDLA4L3L33VUB3EHOC4",
+      "filename": "IM_Import_ZCYYYNQCDLA4L3L33VUB3EHOC4_ZCYYYNQCDLA4L3L33VUB3EHOC4.pas",
+      "scriptkind": 4,
+      "objversion": 10,
+      "posindex": 1
+    }
+  ]
+}

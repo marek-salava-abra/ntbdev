@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KB2000101",
+    "name": "ukazka.prace.s.json",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 7,
+    "description": "Ukázka práce s objekty TJSON, TJSONArray a manipulace s daty v json formátu obecně.",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Příklady a návody JSON",
+      "filename": "PrikladyanavodyJSON_Příklady a návody JSON.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

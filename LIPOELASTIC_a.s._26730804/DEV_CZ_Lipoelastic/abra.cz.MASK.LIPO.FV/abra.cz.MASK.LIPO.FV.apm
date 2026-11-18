@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1Q00000101",
+    "name": "abra.cz.MASK.LIPO.FV",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 76,
+    "description": "Předvyplněn při změně FV",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 39,
+      "posindex": 1
+    },
+    {
+      "scriptid": "W402MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Dobropisfakturyvydane_W402MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 24,
+      "posindex": 2
+    },
+    {
+      "scriptid": "WC02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Dobropisfakturyvydane-radek_WC02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 5,
+      "posindex": 3
+    }
+  ]
+}

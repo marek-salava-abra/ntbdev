@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000309",
+    "name": "Correct_batch",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 41,
+    "description": "DOplnění a korekce šarží",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 98
+  },
+  "scripts": [
+    {
+      "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 37,
+      "posindex": 1
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 2
+    },
+    {
+      "scriptid": "BD0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-vydeje_BD0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 3
+    },
+    {
+      "scriptid": "BH0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prevodky-prijmy_BH0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 4
+    },
+    {
+      "scriptid": "RQE0MPXTACU4B2B5HGG053P44C",
+      "filename": "AG_Zameny-vydeje_RQE0MPXTACU4B2B5HGG053P44C.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 5
+    },
+    {
+      "scriptid": "EGVDANSIQWY4V2Y52YRUPRHAK4",
+      "filename": "AG_Zameny-prijmy_EGVDANSIQWY4V2Y52YRUPRHAK4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 6
+    }
+  ]
+}

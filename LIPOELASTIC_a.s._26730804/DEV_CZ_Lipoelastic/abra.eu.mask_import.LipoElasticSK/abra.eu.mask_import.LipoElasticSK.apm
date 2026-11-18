@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "9KB3000101",
+    "name": "abra.eu.mask_import.LipoElasticSK",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 72,
+    "description": "Import , export a přenos dat pro funkce Třebíč",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 99
+  },
+  "scripts": [
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 70,
+      "posindex": 1
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 38,
+      "posindex": 4
+    }
+  ]
+}

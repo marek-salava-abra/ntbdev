@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000204",
+    "name": "MASK_XLS_Import",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 97,
+    "description": "@@",
+    "cryptForExport": false,
+    "usageState": 1,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "BGNME5QQIEQ4LIEDG1ZR4TU31G",
+      "filename": "AG_Pozadavkynadobropisy(TMP)_BGNME5QQIEQ4LIEDG1ZR4TU31G.pas",
+      "scriptkind": 2,
+      "objversion": 33,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 26,
+      "posindex": 2
+    },
+    {
+      "scriptid": "core",
+      "filename": "core.pas",
+      "scriptkind": 0,
+      "objversion": 39,
+      "posindex": 3
+    },
+    {
+      "scriptid": "W01A21CP33DL35IV01C0CX3F40",
+      "filename": "AG_Ostatniprijmy_W01A21CP33DL35IV01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 53,
+      "posindex": 4
+    },
+    {
+      "scriptid": "bankvypis",
+      "filename": "bankvypis.pas",
+      "scriptkind": 0,
+      "objversion": 13,
+      "posindex": 5
+    },
+    {
+      "scriptid": "5C1HWDQDR3J4NAAYZRO5PWHLWK",
+      "filename": "BO_Odeslanye-mail_5C1HWDQDR3J4NAAYZRO5PWHLWK.pas",
+      "scriptkind": 1,
+      "objversion": 30,
+      "posindex": 6
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1510000101",
+    "name": "abra.eu.mask.knihovny",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 19,
+    "description": "Předefinované knihovny",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Print_document",
+      "filename": "Print_document.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 1
+    },
+    {
+      "scriptid": "SendCRM",
+      "filename": "SendCRM.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "SendEmail",
+      "filename": "SendEmail.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 3
+    },
+    {
+      "scriptid": "SendEmail_BLAT",
+      "filename": "SendEmail_BLAT.pas",
+      "scriptkind": 0,
+      "objversion": 13,
+      "posindex": 4
+    },
+    {
+      "scriptid": "Sendmsg",
+      "filename": "Sendmsg.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 5
+    }
+  ]
+}

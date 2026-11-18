@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000K05",
+    "name": "XXX_Emaily",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 18,
+    "description": "Automatický email s fv",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Auto_email",
+      "filename": "Auto_email.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 2
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000102",
+    "name": "eu.abra.masa.lipo.TBL",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 181,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "TOKRQPFRTHA4ZAYQRXGRQKHED0",
+      "filename": "BO_BusinessobjektPrepravek_TOKRQPFRTHA4ZAYQRXGRQKHED0.pas",
+      "scriptkind": 1,
+      "objversion": 100,
+      "posindex": 1
+    },
+    {
+      "scriptid": "dlg",
+      "filename": "dlg.pas",
+      "scriptkind": 0,
+      "objversion": 95,
+      "posindex": 2
+    },
+    {
+      "scriptid": "AOYIJMG4OAEOR1T1ELKKGVSMB0",
+      "filename": "AG_Prepravky_AOYIJMG4OAEOR1T1ELKKGVSMB0.pas",
+      "scriptkind": 2,
+      "objversion": 129,
+      "posindex": 3
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 87,
+      "posindex": 4
+    }
+  ]
+}

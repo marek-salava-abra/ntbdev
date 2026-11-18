@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "8KW3000101",
+    "name": "OP_Storno",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 44,
+    "description": "Storno objednívky přijaté ",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 2
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 34,
+      "posindex": 1
+    },
+    {
+      "scriptid": "Lib",
+      "filename": "Lib.pas",
+      "scriptkind": 0,
+      "objversion": 28,
+      "posindex": 2
+    },
+    {
+      "scriptid": "S4RQ0AMDM3DL35J301C0CX3F40",
+      "filename": "AG_Zalohovelistyvydane_S4RQ0AMDM3DL35J301C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 3
+    }
+  ]
+}

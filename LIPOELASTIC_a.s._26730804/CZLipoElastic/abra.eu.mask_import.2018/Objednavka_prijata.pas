@@ -1747,7 +1747,8 @@ mShowError:=false ;
                                                                                                                 end;
                                                                                                          end;
                                                                                                 //mBO_Zaloha.SetFieldValueAsString('ReceivedOrder_ID', mhead.oid);
-                                                                                                mBO_Zaloha.save;
+                                                                                                if mBO_Zaloha.NeedSave then
+                                                                                                 mBO_Zaloha.save;
                                                                                                 NxShowSimpleMessage('Pro objednávku ' + mHead.displayname
                                                                                                                     + ' byl použit voucher ' + mXMLHead.getElementAsString('AbraDocument.Used_Vouchers.Used_Voucher['+inttostr(XX)+'].SN')
                                                                                                                     + ' v ceně ' + mXMLHead.getElementAsString('AbraDocument.Used_Vouchers.Used_Voucher['+inttostr(XX)+'].used_price')

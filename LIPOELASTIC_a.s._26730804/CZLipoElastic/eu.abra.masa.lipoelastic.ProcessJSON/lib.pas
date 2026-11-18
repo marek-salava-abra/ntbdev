@@ -5,7 +5,7 @@ var
  mOS:TNxCustomObjectSpace;
  mJSONData:TJSONSuperObject;
  mReceivedInvoice_ID:String;
- mReceiptCardRowList, mResultList, mRCList:TStringList;
+ mReceiptCardRowList, mResultList, mRCList,mQRCList:TStringList;
  i,j:integer;
  mReceiptCardBO, mReceiptCardRowBO:TNxCustomBusinessObject;
  mRCRows:TNxCustomBusinessMonikerCollection;
@@ -58,6 +58,13 @@ begin
               ErrorMessage:=ErrorMessage+#13#10+ExceptionMessage;
             end;
           end;
+        end;
+      end;
+      if (mRCList.count>0) and (CFxNxRuntime.NxGetEnvironmentType=reRuntimeExe) then begin
+        if NxMessageBox('Dotaz', 'Zobrazit příjemky?', mdConfirm, mdbYesNo, nil, nil, False, nil)=mrYes then begin
+          mQRCList:=TStringList.Create;
+          for j:=0 to mRCList.count-1 do mQRCList.add(QuotedStr(mRCList.Strings[j]));
+          ShowDynForm(Site_ReceiptCards,NxCreateContext(mOS),nil,nil,true,'QueryByUserDynSQLCondition;A.id in ('+mQRCList.DelimitedText+')');
         end;
       end;
       if (mReceiptCardRowList.count>0) and NxIsBlank(ErrorMessage) then begin

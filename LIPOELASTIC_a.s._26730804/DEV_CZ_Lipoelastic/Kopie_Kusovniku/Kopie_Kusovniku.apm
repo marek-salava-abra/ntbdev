@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KP2000101",
+    "name": "Kopie_Kusovniku",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 20,
+    "description": "Příklad přidání tlačítka a funkce pro hromadnou kopii do agendy Středisek",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "NWWNX02WFV2ORFJOXIW4BHBLWG",
+      "filename": "AG_Kusovniky_NWWNX02WFV2ORFJOXIW4BHBLWG.pas",
+      "scriptkind": 2,
+      "objversion": 15,
+      "posindex": 1
+    },
+    {
+      "scriptid": "031N4GRZ4OT4TC5LYFK2WV1IFS",
+      "filename": "BO_Kusovnik_031N4GRZ4OT4TC5LYFK2WV1IFS.pas",
+      "scriptkind": 1,
+      "objversion": 10,
+      "posindex": 2
+    },
+    {
+      "scriptid": "RW2YIIHUHP3OZCQ5RQR5SJQWI4",
+      "filename": "BO_Technologickypostup_RW2YIIHUHP3OZCQ5RQR5SJQWI4.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 3
+    }
+  ]
+}

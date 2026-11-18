@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000M03",
+    "name": "celnice_potvrzeni",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 109,
+    "description": "potvrzení vývozu Celnice",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 2,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 106,
+      "posindex": 1
+    }
+  ]
+}

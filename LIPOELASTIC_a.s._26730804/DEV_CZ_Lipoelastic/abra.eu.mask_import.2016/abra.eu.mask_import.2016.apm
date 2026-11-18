@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1L10000101",
+    "name": "abra.eu.mask_import.2016",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 382,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Objednavka_prijata",
+      "filename": "Objednavka_prijata.pas",
+      "scriptkind": 0,
+      "objversion": 345,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 228,
+      "posindex": 2
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 200,
+      "posindex": 3
+    }
+  ]
+}

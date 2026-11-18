@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5K01000101",
+    "name": "abra.eu.mask_import_mezd",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 44,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "MDC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Internidoklady_MDC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 39,
+      "posindex": 2
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 24,
+      "posindex": 3
+    }
+  ]
+}

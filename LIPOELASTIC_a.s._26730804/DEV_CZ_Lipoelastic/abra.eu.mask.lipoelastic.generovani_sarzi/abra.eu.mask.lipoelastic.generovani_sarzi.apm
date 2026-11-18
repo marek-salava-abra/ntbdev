@@ -1,0 +1,101 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2I40000101",
+    "name": "abra.eu.mask.lipoelastic.generovani_sarzi",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 542,
+    "description": "Skript umožňující vygenerování šarží u šaržových položek na objednávkách (vydaných / přijatých )",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 10
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 286,
+      "posindex": 1
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 275,
+      "posindex": 2
+    },
+    {
+      "scriptid": "ZOY0JTCO1OA4VCQKX3EE1QNC0G",
+      "filename": "IM_Import_ZOY0JTCO1OA4VCQKX3EE1QNC0G_ZOY0JTCO1OA4VCQKX3EE1QNC0G.pas",
+      "scriptkind": 4,
+      "objversion": 203,
+      "posindex": 3
+    },
+    {
+      "scriptid": "A1TAS3OJNGU4HE5WCEMWHOQDFO",
+      "filename": "AG_Dilcisarze-seriovacisla_A1TAS3OJNGU4HE5WCEMWHOQDFO.pas",
+      "scriptkind": 2,
+      "objversion": 163,
+      "posindex": 4
+    },
+    {
+      "scriptid": "005WXDGLTVDL342W01C0CX3FCC",
+      "filename": "AG_Sarze-seriovacisla_005WXDGLTVDL342W01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 220,
+      "posindex": 5
+    },
+    {
+      "scriptid": "0N1032APU4LO340XVHN3PYW5SS",
+      "filename": "BO_Batches_0N1032APU4LO340XVHN3PYW5SS.pas",
+      "scriptkind": 1,
+      "objversion": 157,
+      "posindex": 6
+    },
+    {
+      "scriptid": "FJFZPKZ3TVMOV00YPT2WI34V34",
+      "filename": "AG_PohybysarzinaOV_FJFZPKZ3TVMOV00YPT2WI34V34.pas",
+      "scriptkind": 2,
+      "objversion": 141,
+      "posindex": 7
+    },
+    {
+      "scriptid": "D42ABO5BCI3O1CC4PH21RIL2OW",
+      "filename": "AG_Pohybynaobjednavkachvydanych_D42ABO5BCI3O1CC4PH21RIL2OW.pas",
+      "scriptkind": 2,
+      "objversion": 94,
+      "posindex": 8
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 35,
+      "posindex": 9
+    },
+    {
+      "scriptid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "filename": "BO_Objednavkavydana_CDMK5QAWZZDL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 40,
+      "posindex": 10
+    },
+    {
+      "scriptid": "CZ4A2VHL421OXDDUPQO4U4M1UC",
+      "filename": "IM_Import_CZ4A2VHL421OXDDUPQO4U4M1UC_CZ4A2VHL421OXDDUPQO4U4M1UC.pas",
+      "scriptkind": 4,
+      "objversion": 31,
+      "posindex": 11
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 38,
+      "posindex": 12
+    }
+  ]
+}

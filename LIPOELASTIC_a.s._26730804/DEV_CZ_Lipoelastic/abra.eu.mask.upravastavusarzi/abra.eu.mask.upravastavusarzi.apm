@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4KR0000101",
+    "name": "abra.eu.mask.upravastavusarzi",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 23,
+    "description": "Narovnání stavu šarží",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "A1TAS3OJNGU4HE5WCEMWHOQDFO",
+      "filename": "AG_Dilcisarze-seriovacisla_A1TAS3OJNGU4HE5WCEMWHOQDFO.pas",
+      "scriptkind": 2,
+      "objversion": 20,
+      "posindex": 1
+    }
+  ]
+}

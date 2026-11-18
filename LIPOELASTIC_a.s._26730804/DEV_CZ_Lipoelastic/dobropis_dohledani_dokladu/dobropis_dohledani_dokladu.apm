@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "BKL3000101",
+    "name": "dobropis_dohledani_dokladu",
+    "license_holder": "LIPOELASTIC_a.s._26730804",
+    "objversion": 76,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 0,
+    "usageStateTestConnection": 3,
+    "runOrder": 1
+  },
+  "scripts": [
+    {
+      "scriptid": "BGNME5QQIEQ4LIEDG1ZR4TU31G",
+      "filename": "AG_Pozadavkynadobropisy(TMP)_BGNME5QQIEQ4LIEDG1ZR4TU31G.pas",
+      "scriptkind": 2,
+      "objversion": 73,
+      "posindex": 5
+    },
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 28,
+      "posindex": 8
+    }
+  ]
+}
