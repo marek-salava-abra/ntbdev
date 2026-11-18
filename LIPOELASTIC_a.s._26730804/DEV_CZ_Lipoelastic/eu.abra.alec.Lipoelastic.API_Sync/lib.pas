@@ -3,6 +3,62 @@
 var
   gUpdated, gCreated: Integer;
 
+procedure POST_StoreBatchMovements(AContext:TNxContext; ARequest: TAPIRequest; AResponse: TAPIResponse);
+var
+  i: Integer;
+  mInputJSON, mOutputJSON, mDocJSON:TJSONSuperObject;
+  mList:TStringList;
+  mSQL:string;
+  mBO, mParentBO:TNxCustomBusinessObject;
+begin
+  mOutputJSON:=TJSONSuperObject.Create;
+  mInputJSON:=TJSONSuperObject.Create;
+  try
+   mInputJSON:=TJSONSuperObject.ParseString(ARequest.Body,True);
+   if not(NxIsEmptyOID(mInputJSON.S['storebatch_id'])) then begin
+     mList:=TStringList.Create;
+     mSQL:='Select distinct(sd2.id) from storedocuments2 sd2 join docrowbatches drb on drb.parent_id=sd2.id where sd2.flowType=''21'' and drb.storebatch_id='+QuotedStr(mInputJSON.S['storebatch_id']);
+     AContext.SQLSelect(mSQL,mList);
+     if mList.count>0 then begin
+        mOutputJSON.O['StoreDocs'] := mOutputJSON.CreateJSONArray;
+        mBO:=AContext.GetObjectSpace.CreateObject(Class_CustomStoreDocumentRow);
+        for i:=0 to mList.count-1 do  begin
+           mBO.load(mlist.Strings[i],nil);
+           mParentBO:=mbo.GetMonikerForFieldCode(mbo.GetFieldCode('Parent_ID')).BusinessObject;
+           mDocJSON:=TJSONSuperObject.Create;
+           mDocJSON.S['ID']:=mList.strings[i];
+           mDocJSON.S['DisplayName']:=mParentBO.DisplayName;
+           mDocJSON.S['Firm_Name']:=mParentBO.GetFieldValueAsString('Firm_ID.Name');
+           mDocJSON.S['Firm_Street']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.Street');
+           mDocJSON.S['Firm_City']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.City');
+           mDocJSON.S['Firm_PostCode']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.PostCode');
+           mDocJSON.S['Firm_Email']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.Email');
+           mDocJSON.S['Firm_Phone1']:=mParentBO.GetFieldValueAsString('FirmOffice_ID.Address_Id.PhoneNumber1');
+           mDocJSON.DT8601['DocDate']:=mParentBO.GetFieldValueAsDateTime('DocDate$Date');
+           mOutputJSON.A['StoreDocs'].Add(mDocJSON);
+        end;
+        mBO.free;
+        mOutputJSON.S['Status']:='ok';
+        mOutputJSON.I['DocumentCount']:=mlist.Count;
+        AResponse.Body:=mOutputJSON.AsString;
+        AResponse.SetHeader('Content-Type','application/json');
+        AResponse.Status := 200;
+    end else begin
+        mOutputJSON.S['Status']:='error';
+        mOutputJSON.I['DocumentCount']:=mlist.Count;
+        AResponse.Body:=mOutputJSON.AsString;
+        AResponse.SetHeader('Content-Type','application/json');
+        AResponse.Status := 422;
+    end;
+
+
+   end;
+  finally
+    mInputJSON.free;
+    mOutputJSON.free;
+  end;
+end;
+
 procedure StoreCardAPISync2(ABO: TNxCustomBusinessObject; var AResultStr: string;var aIndex:integer; var aResult_ID:string);
 var
   mOS: TNxCustomObjectSpace;

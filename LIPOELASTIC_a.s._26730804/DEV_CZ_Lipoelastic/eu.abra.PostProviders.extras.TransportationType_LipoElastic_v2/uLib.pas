@@ -17,7 +17,7 @@ const
   cDocQueueID = '~000000007';
   cStoreID = '1120000101';  //ok
 
-  cLipo_FD_DeliveryNote = 'X_poznam_ext';
+  cLipo_FD_DeliveryNote = 'X_Poznam_exp';
 
 
 
