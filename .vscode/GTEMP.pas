@@ -1,520 +1,442 @@
-procedure InitSite_Hook(Self: TSiteForm);
+uses
+  'eu.abra.PostProviders.uConst',
+  'eu.abra.PostProviders.uAddressFunc',
+  'eu.abra.PostProviders.uPostProvider',
+  'eu.abra.PostProviders.uSQLFunc';
+
+//vrátí data pro formulář
+procedure GetData(ASite: TSiteForm);
 var
-  mAction: TMultiAction;
+  i: integer;
+  mIDs: TStringList;
+  mStation_ID: string;
+  mOS: TNxCustomObjectSpace;
+  mData, mSourceDataset: TMemoryDataset;
+  medPDMPRovider: TRollComboEdit;
+  mPostProvider: TNxOID;
+  mSourceSite: TSiteForm;
+  mSQL: string;
+  mDocumentType, mIDsCommaText: string;
+  mServiceType: Integer;
 begin
-  mAction := Self.GetNewMultiAction;
-  mAction.ShowControl := True;
-  mAction.ShowMenuItem := True;
-  mAction.Caption := '##Vytvoř dodací list##';
-  mAction.Items.Add('##Vytvoř dodací list##');
-  mAction.Items.Add('##Vytvoř převodku výdej##');
-  mAction.Items.Add('##Vytvoř záměnu výdej##');
-  mAction.Items.Add('##Vytvoř přeměnu výdej##');
-  mAction.Items.Add('##Vytvoř příjemku##');
-  mAction.Items.Add('##Vytvoř přebytek##');
-  mAction.Items.Add('##Vytvoř manko##');
-  mAction.Category := 'tabList';
-  mAction.OnExecuteItem := @CreateSD;
-end;
+  CFxProfiler.EnterProc('postprovider', 'GetData');
+  mSourceSite := nil;
+  mDocumentType := '';
+  mIDsCommaText := '';
+  mServiceType := 0;
+  mSQL := '';
+  if Assigned(TRollSiteForm(ASite).SiteParams) then begin
+    if TRollSiteForm(ASite).SiteParams.ParamExist(NxGetActualUserID(ASite.BaseObjectSpace)+cLastSite) then begin
+      mDocumentType := TRollSiteForm(ASite).SiteParams.ParamAsString(NxGetActualUserID(ASite.BaseObjectSpace)+cLastSite, '');
+      if TRollSiteForm(ASite).SiteParams.ParamExist(NxGetActualUserID(ASite.BaseObjectSpace)+cPackages_Site) then
+        mSourceSite := TSiteForm(IntToObj(TRollSiteForm(ASite).SiteParams.ParamAsInteger(NxGetActualUserID(ASite.BaseObjectSpace)+cPackages_Site, 0)));
+      if TRollSiteForm(ASite).SiteParams.ParamExist(NxGetActualUserID(ASite.BaseObjectSpace)+cServiceType) then
+        mServiceType := TRollSiteForm(ASite).SiteParams.ParamAsInteger(NxGetActualUserID(ASite.BaseObjectSpace)+cServiceType, 0);
+      if TRollSiteForm(ASite).SiteParams.ParamExist(NxGetActualUserID(ASite.BaseObjectSpace)+cRelationWithIDs) then
+        mIDsCommaText := TRollSiteForm(ASite).SiteParams.ParamAsString(NxGetActualUserID(ASite.BaseObjectSpace)+cRelationWithIDs, '');
 
-Procedure CreateSD(Sender:TComponent;index:integer);
-var
- mSite:TSiteForm;
- i,j, mResult, mSBCount:integer;
- mList:TStringList;
- mOS:TNxCustomObjectSpace;
- mStore_ID, mDivision_ID, mStoreCard_ID, mName:string;
- mSDBO, mSDRowBO, mDRBBO, mSBBO:TNxCustomBusinessObject;
- mRows, mDRBCol:TNxCustomBusinessMonikerCollection;
- mQuantity:extended;
- mSDSite: TOpenDynSite;
- mClass, mMSite:string;
- frmStoreBatches:TForm;
- mR:TMemoryDataset;
- btnOK: TButton;
- btnStorno: TButton;
- pnlMain, pnlBottom: TPanel;
-
- iResult,order: Integer;
-
- mGrid: TDBGrid;
- mDS: TNxCustomObjectDataSet;
- grdStoreBatches: TMultiGrid;
- dtStoreBatches: TMemoryDataset;
- dsStoreBatches: TDataSource;
-
- mCol: TNxMultiGridColumn;
- mColR: TNxMultiGridRollColumn;
- mColL: TNxMultiGridLookupColumn;
- mColD: TNxMultiGridDateColumn;
- fd: TFieldDef;
- fld: TField;
-begin
- case Index of
-            0: begin
-                mClass:= Class_BillOfDelivery;
-                mMsite:= Site_BillOfDeliveries;
-                mName:=  'dodací list';
-            end;
-            1: begin
-                mClass:= Class_OutgoingTransfer;
-                mMsite:= Site_OutgoingTransfers;
-                mName:=  'převodku výdej';
-            end;
-            2: begin
-                mClass:= Class_OutgoingSubstitution;
-                mMsite:= Site_OutgoingSubstitutions;
-                mName:=  'záměnu výdej';
-            end;
-            3: begin
-                mClass:= Class_OutgoingTransformation;
-                mMsite:= Site_OutgoingTransformations;
-                mName:=  'přeměnu výdej';
-            end;
-            4: begin
-                mClass:= Class_ReceiptCard;
-                mMsite:= Site_ReceiptCards;
-                mName:=  'příjemku';
-            end;
-            5: begin
-                mClass:= Class_InventoryOverPlus;
-                mMsite:= Site_InventoryOverPluses;
-                mName:=  'přebytek'
-            end;
-            6: begin
-                mClass:= Class_InventoryShortFall;
-                mMsite:= Site_InventoryShortFalls;
-                mName:=  'manko'
-            end;
-
- end;
- mSite:=TComponent(Sender).BusRollSite;
- mList:=TStringList.create;
- TBusRollSiteForm(mSite).List.GetSelectedId(mList);
- mOS:=msite.BaseObjectSpace;
- if mlist.count>0 then begin
-  mResult:=0;
-  if GetDataForBOD(msite, mStore_ID, mDivision_ID, mResult, mName) then begin
-      if mResult=1 then begin
-         frmStoreBatches:= TForm.Create(mSite);
-         frmStoreBatches.Top:= 20;
-         frmStoreBatches.Left:= 20;
-         frmStoreBatches.Width:= 700;
-         frmStoreBatches.Height:= 600;
-         frmStoreBatches.Caption:= 'Údaje pro šarže';
-
-         pnlMain := TPanel.Create(frmStoreBatches);
-         pnlMain.Align:= alClient;
-         pnlMain.Parent:= frmStoreBatches;
-
-         pnlBottom := TPanel.Create(frmStoreBatches);
-         pnlBottom.Align:= alBottom;
-         pnlBottom.Parent:= frmStoreBatches;
-         pnlBottom.Height:= 100;
-         pnlBottom.BottomInModalDialog:= True;
-
-
-        if mlist.Count>0 then begin
-            dsStoreBatches := TDataSource.Create(frmStoreBatches);
-            dsStoreBatches.Name := 'dsStoreBatches';
-
-
-            grdStoreBatches:= TMultiGrid.Create(frmStoreBatches);
-            grdStoreBatches.Parent := pnlMain;
-            grdStoreBatches.Name := 'grdStoreBatchesEdit';
-            grdStoreBatches.Align := alClient;
-
-            grdStoreBatches.DataSource := dsStoreBatches;
-            grdStoreBatches.Options := [goHeaders, goGap,goFixRowLines, goFixColLines, goRowLines, goColLines, goAllowAppend, goAllowEdit, goAlwaysShowEditor_1, goAlwaysShowSelection, goMultiSelect];
-
-            dtStoreBatches := TMemoryDataset.Create(grdStoreBatches);
-            dtStoreBatches.Name := 'dtStoreBatchEdit';
-
-            dtStoreBatches.Filtered := True;
-            dtStoreBatches.Close;
-
-            order:=0;
-            mColR := TNxMultiGridRollColumn.Create(grdStoreBatches);
-            mColR.ClassID:=Roll_StoreBatches;
-            mColR.TextField := 'Name';
-            mColR.Layout := 0;
-            order:=order+1;
-            mColR.Order := order;
-            mColR.FieldName := 'StoreBatch_Name';
-            mColR.Caption := 'Šarže:';
-            mColR.Name := 'StoreBatch_Name';
-            mColR.Width := 100;
-            grdStoreBatches.AddColumn(mColR);
-
-            mColR := TNxMultiGridRollColumn.Create(grdStoreBatches);
-            mColR.ClassID:=Roll_StoreCards;
-            mColR.TextField := 'Code';
-            mColR.Layout := 0;
-            order:=order+1;
-            mColR.Order := order;
-            mColR.FieldName := 'StoreCard_Code';
-            mColR.Caption := 'Kód karty';
-            mColR.Name := 'StoreCard_Code';
-            mColR.Width := 100;
-            grdStoreBatches.AddColumn(mColR);
-
-            mColR := TNxMultiGridRollColumn.Create(grdStoreBatches);
-            mColR.ClassID:=Roll_StoreCards;
-            mColR.TextField := 'Name';
-            mColR.Layout := 0;
-            order:=order+1;
-            mColR.Order := order;
-            mColR.FieldName := 'StoreCard_Name';
-            mColR.Caption := 'Název karty';
-            mColR.Name := 'StoreCard_Name';
-            mColR.Width := 300;
-            grdStoreBatches.AddColumn(mColR);
-
-            {mColL := TNxMultiGridLookupColumn.Create(grdStoreBatches);
-            mColL.Values.Add('NE=0');
-            mColL.Values.Add('ANO=1');
-            mColL.Layout := 0;
-            order:=order+1;
-            mColL.Order := order;
-            mColL.FieldName := 'Generate';
-            mColL.Caption := 'Generovat';
-            mColL.Name := 'Generate';
-            mColL.Width:= 80;
-            grdStoreBatches.AddColumn(mColL); }
-
-            mCol := TNxMultiGridColumn.Create(grdStoreBatches);
-            mCol.Layout := 0;
-            order:=order+1;
-            mCol.Order := order;
-            mCol.FieldName := 'Quantity';
-            mCol.Caption := 'Skladem';
-            mCol.Name := 'Quantity';
-            mCol.Width := 60;
-            grdStoreBatches.AddColumn(mCol);
-
-            mCol := TNxMultiGridColumn.Create(grdStoreBatches);
-            mCol.Layout := 0;
-            order:=order+1;
-            mCol.Order := order;
-            mCol.FieldName := 'Quantity2';
-            mCol.Caption := 'Množství';
-            mCol.Name := 'Quantity2';
-            mCol.Width := 60;
-            mCol.Kind := ckText;
-            grdStoreBatches.AddColumn(mCol);
-
-            order:=0;
-
-            order:=order+1;
-            fd := TFieldDef.Create(dtStoreBatches.FieldDefs, 'StoreBatch_Name', ftString, 10, False, order);
-            fld := fd.CreateField(dtStoreBatches, nil, 'StoreBatch_Name', False);
-            fld.ReadOnly := False;
-            fld.FieldName := 'StoreBatch_Name';
-            fld.FieldKind := fkData;
-
-            order:=order+1;
-            fd := TFieldDef.Create(dtStoreBatches.FieldDefs, 'StoreCard_Code', ftString, 10, False, order);
-            fld := fd.CreateField(dtStoreBatches, nil, 'StoreCard_Code', False);
-            fld.ReadOnly := False;
-            fld.FieldName := 'StoreCard_Code';
-            fld.FieldKind := fkData;
-
-            order:=order+1;
-            fd := TFieldDef.Create(dtStoreBatches.FieldDefs, 'StoreCard_Name', ftString, 10, False, order);
-            fld := fd.CreateField(dtStoreBatches, nil, 'StoreCard_Name', False);
-            fld.ReadOnly := False;
-            fld.FieldName := 'StoreCard_Name';
-            fld.FieldKind := fkData;
-
-            order:=order+1;
-            fd := TFieldDef.Create(dtStoreBatches.FieldDefs, 'Quantity', ftFloat, 0, False, order);
-            fld := fd.CreateField(dtStoreBatches, nil, 'Quantity', False);
-            fld.ReadOnly := False;
-            fld.FieldName := 'Quantity';
-            fld.FieldKind := fkData;
-
-            order:=order+1;
-            fd := TFieldDef.Create(dtStoreBatches.FieldDefs, 'Quantity2', ftString, 30, False, order);
-            fld := fd.CreateField(dtStoreBatches, nil, 'Quantity2', False);
-            fld.ReadOnly := False;
-            fld.FieldName := 'Quantity2';
-            fld.FieldKind := fkData;
-            fld.ValidChars := '0123456789,';
-
-            order:=order+1;
-            fd := TFieldDef.Create(dtStoreBatches.FieldDefs, 'SB_ID', ftString, 10, False, order);
-            fld := fd.CreateField(dtStoreBatches, nil, 'SB_ID', False);
-            fld.ReadOnly := False;
-            fld.FieldName := 'SB_ID';
-            fld.FieldKind := fkData;
-
-
-            order:=order+1;
-            fd := TFieldDef.Create(dtStoreBatches.FieldDefs, 'StoreCard_ID', ftString, 10, False, order);
-            fld := fd.CreateField(dtStoreBatches, nil, 'StoreCard_ID', False);
-            fld.ReadOnly := False;
-            fld.FieldName := 'StoreCard_ID';
-            fld.FieldKind := fkData;
-
-            dsStoreBatches.DataSet := dtStoreBatches;
-            if not dtStoreBatches.Active then dtStoreBatches.Open;
-            SortBatches(mOS, mList);
-
-
-            mSBCount:=0;
-            for i := 0 to (mList.Count - 1) do begin
-
-              //upravit pro příjemku, neexistence dílčí šarže
-              if mOS.SQLSelectFirstAsExtended('Select sum(quantity) from storesubbatches where storebatch_id='+QuotedStr(mList.Strings[i])+' and store_id='+QuotedStr(mStore_ID),0)>=0 then begin
-                mSBBO:=mOS.CreateObject(Class_StoreBatch);
-                mSBBO.Load(mlist.strings[i],nil);
-                dtStoreBatches.Append;
-                dtStoreBatches.FieldByName('Storebatch_Name').AsString:=mSBBO.OID;
-                dtStoreBatches.FieldByName('SB_ID').AsString:=msbbo.OID;
-                dtStoreBatches.FieldByName('StoreCard_ID').AsString:=msbbo.GetFieldValueAsString('StoreCard_ID');
-                dtStoreBatches.FieldByName('StoreCard_Code').AsString:=msbbo.GetFieldValueAsString('StoreCard_ID');
-                dtStoreBatches.FieldByName('StoreCard_Name').AsString:=msbbo.GetFieldValueAsString('StoreCard_ID');
-                dtStoreBatches.FieldByName('Quantity').AsFloat:=mOS.SQLSelectFirstAsExtended('Select sum(quantity) from storesubbatches where storebatch_id='+QuotedStr(mList.Strings[i])+' and store_id='+QuotedStr(mStore_ID),0);
-                dtStoreBatches.FieldByName('Quantity2').AsString:=FloatToStr(mOS.SQLSelectFirstAsExtended('Select sum(X_quantity) from storebatches where id='+QuotedStr(mList.Strings[i]),0));
-                mSBBO.free;
-                mSBCount:=mSBCount+1;
-               end;
-             end;
-            dtStoreBatches.FieldByName('Storebatch_Name').ReadOnly:=True;
-            dtStoreBatches.FieldByName('StoreCard_Code').ReadOnly:=True;
-            dtStoreBatches.FieldByName('StoreCard_Name').ReadOnly:=True;
-            dtStoreBatches.FieldByName('Quantity').ReadOnly:=True;
-           end;
-         dtStoreBatches.First;
-         //end;
-         btnOk := TButton.Create(frmStoreBatches);
-         btnOk.Parent := pnlBottom;
-         btnOk.Name := 'btnOk';
-         btnOk.Caption := 'Vytvořit';
-         btnOk.Font.Style := [fsBold];
-         btnOk.Left := 470;
-         btnOk.Top := 20;
-         btnOk.Width := 200;
-         btnOk.Height := 25;
-         btnOk.ModalResult := mrOk; //mrNone
-         btnOk.Anchors := [akRight];
-         btnOK.Hint := 'Vytvoří.';
-
-         btnStorno := TButton.Create(frmStoreBatches);
-         btnStorno.Parent := pnlBottom;
-         btnStorno.Name := 'btnCancel';
-         btnStorno.Caption := 'Zrušit';
-         btnStorno.Font.Style := [fsBold];
-         btnStorno.Left := 600;
-         btnStorno.Top := 20;
-         btnStorno.Width := 120;
-         btnStorno.Height := 25;
-         btnStorno.ModalResult := mrCancel;
-         btnStorno.Anchors := [akRight];
-         btnStorno.Hint := 'Zruší.';
-         //iResult := 10;
-         iResult := frmStoreBatches.ShowModal(mSite.GetParentForm);
-        end;
-
-  //konec dialogu
-       if iResult>0 then begin
-        dtStoreBatches.First;
-        if iResult = mrOk then begin
-          if NxMessageBox('Dotaz', 'Vygenerovat '+mName+' pro '+IntToStr(mSBCount)+' položek?', mdConfirm, mdbYesNo, 2, 0, False, nil) = mrYes then begin
-            mSDBO:=mOS.CreateObject(mClass);
-            mSDBO.new;
-            mSDBO.prefill;
-            mRows:=mSDBO.GetLoadedCollectionMonikerForFieldCode(mSDBO.GetFieldCode('Rows'));
-            While not dtStoreBatches.Eof do begin
-              if StrToFloat(dtStoreBatches.FieldByName('Quantity2').AsString) > 0 then   begin
-                 mSDRowBO:=mRows.AddNewObject;
-                 mSDRowBO.prefill;
-                 if not(mClass=Class_ReceiptCard) then mSDRowBO.SetFieldValueAsInteger('RowType',3);
-                 mSDRowBO.SetFieldValueAsString('Store_ID',mStore_ID);
-                 mSDRowBO.SetFieldValueAsString('StoreCard_ID',dtStoreBatches.FieldByName('StoreCard_ID').AsString);
-                 mSDRowBO.SetFieldValueAsFloat('Quantity',StrToFloat(dtStoreBatches.FieldByName('Quantity2').asString));
-                 mSDRowBO.SetFieldValueAsString('Division_ID',mDivision_ID);
-                 mDRBCol:=mSDRowBO.GetLoadedCollectionMonikerForFieldCode(mSDRowBO.GetFieldCode('DocRowBatches'));
-                 mDRBBO:=mDRBCol.AddNewObject;
-                 mDRBBO.SetFieldValueAsString('StoreBatch_ID',dtStoreBatches.FieldByName('SB_ID').AsString);
-              end;
-              dtStoreBatches.next;
-            end;
-            {for i:=0 to mlist.count-1 do begin
-               mQuantity:=mOS.SQLSelectFirstAsExtended('Select quantity from storesubbatches where storebatch_id='+QuotedStr(mList.Strings[i])+' and store_id='+QuotedStr(mStore_ID),0);
-               if mQuantity>0 then begin
-                 mSDRowBO:=mRows.AddNewObject;
-                 mSDRowBO.prefill;
-                 mSDRowBO.SetFieldValueAsInteger('RowType',3);
-                 mSDRowBO.SetFieldValueAsString('Store_ID',mStore_ID);
-                 mSDRowBO.SetFieldValueAsString('StoreCard_ID',mos.SQLSelectFirstAsString('Select storecard_id from storebatches where id='+QuotedStr(mlist.strings[i]),''));
-                 mSDRowBO.SetFieldValueAsFloat('Quantity',mQuantity);
-                 mSDRowBO.SetFieldValueAsString('Division_ID',mDivision_ID);
-                 mDRBCol:=mSDRowBO.GetLoadedCollectionMonikerForFieldCode(mSDRowBO.GetFieldCode('DocRowBatches'));
-                 mDRBBO:=mDRBCol.AddNewObject;
-                 mDRBBO.SetFieldValueAsString('StoreBatch_ID',mList.Strings[i]);
-               end;
-            end; }
-
-            if Assigned(mSDBO) then begin
-              //TDynSiteForm.ShowDynFormWithNewDocumen('B50I5SAOS3DL3ACU03KIU0CLP4', mSite.SiteContext, mBODBO);
-              mSDSite:=TOpenDynSite.Create(msite.SiteContext,mMSite);
-              mSDSite.NewDoc:=mSDBO;
-              mSDSite.InOtherSlot:=true;
-              mSDSite.Open;
-            end;
-          end;
-         end;
-      end
-     end;
+    end;
   end;
-
-end;
-
-Function GetDataForBOD(var ASite : TSiteform; var aStore_ID, aDivision_ID: string; var aResult:integer;var aName:string):Boolean;
-var
-    mLabel1,mCbCCSourceStore,mCbCCDestStore, mCbCCDivision: TLabel;
-    mEd1, mEd2, mEd3, mEd4, mEd5, mEd6:TEdit;
-    mNumEd:TNumEdit;
-    mButOk, mButCancel : TButton;
-    mResult : integer;
-    mForm : TForm;
-    mDed, mDed1:TDateEdit;
-    mCbSourceStore, mCBDestStore, mCBDivision: TRollComboEdit;
-    mAllowedBOD, mAllowedVR:TStringList;
-    mParBOD, mParVR:String;
-    {mAllowed:=TStringList.create;
-    mSQL3 := 'select id from StoreCards where hidden=''N'' ';
-    dSite.BaseObjectSpace.SQLSelect(mSQL3,mAllowed);
-    mParam3:=mAllowed.DelimitedText;
-    mCbMaterial.Parameters.Clear;
-    mCbMaterial.Parameters.Add('_Allowed='+mParam3);}
-begin
- if ASite <> nil then begin
-    Result:=False;
-    mForm:= TForm.Create(ASite);  //Form mus=i být vytvářen na Site , kvuli přebráni Contextu
-    mForm.Left:= 300;
-    mForm.Top:= 300;
-    mForm.Width:= 510;
-    mForm.Height:= 175;
-    mForm.Position:=poScreenCenter;
-    mForm.Caption := 'Data pro '+aName;
-
-
-    mLabel1 := TLabel.Create(mForm);
-    mLabel1.Parent := mForm;
-    mLabel1.Caption := 'Sklad:';
-    mLabel1.Top := 12;
-    mLabel1.Left := 17;
-    mLabel1.Height := 13;
-    mLabel1.Width := 100;
-    mLabel1.Font.Size := 10;
-
-    mCbCCDestStore:= TLabel.Create(mForm);  //Vytvoŕení containeru pro zobrazení výběru
-    mCbCCDestStore.Parent:= mForm;
-    //mCbCc.BevelOuter:= bvLowered;              FIRMA
-    mCbCCDestStore.Left:= 236;
-    mCbCCDestStore.Top:= 12;
-    mCbCCDestStore.Width:= 255;
-
-    mCBDestStore:= TRollComboEdit.Create(mForm);
-    mCBDestStore.Parent:= mForm;
-
-    mCBDestStore.ClassID:= Roll_Stores;
-    mCBDestStore.Complete:= True;
-    mCBDestStore.Prefilling:= pmNone;
-    mCBDestStore.TextField:= 'Code';  // položka podle které se bude vyhledávat středisko
-    mCBDestStore.Top:= 10;
-    mCBDestStore.Left:= 110;
-    mCBDestStore.Width:= 108;
-    mCBDestStore.DataText:=aStore_ID;
-    mCBDestStore.ConnectedControl:= mCbCCDestStore;
-    mCBDestStore.ConnectedControlField:= 'Name';
-
-    mLabel1 := TLabel.Create(mForm);
-    mLabel1.Parent := mForm;
-    mLabel1.Caption := 'Středisko:';
-    mLabel1.Top := 37;
-    mLabel1.Left := 17;
-    mLabel1.Height := 13;
-    mLabel1.Width := 100;
-    mLabel1.Font.Size := 10;
-
-    mCbCCDivision:= TLabel.Create(mForm);  //Vytvoŕení containeru pro zobrazení výběru
-    mCbCCDivision.Parent:= mForm;
-    //mCbCc.BevelOuter:= bvLowered;              FIRMA
-    mCbCCDivision.Left:= 236;
-    mCbCCDivision.Top:= 37;
-    mCbCCDivision.Width:= 255;
-
-    mCBDivision:= TRollComboEdit.Create(mForm);
-    mCBDivision.Parent:= mForm;
-
-    mCBDivision.ClassID:= Roll_Divisions;
-    mCBDivision.Complete:= True;
-    mCBDivision.Prefilling:= pmNone;
-    mCBDivision.TextField:= 'Code';  // položka podle které se bude vyhledávat středisko
-    mCBDivision.Top:= 35;
-    mCBDivision.Left:= 110;
-    mCBDivision.Width:= 108;
-    mCBDivision.DataText:=aDivision_ID;
-    mCBDivision.ConnectedControl:= mCbCCDivision;
-    mCBDivision.ConnectedControlField:= 'Name';
-
-    mButOk:= TButton.Create(mForm);
-    mButOk.Parent := mForm;
-    mButOk.Caption := 'OK';
-    mButOk.Default:= true;
-    mButOk.Top := 100;
-    mButOk.Left := 252;
-    mButOk.Height := 24;
-    mButOk.Width := 62;
-    mButOk.ModalResult := 1;
-
-    mButCancel := TButton.Create(mForm);
-    mButCancel.Parent := mForm;
-    mButCancel.Caption := 'Zrušit';
-    mButCancel.Top := 100;
-    mButCancel.Left := 320;
-    mButCancel.Height := 24;
-    mButCancel.Width := 62;
-    mButCancel.ModalResult := 2;
-
-
-    mResult := mForm.ShowModal(ASite);
-    //aresult:=mresult;
-   // if mButCancel.OnC
-    if mResult = 1 then
-         aResult:=1;
-         aStore_ID:=mCBDestStore.DataText;
-         aDivision_ID:=mCBDivision.DataText;
-         Result:=true;
-    //ShowMessage(mCb.DataText);
-    //Result := mCb.DataText;
-    mForm.free;
-  end;
-end;
-
-
-procedure SortBatches(AOS: TNxCustomObjectSpace; AList: TStringList);
-var
-  mSelectedIDs: string;
-  mResult: TMemoryDataset;
-begin
-  mSelectedIDs := AList.CommaText;
-  mSelectedIDs := StringReplace(mSelectedIDs, ',', ''',''', [rfReplaceAll, rfIgnoreCase]);
-  mResult := TMemoryDataset.Create(nil);
+  mOS := ASite.BaseObjectSpace;
+  mIDs := TStringList.Create;
+  mData := TMemoryDataset(TDataSource(ASite.FindComponent(cdsPackagesData)).DataSet);
   try
-    AOS.SQLSelect2(Format('select sb.id as ID from storebatches sb left join storecards sc on sc.id=sb.storecard_id where sb.id in (''%s'') order by sc.name, sb.name', [mSelectedIDs]), mResult);
-    AList.Clear;
-    mResult.First;
-    while not mResult.Eof do
-    begin
-      Alist.Add(mResult.FieldByName('ID').AsString);
-      mResult.Next;
+    GetIDsFromSite(mSourceSite, ASite, mIDs, mDocumentType, mIDsCommaText);
+    mSQL := GetSQLSource(mDocumentType,mOS);
+    if (mIDs.Count = 0) then begin
+      NxShowSimpleMessage(lng_msg_SelectDoc, ASite);
+      exit;
+    end;
+    mStation_ID := StringsToSelDat(mOS, mIDs);
+    try
+      mSourceDataset := TMemoryDataset.Create(nil);
+      try
+        mSQL := Format(mSQL, [QuotedStr(mStation_ID)]);
+        mOS.SQLSelect2(mSQL, mSourceDataSet);
+        if (mSourceDataSet.RecordCount > 0) then begin
+          CopyDataset(mData, mSourceDataset);
+          SetFormat(mData);
+          mData.Edit;
+          mData.First;
+          mData.Active := true;
+          medPDMPRovider := TRollComboEdit(ASite.FindChildControl(cedPDMProvider));
+          mPostProvider := medPDMPRovider.DataText;
+          SetAddInfo(mOS, mPostProvider, mData, mDocumentType);
+          SetServiceType(mData,mServiceType);
+          SetRelationWithIDs(mData,mIDsCommaText);
+          SetPackagesEvents(mData);
+          CreateContent(TDataSource(ASite.FindComponent(cdsContent)).DataSet);
+        end;
+      finally
+        mSourceDataset.Free;
+      end;
+    finally
+      ClearSelDat(mOS, mStation_ID);
     end;
   finally
-    mResult.Free;
+    mIDs.Free;
+  end;
+  CFxProfiler.ExitProc('postprovider', 'GetData');
+end;
+
+procedure SetRelationWithIDs(var APackagesDataSet: TDataSet; AIDsCommaText:String);
+begin
+  try
+    APackagesDataSet.DisableControls;
+
+    APackagesDataSet.Edit;
+    APackagesDataSet.FieldByName(cFDRelationWithIDs).AsString := AIDsCommaText;
+    APackagesDataSet.Post;
+
+  finally
+    APackagesDataSet.EnableControls;
+  end;
+end;
+
+procedure CreateContent(var AContentDataset: TDataSet);
+begin
+
+  AContentDataset.Active := true;
+  AddContentRow(TMemoryDataset(AContentDataset));
+end;
+
+procedure SetServiceType(var APackagesDataSet: TDataSet; AServiceType:Integer);
+begin
+  APackagesDataSet.DisableControls;
+  try
+    APackagesDataSet.First;
+    while not APackagesDataSet.Eof do begin
+      APackagesDataSet.Edit;
+      APackagesDataSet.FieldByName(cFDServiceType).AsInteger := AServiceType;
+      APackagesDataSet.Post;
+      APackagesDataSet.Next;
+    end;
+  finally
+    APackagesDataSet.EnableControls;
+  end;
+end;
+
+//na datasetu Baliku nastavi event
+procedure SetPackagesEvents(var APackagesDataSet: TDataSet);
+var
+  mField: TField;
+begin
+  mField:= APackagesDataSet.Fields.FindField(cFDTargetAddressType);
+  if mField <> nil then
+    mField.OnChange := @FieldTargetAddressTypeOnChange;
+  mField:= APackagesDataSet.Fields.FindField(cFDTargetAddressTypeSen);
+  if mField <> nil then
+    mField.OnChange := @FieldSenTargetAddressTypeOnChange;
+  APackagesDataSet.AfterScroll := @PackagesDataSetAfterScroll;
+end;
+
+procedure PackagesDataSetAfterScroll(ADataset: TDataset);
+const
+  cSQL = 'select sdoc.Firm_ID from %s sdoc '+
+         'where sdoc.ID = %s';
+var
+  mSite: TSiteForm;
+  mIndex: integer;
+  mOS: TNxCustomObjectSpace;
+  mFirmID, mID: TNxOID;
+  mTmp, mSQL, mTableName: string;
+  mGrid: TMultiGrid;
+  mColumn: TNxMultiGridCustomColumn;
+begin
+  mSite := ADataset.Site;
+  mOS := mSite.BaseObjectSpace;
+
+  mID := ADataset.FieldByName(cFDID).AsString;
+  if CFxOID.IsEmpty(mID) then
+    exit;
+  mTableName:= GetTableName(ADataset.FieldByName(cFDDocumentType).AsString);
+
+  mSQL := Format(cSQL, [mTableName, QuotedStr(mID)]);
+  mFirmID := GetFirstRecordFromSQL(mOS, mSQL);
+
+  mGrid := TMultiGrid(mSite.FindChildControl(cgrdPackagesData));
+(*
+  //_Firm_ID
+  mIndex := TNxMultiGridCustomRollColumn(TMultiGrid(mGrid).ColumnByName(ccolFirmBankAccount+IntToStr(cLayoutFirm))).Parameters.IndexOfName('_Firm_ID');
+  if (mIndex <> -1) then
+    TNxMultiGridCustomRollColumn(TMultiGrid(mGrid).ColumnByName(ccolFirmBankAccount+IntToStr(cLayoutFirm))).Parameters.Delete(mIndex);
+  TNxMultiGridCustomRollColumn(TMultiGrid(mGrid).ColumnByName(ccolFirmBankAccount+IntToStr(cLayoutFirm))).Parameters.Add('_Firm_ID='+mFirmID);
+
+  mIndex := TNxMultiGridCustomRollColumn(TMultiGrid(mGrid).ColumnByName(ccolFirmBankAccount+IntToStr(cLayoutPerson))).Parameters.IndexOfName('_Firm_ID');
+  if (mIndex <> -1) then
+    TNxMultiGridCustomRollColumn(TMultiGrid(mGrid).ColumnByName(ccolFirmBankAccount+IntToStr(cLayoutPerson))).Parameters.Delete(mIndex);
+  TNxMultiGridCustomRollColumn(TMultiGrid(mGrid).ColumnByName(ccolFirmBankAccount+IntToStr(cLayoutPerson))).Parameters.Add('_Firm_ID='+mFirmID);
+*)
+end;
+
+
+//zkopiruje dataset
+procedure CopyDataset(var ADest: TMemoryDataset; const ASource: TMemoryDataset);
+var
+  i: integer;
+  mField: TField;
+  mFieldName: String;
+begin
+  if ADest.Active then
+    ADest.Close;
+  ADest.EmptyTable;
+
+  ADest.DisableControls;
+  try
+    ADest.Open;
+    ADest.Edit;
+    ASource.First;
+    while not ASource.Eof do begin
+      for i:= 0 to ASource.FieldCount - 1 do begin
+        mFieldName := TField(ASource.Fields[i]).FieldName;
+        mField:= ADest.Fields.FindField(mFieldName);
+        if mField <> nil then
+          mField.AsString := TField(ASource.Fields[i]).AsString;
+      end;
+      ADest.Append;
+      ASource.Next;
+    end;
+  finally
+    ADest.EnableControls;
+  end;
+end;
+
+//pokud neni zadana ASourceSite tak otevre agendu pro vyber,
+//jinak vybere oznacene
+procedure GetIDsFromSite(ASourceSite, ASite: TSiteForm; var AIDs: TStringList; var ADocType: string; ARelationWithIDs:String = '');
+var
+  mOle, mAgenda, mStrings : Variant;
+  mResult : Boolean;
+  i: integer;
+  mDocType, mSiteCLSID: string;
+  mP: TNxParameters;
+begin
+  if (ASourceSite = nil) then begin
+    mDocType := FormGetDocType(ASite);
+    mSiteCLSID := GetSiteCLSID(mDocType);
+    ADocType := mDocType;
+    mOLE := GetAbraOLEApplication;
+    mStrings := mOLE.CreateStrings;
+    mAgenda := mOLE.GetAgenda(mSiteCLSID);
+    mResult := mAgenda.MultiSelect('QueryPage', mStrings);
+    AIDs.Clear;
+    if mResult then begin
+      for i:= 0 to mStrings.Count-1 do begin
+        AIDs.Add(mStrings.Strings[i]);
+      end;
+    end;
+  end else
+  begin
+    if ARelationWithIDs <> '' then
+    begin
+      AIDs.add(TDynSiteForm(ASourceSite).CurrentObject.OID);
+    end
+    else
+      ASourceSite.List.GetSelectedId(AIDs);
+  end;
+end;
+
+//formular na vyber agendy, ktera se ma otevrit
+function FormGetDocType(AParent: TSiteForm) : string;
+var
+  mForm: TForm;
+  rg   : TRadioGroup;
+  mbtnOK  : TButton;
+begin
+  result := '';
+  mForm := TForm.Create(AParent);
+  try
+    mForm.Caption     := lng_frmTit_SelectDoc;
+    mForm.FormStyle   := fsStayOnTop;
+    mForm.BorderStyle := bsDialog;
+    mForm.Width       := 225;
+    mForm.Height      := 190;
+    mForm.Scaled      := False;
+    mform.Position    := poScreenCenter;
+
+    rg := TRadioGroup.Create(mForm);
+    rg.Parent := mForm;
+    rg.Left := 10;
+    rg.Top := 10;
+    rg.Caption := lng_frmbtn_DocType;
+    rg.Items.Add(lng_frmbtn_DocType03);
+    rg.Items.Add(lng_frmbtn_DocType21);
+    rg.Items.Add(lng_frmbtn_DocTypeRO);
+    rg.ItemIndex:= 0; //implicitni
+
+    mbtnOK := TButton.Create(mForm);
+    mbtnOK.Top := 120;
+    mbtnOK.Left := 20;
+    mbtnOK.Width := 70;
+    mbtnOK.Height := 25;
+    mbtnOK.Caption := 'OK';
+    mbtnOK.ModalResult := mrOk;
+    mbtnOK.Parent := mForm;
+
+    if (mForm.Showmodal(AParent) = mrOk) then begin
+      result := GetDocumentTypeFromRGItemIndex(rg.ItemIndex);
+    end;
+  finally
+    mForm.Free;
+  end;
+end;
+
+//nastavi format policek datasetu
+procedure SetFormat(var APackagesDataSet: TDataSet);
+var
+  i: integer;
+begin
+  RTTI.SetStrProp(APackagesDataSet.FieldByName(cFDCashOnDelivery), 'DISPLAYFORMAT', '0.00,');
+  APackagesDataSet.FieldByName(cFDCashOnDelivery).EditMask := '';
+  RTTI.SetStrProp(APackagesDataSet.FieldByName(cFDAmount), 'DISPLAYFORMAT', '0.00,');
+  APackagesDataSet.FieldByName(cFDAmount).EditMask := '';
+
+  RTTI.SetStrProp(APackagesDataSet.FieldByName(cFDPickupTimeFrom), 'DISPLAYFORMAT', 'hh:mm');
+  APackagesDataSet.FieldByName(cFDPickupTimeFrom).EditMask := '00:00';
+
+  RTTI.SetStrProp(APackagesDataSet.FieldByName(cFDPickupTimeTo), 'DISPLAYFORMAT', 'hh:mm');
+  APackagesDataSet.FieldByName(cFDPickupTimeTo).EditMask := '00:00';
+
+  RTTI.SetStrProp(APackagesDataSet.FieldByName(cFDDeliveryTimeFrom), 'DISPLAYFORMAT', 'hh:mm');
+  APackagesDataSet.FieldByName(cFDDeliveryTimeFrom).EditMask := '00:00';
+
+  RTTI.SetStrProp(APackagesDataSet.FieldByName(cFDDeliveryTimeTo), 'DISPLAYFORMAT', 'hh:mm');
+  APackagesDataSet.FieldByName(cFDDeliveryTimeTo).EditMask := '00:00';
+
+
+  //Přesunuto do contentu
+  //for i:= 0 to cMaxCount - 1 do begin
+  //  RTTI.SetStrProp(APackagesDataSet.FieldByName(cFDWeight+IntToStr(i)), 'DISPLAYFORMAT', '0.000,');
+  //  APackagesDataSet.FieldByName(cFDWeight+IntToStr(i)).EditMask := '';
+  //end;
+end;
+
+
+
+//dotahne hmotnost z dokladu
+procedure SetWeight(AOS: TNxCustomObjectSpace; var APackagesDataSet: TDataSet; ADocumentType: string);
+var
+  mBO: TNxCustomBusinessObject;
+begin
+  mBO := AOS.CreateObject(GetBOCLSID(ADocumentType));
+  try
+    mBO.Load(APackagesDataSet.FieldByName(cFDID).AsString, nil);
+    if mBO.HasField('Weight') then
+    begin
+      APackagesDataSet.FieldByName(cFDTotalWeight).AsFloat := mBO.GetFieldValueAsFloat('Weight');
+      APackagesDataSet.FieldByName(cFDTotalWeightUnit).AsInteger := mBO.GetFieldValueAsInteger('WeightUnit');
+    end;
+  finally
+    mBO.Free;
+  end;
+end;
+
+//dotahne variabilni symbol z dokladu
+procedure SetVarSymbol(AOS: TNxCustomObjectSpace; var APackagesDataSet: TDataSet; ADocumentType: string);
+var
+  mBO: TNxCustomBusinessObject;
+  mVarSymbol, mTmp: string;
+  mPrefix: string;
+begin
+  mBO := AOS.CreateObject(GetBOCLSID(ADocumentType));
+  try
+    mBO.Load(APackagesDataSet.FieldByName(cFDID).AsString, nil);
+    if mBO.HasField('VarSymbol') then
+      APackagesDataSet.FieldByName(cFDVarSymbol).AsString := mBO.GetFieldValueAsString('VarSymbol')
+    else if mBO.GetFieldValueAsString('DocQueue_ID.DocumentType') <> cDocumentTypeIssuedInvoice then begin
+      APackagesDataSet.FieldByName(cFDVarSymbol).AsString := mBO.GetFieldValueAsString('OrdNumber');
+    end;
+  finally
+    mBO.Free;
+  end;
+end;
+
+//dotahne typ platby a dobirku pro FV a OP
+procedure SetPaymentKind(AOS: TNxCustomObjectSpace; var APackagesDataSet: TDataSet);
+const
+  cSQL = 'select PT.PaymentKind from %s sdoc left join PaymentTypes PT on sdoc.PaymentType_ID = PT.ID where sdoc.ID = %s';
+var
+  mSQL, mID, mTableName, mResult: string;
+begin
+  mTableName := GetTableName(APackagesDataSet.FieldByName(cFDDocumentType).AsString);
+  mID := APackagesDataSet.FieldByName(cFDID).AsString;
+  mSQL := Format(cSQL, [mTableName, QuotedStr(mID)]);
+  mResult := GetFirstRecordFromSQL(AOS, mSQL);
+  if Trim(mResult) <> '' then begin
+    //pro dobírku, předvyplníme částku dobírečného
+    APackagesDataSet.FieldByName(cFDPaymentKind).AsInteger := StrToInt(mResult);
+    if (APackagesDataSet.FieldByName(cFDPaymentKind).AsInteger = cCODPaymentKind) 
+    and (APackagesDataSet.FieldByName(cFDDocumentType).AsString in [cDocumentTypeIssuedInvoice, cDocumentTypeBillOfDelivery]) 
+    then
+       APackagesDataSet.FieldByName(cFDCashOnDelivery).AsFloat := APackagesDataSet.FieldByName(cFDAmount).AsFloat
+       //- APackagesDataSet.FieldByName('PaidAmount').AsFloat
+      else
+       APackagesDataSet.FieldByName(cFDCashOnDelivery).AsFloat := APackagesDataSet.FieldByName(cFDAmount).AsFloat;
+  end;
+end;
+
+//v3.2 - nastavuje a později používá Firm_ID, Person_ID .. z datasetu. Je tedy možné ovlivnit při práci s datasetem cílové adresy. Například v předvyplnění.
+procedure SetAdrID(AOS: TNxCustomObjectSpace; var APackagesDataSet: TDataSet; ADocumentType: string; ASender : Boolean);
+var
+  mBO: TNxCustomBusinessObject;
+  mVarSymbol, mTmp: string;
+  mPrefix,mSufix: string;
+begin
+  mBO := AOS.CreateObject(GetBOCLSID(ADocumentType));
+  mSufix := NxIIfStr(ASender, cFDSen,'' );
+  try
+    mBO.Load(APackagesDataSet.FieldByName(cFDID).AsString, nil);
+    if mBO.HasField('Firm_ID') then
+      APackagesDataSet.FieldByName(cFDFirm_ID).AsString := mBO.GetFieldValueAsString('Firm_ID');
+    if mBO.HasField('FirmOffice_ID') then
+      APackagesDataSet.FieldByName(cFDFirmOffice_ID).AsString := mBO.GetFieldValueAsString('FirmOffice_ID');
+    if mBO.HasField('Person_ID') then
+      APackagesDataSet.FieldByName(cFDPerson_ID).AsString := mBO.GetFieldValueAsString('Person_ID');
+    if ASender then
+    begin
+      if mBO.HasField('X_Sender_Firm_ID') then
+        APackagesDataSet.FieldByName(cFDFirm_ID+mSufix).AsString := mBO.GetFieldValueAsString('X_Sender_Firm_ID');
+      if mBO.HasField('X_Sender_FirmOffice_ID') then
+        APackagesDataSet.FieldByName(cFDFirmOffice_ID+mSufix).AsString := mBO.GetFieldValueAsString('X_Sender_FirmOffice_ID');
+      if mBO.HasField('X_Sender_Person_ID') then
+        APackagesDataSet.FieldByName(cFDPerson_ID+mSufix).AsString := mBO.GetFieldValueAsString('X_Sender_Person_ID');
+    end;
+
+  finally
+    mBO.Free;
+  end;
+end;
+
+//dotahne adresy, poznamku pro ridice, pocet existujicich baliku a typ platby
+procedure SetAddInfo(AOS: TNxCustomObjectSpace; const APostProvider_ID: TNxOID; var APackagesDataSet: TDataSet; ADocumentType: string);
+begin
+  APackagesDataSet.DisableControls;
+  try
+    APackagesDataSet.First;
+    while not APackagesDataSet.Eof do begin
+      APackagesDataSet.Edit;
+      //pojištění nastavíme na hodnotu balíku
+      //if not CFxOID.IsEmptyOrFull(APostProvider_ID) then
+      SetExistCount(AOS, APostProvider_ID, APackagesDataSet, ADocumentType);
+      //dobírku budeme řešit mimo DL
+      if not (ADocumentType in [cDocumentTypeBillOfDelivery,cDocumentTypeOutgoingTransfer,cDocumentTypeServiceDocument]) then
+        SetPaymentKind(AOS, APackagesDataSet);
+      SetAdrID(AOS, APackagesDataSet,ADocumentType,false);
+      SetAddress(AOS, APackagesDataSet,false);
+      SetAdrName(AOS, APackagesDataSet,false);
+      //B2C - ServiceType
+      SetAdrID(AOS, APackagesDataSet,ADocumentType,true);
+      SetAddress(AOS, APackagesDataSet,true);
+      SetAdrName(AOS, APackagesDataSet,true);
+
+      SetNoteForDriver(AOS, APackagesDataSet, 'Location');
+      SetWeight(AOS, APackagesDataSet, ADocumentType);
+      SetVarSymbol(AOS, APackagesDataSet, ADocumentType);
+      APackagesDataSet.Post;
+      APackagesDataSet.Next;
+    end;
+  finally
+    APackagesDataSet.EnableControls;
   end;
 end;
 

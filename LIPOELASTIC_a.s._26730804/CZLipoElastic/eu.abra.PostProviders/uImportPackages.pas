@@ -365,7 +365,9 @@ begin
   if Trim(mResult) <> '' then begin
     //pro dobírku, předvyplníme částku dobírečného
     APackagesDataSet.FieldByName(cFDPaymentKind).AsInteger := StrToInt(mResult);
-    if (APackagesDataSet.FieldByName(cFDPaymentKind).AsInteger = cCODPaymentKind) and (cDocumentTypeIssuedInvoice=APackagesDataSet.FieldByName(cFDDocumentType).AsString) then
+    if (APackagesDataSet.FieldByName(cFDPaymentKind).AsInteger = cCODPaymentKind) 
+    and (APackagesDataSet.FieldByName(cFDDocumentType).AsString in [cDocumentTypeIssuedInvoice, cDocumentTypeBillOfDelivery]) 
+    then
        APackagesDataSet.FieldByName(cFDCashOnDelivery).AsFloat := APackagesDataSet.FieldByName(cFDAmount).AsFloat
        //- APackagesDataSet.FieldByName('PaidAmount').AsFloat
       else
