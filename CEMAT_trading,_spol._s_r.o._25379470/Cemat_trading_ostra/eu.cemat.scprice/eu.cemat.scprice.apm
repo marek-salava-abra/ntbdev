@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1VA0000101",
+    "name": "eu.cemat.scprice",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 15,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "G5GESPQ23FE13DQC01C0CX3F40",
+      "filename": "AG_Ceniky_G5GESPQ23FE13DQC01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 9,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 8,
+      "posindex": 3
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 10,
+      "posindex": 4
+    },
+    {
+      "scriptid": "SH3NMKUXA5CO1JCRFZKXPJMDMS",
+      "filename": "AG_Akcniceniky_SH3NMKUXA5CO1JCRFZKXPJMDMS.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 5
+    }
+  ]
+}

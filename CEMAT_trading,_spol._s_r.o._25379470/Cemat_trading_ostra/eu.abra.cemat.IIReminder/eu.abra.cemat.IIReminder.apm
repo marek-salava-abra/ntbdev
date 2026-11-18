@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1R10000101",
+    "name": "eu.abra.cemat.IIReminder",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 18,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "reminder",
+      "filename": "reminder.pas",
+      "scriptkind": 0,
+      "objversion": 17,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 2
+    }
+  ]
+}

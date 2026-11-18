@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1710000101",
+    "name": "eu.cemat.as",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 68,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Exp",
+      "filename": "Exp.pas",
+      "scriptkind": 0,
+      "objversion": 61,
+      "posindex": 1
+    },
+    {
+      "scriptid": "FTP",
+      "filename": "FTP.pas",
+      "scriptkind": 0,
+      "objversion": 26,
+      "posindex": 2
+    }
+  ]
+}

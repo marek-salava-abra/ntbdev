@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1V10000101",
+    "name": "PneuB2B",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 138,
+    "description": "Skripty potřebné ke komunikaci s portálem PneuB2B",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "StockReset",
+      "filename": "StockReset.pas",
+      "scriptkind": 0,
+      "objversion": 89,
+      "posindex": 1
+    },
+    {
+      "scriptid": "GAWVAN4GFNDL342T01C0CX3FCC",
+      "filename": "BO_Dilciskladovakarta_GAWVAN4GFNDL342T01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 14,
+      "posindex": 2
+    },
+    {
+      "scriptid": "GHYLVQXQ3FE13DQC01C0CX3F40",
+      "filename": "BO_Cenikovacena_GHYLVQXQ3FE13DQC01C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 19,
+      "posindex": 3
+    },
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 18,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 30,
+      "posindex": 5
+    },
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 6
+    }
+  ]
+}

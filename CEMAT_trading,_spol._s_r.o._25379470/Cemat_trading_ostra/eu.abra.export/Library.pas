@@ -1,0 +1,90 @@
+﻿procedure ExportData (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
+var
+  mIDsList, mOutputList: TStringList;
+  mSQL,mExportID, mDynSource, mFileName: String;
+  mExportID1, mExportID2,mExportID3, mFileName1, mFileName2, mFileName3, mFileName6, mExportID6, mFilename11 : STring;
+  mSQL1, mExportID4, mExportID5, mFileName4, mFilename5,mFileName8, mDynSource1, mDynSource2, mDynSource3, mSQL2: String;
+  mContext: TNxContext;
+  mFileName7, mExportID7, mExportID8: String;
+  mFileName9, mExportID9, mSQL3, mDynSource4, mfilename10,mExportID10, mSQL4, mSQL5, mExportID11, mDynSource5, mDynSource6: String;
+begin
+  Success := True;
+  LogInfoStr := '';
+  mSQL:='select id from firms where X_Eshop=''A'' and firm_id is null and hidden=''N'' ';
+  mSQL1:='select id from storecards where hidden=''N'' ';
+  mSQL2:='Select id from busorders where X_OZ=''A'' and hidden=''N'' ';
+  mSQL3:='Select id from STOREASSORTMENTGROUPS where hidden=''N'' ';
+  mSQL4:='select pricelist_id from firms where X_Eshop=''A'' and firm_id is null and hidden=''N'' ';
+  mSQL5:=format('select ID from actionpricelists where id in (select parent_id from actIONPRICELISTRESTRICTIONUSES) and datefrom$date<%s and dateto$date>%s',[IntToStr(Trunc(date)),IntToStr(Trunc(date))]);
+  mFileName:='c:\abrag3\htdocs\Firms.csv';
+  mFileName1:='c:\abrag3\htdocs\FirmOffices.csv';
+  mFileName2:='c:\abrag3\htdocs\FirmPersons.csv';
+  mFileName3:='c:\abrag3\htdocs\SortSlevy.csv';
+  mFileName4:='c:\AbraG3\htdocs\SCtrading.csv';
+  mFilename5:='c:\AbraG3\htdocs\StoresTrading.csv';
+  mFilename6:='c:\AbraG3\htdocs\OZ.csv';
+  mFileName7:='c:\AbraG3\htdocs\pictures.csv';
+  mFileName8:='c:\AbraG3\htdocs\storeCR.txt';
+  mFileName9:='c:\AbraG3\htdocs\Sortimentskup.csv';
+  mFileName10:='c:\AbraG3\htdocs\cenik.csv';
+  mFileName11:='c:\AbraG3\htdocs\akcnicenik.csv';
+  mExportID:='2400000101';
+  mExportID1:='3200000101';
+  mExportID2:='4200000101';
+  mExportID3:='1200000101';
+  mExportID4:='1100000101';
+  mExportID5:='1300000101';
+  mExportID6:='2600000101';
+  mExportID7:='1700000101';
+  mExportID8:='1900000101';
+  mExportID9:='1400000101';
+  mExportID10:='1A00000101';
+  mExportID11:='1U00000101';
+  
+  mDynSource:='W0DR1FTE3JD13ACL03KIU0CLP4';
+  mDynSource1:='OGQQA2C25JDL342N01C0CX3FCC';
+  mDynSource2:='K2YEKCB43GM4X3SBRM5ZUU0PNW';
+  mDynSource3:='O0M3U5YQ5RD132VA02K2CQM5AW';
+  mDynSource4:='K2YEKCB43GM4X3SBRM5ZUU0PNW';
+  mDynSource5:='WBZSRQS0AZE1342Y01C0CX3FCC';
+  mDynSource6:='2ZGC1YKFYHHO3AYGNF4ATHCBOK';
+  if FileExists(mFileName) then DeleteFile(mFileName);
+  mIDsList:=TStringList.Create;
+  mContext:=NxCreateContext(OS);
+  OS.SQLSelect(mSQL, mIDsList);
+  CFxReportManager.ExportByIDs(mContext,mIDsList,mDynSource,mExportID,0,'',mFileName);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL, mIDsList);
+  
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource,mExportID1,0,'',mFileName1);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL, mIDsList);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource,mExportID2,0,'',mFileName2);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL, mIDsList);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource,mExportID3,0,'',mFileName3);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL1, mIDsList);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource1,mExportID4,0,'',mFileName4);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource1,mExportID5,0,'',mFileName5);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource1,mExportID7,0,'',mFileName7);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource1,mExportID8,0,'',mFileName8);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL2, mIDsList);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource3,mExportID6,0,'',mFileName6);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL3, mIDsList);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource4,mExportID9,0,'',mFileName9);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL4, mIDsList);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource5,mExportID10,0,'',mFileName10);
+  mIDsList.Clear;
+  OS.SQLSelect(mSQL5, mIDsList);
+  CfxReportManager.ExportByIDs(mContext,mIDsList,mDynSource6,mExportID11,0,'',mFileName11);
+  mContext.Free;
+  mIDsList.Free;
+
+end;
+
+begin
+end.

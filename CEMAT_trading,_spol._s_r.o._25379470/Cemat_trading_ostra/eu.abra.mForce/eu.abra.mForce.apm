@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1N00000101",
+    "name": "eu.abra.mForce",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 136,
+    "description": "Automaticky vytvořený balíček pro webové služby",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "WS",
+      "filename": "WS.pas",
+      "scriptkind": 0,
+      "objversion": 104,
+      "posindex": 1
+    },
+    {
+      "scriptid": "QOKMKIQUJF34L3DUICTBWEDQJC",
+      "filename": "BO_Projekt_QOKMKIQUJF34L3DUICTBWEDQJC.pas",
+      "scriptkind": 1,
+      "objversion": 32,
+      "posindex": 2
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 52,
+      "posindex": 3
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 32,
+      "posindex": 4
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 24,
+      "posindex": 5
+    }
+  ]
+}

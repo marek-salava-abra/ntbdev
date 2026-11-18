@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1900000101",
+    "name": "eu.abra.cemat.netdevelo",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 51,
+    "description": "Automaticky vytvořený balíček pro webové služby",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "WSNetdevelo",
+      "filename": "WSNetdevelo.pas",
+      "scriptkind": 0,
+      "objversion": 51,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1U00000101",
+    "name": "eu.cemat.m2c",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 40,
+    "description": "Automaticky vytvořený balíček pro webové služby",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 33,
+      "posindex": 1
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 33,
+      "posindex": 2
+    }
+  ]
+}

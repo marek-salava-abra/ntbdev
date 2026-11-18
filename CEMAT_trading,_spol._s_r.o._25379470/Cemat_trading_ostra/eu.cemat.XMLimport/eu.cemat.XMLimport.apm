@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1P00000101",
+    "name": "eu.cemat.XMLimport",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 33,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 21,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ImportFile",
+      "filename": "ImportFile.pas",
+      "scriptkind": 0,
+      "objversion": 29,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 20,
+      "posindex": 3
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 15,
+      "posindex": 4
+    },
+    {
+      "scriptid": "InputPanel",
+      "filename": "InputPanel.pas",
+      "scriptkind": 0,
+      "objversion": 15,
+      "posindex": 5
+    }
+  ]
+}

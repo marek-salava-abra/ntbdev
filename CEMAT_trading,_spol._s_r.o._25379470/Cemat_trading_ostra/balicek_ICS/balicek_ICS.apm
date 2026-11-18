@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2O00000101",
+    "name": "balicek_ICS",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "knihovna_ICS",
+      "filename": "knihovna_ICS.pas",
+      "scriptkind": 0,
+      "objversion": 3,
+      "posindex": 1
+    }
+  ]
+}

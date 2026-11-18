@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3S10000101",
+    "name": "eu.abra.PostProviders.extras",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 2,
+    "description": "eu.abra.PostProviders.extras",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "uLib",
+      "filename": "uLib.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 1
+    },
+    {
+      "scriptid": "uConst",
+      "filename": "uConst.pas",
+      "scriptkind": 0,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

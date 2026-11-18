@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1B10000101",
+    "name": "eu.cemat.mailVL",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 25,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OBPCSAJGCVF13JXS00KEZYD5AW",
+      "filename": "AG_Mzdovelisty_OBPCSAJGCVF13JXS00KEZYD5AW.pas",
+      "scriptkind": 2,
+      "objversion": 23,
+      "posindex": 1
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 13,
+      "posindex": 2
+    },
+    {
+      "scriptid": "mail",
+      "filename": "mail.pas",
+      "scriptkind": 0,
+      "objversion": 14,
+      "posindex": 3
+    }
+  ]
+}

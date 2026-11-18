@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1E00000101",
+    "name": "eu.abra.autoserver.import",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 19,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Import",
+      "filename": "Import.pas",
+      "scriptkind": 0,
+      "objversion": 12,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 13,
+      "posindex": 2
+    }
+  ]
+}

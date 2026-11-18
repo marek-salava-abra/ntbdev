@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1V00000101",
+    "name": "eu.obb.smallasset",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 35,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "1TXPIWMRD5TOHE35DWQJBI4AZ4",
+      "filename": "AG_Sirkyvmm-palcich_1TXPIWMRD5TOHE35DWQJBI4AZ4.pas",
+      "scriptkind": 2,
+      "objversion": 34,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 19,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 13,
+      "posindex": 3
+    }
+  ]
+}

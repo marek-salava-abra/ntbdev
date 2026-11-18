@@ -1,0 +1,108 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1T00000101",
+    "name": "eu.abra.pujcovna",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 159,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "OYC0P3TDDY1ORIJO2SKTP2KZKG",
+      "filename": "AG_Aktivity_OYC0P3TDDY1ORIJO2SKTP2KZKG.pas",
+      "scriptkind": 2,
+      "objversion": 76,
+      "posindex": 1
+    },
+    {
+      "scriptid": "tabPujcovna",
+      "filename": "tabPujcovna.pas",
+      "scriptkind": 0,
+      "objversion": 96,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Print",
+      "filename": "Print.pas",
+      "scriptkind": 0,
+      "objversion": 74,
+      "posindex": 3
+    },
+    {
+      "scriptid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "filename": "BO_Aktivita_AVV1JYV5AVNOZHQCK0D4CJFUCS.pas",
+      "scriptkind": 1,
+      "objversion": 79,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 90,
+      "posindex": 5
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 68,
+      "posindex": 6
+    },
+    {
+      "scriptid": "VIYABDSJIN04RBJHJIL3OI54J0",
+      "filename": "AG_Agendazarizenipujcovny_VIYABDSJIN04RBJHJIL3OI54J0.pas",
+      "scriptkind": 2,
+      "objversion": 72,
+      "posindex": 7
+    },
+    {
+      "scriptid": "S0ODIDCD1NEL314Z00C5PPZRR4",
+      "filename": "BO_Kartamajetku_S0ODIDCD1NEL314Z00C5PPZRR4.pas",
+      "scriptkind": 1,
+      "objversion": 55,
+      "posindex": 8
+    },
+    {
+      "scriptid": "4E4R1JFNBREL31ME00C5PPBIWO",
+      "filename": "BO_Kartadrobnehomajetku_4E4R1JFNBREL31ME00C5PPBIWO.pas",
+      "scriptkind": 1,
+      "objversion": 55,
+      "posindex": 9
+    },
+    {
+      "scriptid": "O1C4ERBIVNIOT4WASH5MYY14CK",
+      "filename": "AG_Nabidkyvydane_O1C4ERBIVNIOT4WASH5MYY14CK.pas",
+      "scriptkind": 2,
+      "objversion": 44,
+      "posindex": 10
+    },
+    {
+      "scriptid": "mail",
+      "filename": "mail.pas",
+      "scriptkind": 0,
+      "objversion": 28,
+      "posindex": 11
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 32,
+      "posindex": 12
+    },
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 13
+    }
+  ]
+}

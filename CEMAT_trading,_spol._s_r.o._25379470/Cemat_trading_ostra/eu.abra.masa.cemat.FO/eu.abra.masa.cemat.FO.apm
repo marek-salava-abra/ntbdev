@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "3VM0000101",
+    "name": "eu.abra.masa.cemat.FO",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 9,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "U5FWTK3TNHHON1EWKPKXZG4I4O",
+      "filename": "AG_Strojeapridavnazarizeni_U5FWTK3TNHHON1EWKPKXZG4I4O.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 1
+    }
+  ]
+}

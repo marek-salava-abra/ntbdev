@@ -1,0 +1,66 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1VM0000101",
+    "name": "eu.abra.masa.cemat.CorrCreat",
+    "license_holder": "CEMAT_trading,_spol._s_r.o._25379470",
+    "objversion": 11,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 1
+    },
+    {
+      "scriptid": "DAZQPMWSTFG4H4HRVX5WUYQGNO",
+      "filename": "BO_Lisari_DAZQPMWSTFG4H4HRVX5WUYQGNO.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 2
+    },
+    {
+      "scriptid": "LEP0CTIXI4TOT13KHRUQSLF44C",
+      "filename": "BO_BOBalik-nataveni_LEP0CTIXI4TOT13KHRUQSLF44C.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 3
+    },
+    {
+      "scriptid": "BRAY1KKZDNKODCEGNFDZ3EPK0G",
+      "filename": "BO_Typystroju_BRAY1KKZDNKODCEGNFDZ3EPK0G.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 4
+    },
+    {
+      "scriptid": "S51JBCXTAWA4H1024E5BQC5HJ4",
+      "filename": "BO_Typypridavnychzarizeni_S51JBCXTAWA4H1024E5BQC5HJ4.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 5
+    },
+    {
+      "scriptid": "34SBI400CVQO3EC0LOLIAUEMZG",
+      "filename": "BO_BOznackypridavnychzarizeni_34SBI400CVQO3EC0LOLIAUEMZG.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 6
+    },
+    {
+      "scriptid": "DK4IQ0V3L5EORHQYMUBJLYHF0O",
+      "filename": "BO_BOMachines_DK4IQ0V3L5EORHQYMUBJLYHF0O.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 7
+    }
+  ]
+}
