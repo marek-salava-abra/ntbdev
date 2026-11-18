@@ -5,7 +5,7 @@
     "id": "2FP0000101",
     "name": "eu.abra.mavy.logParser",
     "license_holder": "PROMOS_CZ_s.r.o._25852591",
-    "objversion": 4,
+    "objversion": 5,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,7 +17,7 @@
       "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
       "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 4,
+      "objversion": 5,
       "posindex": 1
     }
   ]

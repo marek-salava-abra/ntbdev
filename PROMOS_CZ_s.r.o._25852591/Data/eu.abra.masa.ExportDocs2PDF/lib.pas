@@ -1,5 +1,37 @@
 ﻿uses '.consts';
 
+procedure GenerateFeed (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
+var
+ mSCList:TStringList;
+ mFTP:TFTP;
+begin
+ mSCList:=TStringList.Create;
+ {OS.SQLSelect('SELECT a.id FROM StoreCards A WHERE (A.Hidden = ''N'' ) AND '+
+              '((A.STOREASSORTMENTGROUP_ID IN (''1000000101'',''1100000101'') )) '+
+              ' AND (A.X_Not_For_Use LIKE ''N'' OR (A.X_Not_For_Use is Null))', mSCList);  }
+ OS.SQLSelect('Select a.id from storecards A where (A.Hidden = ''N'' ) AND A.X_B2BSending LIKE ''1%'' ', mSCList);
+ CFxReportManager.ExportByIDs(NxCreateContext(OS),mSCList,GetDynSourceE(os,'1380000101'),'1380000101',0,'',NxGetTempDir+'productfeed.xml');
+ try
+             mFTP:= TFTP.Create;
+             mFTP.Host:=cUrl;
+             mftp.UserName:=cLogin;
+             mFTP.Password:=cPass;
+             mftp.Connect;
+             mFTP.Passive:=true;
+             mftp.ChangeDir('feed');
+             mFTP.TransferType:=ftBinary;
+             mftp.Put(NxGetTempDir+'\productfeed.xml','productfeed.xml');
+             mFTP.Free;
+           except
+
+           end;
+        DeleteFile(NxGetTempDir+'\productfeed.xml');
+  Success := True;
+  LogInfoStr := ''
+end;
+
+
+
 procedure GenerateDoc (OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
 var
  mInvoiceList, mPrintList:TStringList;
@@ -352,6 +384,23 @@ end;
 function GetDynSource (AOS : TNxCustomObjectSpace; AValue : string) : String;
 const
   cSQL = 'SELECT DataSource FROM Reports WHERE ID=''%s'' ';
+var
+  mList : TStringList;
+begin
+  mList := TStringList.Create;
+  try
+    Result:='';
+    AOS.SQLSelect(Format(cSQL, [ AValue]), mList);
+    if mList.Count > 0 then
+      Result := (mList.Strings[0]);
+  finally
+    mList.Free;
+  end;
+end;
+
+function GetDynSourceE (AOS : TNxCustomObjectSpace; AValue : string) : String;
+const
+  cSQL = 'SELECT DataSource FROM Exports WHERE ID=''%s'' ';
 var
   mList : TStringList;
 begin

@@ -171,7 +171,8 @@ begin
     ';STD_TransferBetweenPositions' +
     ';STD_TransferWithoutDoc' +
     ';STD_InventorizationByDIP' +
-    ';STD_InventorizationFree';
+    ';STD_InventorizationFree'+
+    ';STD_OrdersGenerationWithoutDoc';
 end;
 
 const

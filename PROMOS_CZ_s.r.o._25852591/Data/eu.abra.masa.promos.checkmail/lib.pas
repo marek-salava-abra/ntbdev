@@ -12,7 +12,7 @@ begin
   if mlist.Count>0 then begin
     for i:=0 to mlist.count-1 do begin
       mCode:=NxTrapStr(mList.Strings[i],';');
-      mBalast:=NxTrapStr(mList.Strings[i],';');
+      //mBalast:=NxTrapStr(mList.Strings[i],';');
       mQuantity:=NxIBStrToFloat(NxTrapStr(mList.Strings[i],';'));
       mStoreCard_ID:=GetStoreCard_ID(OS,mCode);
       if not(NxIsEmptyOID(mStoreCard_ID)) then begin
@@ -99,8 +99,9 @@ var
 begin
   mFileName := 'C:\ABRA_EXPORT\stock.csv';
   mWinHTTP:= CreateOleObject('WinHttp.WinHttpRequest.5.1');
-  mWinHTTP.Open('GET','http://207.154.227.54/kingtony/handlowiec/stock.csv');
-  mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.ANSI.GetBytes( 'MarekCZ:MarekCZ123?')));
+  //mWinHTTP.Open('GET','http://207.154.227.54/kingtony/handlowiec/stock.csv');
+  //mWinHTTP.SetRequestHeader('Authorization','Basic '+EncodeBase64(TEncoding.ANSI.GetBytes( 'MarekCZ:MarekCZ123?')));
+  mWinHTTP.Open('GET','http://ftp.kingtony.com.pl/stan_kt_all.csv');
   mWinHTTP.Send('');
   mString:=mWinHTTP.ResponseText;
   mList:=TStringList.Create;

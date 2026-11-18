@@ -9,6 +9,7 @@ var
  mFtp:TFTP;
  mMessage, mExt:string;
 begin
+  mMessage:='';
   mPictures:=self.GetLoadedCollectionMonikerForFieldCode(self.GetFieldCode('Pictures'));
   for i:=0 to mPictures.Count-1 do begin
    //if not(mPictures.BusinessObject[i].GetFieldValueAsBoolean('X_AES_Send')) then begin
@@ -36,7 +37,7 @@ begin
              mftp.Put(mOrigFile,mfileName);
              mFTP.Free;
            except
-             NxShowSimpleMessage(ExceptionMessage,nil);
+            if NxIsBlank(mMessage) then mMessage:='Nepovedlo se nahrát obrázky na ftp, kontaktovat pana Martina Tobolu';
            end;
       mbo.SetFieldValueAsString('PathAndFileName',mOrigFile);
       mbo.save;
@@ -57,6 +58,7 @@ begin
          mbo.free;
      end;
   end;
+  if not(NxIsBlank(mMessage)) then NxShowSimpleMessage(mMessage,nil);
 end;
 
 begin

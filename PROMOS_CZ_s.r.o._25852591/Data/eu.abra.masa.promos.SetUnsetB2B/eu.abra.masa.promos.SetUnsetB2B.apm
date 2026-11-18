@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "4F11000101",
+    "name": "eu.abra.masa.promos.SetUnsetB2B",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 9,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 777
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 1
+    }
+  ]
+}
