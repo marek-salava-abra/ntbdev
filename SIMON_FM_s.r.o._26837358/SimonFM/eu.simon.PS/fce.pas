@@ -17,6 +17,20 @@ begin
   end;
 end;
 
+function IsValidPhoneNumber(APhone: String): Boolean;
+var
+  mDigits: String;
+  i: Integer;
+begin
+  mDigits := '';
+  for i := 1 to Length(APhone) do begin
+    if (APhone[i] >= '0') and (APhone[i] <= '9') then
+      mDigits := mDigits + APhone[i];
+  end;
+
+  Result := (Length(mDigits) = 9) or (Length(mDigits) = 12);
+end;
+
 function GetAvailableQuantity(AOS : TNxCustomObjectSpace; aStore_ID, aStoreCard_ID : string) : Extended;
 const
   cSQL = 'SELECT Sum(Quantity-Bookedquantity) FROM StoreSubCards WHERE Store_ID=''%s'' and StoreCard_ID=''%s'' ';

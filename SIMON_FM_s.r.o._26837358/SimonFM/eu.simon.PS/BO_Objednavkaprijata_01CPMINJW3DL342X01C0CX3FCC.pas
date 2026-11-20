@@ -5,7 +5,7 @@ var
  mRows:TNxCustomBusinessMonikerCollection;
  mRowBO,mZLVBO:TNxCustomBusinessObject;
  i, mMailCount:integer;
- mAvailableQuantity,mOrderedQuantity, mStorePrice: Extended;
+ mAvailableQuantity,mOrderedQuantity, mStorePrice, mNotPaidAmount: Extended;
  mNotOnStore, mZapornaMarze: Boolean;
  mOrigPMState_ID, mZLV_ID, mDZV_ID, mAccount_ID,mTO, mSubject, mBody,mFileName,mFileName2:string;
  mList,mFileList:TStringList;
@@ -64,7 +64,9 @@ begin
          mLogList.add('Řádek 59 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if GetValidSKPostcode(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PostCode')) then self.SetFieldValueAsString('PMState_ID','1010000101');
          mLogList.add('Řádek 61 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
-        if not(GetValidCZPhonenumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1'))) then self.SetFieldValueAsString('PMState_ID','1010000101');
+        if not(GetValidCZPhonenumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1'))) and 
+         not(IsValidPhoneNumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1')))
+          then self.SetFieldValueAsString('PMState_ID','1010000101');
         // if self.GetFieldValueAsString('TransportationType_ID')='5100000101' then self.SetFieldValueAsString('PMState_ID','1010000101');  //zakomentováno dne 20.6.2024
          mLogList.add('Řádek 64 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if (self.GetFieldValueAsString('PaymentType_ID')='6000000101') and
@@ -72,8 +74,11 @@ begin
          or (Self.GetFieldValueAsString('U_orderState_ID')='6C92000101') or (Self.GetFieldValueAsString('U_orderState_ID')='70T5000101')) then
          self.SetFieldValueAsString('PMState_ID','1010000101');
          mLogList.add('Řádek 69 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
-        if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') then self.SetFieldValueAsString('PMState_ID','1010000101');  //doplněn dne 5.4.2024
-         mLogList.add('Řádek 71 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        mZLV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select id from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),'');
+        mNotPaidAmount:=self.ObjectSpace.SQLSelectFirstAsExtended('Select Amount-PaidAmount from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),0);
+        if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and not(NxIsEmptyOID(mZLV_ID)) and not(mNotPaidAmount=0)
+         then self.SetFieldValueAsString('PMState_ID','1010000101');  //doplněn dne 5.4.2024
+        mLogList.add('Řádek 71 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         //if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and (mNotOnStore) then self.SetFieldValueAsString('PMState_ID','1010000101');
         if {(mOrigPMState_ID='2030000101') and} mNotOnStore then self.SetFieldValueAsString('PMState_ID','2030000101');
         mLogList.add('Řádek 74 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));

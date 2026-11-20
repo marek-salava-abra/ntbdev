@@ -3,6 +3,8 @@
 uses
     'eu.abra.eshop.const', 'eu.abra.eshop.fce', 'eu.simon.emaileshop.mail', 'eu.simon.eshop.mail';
 
+
+
 //aaa
 
 function GetStoreCardPrice(Self: TNxWebServicesHelper;StoreCard_ID: String):Extended;
@@ -239,9 +241,12 @@ begin
     mReceivedOrderBO.SetFieldValueAsString('ExternalNumber',mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.id'));
     mReceivedOrderBO.SetFieldValueAsString('X_AES_Description',mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.note'));
     if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID'))) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID',mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID'));
-    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2260000101','4260000101','5260000101','6260000101','7260000101','8260000101','9260000101','C260000101','2280000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2230000101');
-    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['D260000101','E260000101','F260000101','G260000101','H260000101','I260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2000000101');
-    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['22B0000101','22C0000101','32C0000101','42C0000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3250000101');
+    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2260000101','4260000101','5260000101','6260000101','7260000101','8260000101','9260000101','C260000101','2280000101']) 
+     then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2230000101');
+    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['D260000101','E260000101','F260000101','G260000101','H260000101','I260000101']) 
+     then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2000000101');
+    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['22B0000101','22C0000101','32C0000101','42C0000101']) 
+     then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3250000101');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['A260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','00000P1000');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['B260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4100000101');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2270000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','00000O1000');
@@ -259,10 +264,17 @@ begin
     except
     end;
     if not(NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber'))) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','1000000101');
-    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4220000101');
-    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and not(mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2200000101');
-    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2240000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3240000101');
-    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3250000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='3100000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','22B0000101');
+    if mreceivedorderBO.Getfieldvalueasstring('PaymentType_ID')='4210000101' then mReceivedOrderBO.SetFieldValueAsString('PaymentType_ID','4000000101');
+    if mreceivedorderBO.Getfieldvalueasstring('PaymentType_ID')='3210000101' then mReceivedOrderBO.SetFieldValueAsString('PaymentType_ID','3100000101');
+    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') 
+    and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4220000101');
+    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') 
+     and not(mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2200000101');
+    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2240000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then 
+     mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3240000101');
+    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3250000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='3100000101') then 
+     mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','22B0000101');
+
     mReceivedOrderBO.SetFieldValueAsInteger('DealerDiscountKind',0);
     if Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.COUNTRY_CODE'))='SLOVENSKO' then begin
      if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3220000101') and
