@@ -34,7 +34,7 @@ begin
        end;
       end;
   end;
-  if (self.GetFieldValueAsString('DocQueue_ID')='6RX0000101') and (osNew in self.State) then begin
+  if (self.GetFieldValueAsString('DocQueue_ID')='6RX0000101') then begin
       mDocNumber:=NxSearchReplace(self.GetFieldValueAsString('Code'),'Kontrola ','',[srAll]);
       mDocQueueCode:=NxTrapStrTrim(mDocNumber,'-');
       mOrdnumber:=NxTrapStrTrim(mDocNumber,'/');
