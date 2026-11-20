@@ -181,8 +181,8 @@ begin
         end;
          mColl := mFirm.GetLoadedCollectionMonikerForFieldCode(mFirm.GetfieldCode('FirmOffices'));
          if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.system_id'))) then mFirmOffice_ID:=mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.system_id');
-           if (NxIsEmptyOID(mFirmOffice_ID)) and not(Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '
-           +mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname'))='') then begin
+             if (NxIsEmptyOID(mFirmOffice_ID)) and not(Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '
+                 +mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname'))='') then begin
 
               for d:=0 to mColl.Count-1 do begin
                // if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Name'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '+mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname')),[srAll],0)>0 then

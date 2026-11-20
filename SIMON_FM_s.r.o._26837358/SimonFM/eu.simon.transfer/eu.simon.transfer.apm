@@ -5,7 +5,7 @@
     "id": "2830000101",
     "name": "eu.simon.transfer",
     "license_holder": "SIMON_FM_s.r.o._26837358",
-    "objversion": 164,
+    "objversion": 172,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,14 +17,14 @@
       "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
       "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 158,
+      "objversion": 164,
       "posindex": 1
     },
     {
       "scriptid": "JZ1ZP22A0ZK430HAFWLAERKTM0",
       "filename": "BO_LogPRF_JZ1ZP22A0ZK430HAFWLAERKTM0.pas",
       "scriptkind": 1,
-      "objversion": 14,
+      "objversion": 18,
       "posindex": 2
     }
   ]
