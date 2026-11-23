@@ -26,7 +26,7 @@ end;
 
 function scrFirm2_ID(AOS : TNxCustomObjectSpace; AValue : string) : string;
 const
-  cSQL = 'SELECT f.ID FROM Firms f left join addresses a on a.id=f.residenceAddress_id WHERE a.email=''%s'' and f.Hidden=''N'' and f.firm_id is null';
+  cSQL = 'SELECT f.ID FROM Firms f left join addresses a on a.id=f.residenceAddress_id WHERE a.email=''%s'' and f.Hidden=''N'' and f.firm_id is not null';
 var
   mList : TStringList;
 begin
