@@ -15,6 +15,8 @@ procedure CreateDL03(OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfo
   mImportMan:TNxDocumentImportManager;
   mInputParams:TNxParameters;
   mParam:TNxParameter;
+  mLog_ID, mTempResult:String;
+  mLogBO:TNxCustomBusinessObject;
 begin
   mResult:='';
   mList:=TStringList.Create;
@@ -33,6 +35,7 @@ begin
         mUnpaidZLV:=False;
         mUnpaidAmount:=0;
         mLogs:=TStringList.Create;
+        mTempResult:='';
         mHorizontalSplitter:=GetHorizontalSplitter(50);
         mOrderBO:=OS.CreateObject(Class_ReceivedOrder);
         mOrderBO.Load(mlist.Strings[i],nil);
@@ -128,7 +131,8 @@ begin
               for k:=0 to mNotLogisticStoreList.Count-1 do begin
                 mResult:=mResult+#13#10+mNotLogisticStoreList.Strings[k];
               end;
-              mResult:=mResult+#13#10+CreateTransfer(OS,mOrderBO,mNotLogisticStoreList,'6RB0000101',mDestinationStore_ID, mDivision_ID);
+              mtempresult:=CreateTransfer(OS,mOrderBO,mNotLogisticStoreList,'6RB0000101',mDestinationStore_ID, mDivision_ID);
+              mResult:=mResult+#13#10+mtempResult;
             end;
             if mLogisticStoreList.count>0 then begin
               mResult:=mResult+#13#10+'Výdej z polohovaného skladů '+mOrderBO.DisplayName;
@@ -136,11 +140,12 @@ begin
               for k:=0 to mLogisticStoreList.Count-1 do begin
                 mResult:=mResult+#13#10+mLogisticStoreList.Strings[k];
               end;
-              mResult:=mResult+#13#10+CreateTransfer(OS,mOrderBO,mLogisticStoreList,'6RC0000101',mDestinationStore_ID, mDivision_ID);
+              mTempResult:=CreateTransfer(OS,mOrderBO,mLogisticStoreList,'6RC0000101',mDestinationStore_ID, mDivision_ID);
+              mResult:=mResult+#13#10+mtempresult;
             end;
            end;
           end;
-         mlogs.add('Výsledek: '+#13#10+mResult);
+         mlogs.add('Výsledek: '+#13#10+mTempResult);
         end else begin
           mUnpaidAmount:=OS.SQLSelectFirstAsExtended('Select amount-paidamount from issueddinvoices where amount>0 and receivedorder_id='+QuotedStr(mOrderBO.OID),0);
           if mUnpaidAmount>0 then mUnpaidZLV:=True;
@@ -174,7 +179,17 @@ begin
           end;
         end;
        if mlogs.Count>0 then begin
-        CFxLog.SaveLog(NxCreateContext(OS),'LPV', 'Převod k '+mOrderBO.DisplayName, mLogs.text,ltScripting,now);
+         mLog_ID:=OS.SQLSelectFirstAsString('select pl.id from prflogs pl where pl.docqueue_id='+QuotedStr('6RW0000101')+' and pl.code='+QuotedStr('Převod k '+morderBO.DisplayName),'');
+         if NxIsEmptyOID(mLog_ID) then
+          CFxLog.SaveLog(NxCreateContext(OS),'LPV', 'Převod k '+mOrderBO.DisplayName, mLogs.text,ltScripting,now)
+         else begin
+           mLogBO:=OS.CreateObject(Class_PRFLog);
+           mLogBO.Load(mLog_ID,nil);
+           mLogBO.SetFieldValueAsString('Note',mLogBO.GetFieldValueAsString('Note')+nxCrLf+mLogs.Text);
+           mLogBO.save;
+           mLogBO.free;
+         end; 
+        //CFxLog.SaveLog(NxCreateContext(OS),'LPV', 'Převod k '+mOrderBO.DisplayName, mLogs.text,ltScripting,now);
         mLogs.free;
        end;
       //konec vnitřku
