@@ -94,7 +94,11 @@ begin
               mFirmBO.SetFieldValueAsString('X_FormDL_ID','7LH0000101');
               mFirmBO.SetFieldValueAsString('Name',mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].Customer.Name'));
               mFirmBO.SetFieldValueAsString('OrgIdentNumber',mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].Customer.RegNo'));
-              mFirmBO.SetFieldValueAsString('VATIdentNumber',mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].Customer.VatNo'));
+              try
+               mFirmBO.SetFieldValueAsString('VATIdentNumber',mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].Customer.VatNo'));
+              except
+
+              end;
               mFirmBO.SetFieldValueAsString('ResidenceAddress_ID.Street',mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].Customer.Street'));
               mFirmBO.SetFieldValueAsString('ResidenceAddress_ID.City',mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].Customer.City'));
               mFirmBO.SetFieldValueAsString('ResidenceAddress_ID.PostCode',mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].Customer.ZIP'));
@@ -164,6 +168,14 @@ begin
             if mXMLHead.GetElementAsString('Orders.Order[' + IntToStr(i) + '].DeliveryRoute.ShippingType')='PersonalPickup' then
              mBO.SetFieldValueAsString('TransportationType_ID','00000O1000') else
              mBO.SetFieldValueAsString('TransportationType_ID','2000000101');
+            if mlogin in ['8202','8203'] then begin
+              mBO.SetFieldValueAsInteger('TradeType',2);
+              mBO.SetFieldValueAsInteger('TradeType',2);
+              mBO.SetFieldValueAsString('IntrastatDeliveryTerm_ID','1001000000');
+              mBO.SetFieldValueAsString('IntrastatTransactionType_ID','0101000000');
+              mBO.SetFieldValueAsString('IntrastatTransportationType_ID','2000000000');
+              mBO.SetFieldValueAsString('Country_ID','00000SK000');
+            end; 
             mItemCount := mXMLHead.GetElementsCountInArray('Orders.Order[' + IntToStr(i) + '].Items.Item');
             mRows:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
             for j := 0 to mItemCount - 1 do begin
