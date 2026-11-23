@@ -12,6 +12,11 @@ begin
   mParams := '/p "d:\wamp\www\kontrola_opes" /d -28 /c "cmd /c del @file"';
   mPath := '';
   mResult := ShellAPI.Execute(mCommand, mFile, mParams, mPath);
+  mCommand := 'open';
+  mFile := 'forfiles.exe';
+  mParams := '/p "f:\logy\abra" /d -28 /c "cmd /c del @file"';
+  mPath := '';
+  mResult := ShellAPI.Execute(mCommand, mFile, mParams, mPath);
   Success := True;
   LogInfoStr := ''+NxCrLF+mParams;
 end;

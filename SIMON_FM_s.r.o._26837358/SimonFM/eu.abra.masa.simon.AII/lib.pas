@@ -9,7 +9,7 @@ var
  mInputParams:TNxParameters;
  mParam:TNxParameter;
  mInvoice_ID, mOrder_ID, mSubject, mMailText, mTo, mFileName, mMena:string;
- mCastka, mPatek, mPosledniDen, mNulovaCena, mNizkaMarze:boolean;
+ mCastka, mPatek, mPosledniDen, mNulovaCena, mNizkaMarze, mSudy:boolean;
  mInvoiceRows:TNxCustomBusinessMonikerCollection;
 begin
   mPatek:=(DayOfWeek(Date)=6);
@@ -49,7 +49,8 @@ begin
         mMessage:=mMessage+#13#10+'---------------------------------------------';
         //doplnit generování na poslední den v měsíci
         mCastka:=(mAmount>2000);
-        if mCastka or mPatek or mPosledniDen then begin
+        if os.SQLSelectFirstAsInteger('Select X_TypeOfAutoInvoice from firms where id='+QuotedStr(mFirmList.Strings[i]),0)=2 then mCastka:=false;
+        if mCastka or (DayOfTheMonth(Date)=15) or mPosledniDen then begin
                 try
                       mInputParams := TNxParameters.Create;
                       mParam := mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
