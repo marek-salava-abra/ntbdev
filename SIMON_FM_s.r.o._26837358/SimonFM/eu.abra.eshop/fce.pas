@@ -1,6 +1,6 @@
 ﻿function scrFirm_ID(AOS : TNxCustomObjectSpace; AFieldName : string; AValue : string) : string;
 const
-  cSQL = 'SELECT ID FROM Firms WHERE %s like ''%s'' and firm_id is not nulland Hidden=''N''';
+  cSQL = 'SELECT ID FROM Firms WHERE %s like ''%s'' and firm_id is not null and Hidden=''N''';
 var
   mList : TStringList;
 begin
@@ -26,7 +26,7 @@ end;
 
 function scrFirm2_ID(AOS : TNxCustomObjectSpace; AValue : string) : string;
 const
-  cSQL = 'SELECT f.ID FROM Firms f left join addresses a on a.id=f.residenceAddress_id WHERE a.email=''%s'' and f.Hidden=''N''';
+  cSQL = 'SELECT f.ID FROM Firms f left join addresses a on a.id=f.residenceAddress_id WHERE a.email=''%s'' and f.Hidden=''N'' and f.firm_id is null';
 var
   mList : TStringList;
 begin

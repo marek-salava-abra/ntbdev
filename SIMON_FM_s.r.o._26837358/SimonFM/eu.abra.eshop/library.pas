@@ -186,11 +186,11 @@ begin
 
               for d:=0 to mColl.Count-1 do begin
                // if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Name'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '+mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname')),[srAll],0)>0 then
-
-                if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Address_ID.Street'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.street')),[srAll],0)>0 then begin
-                 if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Address_ID.Recipient'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')),[srAll],0)>0 then begin
-                  if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Address_ID.Email'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.email')),[srAll],0)>0 then begin
-                    mFirmOffice_ID:=mcoll.BusinessObject[d].OID;
+               mFirmOffice:=mcoll.BusinessObject[d];
+                if NxSearch(mFirmOffice.GetFieldValueAsString('Address_ID.Street'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.street')),[srAll],0)>0 then begin
+                 if NxSearch(mFirmOffice.GetFieldValueAsString('Address_ID.Recipient'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')),[srAll],0)>0 then begin
+                  if NxSearch(mFirmOffice.GetFieldValueAsString('Address_ID.Email'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.email')),[srAll],0)>0 then begin
+                    mFirmOffice_ID:=mFirmOffice.OID;
                     if mNewsLetter then begin
                       mColl.BusinessObject[d].SetFieldValueAsBoolean('X_CommercialsAgreement',true);
                       mColl.BusinessObject[d].SetFieldValueAsDateTime('X_AgreementFrom$Date',Now);

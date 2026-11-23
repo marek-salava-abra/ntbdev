@@ -2,7 +2,7 @@
 uses
     'eu.abra.eshop.const', 'eu.abra.eshop.fce', 'eu.simon.emaileshop.mail', 'eu.simon.eshop.mail';
 
-{procedure InitSite_Hook(Self: TSiteForm);
+procedure InitSite_Hook(Self: TSiteForm);
 var
   mAction: TBasicAction;
   mUser : TNxCustomBusinessObject;
@@ -18,7 +18,7 @@ begin
     mAction.Category := 'tabList';
     mAction.OnExecute := @InsertOrderOP;
 
-end;   }
+end;
 
 Procedure InsertOrderOP(Sender:TComponent);
 Var
@@ -115,7 +115,8 @@ begin
     //if (StrToFloat(NxSearchReplace(mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.Price'),'.',',',[srAll])) =0) 00000O1000 then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','00000O1000');
     if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='00000O1000') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='6000000101')  then mReceivedOrderBO.SetFieldValueAsString('U_OrderState_ID','57E2000101');
     if mXMLHead.getElementsCountInArray('order['+inttostr(i)+'].invoicedata')>0 then begin
-      if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.firm_system_id'))) then mFirm_ID:=mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.firm_system_id');
+      if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.firm_system_id'))) then
+        mFirm_ID:=mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.firm_system_id');
       // dohledávání dle názvu firmy
       //if NxIsEmptyOID(mFirm_ID) and not(NxIsBlank(Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.firm')))) then mFirm_ID:=scrFirm_ID(mOS,'Name', Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.firm')));
       if NxIsEmptyOID(mfirm_id) then mFirm_ID:=scrFirm_ID(mOS,'OrgIdentNumber', Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.ic')));
@@ -178,18 +179,28 @@ begin
             end;
           end;
         end;
+         NxShowSimpleMessage(Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '
+           +mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname')),msite);
          mColl := mFirm.GetLoadedCollectionMonikerForFieldCode(mFirm.GetfieldCode('FirmOffices'));
          if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.system_id'))) then mFirmOffice_ID:=mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.system_id');
            if (NxIsEmptyOID(mFirmOffice_ID)) and not(Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '
            +mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname'))='') then begin
-
+              NxShowSimpleMessage('jdu hledat provozovnu ',mSite);
               for d:=0 to mColl.Count-1 do begin
                // if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Name'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '+mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname')),[srAll],0)>0 then
-
-                if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Address_ID.Street'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.street')),[srAll],0)>0 then begin
-                 if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Address_ID.Recipient'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')),[srAll],0)>0 then begin
-                  if NxSearch(mcoll.BusinessObject[d].GetFieldValueAsString('Address_ID.Email'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.email')),[srAll],0)>0 then begin
-                    mFirmOffice_ID:=mcoll.BusinessObject[d].OID;
+               mFirmOffice:=mcoll.BusinessObject[d];
+               NxShowSimpleMessage('Provozovna '+mFirmOffice_ID+' pořadí '+IntToStr(d+1)+' z '+IntToStr(mColl.Count),msite);
+                if NxSearch(mFirmOffice.GetFieldValueAsString('Address_ID.Street'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.street')),[srAll],0)>0 then begin
+                 NxShowSimpleMessage('ulice :'+mFirmOffice.GetFieldValueAsString('Address_ID.Street')+NxCrLf+
+                                     'XML ulice: '+Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.street')),msite);
+                 if NxSearch(mFirmOffice.GetFieldValueAsString('Address_ID.Recipient'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')),[srAll],0)>0 then begin
+                   NxShowSimpleMessage('příjemce :'+mFirmOffice.GetFieldValueAsString('Address_ID.Recipient')+NxCrLf+
+                                     'XML příjemce: '+Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.name')),msite);
+                  if NxSearch(mFirmOffice.GetFieldValueAsString('Address_ID.Email'),Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.email')),[srAll],0)>0 then begin
+                    NxShowSimpleMessage('email :'+mFirmOffice.GetFieldValueAsString('Address_ID.email')+NxCrLf+
+                                     'XML email: '+Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.email')),msite);
+                    mFirmOffice_ID:=mFirmOffice.OID;
+                    NxShowSimpleMessage('Našel jsem provozovnu '+mFirmOffice.OID,mSite);
                     if mNewsLetter then begin
                       mColl.BusinessObject[d].SetFieldValueAsBoolean('X_CommercialsAgreement',true);
                       mColl.BusinessObject[d].SetFieldValueAsDateTime('X_AgreementFrom$Date',Now);
@@ -199,6 +210,7 @@ begin
                 end;
               end;
            end;
+           NxShowSimpleMessage('203: '+mFirmOffice_ID,msite);
            if NxIsEmptyOID(mFirmOffice_ID) then begin
             mFirmOffice :=mColl.AddNewObject;
             mFirmOffice.SetFieldValueAsString('Name', Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.name')+' '+mXMLHead.getElementAsString('order['+inttostr(i)+'].deliverydata.surname')));
@@ -240,9 +252,12 @@ begin
     mReceivedOrderBO.SetFieldValueAsString('ExternalNumber',mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.id'));
     mReceivedOrderBO.SetFieldValueAsString('X_AES_Description',mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.note'));
     if not(NxIsEmptyOID(mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID'))) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID',mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID'));
-    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2260000101','4260000101','5260000101','6260000101','7260000101','8260000101','9260000101','C260000101','2280000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2230000101');
-    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['D260000101','E260000101','F260000101','G260000101','H260000101','I260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2000000101');
-    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['22B0000101','22C0000101','32C0000101','42C0000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3250000101');
+    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2260000101','4260000101','5260000101','6260000101','7260000101','8260000101','9260000101','C260000101','2280000101'])
+     then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2230000101');
+    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['D260000101','E260000101','F260000101','G260000101','H260000101','I260000101'])
+     then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2000000101');
+    if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['22B0000101','22C0000101','32C0000101','42C0000101'])
+     then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3250000101');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['A260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','00000P1000');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['B260000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4100000101');
     if (mXMLHead.getElementAsString('order['+inttostr(i)+'].transport.System_ID') in ['2270000101']) then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','00000O1000');
@@ -260,10 +275,17 @@ begin
     except
     end;
     if not(NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber'))) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','1000000101');
-    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4220000101');
-    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101') and not(mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2200000101');
-    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2240000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3240000101');
-    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3250000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='3100000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','22B0000101');
+    if mreceivedorderBO.Getfieldvalueasstring('PaymentType_ID')='4210000101' then mReceivedOrderBO.SetFieldValueAsString('PaymentType_ID','4000000101');
+    if mreceivedorderBO.Getfieldvalueasstring('PaymentType_ID')='3210000101' then mReceivedOrderBO.SetFieldValueAsString('PaymentType_ID','3100000101');
+    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101')
+    and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','4220000101');
+    if NxIsBlank(mReceivedOrderBO.GetFieldValueAsString('Firm_ID.OrgIdentNumber')) and (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2230000101')
+     and not(mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','2200000101');
+    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='2240000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='4000000101') then
+     mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','3240000101');
+    if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3250000101') and (mReceivedOrderBO.GetFieldValueAsString('PaymentType_ID')='3100000101') then
+     mReceivedOrderBO.SetFieldValueAsString('TransportationType_ID','22B0000101');
+
     mReceivedOrderBO.SetFieldValueAsInteger('DealerDiscountKind',0);
     if Trim(mXMLHead.getElementAsString('order['+inttostr(i)+'].invoicedata.COUNTRY_CODE'))='SLOVENSKO' then begin
      if (mReceivedOrderBO.GetFieldValueAsString('TransportationType_ID')='3220000101') and
@@ -356,7 +378,7 @@ begin
      end;
      mReceivedOrderBO.save;
      NxScriptingLog.WriteEvent(logInfo, ExceptionMessage);
-    // if not(NxIsBlank(ExceptionMessage)) then result:=ExceptionMessage;
+     //if not(NxIsBlank(ExceptionMessage)) then result:=ExceptionMessage;
      mOrder_ID:=mreceivedOrderbo.OID;//AResult :=AResult+('id_eshop:'+mXMLHead.getElementAsString('order['+inttostr(i)+'].orderdata.id')+'|id_abra:'+mReceivedOrderBO.oid+'#');
      mAccount_id:='1300000101';
         if not(NxIsEmptyOID(mAccount_id)) then begin
@@ -367,7 +389,6 @@ begin
                            cDivision_ID,'',mAccount_id);
          mReceivedOrderBO.SetFieldValueAsBoolean('U_email1',true);}
      end;
-
      end;
      mResultList:=TStringList.Create;
      mResultList.Add(mOrder_ID);

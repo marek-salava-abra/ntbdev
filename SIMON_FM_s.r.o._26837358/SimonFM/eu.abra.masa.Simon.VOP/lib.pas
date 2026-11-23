@@ -136,7 +136,7 @@ begin
           end else begin
            if mOrderBO.GetFieldValueAsBoolean('U_NotCreateTransfer') then begin
               mResult:=mResult+#13#10+'Zboží nebylo skladem, a netvoříme převody '+mOrderBO.DisplayName;
-              //if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('3060000101');
+              if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('3060000101');
            end else begin
             mResult:=mResult+#13#10+'Zboží nebylo skladem, kontrola jestli něco spadlo do převodů '+mOrderBO.DisplayName;
             if ((mNotLogisticStoreList.Count+mLogisticStoreList.Count)=0) then begin
