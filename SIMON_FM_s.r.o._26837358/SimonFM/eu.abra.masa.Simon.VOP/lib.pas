@@ -2,11 +2,26 @@
 //kontrola objednávek řada OPV, stav VO Vyřízeno tvorba převodky výdej do PVCT s cílovým skladem 01-VO
 
 
+procedure AddTransferRowIfMissing(AList: TStringList; AStore_ID, AStoreCard_ID: string; AQuantity: Extended);
+var
+  i: Integer;
+  mTempStr, mExistingStore_ID, mExistingStoreCard_ID: string;
+begin
+  for i := 0 to AList.Count - 1 do begin
+    mTempStr := AList.Strings[i];
+    mExistingStore_ID := NxTrapStrTrim(mTempStr, ';');
+    mExistingStoreCard_ID := NxTrapStrTrim(mTempStr, ';');
+    if (mExistingStore_ID <> '') and (mExistingStoreCard_ID = AStoreCard_ID) then
+      Exit;
+  end;
+  AList.Add(AStore_ID + ';' + AStoreCard_ID + ';' + FloatToStr(AQuantity));
+end;
+
 procedure CreateDL03(OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
  var
   mList, mLogs:TStringList;
   i,j,k:integer;
-  mAvailableQuantity,mOrderedQuantity, mQuantityMO, mQuantity05, mQuantityLogStore,mDodano, mRowQ, mQuantity, mUnpaidAmount:Extended;
+  mAvailableQuantity,mOrderedQuantity, mQuantityMO, mQuantity05, mQuantityLogStore,mDodano, mRowQ, mQuantity, mUnpaidAmount, mQuantityRO:Extended;
   mOrderBO, mRowBO, mOrderBOForPMState:TNxCustomBusinessObject;
   mRows:TNxCustomBusinessMonikerCollection;
   mNotOnStore, mRowAdded, mNextStore, mUnpaidZLV:Boolean;
@@ -46,11 +61,13 @@ begin
                 if NxIsEmptyOID(mDestinationStore_ID) then mDestinationStore_ID:=mRowBO.GetFieldValueAsString('Store_ID');
                 if NxIsEmptyOID(mDivision_ID) then mDivision_ID:=mRowBO.GetFieldValueAsString('Division_ID');
                 mAvailableQuantity:=GetAvailableQuantity(OS,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'));
+                mquantityRO:=OS.sqlselectFirstAsExtended('select sum(quantity) from receivedorders2 where parent_id='+
+                                            Quotedstr(mOrderBO.OID)+' and storecard_id='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')));
                 mQuantity:=GetQuantity(OS,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'));
                 mOrderedQuantity:=GetOrderedQuantity(OS,mRowBO.GetFieldValueAsString('StoreCard_ID'), mRowBO.OID,mRowBO.GetFieldValueAsString('Store_ID'),
                                   mOrderBO.GetFieldValueAsDateTime('CreatedAt$DATE'));
-                if (mAvailableQuantity-mOrderedQuantity-mRowBO.GetFieldValueAsFloat('Quantity'))<0 then begin
-                  mRowQ:=mRowBO.GetFieldValueAsFloat('Quantity');
+                if (mAvailableQuantity-mOrderedQuantity-mQuantityRO)<0 then begin
+                  mRowQ:=mQuantityRO;
                   mNotOnStore:=True;
                   if mRowQ>mQuantity then begin
                       mQuantity05:=GetAvailableQuantity(OS,'2D00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')) //sklad 05
@@ -70,11 +87,11 @@ begin
                          mNextStore:=True;
                        if (mQuantity05>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
                             if mQuantity05>=(mRowQ-mDodano) then begin
-                                 mNotLogisticStoreList.add('2D00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mRowQ-mQuantity-mDodano));
+                                 AddTransferRowIfMissing(mNotLogisticStoreList,'2D00000101',mRowBO.GetFieldValueAsString('StoreCard_ID'),mRowQ-mQuantity-mDodano);
                                  mNextStore:=false;
                                  mDodano:=mDodano+(mRowQ-mDodano);
                             end else begin
-                                 mNotLogisticStoreList.add('2D00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mQuantity05));
+                                 AddTransferRowIfMissing(mNotLogisticStoreList,'2D00000101',mRowBO.GetFieldValueAsString('StoreCard_ID'),mQuantity05);
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantity05;
                             end;
@@ -83,11 +100,11 @@ begin
                          end;
                          if (mQuantityMO>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
                             if mQuantityMO>=(mRowQ-mDodano) then begin
-                                 mNotLogisticStoreList.add('1E00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mRowQ-mQuantity-mDodano));
+                                 AddTransferRowIfMissing(mNotLogisticStoreList,'1E00000101',mRowBO.GetFieldValueAsString('StoreCard_ID'),mRowQ-mQuantity-mDodano);
                                  mNextStore:=false;
                                  mDodano:=mDodano+(mRowQ-mDodano);
                             end else begin
-                                 mNotLogisticStoreList.add('1E00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mQuantityMO));
+                                 AddTransferRowIfMissing(mNotLogisticStoreList,'1E00000101',mRowBO.GetFieldValueAsString('StoreCard_ID'),mQuantityMO);
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantityMO;
                             end;
@@ -96,11 +113,11 @@ begin
                          end;
                          if (mQuantityLogStore>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
                             if mQuantityLogStore>=(mRowQ-mDodano) then begin
-                                 mLogisticStoreList.add('1L00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mRowQ-mQuantity-mDodano));
+                                 AddTransferRowIfMissing(mLogisticStoreList,'1L00000101',mRowBO.GetFieldValueAsString('StoreCard_ID'),mRowQ-mQuantity-mDodano);
                                  mNextStore:=false;
                                  mDodano:=mDodano+(mRowQ-mDodano);
                             end else begin
-                                 mLogisticStoreList.add('1L00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mQuantityLogStore));
+                                 AddTransferRowIfMissing(mLogisticStoreList,'1L00000101',mRowBO.GetFieldValueAsString('StoreCard_ID'),mQuantityLogStore);
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantityLogStore;
                             end;
@@ -119,7 +136,7 @@ begin
           end else begin
            if mOrderBO.GetFieldValueAsBoolean('U_NotCreateTransfer') then begin
               mResult:=mResult+#13#10+'Zboží nebylo skladem, a netvoříme převody '+mOrderBO.DisplayName;
-              if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('3060000101');
+              //if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('3060000101');
            end else begin
             mResult:=mResult+#13#10+'Zboží nebylo skladem, kontrola jestli něco spadlo do převodů '+mOrderBO.DisplayName;
             if ((mNotLogisticStoreList.Count+mLogisticStoreList.Count)=0) then begin
