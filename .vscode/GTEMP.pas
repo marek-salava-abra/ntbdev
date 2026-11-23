@@ -3,6 +3,8 @@ var
  mList, mLogs:TStringList;
  mSQL: String;
  i:integer;
+
+ //kopie do emailu marek.zizka a tvůrce
 begin
   mList := TStringList.Create;
   mLogs := TStringList.Create;
