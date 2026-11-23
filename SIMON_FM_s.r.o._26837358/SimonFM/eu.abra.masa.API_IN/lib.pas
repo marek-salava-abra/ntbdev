@@ -152,7 +152,7 @@ begin
     mBO:=AContext.GetObjectSpace.CreateObject(Class_StoreCard);
     mBO.Load(mBO_ID,nil);
     mBO.SetFieldValueAsString('Name',AInput.S['Name']);
-    mBO.SetFieldValueAsString('Note',AInput.S['Note']);
+    {mBO.SetFieldValueAsString('Note',AInput.S['Note']);
     mPictures:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Pictures'));
            for j:=0 to mPictures.Count-1 do begin
              mPictures.BusinessObject[j].MarkForDelete;
@@ -162,7 +162,7 @@ begin
       mPictureBO.SetFieldValueAsString('Picture_ID.PictureTitle',AInput.A['Pictures'].O[i].S['name']);
       mPictureBO.SetFieldValueAsBoolean('Picture_ID.ExternalFile',true);
       mPictureBO.SetFieldValueAsString('Picture_ID.PathAndFileName', encodePictureToFile(AInput.A['Pictures'].O[i].S['base64Data'], AInput.A['Pictures'].O[i].S['type']));
-    end;
+    end;}
     mUnits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
     for j:=0 to munits.Count-1 do begin
      mUnitBO:=mUnits.BusinessObject[j];
@@ -170,12 +170,12 @@ begin
         if mUnitBO.GetFieldValueAsString('Code')=AInput.A['StoreUnits'].O[i].S['Code'] then begin
           if not(NxIsBlank(AInput.A['StoreUnits'].O[i].S['EAN'])) then
            mUnitBO.SetFieldValueAsString('EAN',AInput.A['StoreUnits'].O[i].S['EAN']);
-          mUnitBO.SetFieldValueAsFloat('Weight',AInput.A['StoreUnits'].O[i].D['Weight']);
+          {mUnitBO.SetFieldValueAsFloat('Weight',AInput.A['StoreUnits'].O[i].D['Weight']);
           mUnitBO.SetFieldValueAsInteger('WeightUnit',AInput.A['StoreUnits'].O[i].I['WeightUnit']);
           mUnitBO.SetFieldValueAsFloat('Depth',AInput.A['StoreUnits'].O[i].D['Depth']);
           mUnitBO.SetFieldValueAsFloat('Height',AInput.A['StoreUnits'].O[i].D['Height']);
           mUnitBO.SetFieldValueAsFloat('Width',AInput.A['StoreUnits'].O[i].D['Width']);
-          mUnitBO.SetFieldValueAsInteger('SizeUnit',AInput.A['StoreUnits'].O[i].I['SizeUnit']);
+          mUnitBO.SetFieldValueAsInteger('SizeUnit',AInput.A['StoreUnits'].O[i].I['SizeUnit']);}
         end;
       end;
     end;

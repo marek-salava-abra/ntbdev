@@ -170,7 +170,6 @@ begin
              mBO.SetFieldValueAsString('TransportationType_ID','2000000101');
             if mlogin in ['8202','8203'] then begin
               mBO.SetFieldValueAsInteger('TradeType',2);
-              mBO.SetFieldValueAsInteger('TradeType',2);
               mBO.SetFieldValueAsString('IntrastatDeliveryTerm_ID','1001000000');
               mBO.SetFieldValueAsString('IntrastatTransactionType_ID','0101000000');
               mBO.SetFieldValueAsString('IntrastatTransportationType_ID','2000000000');

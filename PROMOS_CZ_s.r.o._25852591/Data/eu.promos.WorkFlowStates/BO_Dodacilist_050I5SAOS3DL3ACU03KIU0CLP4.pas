@@ -46,6 +46,9 @@ begin
           if mOrderBO.GetFieldValueAsString('DocQueue_ID.code') = 'OPP' then begin
             mInputParams := TNxParameters.Create;
             mParam := mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
+            if morderbo.getfieldvalueasinteger('TradeType') = 2 then
+              mParam.AsString := '1800000101'
+            else      
             mParam.AsString := '4000000101';
 
             if not(NxIsEmptyOID(mOrder_ID)) then begin
@@ -60,6 +63,9 @@ begin
             mImportMan.AddInputDocument(Self.OID);
             mImportMan.LoadParams(mInputParams);
             mImportMan.Execute;
+            if morderbo.getfieldvalueasinteger('TradeType') = 2 then
+              mImportMan.OutputDocument.SetFieldValueAsString('DocQueue_ID', '1800000101')
+            else
             mImportMan.OutputDocument.SetFieldValueAsString('DocQueue_ID', '4000000101');
             mImportMan.OutputDocument.SetFieldValueAsString('Firm_ID', Self.GetFieldValueAsString('Firm_ID'));
             mImportMan.OutputDocument.SetFieldValueAsString('FirmOffice_ID', Self.GetFieldValueAsString('FirmOffice_ID'));
