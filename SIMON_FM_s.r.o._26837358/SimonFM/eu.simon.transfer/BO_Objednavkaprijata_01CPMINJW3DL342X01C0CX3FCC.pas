@@ -35,7 +35,8 @@ begin
       mRows:=self.GetLoadedCollectionMonikerForFieldCode(self.GetFieldCode('Rows'));
       for j:=0 to mrows.Count-1 do begin
               mRowBO:=mRows.BusinessObject[j];
-               if (mRowBO.GetFieldValueAsInteger('RowType')=3) and not(mrowbo.getfieldvalueasstring('StoreCard_ID.X_Producer_ID')='3NA4000101') then begin
+              mLogs.add('Výrobce: '+mrowbo.getfieldvalueasstring('StoreCard_ID.X_Producer_ID.Name'));
+               if (mRowBO.GetFieldValueAsInteger('RowType')=3) and not(mRowBO.GetFieldValueAsString('StoreCard_ID.X_Producer_ID')='3NA4000101') then begin
                 // ignorovat karty dle zadání Marek a Martin
                 if NxIsEmptyOID(mDestinationStore_ID) then mDestinationStore_ID:=mRowBO.GetFieldValueAsString('Store_ID');
                 if NxIsEmptyOID(mDivision_ID) then mDivision_ID:=mRowBO.GetFieldValueAsString('Division_ID');

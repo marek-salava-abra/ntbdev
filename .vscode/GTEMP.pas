@@ -1,280 +1,196 @@
+uses '.fce';
+//kontrola objednávek řada OPV, stav VO Vyřízeno tvorba převodky výdej do PVCT s cílovým skladem 01-VO
 
-procedure POST_EAN(AContext:TNxContext; ARequest: TAPIRequest; AResponse: TAPIResponse);
-var
-  mHeaders: TStringList;
-  mInputJSON, mOutputJSON:TJSONSuperObject;
-  i: Integer;
-  mEAN, mStoreCard_ID:string;
-  mOS:TNxCustomObjectSpace;
-  mBO:TNxCustomBusinessObject;
-  mPrice:Extended;
+
+procedure CreateDL03(OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
+ var
+  mList:TStringList;
+  i,j,k:integer;
+  mAvailableQuantity,mOrderedQuantity, mQuantityMO, mQuantity05, mQuantityLogStore,mDodano, mRowQ, mQuantity, mUnpaidAmount:Extended;
+  mOrderBO, mRowBO, mOrderBOForPMState:TNxCustomBusinessObject;
+  mRows:TNxCustomBusinessMonikerCollection;
+  mNotOnStore, mRowAdded, mNextStore, mUnpaidZLV:Boolean;
+  mNotLogisticStoreList, mLogisticStoreList:TStringList;
+  mResult, mDestinationStore_ID, mDivision_ID:String;
+  mImportMan:TNxDocumentImportManager;
+  mInputParams:TNxParameters;
+  mParam:TNxParameter;
 begin
-  mOS:=AContext.GetObjectSpace;
-  mInputJSON:=TJSONSuperObject.Create;
-  mInputJSON:=TJSONSuperObject.ParseString(ARequest.Body,True);
-  try
-    mOutputJSON:=TJSONSuperObject.Create;
-    mEAN:=mInputJSON.S['EAN'];
-    if NxIsNumeric(mEAN) then begin
-      mStoreCard_ID:=mOS.SQLSelectFirstAsString('select su.parent_id from storeunits su left join storeeans se on se.parent_id=su.id where se.ean='+QuotedStr(mEAN),'');
-      if not(NxIsEmptyOID(mStoreCard_ID)) then begin
-       mBO:=mOS.CreateObject(Class_StoreCard);
-       mBO.Load(mStoreCard_ID,nil);
-       mPrice:=NxEvalObjectExprAsFloatDef(mbo,'NxGetStoreCardUnitPriceDef('+Quotedstr('')+', '+Quotedstr('')+', ' + QuotedStr(mbo.OID) +
-       ','+Quotedstr('1000000101')+', '+Quotedstr(mBO.GetFieldValueAsString('MainUnitCode'))+',True,'+QuotedStr('0000CZK000')+','+inttostr(trunc(Date))+')',0);
-       mOutputJSON.S['Code']:=mBO.GetFieldValueAsString('Code');
-       mOutputJSON.S['Name']:=mBO.GetFieldValueAsString('Name');
-       mOutputJSON.S['EAN']:=mEAN;
-       mOutputJSON.D['Quantity']:=mOS.SQLSelectFirstAsExtended('Select sum(quantity) from storesubcards where storecard_id='+QuotedStr(mStoreCard_ID)+
-                                 ' and store_id='+QuotedStr('2D00000101'),0);
-       mOutputJSON.D['Price']:=mPrice;
-       mOutputJSON.S['Result']:='OK';
-       mOutputJSON.S['Message']:='Karta nalezena';
-      end else begin
-       mOutputJSON.S['Result']:='Error';
-       mOutputJSON.S['Message']:='Karta nenalezena';
-      end;
-    end else begin
-      mOutputJSON.S['Result']:='Error';
-      mOutputJSON.S['Message']:='Zadaný vstup byl neplatný';
-    end;
-    AResponse.Body:=mOutputJSON.AsString;
-    AResponse.SetHeader('Content-Type','application/json');
-    AResponse.Status := 200;
-  finally
-    mHeaders.Free;
-  end;
-end;
-
-
-function POST_Pictures(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
-var
- mBO, mPictureBO:TNxCustomBusinessObject;
- mPictures:TNxCustomBusinessMonikerCollection;
- i,j:integer;
- mBO_ID:string;
-begin
-  Result := TJSONSuperObject.Create;
-  mBO_ID:=AContext.SQLSelectFirstAsString('SELECT ID FROM StoreCards WHERE hidden='+QuotedStr('N')+' and Code='+Quotedstr(AInput.S['Code']),'');
-  if NxIsEmptyOID(mBO_ID) then begin
-    Result.I['NotFound']:=1;
-    Result.I['Found']:=0;
-    Result.S['Name']:='';
-  end else begin
-    mBO:=AContext.GetObjectSpace.CreateObject(Class_StoreCard);
-    mBO.Load(mBO_ID,nil);
-    Result.I['NotFound']:=0;
-    Result.I['Found']:=1;
-    Result.S['Name']:=mBO.GetFieldValueAsString('Name');
-    mPictures:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Pictures'));
-           for j:=0 to mPictures.Count-1 do begin
-             mPictures.BusinessObject[j].MarkForDelete;
-           end;
-    for i:= 0 to AInput.A['Pictures'].Length -1 do begin
-      mPictureBO:=mPictures.AddNewObject;
-      mPictureBO.SetFieldValueAsString('Picture_ID.PictureTitle',AInput.A['Pictures'].O[i].S['name']);
-      mPictureBO.SetFieldValueAsBoolean('Picture_ID.ExternalFile',true);
-      mPictureBO.SetFieldValueAsString('Picture_ID.PathAndFileName', encodePictureToFile(AInput.A['Pictures'].O[i].S['base64Data'], AInput.A['Pictures'].O[i].S['type']));
-    end;
-    mBO.save;
-  end;
-end;
-
-function POST_StoreCards(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
-var
- mBO, mPictureBO, mUnitBO, mSMBO, mStorePrice:TNxCustomBusinessObject;
- mPictures, mUnits, mStorePrices:TNxCustomBusinessMonikerCollection;
- i,j:integer;
- mBO_ID, mStorePrice_ID:string;
-begin
-  Result := TJSONSuperObject.Create;
-  mBO_ID:=AContext.SQLSelectFirstAsString('SELECT ID FROM StoreCards WHERE hidden='+QuotedStr('N')+' and Code='+Quotedstr(AInput.S['Code']),'');
-  if NxIsEmptyOID(mBO_ID) then begin
-    mBO:=AContext.GetObjectSpace.CreateObject(Class_StoreCard);
-    mBO.New;
-    mBO.Prefill;
-    mBO.SetFieldValueAsString('Code',AInput.S['Code']);
-    mBO.SetFieldValueAsString('Name',AInput.S['Name']);
-    mBO.SetFieldValueAsString('Note',AInput.S['Note']);
-    mBO.SetFieldValueAsString('VATRate_ID',AInput.S['VATRate_ID']);
-    mBO.SetFieldValueAsString('StoreCardCategory_ID','1000000101');
-    mUnits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
-    for i:= 0 to AInput.A['StoreUnits'].Length -1 do begin
-      if i=0 then begin
-        mUnitBO:=mUnits.BusinessObject[i];
-        mUnitBO.SetFieldValueAsString('Code',AInput.A['StoreUnits'].O[i].S['Code']);
-        mUnitBO.SetFieldValueAsString('EAN',AInput.A['StoreUnits'].O[i].S['EAN']);
-        mUnitBO.SetFieldValueAsFloat('Weight',AInput.A['StoreUnits'].O[i].D['Weight']);
-        mUnitBO.SetFieldValueAsInteger('WeightUnit',AInput.A['StoreUnits'].O[i].I['WeightUnit']);
-        mUnitBO.SetFieldValueAsFloat('Depth',AInput.A['StoreUnits'].O[i].D['Depth']);
-        mUnitBO.SetFieldValueAsFloat('Height',AInput.A['StoreUnits'].O[i].D['Height']);
-        mUnitBO.SetFieldValueAsFloat('Width',AInput.A['StoreUnits'].O[i].D['Width']);
-        mUnitBO.SetFieldValueAsInteger('SizeUnit',AInput.A['StoreUnits'].O[i].I['SizeUnit']);
-      end else begin
-        mUnitBO:=mUnits.AddNewObject;
-        mUnitBO.SetFieldValueAsString('Code',AInput.A['StoreUnits'].O[i].S['Code']);
-        mUnitBO.SetFieldValueAsString('EAN',AInput.A['StoreUnits'].O[i].S['EAN']);
-        mUnitBO.SetFieldValueAsFloat('Weight',AInput.A['StoreUnits'].O[i].D['Weight']);
-        mUnitBO.SetFieldValueAsInteger('WeightUnit',AInput.A['StoreUnits'].O[i].I['WeightUnit']);
-        mUnitBO.SetFieldValueAsFloat('Depth',AInput.A['StoreUnits'].O[i].D['Depth']);
-        mUnitBO.SetFieldValueAsFloat('Height',AInput.A['StoreUnits'].O[i].D['Height']);
-        mUnitBO.SetFieldValueAsFloat('Width',AInput.A['StoreUnits'].O[i].D['Width']);
-        mUnitBO.SetFieldValueAsInteger('SizeUnit',AInput.A['StoreUnits'].O[i].I['SizeUnit']);
-      end;
-    end;
-    mPictures:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Pictures'));
-    for i:= 0 to AInput.A['Pictures'].Length -1 do begin
-      mPictureBO:=mPictures.AddNewObject;
-      mPictureBO.SetFieldValueAsString('Picture_ID.PictureTitle',AInput.A['Pictures'].O[i].S['name']);
-      mPictureBO.SetFieldValueAsBoolean('Picture_ID.ExternalFile',true);
-      mPictureBO.SetFieldValueAsString('Picture_ID.PathAndFileName', encodePictureToFile(AInput.A['Pictures'].O[i].S['base64Data'], AInput.A['Pictures'].O[i].S['type']));
-    end;
-    mBO.SetFieldValueAsString('MainUnitCode',AInput.S['MainUnitCode']);
-    Result.I['NotFound']:=1;
-    Result.I['Found']:=0;
-    Result.I['Err']:=0;
-    Result.S['Name']:=mBO.GetFieldValueAsString('Name');
-    mBO.save;
-    if AInput.D['PriceCZK']>0 then begin
-       mSMBO:=AContext.GetObjectSpace.CreateObject(Class_StorePrice);
-       mSMBO.New;
-       mSMBO.SetFieldValueAsString('StoreCard_id',mbo.OID);
-       msmbo.SetFieldValueAsString('PriceList_ID','1000000101');
-       mStorePrices:=mSMBO.GetLoadedCollectionMonikerForFieldCode(mSMBO.GetFieldCode('PriceRows'));
-         mStorePrice:=mStorePrices.AddNewObject;
-         mStorePrice.SetFieldValueAsString('Price_ID','1000000101');
-         mStorePrice.SetFieldValueAsString('Qunit', mBO.GetFieldValueAsString('MainUnitCode'));
-         mStorePrice.SetFieldValueAsFloat('Amount',AInput.D['PriceCZK']);
-       msmbo.save;
-       mSMBO.Free;
-    end;
-  end else begin
-    mBO:=AContext.GetObjectSpace.CreateObject(Class_StoreCard);
-    mBO.Load(mBO_ID,nil);
-    mBO.SetFieldValueAsString('Name',AInput.S['Name']);
-    {mBO.SetFieldValueAsString('Note',AInput.S['Note']);
-    mPictures:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Pictures'));
-           for j:=0 to mPictures.Count-1 do begin
-             mPictures.BusinessObject[j].MarkForDelete;
-           end;
-    for i:= 0 to AInput.A['Pictures'].Length -1 do begin
-      mPictureBO:=mPictures.AddNewObject;
-      mPictureBO.SetFieldValueAsString('Picture_ID.PictureTitle',AInput.A['Pictures'].O[i].S['name']);
-      mPictureBO.SetFieldValueAsBoolean('Picture_ID.ExternalFile',true);
-      mPictureBO.SetFieldValueAsString('Picture_ID.PathAndFileName', encodePictureToFile(AInput.A['Pictures'].O[i].S['base64Data'], AInput.A['Pictures'].O[i].S['type']));
-    end;}
-    mUnits:=mBO.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('StoreUnits'));
-    for j:=0 to munits.Count-1 do begin
-     mUnitBO:=mUnits.BusinessObject[j];
-      for i:=0 to AInput.A['StoreUnits'].Length -1 do begin
-        if mUnitBO.GetFieldValueAsString('Code')=AInput.A['StoreUnits'].O[i].S['Code'] then begin
-          if not(NxIsBlank(AInput.A['StoreUnits'].O[i].S['EAN'])) then
-           mUnitBO.SetFieldValueAsString('EAN',AInput.A['StoreUnits'].O[i].S['EAN']);
-          {mUnitBO.SetFieldValueAsFloat('Weight',AInput.A['StoreUnits'].O[i].D['Weight']);
-          mUnitBO.SetFieldValueAsInteger('WeightUnit',AInput.A['StoreUnits'].O[i].I['WeightUnit']);
-          mUnitBO.SetFieldValueAsFloat('Depth',AInput.A['StoreUnits'].O[i].D['Depth']);
-          mUnitBO.SetFieldValueAsFloat('Height',AInput.A['StoreUnits'].O[i].D['Height']);
-          mUnitBO.SetFieldValueAsFloat('Width',AInput.A['StoreUnits'].O[i].D['Width']);
-          mUnitBO.SetFieldValueAsInteger('SizeUnit',AInput.A['StoreUnits'].O[i].I['SizeUnit']);}
-        end;
-      end;
-    end;
-    mBO.save;
-    if AInput.D['PriceCZK']>0 then begin
-     mStorePrice_ID:=AContext.GetObjectSpace.SQLSelectFirstAsString('Select id from storeprices where pricelist_id=''1000000101'' and storecard_id='+QuotedStr(mBO.OID),'');
-     if NxIsEmptyOID(mStorePrice_ID) then begin
-       mSMBO:=AContext.GetObjectSpace.CreateObject(Class_StorePrice);
-       mSMBO.New;
-       mSMBO.SetFieldValueAsString('StoreCard_id',mbo.OID);
-       msmbo.SetFieldValueAsString('PriceList_ID','1000000101');
-       mStorePrices:=mSMBO.GetLoadedCollectionMonikerForFieldCode(mSMBO.GetFieldCode('PriceRows'));
-         mStorePrice:=mStorePrices.AddNewObject;
-         mStorePrice.SetFieldValueAsString('Price_ID','1000000101');
-         mStorePrice.SetFieldValueAsString('Qunit', mBO.GetFieldValueAsString('MainUnitCode'));
-         mStorePrice.SetFieldValueAsFloat('Amount',AInput.D['PriceCZK']);
-       msmbo.save;
-       mSMBO.Free;
-      end else begin
-         mSMBO:=AContext.GetObjectSpace.CreateObject(Class_StorePrice);
-         mSMBO.Load(mStorePrice_ID,nil);
-         mStorePrices:=mSMBO.GetLoadedCollectionMonikerForFieldCode(mSMBO.GetFieldCode('PriceRows'));
-          for i:=0 to mStorePrices.count-1 do begin
-            mStorePrice:=mStorePrices.BusinessObject[i];
-            if (mStorePrice.GetFieldValueAsString('Qunit')=mBO.GetFieldValueAsString('MainUnitCode')) and (mStorePrice.GetFieldValueAsString('Price_ID')='1000000101') then begin
-              mStorePrice.SetFieldValueAsFloat('Amount',AInput.D['PriceCZK']);
+  mResult:='';
+  mList:=TStringList.Create;
+  OS.SQLSelect('select id from receivedorders where docqueue_id=''7RQ0000101'' and ((pmstate_id=''2060000101'') or (pmstate_id=''8060000101'') or (pmstate_id=''3060000101'')) '+
+               ' and Closed=''N'' and IsAvailableForDelivery=''A'' order by CreatedAt$Date ',mList);
+  if mList.Count>0 then begin
+    for i:=0 to mList.Count-1 do begin
+      // vnitřek listu
+        mDestinationStore_ID:='';
+        mDivision_ID:='';
+        mNotOnStore:=False;
+        mLogisticStoreList:=TStringList.Create;
+        mNotLogisticStoreList:=TStringList.create;
+        mLogisticStoreList.Clear;
+        mNotLogisticStoreList.Clear;
+        mUnpaidZLV:=False;
+        mUnpaidAmount:=0;
+        mOrderBO:=OS.CreateObject(Class_ReceivedOrder);
+        mOrderBO.Load(mlist.Strings[i],nil);
+        mRows:=mOrderBO.GetLoadedCollectionMonikerForFieldCode(mOrderBO.GetFieldCode('Rows'));
+            for j:=0 to mrows.Count-1 do begin
+              mRowBO:=mRows.BusinessObject[j];
+               if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
+                if NxIsEmptyOID(mDestinationStore_ID) then mDestinationStore_ID:=mRowBO.GetFieldValueAsString('Store_ID');
+                if NxIsEmptyOID(mDivision_ID) then mDivision_ID:=mRowBO.GetFieldValueAsString('Division_ID');
+                mAvailableQuantity:=GetAvailableQuantity(OS,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'));
+                mQuantity:=GetQuantity(OS,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'));
+                mOrderedQuantity:=GetOrderedQuantity(OS,mRowBO.GetFieldValueAsString('StoreCard_ID'), mRowBO.OID,mRowBO.GetFieldValueAsString('Store_ID'),
+                                  mOrderBO.GetFieldValueAsDateTime('CreatedAt$DATE'));
+                if (mAvailableQuantity-mOrderedQuantity-mRowBO.GetFieldValueAsFloat('Quantity'))<0 then begin
+                  mRowQ:=mRowBO.GetFieldValueAsFloat('Quantity');
+                  mNotOnStore:=True;
+                  if mRowQ>mQuantity then begin
+                      mQuantity05:=GetAvailableQuantity(OS,'2D00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')) //sklad 05
+                      -NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('2D00000101')+')',0);
+                      mQuantityMO:=GetAvailableQuantity(OS,'1E00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')) //sklad MO
+                      -NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1E00000101')+')',0);
+                      mQuantityLogStore:=GetAvailableQuantity(OS,'1L00000101', mRowBO.GetFieldValueAsString('StoreCard_ID'))//sklad 555
+                      -NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1L00000101')+')',0);
+                      {CFxLog.SaveLog(NxCreateContext_1(mRowBO),'ERR',mOrderBO.DisplayName,mRowBO.GetFieldValueAsString('StoreCard_ID.code')+' '+
+                                                                                          mRowBO.GetFieldValueAsString('StoreCard_ID.Name')+#13#10+
+                                                                                         'mQuantity05 '+FloatToStr(mQuantity05)+#13#10+
+                                                                                         'mQuantityMO '+FloatToStr(mQuantityMO)+#13#10+
+                                                                                         'mQuantityLogStore '+FloatToStr(mQuantityLogStore)+#13#10+
+                                                                                         'bez rezervace '+FloatToStr(GetAvailableQuantity(OS,'1L00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')))+#13#10+
+                                                                                         'rezervace '+FloatToStr(NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1L00000101')+')',0))
+                                                                                         ,2,now);}
+                      if ((mQuantity05+mQuantityMO+mQuantityLogStore)>0)  and ((mRowQ-mQuantity)<=(mQuantity05+mQuantityMO+mQuantityLogStore)) then begin
+                         mDodano:=0;
+                         mNextStore:=True;
+                       if (mQuantity05>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
+                            if mQuantity05>=(mRowQ-mDodano) then begin
+                                 mNotLogisticStoreList.add('2D00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mRowQ-mQuantity-mDodano));
+                                 mNextStore:=false;
+                                 mDodano:=mDodano+(mRowQ-mDodano);
+                            end else begin
+                                 mNotLogisticStoreList.add('2D00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mQuantity05));
+                                 mNextStore:=True;
+                                 mDodano:=mDodano+mQuantity05;
+                            end;
+                         end;
+                         if (mQuantityMO>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
+                            if mQuantityMO>=(mRowQ-mDodano) then begin
+                                 mNotLogisticStoreList.add('1E00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mRowQ-mQuantity-mDodano));
+                                 mNextStore:=false;
+                                 mDodano:=mDodano+(mRowQ-mDodano);
+                            end else begin
+                                 mNotLogisticStoreList.add('1E00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mQuantityMO));
+                                 mNextStore:=True;
+                                 mDodano:=mDodano+mQuantityMO;
+                            end;
+                         end;
+                         if (mQuantityLogStore>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
+                            if mQuantityLogStore>=(mRowQ-mDodano) then begin
+                                 mLogisticStoreList.add('1L00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mRowQ-mQuantity-mDodano));
+                                 mNextStore:=false;
+                                 mDodano:=mDodano+(mRowQ-mDodano);
+                            end else begin
+                                 mLogisticStoreList.add('1L00000101'+';'+mRowBO.GetFieldValueAsString('StoreCard_ID')+';'+FloatToStr(mQuantityLogStore));
+                                 mNextStore:=True;
+                                 mDodano:=mDodano+mQuantityLogStore;
+                            end;
+                         end;
+                      end;
+                   end;
+                end;
+              end;
+            end;
+        if (mNotOnStore) then begin
+          if mOrderBO.GetFieldValueAsBoolean('Firm_ID.U_blackList') then begin
+            mResult:=mResult+#13#10+'firma je na černé listině:  '+mOrderBO.GetFieldValueAsString('Firm_ID.Name');
+            if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('2070000101');
+          end else begin
+           if mOrderBO.GetFieldValueAsBoolean('U_NotCreateTransfer') then begin
+              mResult:=mResult+#13#10+'Zboží nebylo skladem, a netvoříme převody '+mOrderBO.DisplayName;
+              if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('3060000101');
+           end else begin
+            mResult:=mResult+#13#10+'Zboží nebylo skladem, kontrola jestli něco spadlo do převodů '+mOrderBO.DisplayName;
+            if ((mNotLogisticStoreList.Count+mLogisticStoreList.Count)=0) then begin
+               if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('3060000101');
+            end;
+            if mNotLogisticStoreList.count>0 then begin
+              mNotLogisticStoreList.SaveToFile('f:\logy\OutgoingTransfers\'+NxSearchReplace(mOrderBO.DisplayName,'/','-',[srAll])+'_nonlog.txt');
+              mResult:=mResult+#13#10+'Výdej z nepolohovaných skladů '+mOrderBO.DisplayName;
+              for k:=0 to mNotLogisticStoreList.Count-1 do begin
+                mResult:=mResult+#13#10+mNotLogisticStoreList.Strings[k];
+              end;
+              mResult:=mResult+#13#10+CreateTransfer(OS,mOrderBO,mNotLogisticStoreList,'6RB0000101',mDestinationStore_ID, mDivision_ID);
+            end;
+            if mLogisticStoreList.count>0 then begin
+              mResult:=mResult+#13#10+'Výdej z polohovaného skladů '+mOrderBO.DisplayName;
+              mLogisticStoreList.SaveToFile('f:\logy\OutgoingTransfers\'+NxSearchReplace(mOrderBO.DisplayName,'/','-',[srAll])+'_log.txt');
+              for k:=0 to mLogisticStoreList.Count-1 do begin
+                mResult:=mResult+#13#10+mLogisticStoreList.Strings[k];
+              end;
+              mResult:=mResult+#13#10+CreateTransfer(OS,mOrderBO,mLogisticStoreList,'6RC0000101',mDestinationStore_ID, mDivision_ID);
+              CFxLog.SaveLog(NxCreateContext(OS),'LPV', 'Převod k '+Self.DisplayName, mLogs.text,ltScripting,now);
             end;
            end;
-         msmbo.save;
-         mSMBO.Free;
-      end;
+          end;
+        end else begin
+          mUnpaidAmount:=OS.SQLSelectFirstAsExtended('Select amount-paidamount from issueddinvoices where amount>0 and receivedorder_id='+QuotedStr(mOrderBO.OID),0);
+          if mUnpaidAmount>0 then mUnpaidZLV:=True;
+          if mOrderBO.GetFieldValueAsBoolean('Firm_ID.U_blackList') or mOrderBO.GetFieldValueAsBoolean('Firm_ID.U_stop_fakturace') or mUnpaidZLV then begin
+            mResult:=mResult+#13#10+'firma je na černé listině nebo má stop fakturace :  '+mOrderBO.GetFieldValueAsString('Firm_ID.Name');
+            if not (osSaving in mOrderBO.InternalState) then mOrderBO.PMChangeState('2070000101');
+          end else begin
+            mResult:=mResult+#13#10+'Máme všechno děláme DL  '+mOrderBO.DisplayName;
+            try
+                        mInputParams := TNxParameters.Create;
+                        mParam := mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
+                        mParam.AsString := 'U200000101';
+                        mParam := mInputParams.GetOrCreateParam(dtString, 'SelectedHeader');
+                        mParam.AsString := mOrderBO.OID;
+                        mImportMan:=NxCreateDocumentImportManager(OS,Class_ReceivedOrder,Class_BillOfDelivery);
+                        mImportMan.AddInputDocument(mOrderBO.OID);
+                        mImportMan.LoadParams(mInputParams);
+                        mImportMan.Execute;
+                        mImportMan.OutputDocument.SetFieldValueAsString('DocQueue_ID', 'U200000101');
+                        mImportMan.OutputDocument.SetFieldValueAsString('Firm_ID',mOrderBO.GetFieldValueAsString('Firm_ID'));
+                        mImportMan.OutputDocument.SetFieldValueAsString('FirmOffice_ID',mOrderBO.GetFieldValueAsString('FirmOffice_ID'));
+                        mImportMan.OutputDocument.save;
+                        mResult:=mResult+#13#10+'Nový DL '+mImportMan.OutputDocument.DisplayName;
+                        mOrderBOForPMState:=OS.CreateObject(Class_ReceivedOrder);
+                        mOrderBOForPMState.Load(mOrderBO.OID,nil);
+                        mOrderBOForPMState.PMChangeState('5060000101');
+            Except
+              mResult:=mResult+#13#10+'##################'+#13#10+ExceptionMessage;
+            end;
+
+          end;
+        end;
+      //konec vnitřku
     end;
-    Result.I['NotFound']:=0;
-    Result.I['Found']:=1;
-    Result.I['Err']:=0;
-    Result.S['Name']:=mBO.GetFieldValueAsString('Name');
   end;
+  Success := True;
+  LogInfoStr := 'Počet záznamů '+IntToStr(mlist.Count)+#13#10+mResult;
 end;
 
-function POST_Documents(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+procedure CheckVOStop(OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
 var
- mBO, mPictureBO:TNxCustomBusinessObject;
- mPictures:TNxCustomBusinessMonikerCollection;
- i,j:integer;
- mBO_ID:string;
+ mList:TStringList;
+ mOrderBO:TNxCustomBusinessObject;
+ mUnpaidAmount:Extended;
+ i:integer;
 begin
-  Result := TJSONSuperObject.Create;
-  mBO_ID:=AContext.SQLSelectFirstAsString('SELECT ID FROM StoreCards WHERE hidden='+QuotedStr('N')+' and Code='+Quotedstr(AInput.S['Code']),'');
-  if NxIsEmptyOID(mBO_ID) then begin
-    Result.I['NotFound']:=1;
-    Result.I['Found']:=0;
-    Result.S['Name']:='';
-  end else begin
-    mBO:=AContext.GetObjectSpace.CreateObject(Class_StoreCard);
-    mBO.Load(mBO_ID,nil);
-    Result.I['NotFound']:=0;
-    Result.I['Found']:=1;
-    Result.S['Name']:=mBO.GetFieldValueAsString('Name');
-    if NxIsBlank(mBO.GetFieldValueAsString('X_Tech_List_FileName')) then begin
-      mBO.SetFieldValueAsString('X_Tech_List_FileName',AInput.S['FileName']);
-      mBO.SetFieldValueAsString('X_Tech_List_Name','Technický list');
+ mList:=TStringList.create;
+ OS.SQLSelect('select id from receivedorders where docqueue_id=''7RQ0000101'' and (pmstate_id=''2070000101'') '+
+               ' and Closed=''N'' and IsAvailableForDelivery=''A'' order by CreatedAt$Date ',mList);
+  if mList.Count>0 then begin
+    for i:=0 to mList.Count-1 do begin
+        mOrderBO:=OS.CreateObject(Class_ReceivedOrder);
+        mOrderBO.Load(mlist.Strings[i],nil);
+        mUnpaidAmount:=OS.SQLSelectFirstAsExtended('Select amount-paidamount from issueddinvoices where amount>0 and receivedorder_id='+QuotedStr(mOrderBO.OID),1);
+        if mUnpaidAmount=0 then mOrderBO.PMChangeState('2060000101');
     end;
-    mBO.save;
-  end;
-end;
-
-
-function encodePictureToFile(aData: String; aType: String): String;
-var
-  mStream: TMemoryStream;
-begin
-  mStream := TMemoryStream.Create;
-  try
-    mStream.SetBytes(DecodeBase64(aData));
-    NxCreateTempFile(Result);
-    DeleteFile(Result);
-    Result := Result + '.' + aType;
-    OutputDebugString(Result);
-    mStream.SaveToFile(Result);
-  finally
-    mStream.Free;
-  end;
-end;
-
-function savePictureData(aFileName: String): TBytes;
-var
-  mPicture: TPicture;
-  mStream: TMemoryStream;
-begin
-  mStream := TMemoryStream.Create;
-  mPicture := TPicture.Create;
-  try
-    mPicture.LoadFromFile(aFileName);
-    mPicture.SaveMultiFormatToStream(mStream);
-    Result := mStream.GetBytes;
-    DeleteFile(aFileName);
-  finally
-    mPicture.Free;
-    mStream.Free;
   end;
 end;
 

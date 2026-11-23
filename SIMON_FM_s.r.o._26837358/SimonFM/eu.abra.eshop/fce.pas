@@ -1,6 +1,6 @@
 ﻿function scrFirm_ID(AOS : TNxCustomObjectSpace; AFieldName : string; AValue : string) : string;
 const
-  cSQL = 'SELECT ID FROM Firms WHERE %s like ''%s'' and Hidden=''N''';
+  cSQL = 'SELECT ID FROM Firms WHERE %s like ''%s'' and firm_id is not nulland Hidden=''N''';
 var
   mList : TStringList;
 begin

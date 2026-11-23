@@ -4,14 +4,14 @@
 
 procedure CreateDL03(OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
  var
-  mList:TStringList;
+  mList, mLogs:TStringList;
   i,j,k:integer;
   mAvailableQuantity,mOrderedQuantity, mQuantityMO, mQuantity05, mQuantityLogStore,mDodano, mRowQ, mQuantity, mUnpaidAmount:Extended;
   mOrderBO, mRowBO, mOrderBOForPMState:TNxCustomBusinessObject;
   mRows:TNxCustomBusinessMonikerCollection;
   mNotOnStore, mRowAdded, mNextStore, mUnpaidZLV:Boolean;
   mNotLogisticStoreList, mLogisticStoreList:TStringList;
-  mResult, mDestinationStore_ID, mDivision_ID:String;
+  mResult, mDestinationStore_ID, mDivision_ID,mHorizontalSplitter:String;
   mImportMan:TNxDocumentImportManager;
   mInputParams:TNxParameters;
   mParam:TNxParameter;
@@ -32,6 +32,8 @@ begin
         mNotLogisticStoreList.Clear;
         mUnpaidZLV:=False;
         mUnpaidAmount:=0;
+        mLogs:=TStringList.Create;
+        mHorizontalSplitter:=GetHorizontalSplitter(50);
         mOrderBO:=OS.CreateObject(Class_ReceivedOrder);
         mOrderBO.Load(mlist.Strings[i],nil);
         mRows:=mOrderBO.GetLoadedCollectionMonikerForFieldCode(mOrderBO.GetFieldCode('Rows'));
@@ -54,14 +56,12 @@ begin
                       -NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1E00000101')+')',0);
                       mQuantityLogStore:=GetAvailableQuantity(OS,'1L00000101', mRowBO.GetFieldValueAsString('StoreCard_ID'))//sklad 555
                       -NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1L00000101')+')',0);
-                      {CFxLog.SaveLog(NxCreateContext_1(mRowBO),'ERR',mOrderBO.DisplayName,mRowBO.GetFieldValueAsString('StoreCard_ID.code')+' '+
-                                                                                          mRowBO.GetFieldValueAsString('StoreCard_ID.Name')+#13#10+
+                      mLogs.add(mRowBO.GetFieldValueAsString('StoreCard_ID.code')+' '+ mRowBO.GetFieldValueAsString('StoreCard_ID.Name')+#13#10+
                                                                                          'mQuantity05 '+FloatToStr(mQuantity05)+#13#10+
                                                                                          'mQuantityMO '+FloatToStr(mQuantityMO)+#13#10+
                                                                                          'mQuantityLogStore '+FloatToStr(mQuantityLogStore)+#13#10+
                                                                                          'bez rezervace '+FloatToStr(GetAvailableQuantity(OS,'1L00000101', mRowBO.GetFieldValueAsString('StoreCard_ID')))+#13#10+
-                                                                                         'rezervace '+FloatToStr(NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1L00000101')+')',0))
-                                                                                         ,2,now);}
+                                                                                         'rezervace '+FloatToStr(NxEvalObjectExprAsFloatDef(mRowBO,'NxGetReservedQuantity('+Quotedstr(mRowBO.GetFieldValueAsString('StoreCard_ID'))+','+QuotedStr('1L00000101')+')',0)));
                       if ((mQuantity05+mQuantityMO+mQuantityLogStore)>0)  and ((mRowQ-mQuantity)<=(mQuantity05+mQuantityMO+mQuantityLogStore)) then begin
                          mDodano:=0;
                          mNextStore:=True;
@@ -75,6 +75,8 @@ begin
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantity05;
                             end;
+                            mLogs.add('Dodáno :'+FloatToStr(mDodano)+'       ze skladu 05');
+                            mLogs.add(mHorizontalSplitter);
                          end;
                          if (mQuantityMO>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
                             if mQuantityMO>=(mRowQ-mDodano) then begin
@@ -86,6 +88,8 @@ begin
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantityMO;
                             end;
+                            mLogs.add('Dodáno :'+FloatToStr(mDodano)+'       ze skladu MO-II');
+                            mLogs.add(mHorizontalSplitter);
                          end;
                          if (mQuantityLogStore>0) and (mRowQ-mQuantity-mDodano>0) and mNextStore then begin
                             if mQuantityLogStore>=(mRowQ-mDodano) then begin
@@ -97,6 +101,8 @@ begin
                                  mNextStore:=True;
                                  mDodano:=mDodano+mQuantityLogStore;
                             end;
+                            mLogs.add('Dodáno :'+FloatToStr(mDodano)+'       ze skladu 555');
+                            mLogs.add(mHorizontalSplitter);
                          end;
                       end;
                    end;
@@ -134,6 +140,7 @@ begin
             end;
            end;
           end;
+         mlogs.add('Výsledek: '+#13#10+mResult);
         end else begin
           mUnpaidAmount:=OS.SQLSelectFirstAsExtended('Select amount-paidamount from issueddinvoices where amount>0 and receivedorder_id='+QuotedStr(mOrderBO.OID),0);
           if mUnpaidAmount>0 then mUnpaidZLV:=True;
@@ -166,6 +173,10 @@ begin
 
           end;
         end;
+       if mlogs.Count>0 then begin
+        CFxLog.SaveLog(NxCreateContext(OS),'LPV', 'Převod k '+mOrderBO.DisplayName, mLogs.text,ltScripting,now);
+        mLogs.free;
+       end;
       //konec vnitřku
     end;
   end;
@@ -191,6 +202,15 @@ begin
         if mUnpaidAmount=0 then mOrderBO.PMChangeState('2060000101');
     end;
   end;
+end;
+
+function GetHorizontalSplitter(aLength: Integer): string;
+var
+  i: Integer;
+begin
+  Result := '';
+  for i := 1 to aLength do
+    Result := Result + '─';
 end;
 
 begin
