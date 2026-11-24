@@ -5,7 +5,7 @@
     "id": "~000000C04",
     "name": "eu.abra.alec.Lipoelastic.PrintPDFWithXML",
     "license_holder": "LIPOELASTIC_GmbH",
-    "objversion": 7,
+    "objversion": 17,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,14 +17,14 @@
       "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
       "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 6,
+      "objversion": 14,
       "posindex": 1
     },
     {
       "scriptid": "QR",
       "filename": "QR.pas",
       "scriptkind": 0,
-      "objversion": 3,
+      "objversion": 11,
       "posindex": 2
     }
   ]

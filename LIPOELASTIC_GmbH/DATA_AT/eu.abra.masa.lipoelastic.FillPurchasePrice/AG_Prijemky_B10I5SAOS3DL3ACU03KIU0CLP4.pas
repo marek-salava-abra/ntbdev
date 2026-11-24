@@ -35,7 +35,7 @@ begin
       mRows:=mbo.GetLoadedCollectionMonikerForFieldCode(mBO.GetFieldCode('Rows'));
       for j:=0 to mRows.Count-1 do begin
         mRowBO:=mRows.BusinessObject[j];
-        mSupplierPrice:=mOS.SQLSelectFirstAsExtended('select purchaseprice from SupplierPriceLists2 where parent_id=''~000000307'' and  StoreCard_ID='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),0);
+        mSupplierPrice:=mOS.SQLSelectFirstAsExtended('select purchaseprice from SupplierPriceLists2 where parent_id=''~000000005'' and  StoreCard_ID='+QuotedStr(mRowBO.GetFieldValueAsString('StoreCard_ID')),0);
         if mSupplierPrice>0 then mRowBO.SetFieldValueAsFloat('UnitPrice', mSupplierPrice);
       end;
       mBO.save;

@@ -5,7 +5,7 @@
     "id": "~000000H0F",
     "name": "eu.abra.alec.Lipoelastic.Packaging",
     "license_holder": "LIPOELASTIC_GmbH",
-    "objversion": 25,
+    "objversion": 27,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,7 +17,7 @@
       "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
       "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 25,
+      "objversion": 27,
       "posindex": 1
     }
   ]

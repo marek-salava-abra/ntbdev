@@ -63,7 +63,7 @@ begin
                if mIOPrintList.Count>0 then begin
                   mFileName:=NxSearchReplace(mIssuedOfferBO.DisplayName,'/','-',[srall])+'.pdf';
 
-                  mTO:=mIssuedOfferBO.GetFieldValueAsString('Firm_ID.ElectronicAddress_ID.Email');
+                  if not(NxIsValidEMail(mTO,false)) then mTO:=mIssuedOfferBO.GetFieldValueAsString('Firm_ID.ElectronicAddress_ID.Email');
                   //mTO:='odavidek@lipoelastic.com';
                   if not(NxIsValidEMail(mTO,false)) then mTO:=mIssuedOfferBO.GetFieldValueAsString('Firm_ID.ResidenceAddress_ID.Email');
                   if not(NxIsValidEMail(mTO,false)) then mTO:='odavidek@lipoelastic.com';

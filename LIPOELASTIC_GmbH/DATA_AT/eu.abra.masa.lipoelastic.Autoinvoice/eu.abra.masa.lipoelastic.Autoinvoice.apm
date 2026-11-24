@@ -5,7 +5,7 @@
     "id": "~000000805",
     "name": "eu.abra.masa.lipoelastic.Autoinvoice",
     "license_holder": "LIPOELASTIC_GmbH",
-    "objversion": 244,
+    "objversion": 267,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,57 +17,64 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 177,
+      "objversion": 189,
       "posindex": 1
     },
     {
       "scriptid": "const",
       "filename": "const.pas",
       "scriptkind": 0,
-      "objversion": 112,
+      "objversion": 122,
       "posindex": 2
     },
     {
       "scriptid": "fce",
       "filename": "fce.pas",
       "scriptkind": 0,
-      "objversion": 115,
+      "objversion": 131,
       "posindex": 3
     },
     {
       "scriptid": "PLC2EX0BUJD13ACP03KIU0CLP4",
       "filename": "AG_Fakturyvydane_PLC2EX0BUJD13ACP03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 131,
+      "objversion": 145,
       "posindex": 4
     },
     {
       "scriptid": "T1C2EX0BUJD13ACP03KIU0CLP4",
       "filename": "AG_Dobropisyfakturvydanych_T1C2EX0BUJD13ACP03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 82,
+      "objversion": 92,
       "posindex": 5
     },
     {
       "scriptid": "O1C4ERBIVNIOT4WASH5MYY14CK",
       "filename": "AG_Nabidkyvydane_O1C4ERBIVNIOT4WASH5MYY14CK.pas",
       "scriptkind": 2,
-      "objversion": 70,
+      "objversion": 81,
       "posindex": 6
     },
     {
       "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
       "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
       "scriptkind": 2,
-      "objversion": 70,
+      "objversion": 80,
       "posindex": 7
     },
     {
       "scriptid": "B50I5SAOS3DL3ACU03KIU0CLP4",
       "filename": "AG_Dodacilisty_B50I5SAOS3DL3ACU03KIU0CLP4.pas",
       "scriptkind": 2,
-      "objversion": 17,
+      "objversion": 28,
       "posindex": 8
+    },
+    {
+      "scriptid": "N1C2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Adresarfirem_N1C2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 7,
+      "posindex": 9
     }
   ]
 }

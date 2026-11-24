@@ -258,15 +258,15 @@ begin
           WaitWin.StartProgress('Please, wait ...', '', j);
           while i<j  do begin
            WaitWin.ChangeText(IntToStr(i) + ' / ' + IntToStr(j));
-            mAmount:=VarToStr(mSheet.Cells[i, 11]);
+            mAmount:=VarToStr(mSheet.Cells[i, 9]);
             //NxShowSimpleMessage(mAmount,mSite);
-            mDate:=VarToStr(mSheet.Cells[i, 5]);
-            if not(NxIsBlank(VarToStr(mSheet.Cells[i, 7]))) then
-              mFirm_ID:=mOS.SQLSelectFirstAsString('Select f.id from firms f left join firmbankaccounts fb on f.id=fb.parent_id where f.firm_id is null and f.hidden=''N'' and fb.BankAccount='+Quotedstr(VarToStr(mSheet.Cells[i, 7])),'');
-            mTransactionID:=AnsiLeftStr(VarToStr(mSheet.Cells[i, 13]),30);
+            mDate:=VarToStr(mSheet.Cells[i, 3]);
+            if not(NxIsBlank(VarToStr(mSheet.Cells[i, 5]))) then
+              mFirm_ID:=mOS.SQLSelectFirstAsString('Select f.id from firms f left join firmbankaccounts fb on f.id=fb.parent_id where f.firm_id is null and f.hidden=''N'' and fb.BankAccount='+Quotedstr(VarToStr(mSheet.Cells[i, 5])),'');
+            mTransactionID:=AnsiLeftStr(VarToStr(mSheet.Cells[i, 11]),30);
             mVarSymbol:='';
-            if NxIsNumeric(NxTrim(VarToStr(mSheet.Cells[i, 15]),' ')) then mVarSymbol:=NxTrim(VarToStr(mSheet.Cells[i, 15]),' ');
-            mText:=NxTrim(VarToStr(mSheet.Cells[i, 6])+' '+VarToStr(mSheet.Cells[i, 13])+' '+VarToStr(mSheet.Cells[i, 15]),' ');
+            if NxIsNumeric(NxTrim(VarToStr(mSheet.Cells[i, 13]),' ')) then mVarSymbol:=NxTrim(VarToStr(mSheet.Cells[i, 13]),' ');
+            mText:=NxTrim(VarToStr(mSheet.Cells[i, 4])+' '+VarToStr(mSheet.Cells[i, 11])+' '+VarToStr(mSheet.Cells[i, 13]),' ');
             if NxIBStrToFloat(mAmount)>0 then begin
                mRow := mDataSet.CreateBusinessObject;
                mRow.Prefill;
@@ -438,9 +438,16 @@ begin
           mDataSet.DisableControls;
           if GetDataForSplitRow(mSite,mFirm_ID,mAmount) then begin
             //NxShowSimpleMessage(FloatToStr(mDataset.CurrentObject.GetFieldValueAsFloat('PAmount')),msite);
+            mOrigRow:=mDataset.CurrentObject;
+            if NxIsEmptyOID(mOrigRow.GetFieldValueAsString('Division_ID')) then
+            begin
+              NxShowSimpleMessage('Please provide division on row', nil);
+              exit;
+            end;
+
             mOrigAmount:=mDataset.CurrentObject.GetFieldValueAsFloat('Amount');
             if (mAmount<mOrigAmount) and (mAmount>0) then begin
-              mOrigRow:=mDataset.CurrentObject;
+
               mNewRow:=mDataset.CreateBusinessObject;
               mNewRow.SetFieldValueAsBoolean('Credit',mOrigRow.GetFieldValueAsBoolean('Credit'));
               mNewRow.SetFieldValueAsInteger('PosIndex', mOrigRow.GetFieldValueAsInteger('Posindex'));

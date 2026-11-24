@@ -28,7 +28,7 @@ begin
   mAction.ShowMenuItem := True;
   mAction.Name := 'actImp2025';
   mAction.Caption := '##Import 2025##';
-  mAction.Hint := 'Naimportuje CSV data';
+  mAction.Hint := 'Imports from CSV - EAN;Name;Price;Unit';
   mAction.Category := 'tabList';
   mAction.OnExecute := @Import2025;
 end;

@@ -5,7 +5,7 @@
     "id": "~000000A06",
     "name": "eu.abra.alec.Lipoelastic.QR",
     "license_holder": "LIPOELASTIC_GmbH",
-    "objversion": 30,
+    "objversion": 57,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,8 +17,15 @@
       "scriptid": "QR",
       "filename": "QR.pas",
       "scriptkind": 0,
-      "objversion": 29,
+      "objversion": 48,
       "posindex": 1
+    },
+    {
+      "scriptid": "auto",
+      "filename": "auto.pas",
+      "scriptkind": 0,
+      "objversion": 20,
+      "posindex": 2
     }
   ]
 }

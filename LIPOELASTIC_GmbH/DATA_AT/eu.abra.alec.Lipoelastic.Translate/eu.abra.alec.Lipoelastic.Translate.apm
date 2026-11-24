@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000N04",
+    "name": "eu.abra.alec.Lipoelastic.Translate",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 16,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "FKD22JRV3V143G0YOYB33TGLR0",
+      "filename": "AG_Typydokladu_FKD22JRV3V143G0YOYB33TGLR0.pas",
+      "scriptkind": 2,
+      "objversion": 16,
+      "posindex": 1
+    }
+  ]
+}

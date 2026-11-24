@@ -204,6 +204,10 @@ var
     mCBTemplate.Left:= 140;
     mCBTemplate.Width:= 80;
     mCBTemplate.Parameters.Clear;
+    if not(NxIsEmptyOID(aTemplate_ID)) then begin
+     mCBTemplate.DataText:=aTemplate_ID;
+     mCBTemplate.Refresh;
+    end;
     mCBTemplate.Parameters.Add('_Allowed='+mAllowed.DelimitedText);
     mCBTemplate.ConnectedControl:= mCbCCTemplate;
     mCBTemplate.ConnectedControlField:= 'Code';
@@ -235,7 +239,7 @@ var
     mResult := mForm.ShowModal(ASite);
     if mResult = 1 then begin
          aTemplate_ID:=mCBTemplate.DataText;
-         aTO:=mED.text;
+         if not(nxisblank(aTO)) then aTO:=mED.text;
          Result:=True;
      end;
     mForm.free;
@@ -428,6 +432,40 @@ begin
     mDataset.Free;
   end;
 end;
+
+
+function CreateXRelationBatch(AOS: TNxCustomObjectSpace; ASourceCLSID, ADestinationCLSID, ADestinationID: string; ASourceIDsList: TStringList; ADescription: string): Boolean;
+var
+  mRelBO: TNxCustomBusinessObject;
+  i: integer;
+begin
+  Result:= True;
+
+  mRelBO:= AOS.CreateObject(Class_UserXLink);
+  try
+    try
+      for i:= 0 to ASourceIDsList.Count -1 do
+      begin
+        mRelBO.New;
+        mRelBO.Prefill;
+        mRelBO.SetFieldValueAsString('SourceCLSID', ASourceCLSID);
+        mRelBO.SetFieldValueAsString('Source_ID', ASourceIDsList[i]);
+        mRelBO.SetFieldValueAsString('DestinationCLSID', ADestinationCLSID);
+        mRelBO.SetFieldValueAsString('Destination_ID', ADestinationID);
+        mRelBO.SetFieldValueAsBoolean('DisplayAsSystem', True);
+        mRelBO.SetFieldValueAsString('Description', ADescription);
+        mRelBO.Save;
+      end;
+    except
+      Result:= False;
+      NxShowSimpleMessage('Could not create relation. Error: '+ExceptionMessage, nil);
+      exit;
+    end;
+  finally
+    mRelBO.Free;
+  end;
+end;
+
 
 begin
 end.

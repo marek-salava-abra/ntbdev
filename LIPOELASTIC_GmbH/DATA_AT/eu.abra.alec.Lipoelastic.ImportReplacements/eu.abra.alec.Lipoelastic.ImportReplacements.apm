@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000M03",
+    "name": "eu.abra.alec.Lipoelastic.ImportReplacements",
+    "license_holder": "LIPOELASTIC_GmbH",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "RQE0MPXTACU4B2B5HGG053P44C",
+      "filename": "AG_Zameny-vydeje_RQE0MPXTACU4B2B5HGG053P44C.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "EGVDANSIQWY4V2Y52YRUPRHAK4",
+      "filename": "AG_Zameny-prijmy_EGVDANSIQWY4V2Y52YRUPRHAK4.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

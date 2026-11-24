@@ -49,7 +49,10 @@ begin
     end;
     if not(mSameFirm) then mTO:='';
     if GetTemplate_ID(mSite, mTemplate_ID, 6, mTO) then begin
-
+     if NxIsEmptyOID(mTemplate_ID) then begin
+       NxShowSimpleMessage('Empty template.',mSite);
+       exit;
+     end;
      j:=mBODList.count;
      WaitWin.StartProgress('Please, wait ...', '', j);
         for i:=0 to mBODList.count-1 do begin

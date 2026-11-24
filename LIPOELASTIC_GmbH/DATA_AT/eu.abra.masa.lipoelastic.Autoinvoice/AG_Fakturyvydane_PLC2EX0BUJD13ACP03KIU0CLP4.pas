@@ -66,6 +66,7 @@ begin
        end;
     end;
     if not(mSameFirm) then mTO:='';
+    mTemplate_ID:='~000001PSW';
     if GetTemplate_ID(mSite, mTemplate_ID, 5, mTO) then begin
      mOS:=TDynSiteForm(mSite).BaseObjectSpace;
      j:=mInvoiceList.count;
@@ -83,7 +84,7 @@ begin
                  mIIPrintList.add(mInvoiceBO.OID);
                  if mIIPrintList.Count>0 then begin
                     mFileName:=NxSearchReplace(mInvoiceBO.DisplayName,'/','-',[srall])+'.pdf';
-
+                    if not(mSameFirm) then mto:='';
                     if not(NxIsValidEMail(mTO,false)) then mTO:=mInvoiceBO.GetFieldValueAsString('Firm_ID.ElectronicAddress_ID.Email');
                     if not(NxIsValidEMail(mTO,false)) then mTO:=mInvoiceBO.GetFieldValueAsString('Firm_ID.ResidenceAddress_ID.Email');
                     if not(NxIsValidEMail(mTO,false)) then mTO:='odavidek@lipoelastic.com';
@@ -266,6 +267,7 @@ begin
       mto:='';
     end;
     //if NxMessageBox('Confirm', 'Generate emails?', mdConfirm, mdbYesNo, 1, nil, False, mSite) <> mrYes then Exit;
+    mTemplate_ID:='~000001PSW';
     if not GetTemplate_ID(mSite, mTemplate_ID, 5, mTO) then begin
       NxShowSimpleMessage('Empty email template, done.', mSite);
       Exit;
@@ -317,7 +319,7 @@ begin
       for idx := 0 to firmCount - 1 do begin
         firmOID := mFirmGroups.Strings[idx];
         mIDsForFirm := TStringList(mFirmGroups.Objects[idx]);
-        //mTO:='';
+        mTO:='';
         if (mIDsForFirm = nil) or (mIDsForFirm.Count = 0) then begin
           WaitWin.StepIt;
           Continue;
@@ -405,37 +407,7 @@ begin
 end;
 
 
-function CreateXRelationBatch(AOS: TNxCustomObjectSpace; ASourceCLSID, ADestinationCLSID, ADestinationID: string; ASourceIDsList: TStringList; ADescription: string): Boolean;
-var
-  mRelBO: TNxCustomBusinessObject;
-  i: integer;
-begin
-  Result:= True;
 
-  mRelBO:= AOS.CreateObject(Class_UserXLink);
-  try
-    try
-      for i:= 0 to ASourceIDsList.Count -1 do
-      begin
-        mRelBO.New;
-        mRelBO.Prefill;
-        mRelBO.SetFieldValueAsString('SourceCLSID', ASourceCLSID);
-        mRelBO.SetFieldValueAsString('Source_ID', ASourceIDsList[i]);
-        mRelBO.SetFieldValueAsString('DestinationCLSID', ADestinationCLSID);
-        mRelBO.SetFieldValueAsString('Destination_ID', ADestinationID);
-        mRelBO.SetFieldValueAsBoolean('DisplayAsSystem', True);
-        mRelBO.SetFieldValueAsString('Description', ADescription);
-        mRelBO.Save;
-      end;
-    except
-      Result:= False;
-      NxShowSimpleMessage('Could not create relation. Error: '+ExceptionMessage, nil);
-      exit;
-    end;
-  finally
-    mRelBO.Free;
-  end;
-end;
 
 begin
 end.

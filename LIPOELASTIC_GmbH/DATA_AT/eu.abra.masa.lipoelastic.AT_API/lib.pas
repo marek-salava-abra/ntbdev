@@ -2,12 +2,15 @@
   cSTORE_CARD_CATEGORY_ID_NEW_CARD = '6000000101';
   cVATRATE_ID = '02000XAT00';
   cCOUNTRY_ID = '00000AT000';
+  cDIVISION_ID = '1000000101';
 
   cDEFAULT_UNIT = 'stk';
   cNAME_FIELD = 'NameAT';
 
   cREL_DEF_MATERIALS = '06';
   cREL_DEF_PARAMETERS = '10';
+
+  cSQL_AKTIVNI_KARTA = '';
 
 {function POST_StoreCards(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
 var
@@ -982,6 +985,189 @@ begin
   end;
 end;
 
+
+function POST_BillsOfDelivery(AContext: TNXContext; AInput: TJSONSuperObject; APath: String): TJSONSuperObject;
+const
+  cDOCQUEUE_ID_ARN = '1200000101';
+  cSTORE_ID_Lager_1 = '~00000011Y';
+  cCOUNTRY_ID_CZ = '00000CZ000';
+var
+ mHeaderBO, mRowBO, mDRBBO, mBODRow, mLog, mDRDBo:TNxCustomBusinessObject;
+ i,j,k:integer;
+ mRows, mDRBRows:TNxCustomBusinessMonikerCollection;
+ mOS:TNxCustomObjectSpace;
+ mIORowList, mIOList:tstringlist;
+ mOrder_ID, mStoreBatch_ID, mDocQueue_ID, mStore_ID, mStoreCard_ID ,mLogStr, mBody:string;
+ mImportManager: TNxDocumentImportManager;
+ mInputParams: TNxParameters;
+ mParam: TNxParameter;
+ mMessage, mReceiptCard_ID, mDefRollData_ID, mOriginID, mLogMessage:string;
+ mComponentCard_ID,mProductCard_ID,mBatchMovement_ID:string;
+begin
+  mOS:= AContext.GetObjectSpace;
+  mMessage:='';
+  mLogStr:= '';
+  mLogMessage:='';
+
+  Result:= TJSONSuperObject.Create;
+  try
+    if AInput.N['Rows'].DataType = jtNull then
+      RaiseException('Input JSON does not contain any rows!' + nxCrLf + 'JSON: '+ AInput.AsString);
+
+    if AInput.A['Rows'].Length <= 0 then
+      RaiseException('Input JSON does not contain any rows!' + nxCrLf + 'JSON: '+ AInput.AsString);
+
+    mHeaderBO:= mOS.CreateObject(Class_ReceiptCard);
+    try
+      mHeaderBO.New;
+      mheaderbo.Prefill;
+      mHeaderBO.SetFieldValueAsString('DocQueue_ID', cDOCQUEUE_ID_ARN);
+      mHeaderBO.SetFieldValueAsString('Description', AInput.S['ExternalNumber']);
+
+      mHeaderBO.SetFieldValueAsInteger('TradeType', 2);
+      mHeaderBO.SetFieldValueAsString('Country_ID', cCOUNTRY_ID_CZ);
+      //mHeaderBO.SetFieldValueAsString('IntrastatDeliveryTerm_ID','3001000000');
+      //mHeaderBO.SetFieldValueAsString('IntrastatTransactionType_ID','0101000000');
+      //mHeaderBO.SetFieldValueAsString('IntrastatTransportationType_ID','2000000000');
+
+
+      for i:=0 to AInput.A['Rows'].Length -1 do
+      begin
+        OutputDebugString(AInput.A['Rows'].O[i].S['StoreCardCode']);
+
+        if (NxIsEmptyOID(AInput.A['Rows'].O[i].S['XProvideRowID'])) and (AInput.A['Rows'].O[i].I['RowType']=3) then
+          continue;
+
+        mIORowList:= TStringList.create;
+        mIOList:= TStringList.create;
+        try
+
+          mIORowList.Add(AInput.A['Rows'].O[i].S['XProvideRowID']);
+          mOrder_ID:= GetIssuedOrderIDByProvideRow(mOS, AInput.A['Rows'].O[i].S['XProvideRowID']);
+
+          if NxIsEmptyOID(mOrder_ID) then
+          begin
+            mRows:= mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
+
+            mStoreCard_ID:= GetActiveStoreCardIDByCode(mOS, AInput.A['Rows'].O[i].S['StoreCardCode']);
+
+            if NxIsEmptyOID(mStoreCard_ID) then
+              RaiseException(Format('StoreCard %s not found!', [AInput.A['Rows'].O[i].S['StoreCardCode']]));
+
+            mRowBO:= AddReceiptRowWithoutOrder(mOS, mHeaderBO, AInput.A['Rows'].O[i], cSTORE_ID_Lager_1, mStoreCard_ID, cDIVISION_ID);
+
+            OutputDebugString('without order');
+
+            mLogStr:= mLogStr + nxCrLf + AInput.S['ExternalNumber']+'|'+AInput.A['Rows'].O[i].S['StoreCardCode'];
+
+            if AInput.A['Rows'].O[i].N['DocRowBatches'].DataType = jtNull then
+              continue;
+
+            if AInput.A['Rows'].O[i].A['DocRowBatches'].Length <= 0 then
+              continue;
+
+            mLogStr:= mLogStr + nxCrLf + 'Šarže: ';
+
+            mDRBRows:= mRowBO.GetLoadedCollectionMonikerForFieldCode(mRowBO.GetFieldCode('DocRowBatches'));
+            for k:=0 to AInput.A['Rows'].O[i].A['DocRowBatches'].Length-1 do begin
+              mLogStr:= mLogStr + nxCrLf + AInput.A['Rows'].O[i].A['DocRowBatches'].O[k].S['StoreBatchName'];
+              mDRBBO:= AddDocRowBatch(mOS, mRowBO, AInput.A['Rows'].O[i].A['DocRowBatches'].O[k]);
+            end;
+
+            mLogStr:= mLogStr + nxCrLf + '--------------------';
+
+          end else begin
+            OutputDebugString('with order');
+            mIOList.Add(mOrder_ID);
+            mInputParams := TNxParameters.Create;
+            mInputParams.GetOrCreateParam(dtString, 'SelectedRows').AsString:= mIORowList.Text;
+            mInputParams.GetOrCreateParam(dtString, 'SelectedHeader').AsString:= mOrder_ID;
+
+            mImportManager := NxCreateDocumentImportManager(mOS, Class_IssuedOrder, Class_ReceiptCard);
+            try
+              mImportManager.OutputDocument := mHeaderBO;
+              mImportManager.AddInputDocuments(mIOList);
+              mImportManager.LoadParams(mInputParams);
+              mImportManager.Execute;
+
+            except
+              mMessage:= mMessage+#13#10+AInput.A['Rows'].O[i].S['XProvideRowID']+'  objekt '+IntToStr(i)+' Order ID:'+mOrder_ID;
+              OutputDebugString(mMessage);
+            end;
+
+            mRows:= mHeaderBO.GetLoadedCollectionMonikerForFieldCode(mHeaderBO.GetFieldCode('Rows'));
+            for j:=0 to mRows.Count-1 do begin
+              mRowBO:= mRows.BusinessObject[j];
+              if not (mRowBO.GetFieldValueAsString('ProvideRow_ID') = AInput.A['Rows'].O[i].S['XProvideRowID']) then
+                continue;
+
+              mRowBO.SetFieldValueAsFloat('Quantity', AInput.A['Rows'].O[i].D['Quantity']);
+              mRowBO.SetFieldValueAsFloat('UnitPrice',0);
+              mRowBO.SetFieldValueAsFloat('TotalPrice',0);
+
+              if AInput.A['Rows'].O[i].N['DocRowBatches'].DataType = jtNull then
+                continue;
+
+              if AInput.A['Rows'].O[i].A['DocRowBatches'].Length <= 0 then
+                continue;
+
+              mLogStr:= mLogStr + nxCrLf + 'Šarže: ';
+
+              mDRBRows:= mRowBO.GetLoadedCollectionMonikerForFieldCode(mRowBO.GetFieldCode('DocRowBatches'));
+              for k:=0 to AInput.A['Rows'].O[i].A['DocRowBatches'].Length-1 do
+              begin
+                mLogStr:= mLogStr + nxCrLf + AInput.A['Rows'].O[i].A['DocRowBatches'].O[k].S['StoreBatchName'];
+                mDRBBO:= AddDocRowBatch(mOS, mRowBO, AInput.A['Rows'].O[i].A['DocRowBatches'].O[k]);
+              end;
+            end;
+          end;
+        finally
+          mIOList.Free;
+          mIORowList.Free;
+        end;
+      end;
+      OutputDebugString('BeforeSave');
+
+      mHeaderBO.save;
+      OutputDebugString('Saved');
+      Result.S['status']:='ok';
+      Result.S['statusMessage']:=mMessage;
+      Result.S['DisplayName']:=mHeaderBO.DisplayName;
+    finally
+      mHeaderBO.free;
+    end;
+    {
+    if not(NxIsBlank(mLogStr)) then begin
+      mLog:=mOS.CreateObject(Class_PRFLog);
+      try
+        mLog.new;
+        mlog.prefill;
+        mLog.SetFieldValueAsString('DocQueue_ID','~000000B02');
+        mLog.SetFieldValueAsString('Code', 'PrenosDL');
+        mLog.SetFieldValueAsString('Note', 'K těmto kartám nebyly dohledány objednávky vydané' + nxCrLf + mLogStr);
+        mlog.save;
+      finally
+        mLog.Free;
+      end;
+    end;}
+
+  except
+    Result.S['status']:='error';
+    Result.S['statusMessage']:=ExceptionMessage;
+    Result.S['DisplayName']:='';
+    CFxLog.SaveLog(NxCreateContext(mOS),'LA','Chyba import',ExceptionMessage+#13#10+mLogStr,2,Now);
+  end;
+ {end else begin
+   mHeaderBO:=mOS.CreateObject(Class_ReceiptCard);
+   mHeaderbo.Load(mReceiptCard_ID,nil);
+   Result.S['status']:='ok';
+   Result.S['statusMessage']:='Již synchronizováno';
+   Result.S['DisplayName']:=mHeaderBO.DisplayName;
+   mHeaderBO.free;
+ end;  }
+end;
+
+
 function ValueDialog(aSite:TSiteForm;var aList:TStringList;var aValue, aName:string;) : boolean;
 var
   mForm : TForm;
@@ -1041,6 +1227,78 @@ begin
   if Result then begin
     aValue:=mValueCB.Text;
   end;
+end;
+
+function GetActiveStoreCardIDByCode(AOS: TNxCustomObjectSpace; ACode: string):String;
+begin
+  Result:= AOS.SQLSelectFirstAsString(Format(
+    ' SELECT ID FROM StoreCards '+
+    ' WHERE Hidden = ''N'' '+
+    ' AND Code = ''%s'' %s',
+    [ACode, cSQL_AKTIVNI_KARTA]), '');
+end;
+
+function GetIssuedOrderIDByProvideRow(AOS: TNxCustomObjectSpace; AProvideRow_ID: String): String;
+begin
+  Result:= AOS.SQLSelectFirstAsString(Format(
+    ' SELECT Parent_ID FROM IssuedOrders2 '+
+    ' WHERE ((Quantity - DeliveredQuantity) > 0) '+
+    ' AND ID = ''%s''',
+    [AProvideRow_ID]), '');
+end;
+
+function GetStoreBatch_ID(AOS: TNxCustomObjectSpace; AStoreCard_ID, StoreBatchName: string): string;
+begin
+  Result:= AOS.SQLSelectFirstAsString(Format(
+    ' SELECT ID FROM StoreBatches '+
+    ' WHERE StoreCard_ID = ''%s'' '+
+    ' AND Name = ''%s''',
+    [AStoreCard_ID, StoreBatchName]), '');
+end;
+
+function AddReceiptRowWithoutOrder(AOS: TNxCustomObjectSpace; AHeaderBO: TNxCustomBusinessObject; ARow: TJSONSuperObject; AStore_ID, AStoreCard_ID, ADivision_ID: string): TNxCustomBusinessObject;
+var
+  mRows: TNxCustomBusinessMonikerCollection;
+  mStore_ID, mStoreCard_ID: String;
+begin
+  mRows := AHeaderBO.GetLoadedCollectionMonikerForFieldCode(AHeaderBO.GetFieldCode('Rows'));
+
+  Result := mRows.AddNewObject;
+  Result.SetFieldValueAsInteger('RowType', 3);
+  Result.SetFieldValueAsString('Store_ID', AStore_ID);
+  Result.SetFieldValueAsString('StoreCard_ID', AStoreCard_ID);
+  Result.SetFieldValueAsString('QUnit', ARow.S['QUnit']);
+  Result.SetFieldValueAsFloat('Quantity', ARow.D['Quantity']);
+  Result.SetFieldValueAsFloat('UnitPrice', 0);
+  Result.SetFieldValueAsFloat('TotalPrice', 0);
+  Result.SetFieldValueAsString('Division_ID', ADivision_ID);
+  Result.SetFieldValueAsString('BusOrder_ID', '');
+  Result.SetFieldValueAsString('BusProject_ID', '');
+  Result.SetFieldValueAsString('BusTransaction_ID', '');
+end;
+
+function AddDocRowBatch(AOS: TNxCustomObjectSpace; ARowBO: TNxCustomBusinessObject; ABatch: TJSONSuperObject): TNxCustomBusinessObject;
+var
+  mBatchRows: TNxCustomBusinessMonikerCollection;
+  mStoreBatch_ID: String;
+begin
+  mBatchRows := ARowBO.GetLoadedCollectionMonikerForFieldCode(ARowBO.GetFieldCode('DocRowBatches'));
+  mStoreBatch_ID := GetStoreBatch_ID(AOS, ARowBO.GetFieldValueAsString('StoreCard_ID'), ABatch.S['StoreBatchName']);
+
+  Result := mBatchRows.AddNewObject;
+  if NxIsEmptyOID(mStoreBatch_ID) then
+  begin
+    Result.SetFieldValueAsBoolean('NewBatch', True);
+    Result.SetFieldValueAsString('NewBatchName', ABatch.S['StoreBatchName']);
+    Result.SetFieldValueAsDateTime('NewBatchExpirationDate$Date', ABatch.DT8601['Expiry']);
+    Result.SetFieldValueAsString('NewBatchSpecification', ABatch.S['StoreBatchSpecification']);
+  end
+  else
+  begin
+    Result.SetFieldValueAsBoolean('NewBatch', False);
+    Result.SetFieldValueAsString('StoreBatch_ID', mStoreBatch_ID);
+  end;
+  Result.SetFieldValueAsFloat('Quantity', ABatch.D['Quantity']);
 end;
 
 procedure OnFormCloseAction(Sender: TObject; var Action: TCloseAction);

@@ -32,14 +32,14 @@ begin
   mGrdRows:= TMultiGrid(mSite.FindChildControl('grdRows'));
   if not Assigned(mGrdRows) then exit;
 
-  {
+
   if mGrdRows.DataSource.DataSet.FieldByName('Credit').AsBoolean = False then
   begin
     mNumberSign:= -1;
-    NxShowSimpleMessage('This functionality is not available for debit rows.', mSite);
-    exit;
+    //NxShowSimpleMessage('This functionality is not available for debit rows.', mSite);
+    //exit;
   end;
-  }
+
 
   mFirm_ID:= mGrdRows.DataSource.DataSet.FieldByName('Firm_ID').AsString;
   if NxIsEmptyOID(mFirm_ID) then
@@ -81,6 +81,7 @@ begin
       mMemTable.FieldByName('ID').AsString:= mSQLMemTable.FieldByName('ID').AsString;
       mMemTable.FieldByName('DocumentNumber').AsString:= mSQLMemTable.FieldByName('DocumentNumber').AsString;
       mMemTable.FieldByName('DocumentType').AsString:= mSQLMemTable.FieldByName('DocumentType').AsString;
+      mMemTable.FieldByName('OrderNumber').AsString:= mSQLMemTable.FieldByName('OrderNumber').AsString;
       mMemTable.FieldByName('VarSymbol').AsString:= mSQLMemTable.FieldByName('VarSymbol').AsString;
       mMemTable.FieldByName('DocDate').AsFloat:= mSQLMemTable.FieldByName('DocDate').AsFloat;
       mMemTable.FieldByName('Amount').AsFloat:= mSQLMemTable.FieldByName('Amount').AsFloat * mNumberSign;
@@ -237,11 +238,21 @@ begin
     mCol.ReadOnly:= True;
 
     mCol:= TNxMultiGridCustomColumn.Create(mGrid);
+    mCol.Caption:= 'Order';
+    mCol.FieldName := 'OrderNumber';
+    mCol.Name:= 'xOrderNumber';
+    mCol.Width:= 100;
+    mCol.Order:= 3;
+    mCol.ReadOnly:= True;
+    mGrid.AddColumn(mCol);
+    mCol.ReadOnly:= True;
+
+    mCol:= TNxMultiGridCustomColumn.Create(mGrid);
     mCol.Caption:= 'VarSymbol';
     mCol.FieldName := 'VarSymbol';
     mCol.Name:= 'xVarSymbol';
     mCol.Width:= 100;
-    mCol.Order:= 3;
+    mCol.Order:= 4;
     mCol.ReadOnly:= True;
     mGrid.AddColumn(mCol);
     mCol.ReadOnly:= True;
@@ -252,7 +263,7 @@ begin
     mDateCol.Name:= 'xDocDate';
     mDateCol.Width:= 80;
     mDateCol.Elastic:= false;
-    mDateCol.Order:= 4;
+    mDateCol.Order:= 5;
     mGrid.AddColumn(mDateCol);
     mDateCol.ReadOnly:= True;
 
@@ -262,7 +273,7 @@ begin
     mCol.Name:= 'xAmount';
     mCol.Width:= 100;
     mCol.Elastic:= false;
-    mCol.Order:= 5;
+    mCol.Order:= 6;
     mGrid.AddColumn(mCol);
     mCol.ReadOnly:= True;
 
@@ -272,7 +283,7 @@ begin
     mCol.Name:= 'xAlreadyPaid';
     mCol.Width:= 100;
     mCol.Elastic:= false;
-    mCol.Order:= 6;
+    mCol.Order:= 7;
     mGrid.AddColumn(mCol);
     mCol.ReadOnly:= True;
 
@@ -282,7 +293,7 @@ begin
     mCol.Name:= 'xPaidAmount';
     mCol.Width:= 100;
     mCol.Elastic:= false;
-    mCol.Order:= 7;
+    mCol.Order:= 8;
     mCol.ReadOnly:= false;
     mGrid.AddColumn(mCol);
 
@@ -306,6 +317,7 @@ begin
     mMemTable.FieldByName('VarSymbol').ReadOnly:= True;
     mMemTable.FieldByName('DocumentNumber').ReadOnly:= True;
     mMemTable.FieldByName('DocumentType').ReadOnly:= True;
+    mMemTable.FieldByName('OrderNumber').ReadOnly:= True;
     mMemTable.FieldByName('DocDate').ReadOnly:= True;
     //mMemTable.FieldByName('PaidAmount').ReadOnly:= True;
     mMemTable.FieldByName('Selected').ReadOnly:= True;
@@ -428,53 +440,6 @@ begin
     UpdateSelectionSummary(DataSet);
 end;
 
-{
-procedure UpdateSumIfSelected(ATable: TDataSet);
-var
-  mForm: TForm;
-  OldRecNo: Integer;
-  Total: Double;
-  mEdSumToPair: TNumEdit;
-  mBookmark: TBookmarkStr;
-begin
-  if (ATable = nil) or (not ATable.Active) or ATable.IsEmpty then
-    Exit;
-
-  mForm:= TForm(ATable.Owner);
-  if mForm = nil then
-    exit;
-
-  mEdSumToPair:= TNumEdit(mForm.FindComponent('neSumToPair'));
-  if mEdSumToPair = nil then
-    exit;
-
-  Total := 0;
-  //OldRecNo := ATable.RecNo;
-
-  mBookmark:= ATable.GetBookmark;
-  ATable.DisableControls;
-  try
-    ATable.First;
-    while not ATable.Eof do
-    begin
-      if ATable.FieldByName('Selected').AsBoolean then
-        Total := Total + ATable.FieldByName('PaidAmount').AsFloat;
-
-      ATable.Next;
-    end;
-    if ATable.BookmarkValid(mBookmark) then
-      ATable.GotoBookmark(mBookmark);
-  finally
-    ATable.EnableControls;
-    ATable.FreeBookmark(mBookmark);
-    //if (OldRecNo > 0) and (OldRecNo <= ATable.RecordCount) then
-    //  ATable.RecNo := OldRecNo;
-  end;
-  mEdSumToPair.Value:= Total;
-  //ASummaryLabel.Caption := Format('Sum to pair: %0.2f', [Total]);
-end;
-}
-
 
 procedure My_OnGetBackgroudColor(Sender : TObject; AColumn: TNxMultiGridCustomColumn; const AIndex: Integer; const AMultiSelect: Boolean; const
 ASelectedActiveRow: Boolean; var ABckColor: TColor);
@@ -570,6 +535,15 @@ begin
         ' select II.ID AS ID, '+
         ' DQ.Code || ''-'' || cast(II.OrdNumber as varchar) || ''/'' || PE.Code as DocumentNumber, '+
         ' DQ.DocumentType AS DocumentType, '+
+
+        ' ISNULL(( '+
+        '   SELECT TOP 1 dbo.FmtDocumentDisplayName(SD2.Provide_ID, ''RO'') '+
+        '   FROM IssuedInvoices2 II2 '+
+        '   JOIN StoreDocuments2 SD2 ON SD2.ID = II2.ProvideRow_ID '+
+        '   WHERE II2.Parent_ID = II.ID '+
+        '   ORDER BY II2.PosIndex '+
+        ' ), '''') AS OrderNumber, '+
+
         ' II.VarSymbol as VarSymbol, '+
         ' (II.Amount - II.PaidAmount) as Amount, '+
         ' II.DocDate$Date as DocDate, '+
@@ -587,6 +561,15 @@ begin
         ' select II.ID AS ID, '+
         ' DQ.Code || ''-'' || cast(II.OrdNumber as varchar) || ''/'' || PE.Code as DocumentNumber, '+
         ' DQ.DocumentType AS DocumentType, '+
+
+        ' ISNULL(( '+
+        '   SELECT TOP 1 dbo.FmtDocumentDisplayName(SD2.Provide_ID, ''RO'') '+
+        '   FROM IssuedInvoices2 II2 '+
+        '   JOIN StoreDocuments2 SD2 ON SD2.ID = II2.ProvideRow_ID '+
+        '   WHERE II2.Parent_ID = II.Source_ID '+
+        '   ORDER BY II2.PosIndex '+
+        ' ), '''') AS OrderNumber, '+
+
         ' II.VarSymbol as VarSymbol, '+
         ' -II.Amount as Amount, '+
         ' II.DocDate$Date as DocDate, '+
@@ -603,6 +586,7 @@ begin
         ' select II.ID AS ID, '+
         ' DQ.Code || ''-'' || cast(II.OrdNumber as varchar) || ''/'' || PE.Code as DocumentNumber, '+
         ' DQ.DocumentType AS DocumentType, '+
+        ' ISNULL((SELECT TOP 1 dbo.FmtDocumentDisplayName(II.ReceivedOrder_ID, ''RO'')),  '''') AS OrderNumber, '+
         ' II.VarSymbol as VarSymbol, '+
         ' (II.Amount - II.PaidAmount) as Amount, '+
         ' II.DocDate$Date as DocDate, '+
@@ -618,7 +602,7 @@ begin
         AMem, mParams);
 
     except
-      NxShowSimpleMessage('Cannot fill table', nil);
+      NxShowSimpleMessage('Cannot fill table. Error: '+ExceptionMessage, nil);
     end;
   finally
     mParams.Free;
@@ -697,13 +681,14 @@ begin
     AddField(ADataSet, 'ID', ftString, 300001, 10);
     AddField(ADataSet, 'DocumentNumber', ftString, 300002, 30);
     AddField(ADataSet, 'DocumentType', ftString, 300003, 2);
-    AddField(ADataSet, 'VarSymbol', ftString, 300004, 15);
-    AddField(ADataSet, 'DocDate', ftDateTime, 300005);
-    AddField(ADataSet, 'Amount', ftFloat, 300006);
-    AddField(ADataSet, 'Selected', ftBoolean, 300007);
-    AddField(ADataSet, 'PaidAmount', ftFloat, 300008);
-    AddField(ADataSet, 'AlreadyPaid', ftFloat, 300009);
-    AddField(ADataSet, 'NumberSign', ftInteger, 300010);
+    AddField(ADataSet, 'OrderNumber', ftString, 300004, 30);
+    AddField(ADataSet, 'VarSymbol', ftString, 300005, 15);
+    AddField(ADataSet, 'DocDate', ftDateTime, 300006);
+    AddField(ADataSet, 'Amount', ftFloat, 300007);
+    AddField(ADataSet, 'Selected', ftBoolean, 300008);
+    AddField(ADataSet, 'PaidAmount', ftFloat, 300009);
+    AddField(ADataSet, 'AlreadyPaid', ftFloat, 300010);
+    AddField(ADataSet, 'NumberSign', ftInteger, 300011);
 
   except
     ALog:= ALog + Format('PrapareDataSet - Vyskytla se chyba při přípravě datasetu %s', [ExceptionMessage])+ nxCrLf;

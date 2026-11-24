@@ -31,6 +31,11 @@ begin
       mRow:= mRows.BusinessObject[i];
       //netrojkové řádky přeskočím
       if not (mRow.GetFieldValueAsInteger('RowType') = 3) then continue;
+
+      //mají vazbu na OV
+      if not(NxIsEmptyOID(Self.ObjectSpace.SQLSelectFirstAsString('SELECT Target_ID FROM ReceivedOrdersToIssuedOrders WHERE Source_ID = '+QuotedStr(mRow.OID)))) then
+        continue;
+
       //pokud jsou zde obaly, smažu je
       if mRow.GetFieldValueAsInteger('StoreCard_ID.Category') = 4 then
       begin

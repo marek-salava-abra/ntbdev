@@ -76,6 +76,10 @@ begin
             mImportManager.Execute;
             mImportManager.CheckOutputDocument;
             mImportManager.OutputDocument.SetFieldValueAsString('DocQueue_ID', cIIDocQueue_ID);
+
+            mImportManager.OutputDocument.SetFieldValueAsDateTime('VATAdmitDate$DATE', mImportManager.OutputDocument.GetFieldValueAsDateTime('DocDate$DATE'));
+            mImportManager.OutputDocument.SetFieldValueAsDateTime('VATDate$DATE', mImportManager.OutputDocument.GetFieldValueAsDateTime('DocDate$DATE'));
+
             if not(NxIsEmptyOID(mFirmOffice_ID)) then
              mImportManager.OutputDocument.SetFieldValueAsString('FirmOffice_ID', mFirmOffice_ID);
             mImportManager.OutputDocument.Save;
@@ -193,6 +197,10 @@ begin
                             mImportManager.Execute;
                             mImportManager.CheckOutputDocument;
                             mImportManager.OutputDocument.SetFieldValueAsString('DocQueue_ID', cIIDocQueue_ID);
+
+                            mImportManager.OutputDocument.SetFieldValueAsDateTime('VATAdmitDate$DATE', mImportManager.OutputDocument.GetFieldValueAsDateTime('DocDate$DATE'));
+                            mImportManager.OutputDocument.SetFieldValueAsDateTime('VATDate$DATE', mImportManager.OutputDocument.GetFieldValueAsDateTime('DocDate$DATE'));
+
                             mRows:=mImportManager.OutputDocument.GetLoadedCollectionMonikerForFieldCode(mImportManager.OutputDocument.GetFieldCode('Rows'));
                             if mRows.CountOfNotDeleted>0 then begin
                                 mImportManager.OutputDocument.save;
@@ -334,12 +342,15 @@ begin
              //check na další DL z toho samého dne na firmu z DL
               mTempBODList:=TStringList.Create;
               mTempBODList.clear;
-              OS.SQLSelect('SELECT A.ID FROM StoreDocuments A join firms f on f.id=a.firm_id WHERE A.DocumentType=''21'' '+
+              {OS.SQLSelect('SELECT A.ID FROM StoreDocuments A join firms f on f.id=a.firm_id WHERE A.DocumentType=''21'' '+
                       'AND A.DOCQUEUE_ID IN (''9000000101'',''~000000504'') '+
                       'AND (A.DocDate$DATE >= 45931) '+
                       'AND (((''A'' = ''A'') AND ((A.Finished = ''N'') AND (A.IsAvailableForDelivery = ''A''))) OR ((''A'' = ''N'') '+
                       'AND ((A.Finished = ''A'') OR (A.IsAvailAbleForDelivery = ''N'')))) AND f.id='+QuotedStr(mFirm_ID) ,mTempBODList);
-             //konec check
+              }
+              OS.SQLSelect('Select distinct(sd.id) from storedocuments sd left join storedocuments2 sd2 on sd.id=sd2.parent_id where sd.documenttype=''21'' and sd2.provide_id='+
+                           QuotedStr(mReceivedOrder_ID),mTempBODList);
+              //konec check
               // začátek tvorby faktury
                                   mInputParams := TNxParameters.Create;
                                   mParam := mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
@@ -361,6 +372,10 @@ begin
                                     mImportManager.Execute;
                                     mImportManager.CheckOutputDocument;
                                     mImportManager.OutputDocument.SetFieldValueAsString('DocQueue_ID', cIIDocQueue_ID);
+
+                                    mImportManager.OutputDocument.SetFieldValueAsDateTime('VATAdmitDate$DATE', mImportManager.OutputDocument.GetFieldValueAsDateTime('DocDate$DATE'));
+                                    mImportManager.OutputDocument.SetFieldValueAsDateTime('VATDate$DATE', mImportManager.OutputDocument.GetFieldValueAsDateTime('DocDate$DATE'));
+
                                     if NxIsEmptyOID(mImportManager.OutputDocument.GetFieldValueAsString('BankAccount_ID')) then
                                      mImportManager.OutputDocument.SetFieldValueAsString('BankAccount_ID',mBankAccount_ID);
                                     mRows:=mImportManager.OutputDocument.GetLoadedCollectionMonikerForFieldCode(mImportManager.OutputDocument.GetFieldCode('Rows'));
