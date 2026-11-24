@@ -5,7 +5,7 @@
     "id": "4S52000101",
     "name": "eu.abra.masa.simon.AutoInvoiceOPV",
     "license_holder": "SIMON_FM_s.r.o._26837358",
-    "objversion": 7,
+    "objversion": 9,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,7 +17,7 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 7,
+      "objversion": 9,
       "posindex": 1
     }
   ]

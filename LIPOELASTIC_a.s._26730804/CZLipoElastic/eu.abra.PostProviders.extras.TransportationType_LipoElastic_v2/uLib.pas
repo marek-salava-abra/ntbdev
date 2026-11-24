@@ -17,7 +17,7 @@ const
   cDocQueueID = '~000000007';
   cStoreID = '1120000101';  //ok
 
-  cLipo_FD_DeliveryNote = 'X_poznamka';
+  cLipo_FD_DeliveryNote = 'X_Poznam_exp';
 
 
 
@@ -214,11 +214,10 @@ begin
       if not AIsRelatedDoc then begin
         mAmount := 0;
       end else begin
-        {mBORO.Load(mDataRO.FieldByName('ID').AsString ,nil);
         if mBORO.GetFieldValueAsString('DocQueue_ID.code')='OPDS' then
-         mAmount:=mAmount+mBORO.GetFieldValueAsFloat('U_dobirka')
-        else}
-        mAmount := mAmount +  mDataRO.FieldByName('TAmount').AsFloat;
+         mAmount:=mBORO.GetFieldValueAsFloat('U_dobirka')
+         else
+        mAmount := mPackagesDataSet.FieldByName(cFDAmount).AsFloat;
       end;
 
 
@@ -231,10 +230,10 @@ begin
         end else begin
           gLog.add(Format(' přičítám částku: %s',[ FloatToStr(mDataRO.FieldByName('TAmount').AsFloat)   ]));
         end;
-        {mBORO.Load(mDataRO.FieldByName('ID').AsString ,nil);
+        mBORO.Load(mDataRO.FieldByName('ID').AsString ,nil);
         if mBORO.GetFieldValueAsString('DocQueue_ID.code')='OPDS' then
          mAmount:=mAmount+mBORO.GetFieldValueAsFloat('U_dobirka')
-        else }
+        else
         mAmount := mAmount +  mDataRO.FieldByName('TAmount').AsFloat;
         mDataRO.Next;
       end;
@@ -252,6 +251,8 @@ begin
         if mCount > 1 then
           ShowMessage('Pozor do dokladu DL je vloženo více Objednávek a navíc byl nalezen příznak dobírka. Zkontrolujte částku dobírky.');
       end;
+      if mBORO.GetFieldValueAsString('DocQueue_ID.code')='OPDS' then mPackagesDataSet.FieldByName(cFDAmount).AsFloat:=mBORO.GetFieldValueAsFloat('U_Cena')
+      else
       mPackagesDataSet.FieldByName(cFDAmount).AsFloat:= mAmount;
       Result := true;
     end;
@@ -487,9 +488,23 @@ begin
             //Musí existovat X položky z instalační sady "FLORES, BALÍKOBOT - Položky.ais"
             //Obsah - balíky - jendotky (Začátek)
             //Edituji ten první co jsem prve založil/editoval. Přepisuji na něco správného.
+
+
             if ARunType = cScriptAfterGetDataImportManagerNonVisual then
             begin
-              if mDocBO.CLSID in [Class_BillOfDelivery, Class_OutgoingTransfer] then
+              AddContentRow(TMemoryDataset(mContentDataSet));
+              mContentDataSet.FieldByName(cFDWeight).AsFloat := 0;
+              mContentDataSet.FieldByName(cFDWidth).AsFloat := 0;
+              mContentDataSet.FieldByName(cFDHeight).AsFloat := 0;
+              mContentDataSet.FieldByName(cFDLength).AsFloat := 0;
+              mContentDataSet.FieldByName(cFDVolume).AsFloat := 0;
+              mContentDataSet.FieldByName(cFDManipulationUnit).AsString := '';
+              mContentDataSet.FieldByName(cFDContent).AsString := '';
+              mContentDataSet.Post;
+
+
+              if false then
+              //if mDocBO.CLSID in [Class_BillOfDelivery, Class_OutgoingTransfer] then
               begin
                 if (CFxOID.IsEmptyOrFull(mDocBO.GetFieldValueAsString('X_PD_MU_0_ID')) and ( mDocBO.GetFieldValueAsInteger('X_PD_MUCount_0') > 0 )) then
                 begin
@@ -621,13 +636,10 @@ begin
                 mServiceType_ID := '';
                 //mSQL := format(cSQLBranches, [QuotedStr(mPostProvider_ID), QuotedStr( UpperCase(mDocBO.GetFieldValueAsString('X_PD_BB_Branches')))  ]);
                 //Lipoelastic - příklad DPE-35029/2023 z DEV_CZ_LIPO...
-
-
                 mBranchID := '';
                 if mDocBO.HasField('X_Delivery_adress_id' ) then
-                  if not CFxOID.IsEmptyOrFull(mDocBO.GetFieldValueAsString('X_Delivery_adress_id')) then
+                  if not CFxOID.IsEmptyOrFull(mDocBO.GetFieldValueAsString('X_Delivery_adress_id' )) then
                     mBranchID := mOS.SQLSelectFirstAsString( Format('select X_PickupPoint from addresses where id = ''%s'' ',[ mDocBO.GetFieldValueAsString('X_Delivery_adress_id' ) ]));
-
                 OutputDebugString('LIPO X_Delivery_adress_id.X_PickupPoint: '+mBranchID);
 
                 if (mBranchID = '') or (mBranchID = '0') then
@@ -636,18 +648,14 @@ begin
                       mBranchID :=  UpperCase(mDocBO.GetFieldValueAsString('X_PD_BB_Branches'));
 
                 mSQL := format(cSQLBranches, [QuotedStr(mPostProvider_ID), QuotedStr(  mBranchID  )  ]);
-
                 mServiceType_ID := GetFirstRecordFromSQL(mOS, mSQL); //X_PD_BB_Branches
-                OutputDebugString('msql: '+mSQL);
-                OutputDebugString('mServiceType_ID: '+mServiceType_ID);
-                CFxLog.SaveLog(NxCreateContext_1(mDocBO),'LB','Log BB pro '+mDocBO.DisplayName,'msql: '+mSQL+NxCrlF+'mServiceType_ID: '+mServiceType_ID,2,now);
               end;
 
               if not CFxOID.IsEmptyOrFull(mIssuedContent_ID) then
                 mPackagesDataSet.FieldByName(cFDContentType).AsString := mIssuedContent_ID;
               if not CFxOID.IsEmptyOrFull(mServiceType_ID) then
                 mPackagesDataSet.FieldByName(cFDPDMServiceType+IntToStr(0)).AsString := mServiceType_ID;
-              OutputDebugString('mServiceType_ID 642: '+mServiceType_ID);
+
 
 
             end;
