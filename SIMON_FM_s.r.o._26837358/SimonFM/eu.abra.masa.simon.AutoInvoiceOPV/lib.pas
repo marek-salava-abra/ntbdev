@@ -63,6 +63,7 @@ begin
                       mTextBO.Load('70JB000101',nil);
                       mSubject:=mTextBO.GetFieldValueAsString('X_Subject');
                       mInvoiceBO:=Os.CreateObject(Class_IssuedInvoice);
+                      mInvoiceBO.Load(mInvoice_ID,nil);
                       mMailText:=mTextBO.GetFieldValueAsString('X_Note');
                       mPrintList:=TStringList.Create;
                       mPrintList.Add(mInvoiceBO.OID);
@@ -121,7 +122,7 @@ end;
 procedure SendInternalMail(AOS:TNxCustomObjectSpace; ATo:String; ACC:String; ABCC:String;
                            ASubject:String; ABody:String; AAtachement, AAtachement2:String; AFirm_ID:String; ADivision_ID:String; ABusTransaction_ID:String; aAccount_ID, aInvoice_ID:string);
 Var
-  mMailBO:TNxCustomBusinessObject;
+  mMailBO, mUserXLink:TNxCustomBusinessObject;
   mMRecipients:TNxCustomBusinessMonikerCollection;
   mMailRecipient:TNxCustomBusinessObject;
 begin
@@ -166,6 +167,22 @@ begin
 
 
      mMailBO.Save;
+     if not(NxIsEmptyOID(aInvoice_ID)) then begin
+       mUserXLink:=AOS.CreateObject(Class_UserXLink);
+       try
+         mUserXLink.New;
+         mUserXLink.Prefill;
+         mUserXLink.SetFieldValueAsString('SourceCLSID', Class_IssuedInvoice);
+         mUserXLink.SetFieldValueAsString('Source_ID', aInvoice_ID);
+         mUserXLink.SetFieldValueAsString('DestinationCLSID', Class_EmailSent);
+         mUserXLink.SetFieldValueAsString('Destination_ID', mMailBO.OID);
+         mUserXLink.SetFieldValueAsBoolean('DisplayAsSystem', True);
+         mUserXLink.SetFieldValueAsString('Description', ASubject);
+         mUserXLink.Save;
+       finally
+         mUserXLink.Free;
+       end;
+     end;
      mMailBO.free;
 
   end;
