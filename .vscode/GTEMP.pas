@@ -1,37 +1,225 @@
-procedure GenerateIIfromOPV(OS: TNxCustomObjectSpace; var Success: Boolean; var LogInfoStr: String);
+uses 'eu.simon.PS.fce';
+
+procedure BeforeSave_Hook(Self: TNxCustomBusinessObject);
 var
- mList, mLogs:TStringList;
- mSQL: String;
- i:integer;
- //email do kopie Marek.zizka a tvůrce
+ mRows:TNxCustomBusinessMonikerCollection;
+ mRowBO,mZLVBO:TNxCustomBusinessObject;
+ i, mMailCount:integer;
+ mAvailableQuantity,mOrderedQuantity, mStorePrice, mNotPaidAmount: Extended;
+ mNotOnStore, mZapornaMarze: Boolean;
+ mOrigPMState_ID, mZLV_ID, mDZV_ID, mAccount_ID,mTO, mSubject, mBody,mFileName,mFileName2:string;
+ mList,mFileList:TStringList;
+ mLogList:TStringList;
+ mLogFileName, mHorizontalSplitter, mLog_ID, mNew:string;
+ mLogBO:TNxCustomBusinessObject;
 begin
-  mList := TStringList.Create;
-  mLogs := TStringList.Create;
-  mSQL:= 'SELECT RO.ID'#13#10 +
-    'FROM ReceivedOrders RO'#13#10 +
-    'WHERE RO.DocQueue_ID = ''7RQ0000101'''#13#10 +
-    '  AND RO.PMState_ID = ''2080000101'''#13#10 +
-    '  AND RO.Revided_ID IS NULL'#13#10 +
-    '  AND RO.X_BoolForAutoInvoice=''A'''#13#10 +
-    '  AND EXISTS ('#13#10 +
-    '    SELECT 1'#13#10 +
-    '    FROM StoreDocuments2 SD2'#13#10 +
-    '    JOIN StoreDocuments SD ON SD.ID = SD2.Parent_ID'#13#10 +
-    '    WHERE SD2.Provide_ID = RO.ID'#13#10 +
-    '      AND SD.DocumentType = ''21'''#13#10 +
-    '      AND SD.DocQueue_ID IN (''1100000101'', ''U200000101'')'#13#10 +
-    '      AND SD.Finished = ''N'''#13#10 +
-    '      AND SD.IsAvailableForDelivery = ''A'''#13#10 +
-    '  )';
-  try
-    OS.sqlselect(mSQL, mList);
-    if mList.Count > 0 then begin
-      
+
+   mLogList:=TStringList.Create;
+   mHorizontalSplitter:=GetHorizontalSplitter(60);
+   mLogList.Add(mHorizontalSplitter);
+   mLogList.add(DateTimeToStr(Now)+'  Začátek kontroly');
+   mLogList.Add(mHorizontalSplitter);
+   if osNew in self.state then begin
+    mLogList.Add(DateTimeToStr(Now)+' doklad je nový');
+    mLogList.Add(mHorizontalSplitter);
+   end;
+   if self.GetFieldValueAsString('DocQueue_ID')='1W10000101' then begin
+     if self.GetFieldValueAsString('U_OrderState_ID.Code')='STOBJ06' then begin
+      self.SetFieldValueAsString('PMState_ID','9010000101');
+      if NxIsBlank(self.GetFieldValueAsString('Description')) then
+        Self.SetFieldValueAsString('Description','Storno');
+     end;
+     if (osNew in self.state) or (self.GetFieldValueAsString('PMState_ID') in ['RODEF00000','1010000101','2030000101']) then begin
+      mLogFileName:=self.GetFieldValueAsString('ExternalNumber')+'_'+FormatDateTime('yyyymmddhhmm',Now);
+
+      self.GetOriginalValue('PMState_ID',mOrigPMState_ID);
+      mNotOnStore:=False;
+      mZapornaMarze:=False;
+      mLogList.Add('Kontrola '+self.GetFieldValueAsString('ExternalNumber')+' úhrada '+self.GetFieldValueAsString('PaymentType_ID.Code')+'  stav objednávky '+
+                   self.GetFieldValueAsString('U_orderState_ID.code')+'  procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+      mRows:=self.GetLoadedCollectionMonikerForFieldCode(self.GetFieldCode('Rows'));
+        for i:=0 to mrows.Count-1 do begin
+          mRowBO:=mRows.BusinessObject[i];
+          if mRowBO.GetFieldValueAsInteger('RowType')=3 then begin
+           if not(mNotOnStore) then begin
+            mAvailableQuantity:=GetAvailableQuantity(self.ObjectSpace,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'))
+                               {+GetAvailableQuantity(self.ObjectSpace,'4P00000101', mRowBO.GetFieldValueAsString('StoreCard_ID'))
+                               +GetAvailableQuantity(self.ObjectSpace,'1E00000101', mRowBO.GetFieldValueAsString('StoreCard_ID'))
+                               +GetAvailableQuantity(self.ObjectSpace,'2D00000101', mRowBO.GetFieldValueAsString('StoreCard_ID'))} ;
+            mOrderedQuantity:=GetOrderedQuantity(Self.ObjectSpace,mRowBO.GetFieldValueAsString('StoreCard_ID'), mRowBO.OID,mRowBO.GetFieldValueAsString('Store_ID'), Self.GetFieldValueAsDateTime('CreatedAt$DATE'));
+            if (mAvailableQuantity-mOrderedQuantity-mRowBO.GetFieldValueAsFloat('Quantity'))<0 then mNotOnStore:=True;
+           end;
+           if not mZapornaMarze then begin
+             mStorePrice:=GetStorePrice(self.ObjectSpace,mRowBO.GetFieldValueAsString('Store_ID'), mRowBO.GetFieldValueAsString('StoreCard_ID'));
+             if mStorePrice>mRowBO.GetFieldValueAsFloat('UnitPrice') then mZapornaMarze:=True;
+           end;
+          end;
+          mLogList.add('Kontrola řádku '+IntToStr(mRowBO.GetFieldValueAsInteger('PosIndex'))+' karta '+mRowBO.GetFieldValueAsString('StoreCard_ID.name')+
+                       '   Příznak není skladem '+BoolToStr(mNotOnStore,true)+'   Příznak záporná marže '+BoolToStr(mZapornaMarze,true));
+        end;
+        if not(mNotOnStore) then self.SetFieldValueAsString('PMState_ID','2000000101');
+        mLogList.add('Řádek 61 Kontrola skladu '+BoolToStr(mNotOnStore,true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        if mZapornaMarze then self.SetFieldValueAsString('PMState_ID','1010000101');
+        if self.GetFieldValueAsBoolean('Firm_ID.X_Problem') then self.SetFieldValueAsString('PMState_ID','1010000101');
+         mLogList.add('Řádek 64 problémová firma '+BoolToStr(self.GetFieldValueAsBoolean('Firm_ID.X_Problem'),true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        if GetValidSKPostcode(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PostCode')) then self.SetFieldValueAsString('PMState_ID','1010000101');
+         mLogList.add('Řádek 66 kontrola poštovního směrovacího čísla '+BoolToStr(GetValidSKPostcode(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PostCode')),true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        if not(GetValidCZPhonenumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1'))) and 
+         not(IsValidPhoneNumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1')))
+          then self.SetFieldValueAsString('PMState_ID','1010000101');
+        // if self.GetFieldValueAsString('TransportationType_ID')='5100000101' then self.SetFieldValueAsString('PMState_ID','1010000101');  //zakomentováno dne 20.6.2024
+         mLogList.add('Řádek 71 kontrola telefonního čísla '+BoolToStr(not(GetValidCZPhonenumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1'))) 
+          and not(IsValidPhoneNumber(self.GetFieldValueAsString('FirmOffice_ID.Address_ID.PhoneNumber1'))),true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        if (self.GetFieldValueAsString('PaymentType_ID')='6000000101') and
+         not((Self.GetFieldValueAsString('U_orderState_ID')='IURB000101') or  (Self.GetFieldValueAsString('U_orderState_ID')='90F7000101')      //doplnění stavů 02 a 08 dne 18.10.2024
+         or (Self.GetFieldValueAsString('U_orderState_ID')='6C92000101') or (Self.GetFieldValueAsString('U_orderState_ID')='70T5000101')) then
+         self.SetFieldValueAsString('PMState_ID','1010000101');
+         mLogList.add('Řádek 77 kontrola stavu objednávky procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        mZLV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select id from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),'');
+        mNotPaidAmount:=self.ObjectSpace.SQLSelectFirstAsExtended('Select Amount-PaidAmount from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),0);
+        if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and not(NxIsEmptyOID(mZLV_ID)) and not(mNotPaidAmount=0)
+         then self.SetFieldValueAsString('PMState_ID','1010000101');  //doplněn dne 5.4.2024
+        mLogList.add('Řádek 82 po kontrole ZLV '+mzlv_ID+' zaplacená částka: '+FloatToStr(mNotPaidAmount)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        //if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and (mNotOnStore) then self.SetFieldValueAsString('PMState_ID','1010000101');
+        if {(mOrigPMState_ID='2030000101') and} mNotOnStore then self.SetFieldValueAsString('PMState_ID','2030000101');
+        mLogList.add('Řádek 75 kontrola skladu '+BoolToStr(mNotOnStore,true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        if not(self.GetFieldValueAsString('X_AES_Description')='') then self.SetFieldValueAsString('PMState_ID','1010000101');
+         mLogList.add('Řádek 87 kontrola popisu '+BoolToStr(not(NxIsBlank(self.GetFieldValueAsString('X_AES_Description'))),true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        mZLV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select id from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),'');
+        mDZV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select pDocument_ID from IssuedDepositUsages where depositdocument_id='+QuotedStr(mZLV_ID),'');
+          if not(mNotOnStore) and (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and not(NxIsEmptyOID(mZLV_ID)) {not (self.GetFieldValueAsString('PMSTate_ID')='1010000101')}
+          and NxIsBlank(self.GetFieldValueAsString('X_AES_Description')) and not(mZapornaMarze) and NxIsEmptyOID(mDZV_ID) then begin
+          mLogList.add('Řádek 92 finální konrrola procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+          self.SetFieldValueAsString('PMState_ID','5010000101');
+          self.SetFieldValueAsString('U_orderState_ID','7C92000101');
+          mLogList.add('Řádek 95 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+          //kolotoč ze stavu STOBJ03
+
+          //doplnit kontrolu na odeslaný email pro procestní stav 7C92000101
+             if not(NxIsEmptyOID(mZLV_ID)) and not(self.GetFieldValueAsBoolean('U_ZLVSent')) then begin
+              //kontrola na email existenc
+              mMailCount:=self.ObjectSpace.SQLSelectFirstAsInteger('select count(id) from emailssent where X_ReceivedorderID='+QuotedStr(Self.oid)+' and X_OrderState_ID='+QuotedStr(self.GetFieldValueAsString('U_orderState_ID')),0);
+              if mMailCount=0 then begin
+                  mAccount_id:='1300000101';
+                  mList:=TStringList.create;
+                  mFileList:=TStringList.Create;
+                  mZLVBO:=self.ObjectSpace.CreateObject(Class_IssuedDepositInvoice);
+                  mZLVBO.Load(mZLV_ID,nil);
+                  if mZLVBO.GetFieldValueAsFloat('Amount')>0 then begin
+                    mTO:=mZLVBO.GetFieldValueAsString('FirmOffice_ID.Address_ID.Email');
+                    //mTO:='marek.salava@abra.eu';
+                    mSubject:='Zálohový list #CISLO# k přijaté objednávce #CISOB# ';
+                    mBody:=self.GetFieldValueAsString('U_ORDERSTATE_ID.X_Note');
+                    mSubject:=NxSearchReplace(mSubject,'#CISLO#',mZLVBO.DisplayName,[srAll]);
+                    mSubject:=NxSearchReplace(mSubject,'#CISOB#',self.GetFieldValueAsString('ExternalNumber'),[srAll]);
+                    mBody:=NxSearchReplace(mBody,'#CISOBJ#',self.GetFieldValueAsString('ExternalNumber'),[srAll]);
+                    mBody:=NxSearchReplace(mBody,'#CISLOFAKTURY#',mZLVBO.DisplayName,[srAll]);
+                    mBody:=NxSearchReplace(mBody,'#VARSYMBOL#',mZLVBO.GetFieldValueAsString('VarSymbol'),[srall]);
+                    mBody:=NxSearchReplace(mBody,'#DATUMVYSTAVENI#',FormatDateTime('d.m.yyyy',mZLVBO.GetFieldValueAsdateTime('DocDate$Date')),[srall]);
+                    mBody:=NxSearchReplace(mBody,'#DATUMSPLATNOSTI#',FormatDateTime('d.m.yyyy',mZLVBO.GetFieldValueAsdateTime('DueDate$Date')),[srall]);
+                    mBody:=NxSearchReplace(mBody,'#CASTKA#',FormatFloat('0.00,',mZLVBO.GetFieldValueAsFloat('amount')),[srall]);
+                    mBody:=NxSearchReplace(mBody,'#TEMP#','',[srall]);
+                    mZLVBO.Load(mZLV_ID,nil);
+                    mlist.Add(mZLVBO.OID);
+                    mFileName:=NxSearchReplace(mZLVBO.DisplayName,'/','-',[srAll]);
+                    mFileName2:=NxSearchReplace(Self.DisplayName,'/','-',[srAll]);
+                    CFxReportManager.PrintByIDs(NxCreateContext_1(mZLVBO), mList, 'S4STXJVRM3DL35J301C0CX3F40', '3O70000101', rtoFile, pekPDF, NxGetTempDir, mFileName + '.pdf');
+                    mList.Clear;
+                    mlist.Add(self.OID);
+                    CFxReportManager.PrintByIDs(NxCreateContext_1(self), mList, '40V53DORW3DL342X01C0CX3FCC', '4VD0000101', rtoFile, pekPDF, NxGetTempDir, mFileName2 + '.pdf');
+                    SendInternalMail(self.ObjectSpace, mTO,'','',
+                                       mSubject,mBody,
+                                       NxGetTempDir+'\'+ mFileName + '.pdf',NxGetTempDir+'\'+ mFileName2 + '.pdf',mZLVBO.GetFieldValueAsString('Firm_ID'),
+                                       mZLVBO.GetLoadedCollectionMonikerForFieldCode(mZLVBO.GetFieldCode('Rows')).BusinessObject[0].GetFieldValueAsString('Division_ID'),
+                                       mZLVBO.GetLoadedCollectionMonikerForFieldCode(mZLVBO.GetFieldCode('Rows')).BusinessObject[0].GetFieldValueAsString('BusTransaction_ID'),
+                                       mAccount_ID, self.OID,self.GetFieldValueAsString('U_OrderState_ID'));
+                    DeleteFile(NxGetTempDir+'\'+ mFileName + '.pdf');
+                    DeleteFile(NxGetTempDir+'\'+ mFileName2 + '.pdf');
+                    mlist.Free;
+                   end;
+              end;
+              self.SetFieldValueAsBoolean('U_ZLVSent',true);
+             end;
+          //konec kolotoče
+        end;
+      end;
+      mLogList.Add(mHorizontalSplitter);
+      mLogList.add(DateTimeToStr(Now)+'  Konec kontroly');
+      mLogList.Add(mHorizontalSplitter);
+      if not(CFxNxRuntime.NxGetEnvironmentType=reRuntimeExe) then begin
+       mLog_ID:=self.ObjectSpace.SQLSelectFirstAsString('select pl.id from prflogs pl where pl.docqueue_id='+QuotedStr('6RX0000101')+' and pl.code='+QuotedStr('Kontrola '+Self.DisplayName),'');
+       if NxIsEmptyOID(mLog_ID) then
+          CFxLog.SaveLog(NxCreateContext(Self.ObjectSpace),'LOPES', 'Kontrola '+Self.DisplayName, mLogList.text,ltScripting,now)
+       else begin
+         mLogBO:=self.ObjectSpace.CreateObject(Class_PRFLog);
+         mLogBO.Load(mLog_ID,nil);
+         mLogBO.SetFieldValueAsString('Note',mLogBO.GetFieldValueAsString('Note')+nxCrLf+mLogList.Text);
+         mLogBO.save;
+         mLogBO.free;
+       end;
+      end;
+   end;
+end;
+
+function GetHorizontalSplitter(aLength: Integer): string;
+var
+  i: Integer;
+begin
+  Result := '';
+  for i := 1 to aLength do
+    Result := Result + '─';
+end;
+
+
+procedure AfterSave_Hook(Self: TNxCustomBusinessObject);
+var
+ mImportMan:TNxDocumentImportManager;
+ mInputParams:TNxParameters;
+ mParam:TNxParameter;
+ mList:TStringList;
+ mBO:TNxCustomBusinessObject;
+begin
+ if not(self.GetFieldValueAsString('DocQueue_ID') in ['1W10000101','7RQ0000101']) then begin
+  mBO:= Self.ObjectSpace.CreateObject(Class_ReceivedOrder);
+  mBO.Load(Self.OID, nil);
+    if mBO.GetFieldValueAsString('PMState_ID')='RODEF00000' then begin
+     if not (osSaving in mBO.InternalState) then mBO.PMChangeState('6010000101');
     end;
-  finally
-   Success := True;
-   LogInfoStr := ''+nxcrlf+mlogs.Text;
-  end; 
+  end;
+  if self.GetFieldValueAsString('DocQueue_ID')='7RQ0000101' then begin
+  mBO:= Self.ObjectSpace.CreateObject(Class_ReceivedOrder);
+  mBO.Load(Self.OID, nil);
+    if mBO.GetFieldValueAsString('PMState_ID')='RODEF00000' then begin
+     if not (osSaving in mBO.InternalState) then mBO.PMChangeState('1060000101');
+    end;
+  end;
+ if (self.GetFieldValueAsString('DocQueue_ID')='1W10000101') and not(self.GetFieldValueAsString('Description')='Storno') then begin
+  mList:=TStringList.Create;
+  self.ObjectSpace.SQLSelect(format('select id from storedocuments2 where provide_id=''%s'' ',[self.oid]),mlist);
+  if mlist.count=0 then begin
+  if self.GetFieldValueAsString('PMState_ID')='2000000101' then begin
+     try
+                      mInputParams := TNxParameters.Create;
+                      mParam := mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
+                      mParam.AsString := '8RC0000101';
+                      mParam := mInputParams.GetOrCreateParam(dtString, 'SelectedHeader');
+                      mParam.AsString := self.OID;
+                      mImportMan:=NxCreateDocumentImportManager(self.ObjectSpace,Class_ReceivedOrder,Class_BillOfDelivery);
+                      mImportMan.AddInputDocument(self.OID);
+                      mImportMan.LoadParams(mInputParams);
+                      mImportMan.Execute;
+                      mImportMan.OutputDocument.SetFieldValueAsString('DocQueue_ID', '8RC0000101');
+                      mImportMan.OutputDocument.SetFieldValueAsString('Firm_ID',self.GetFieldValueAsString('Firm_ID'));
+                      mImportMan.OutputDocument.SetFieldValueAsString('FirmOffice_ID',self.GetFieldValueAsString('FirmOffice_ID'));
+                      mImportMan.OutputDocument.save;
+
+         Except
+          CFxLog.SaveLog(NxCreateContext_1(self),'ERR','chyba tvorby DL',self.DisplayName+#13#10+ExceptionMessage,2,Now);
+         end;
+
+   end;
+  end;
+  end;
 end;
 
 begin
