@@ -5,7 +5,7 @@
     "id": "1F21000101",
     "name": "eu.abra.masa.promos.AutoinvoiceOPV",
     "license_holder": "PROMOS_CZ_s.r.o._25852591",
-    "objversion": 19,
+    "objversion": 21,
     "description": "",
     "cryptForExport": false,
     "usageState": 2,
@@ -17,21 +17,21 @@
       "scriptid": "lib",
       "filename": "lib.pas",
       "scriptkind": 0,
-      "objversion": 17,
+      "objversion": 19,
       "posindex": 1
     },
     {
       "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
       "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
       "scriptkind": 1,
-      "objversion": 9,
+      "objversion": 10,
       "posindex": 2
     },
     {
       "scriptid": "PF4TQ3LG5DW4DH5PGK2NVO3MZW",
       "filename": "IM_Import_PF4TQ3LG5DW4DH5PGK2NVO3MZW_PF4TQ3LG5DW4DH5PGK2NVO3MZW.pas",
       "scriptkind": 4,
-      "objversion": 8,
+      "objversion": 9,
       "posindex": 3
     }
   ]

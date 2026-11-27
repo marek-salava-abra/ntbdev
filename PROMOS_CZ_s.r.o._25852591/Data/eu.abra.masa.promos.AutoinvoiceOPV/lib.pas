@@ -78,7 +78,7 @@ begin
                       CFxReportManager.PrintByIDs(NxCreateContext_1(mInvoiceBO),
                        mPrintList,GetDynSource(OS,mtextbo.GetFieldValueAsString('X_Form_ID')),
                          mtextbo.GetFieldValueAsString('X_Form_ID'),rtoFile,pekPDF,'c:\tmp\',mFileName);
-                      SendInternalMail(OS, mTO,mCopyTO,'marek.zizka@simonfm.cz',
+                      SendInternalMail(OS, mTO,mCopyTO,'',
                                        mSubject+' '+mInvoiceBO.DisplayName,mMailText,
                                        'c:\tmp'+'\'+ mFileName ,'',mInvoiceBO.GetFieldValueAsString('Firm_ID'),
                                        mInvoiceBO.GetLoadedCollectionMonikerForFieldCode(mbo.GetFieldCode('Rows')).BusinessObject[0].GetFieldValueAsString('Division_ID'),
