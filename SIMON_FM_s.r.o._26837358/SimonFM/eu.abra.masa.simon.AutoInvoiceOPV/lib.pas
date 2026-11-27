@@ -7,7 +7,7 @@ var
  mInputParams:TNxParameters;
  mParam:TNxParameter;
  mBO, mInvoiceBO, mTextBO:TNxCustomBusinessObject;
- mFileName, mSubject, mMailText, mInvoice_ID, mMena:string;
+ mFileName, mSubject, mMailText, mInvoice_ID, mMena, mCopyTO:string;
  //email do kopie Marek.zizka a tvůrce
  //faktury FV01
  //po faktuře změna procesního stavu na VO vyfakturováno
@@ -42,6 +42,7 @@ begin
                       mBO.load(mList.Strings[i],nil);
                       mLogs.add('Objednávka '+mbo.DisplayName);
                       mTO:=mBO.GetFieldValueAsString('X_TargetEmail');
+                      mCopyTO:=mBO.GetFieldValueAsString('CreatedBy_ID.Address_ID.Email');
                       mInputParams := TNxParameters.Create;
                       mParam := mInputParams.GetOrCreateParam(dtString, 'DocQueue_ID');
                       mParam.AsString := mFVDocQueue_ID;
@@ -76,7 +77,7 @@ begin
                       mMailText:= NxSearchReplace(mMailText, '#CASTKA_MENA#',     NxFormatNumeric('0.00,', mInvoiceBO.GetFieldValueAsFloat('Amount')) + ' ' + mMena, [srAll]);
                       mMailText:= NxSearchReplace(mMailText, '#NEHRAZENACASTKA#', NxFormatNumeric('0.00,', mInvoiceBO.GetFieldValueAsFloat('Amount') - mInvoiceBO.GetFieldValueAsFloat('PaidAmount')) + ' ' + mMena,[srAll]);
                       CFxReportManager.PrintByIDs(NxCreateContext_1(mInvoiceBO),mPrintList,GetDynSource(OS,mtextbo.GetFieldValueAsString('X_Form_ID')), mtextbo.GetFieldValueAsString('X_Form_ID'),rtoFile,pekPDF,'D:\tmp',mFileName);
-                      SendInternalMail(OS, mTO,'','marek.zizka@simonfm.cz',
+                      SendInternalMail(OS, mTO,mCopyTO,'marek.zizka@simonfm.cz',
                                        mSubject+' '+mInvoiceBO.DisplayName,mMailText,
                                        'D:\tmp'+'\'+ mFileName ,'',mInvoiceBO.GetFieldValueAsString('Firm_ID'),
                                        mInvoiceBO.GetLoadedCollectionMonikerForFieldCode(mbo.GetFieldCode('Rows')).BusinessObject[0].GetFieldValueAsString('Division_ID'),

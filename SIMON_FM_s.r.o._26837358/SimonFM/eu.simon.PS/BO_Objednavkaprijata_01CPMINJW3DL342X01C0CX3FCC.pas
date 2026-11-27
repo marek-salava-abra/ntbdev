@@ -78,21 +78,23 @@ begin
         mZLV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select id from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),'');
         mNotPaidAmount:=self.ObjectSpace.SQLSelectFirstAsExtended('Select Amount-PaidAmount from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),0);
         if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and not(NxIsEmptyOID(mZLV_ID)) and not(mNotPaidAmount=0)
-         then self.SetFieldValueAsString('PMState_ID','1010000101');  //doplněn dne 5.4.2024
+         then self.SetFieldValueAsString('PMState_ID','1010000101');  //doplněn dne 5.4.2024        
         mLogList.add('Řádek 82 po kontrole ZLV '+mzlv_ID+' zaplacená částka: '+FloatToStr(mNotPaidAmount)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        if (self.getfieldvalueasstring('PaymentType_ID')='1000000101') and (osnew in self.state) then self.SetFieldValueAsString('PMState_ID','1010000101');
+        mloglist.add('Řádek 84 doklad je na úhradu bankou a je nový procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         //if (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and (mNotOnStore) then self.SetFieldValueAsString('PMState_ID','1010000101');
         if {(mOrigPMState_ID='2030000101') and} mNotOnStore then self.SetFieldValueAsString('PMState_ID','2030000101');
-        mLogList.add('Řádek 75 kontrola skladu '+BoolToStr(mNotOnStore,true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+        mLogList.add('Řádek 87 kontrola skladu '+BoolToStr(mNotOnStore,true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         if not(self.GetFieldValueAsString('X_AES_Description')='') then self.SetFieldValueAsString('PMState_ID','1010000101');
-         mLogList.add('Řádek 87 kontrola popisu '+BoolToStr(not(NxIsBlank(self.GetFieldValueAsString('X_AES_Description'))),true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+         mLogList.add('Řádek 89 kontrola popisu '+BoolToStr(not(NxIsBlank(self.GetFieldValueAsString('X_AES_Description'))),true)+' procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
         mZLV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select id from issueddinvoices where receivedorder_id='+QuotedStr(self.OID),'');
         mDZV_ID:=self.ObjectSpace.SQLSelectFirstAsString('Select pDocument_ID from IssuedDepositUsages where depositdocument_id='+QuotedStr(mZLV_ID),'');
           if not(mNotOnStore) and (self.GetFieldValueAsString('PaymentType_ID')='1000000101') and not(NxIsEmptyOID(mZLV_ID)) {not (self.GetFieldValueAsString('PMSTate_ID')='1010000101')}
           and NxIsBlank(self.GetFieldValueAsString('X_AES_Description')) and not(mZapornaMarze) and NxIsEmptyOID(mDZV_ID) then begin
-          mLogList.add('Řádek 92 finální konrrola procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+          mLogList.add('Řádek 94 finální kontrola procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
           self.SetFieldValueAsString('PMState_ID','5010000101');
           self.SetFieldValueAsString('U_orderState_ID','7C92000101');
-          mLogList.add('Řádek 95 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
+          mLogList.add('Řádek 97 procesní stav '+self.GetFieldValueAsString('PMState_ID.Code'));
           //kolotoč ze stavu STOBJ03
 
           //doplnit kontrolu na odeslaný email pro procestní stav 7C92000101

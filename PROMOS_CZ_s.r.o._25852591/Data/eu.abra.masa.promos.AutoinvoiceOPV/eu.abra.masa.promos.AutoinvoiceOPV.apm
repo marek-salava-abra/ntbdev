@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1F21000101",
+    "name": "eu.abra.masa.promos.AutoinvoiceOPV",
+    "license_holder": "PROMOS_CZ_s.r.o._25852591",
+    "objversion": 19,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 17,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 9,
+      "posindex": 2
+    },
+    {
+      "scriptid": "PF4TQ3LG5DW4DH5PGK2NVO3MZW",
+      "filename": "IM_Import_PF4TQ3LG5DW4DH5PGK2NVO3MZW_PF4TQ3LG5DW4DH5PGK2NVO3MZW.pas",
+      "scriptkind": 4,
+      "objversion": 8,
+      "posindex": 3
+    }
+  ]
+}
