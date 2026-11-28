@@ -3,6 +3,7 @@
 procedure FormCreate_Hook(Self: TSiteForm);
 var
   mAction: TMultiAction;
+  mBAction:TBasicAction;
 begin
   mAction := Self.GetNewMultiAction;
   mAction.ShowControl := True;
@@ -14,6 +15,14 @@ begin
   mAction.Hint := 'Provede import z csv';
   mAction.Category := 'tabDetail';
   mAction.OnExecuteItem := @ImportData;
+
+  mBAction:= Self.GetNewAction;
+  mBAction.ShowControl := True;
+  mBAction.ShowMenuItem := True;
+  mBAction.Name := 'actImportCepro';
+  mBAction.Caption := 'Import ČEPRO';
+  mBAction.Category := 'tabDetail';
+  mBAction.OnExecute := @ImportCepro;
 
 end;
 
@@ -115,6 +124,164 @@ begin
   end;
 end;
 
+
+function GetCeproReferenceID(AObjectSpace: TNxCustomObjectSpace;
+  ATable, ACode, AFieldName: string): string;
+begin
+  Result := AObjectSpace.SQLSelectFirstAsString(
+    'SELECT ID FROM ' + ATable + ' WHERE Code = ' + QuotedStr(ACode)
+    + ' AND Hidden = ''N''', '');
+  if NxIsEmptyOID(Result) then
+    RaiseException(Format('%s s kódem %s nebyl nalezen.', [AFieldName, ACode]));
+end;
+
+procedure ImportCepro(Sender: TComponent);
+const
+  cDefaultDivisionCode = '40';
+var
+  mSite: TDynSiteForm;
+  mObjectSpace: TNxCustomObjectSpace;
+  mRow: TNxCustomBusinessObject;
+  mRowsDataSet: TNxRowsObjectDataSet;
+  mRowsGrid: TMultiGrid;
+  mOpenDialog: TOpenDialog;
+  mFileLines, mColumns, mImportLines: TStringList;
+  mLineIndex: Integer;
+  mEmptyLine: Boolean;
+  mColumnIndex: Integer;
+  mAmountText, mDebitDivisionCode, mCreditDivisionCode: string;
+  mAmount: Extended;
+begin
+  mSite := TDynSiteForm(TComponent(Sender).DynSite);
+  if not mSite.Edit then
+    RaiseException('Pro import ČEPRO otevřete doklad k opravě.');
+
+  mObjectSpace := mSite.BaseObjectSpace;
+  mOpenDialog := TOpenDialog.Create(Sender);
+  try
+    mOpenDialog.Title := 'Import ČEPRO';
+    mOpenDialog.Filter := 'Soubory CSV (*.csv)|*.csv';
+    if not mOpenDialog.Execute then
+      Exit;
+
+    mFileLines := TStringList.Create;
+    try
+      mFileLines.LoadFromFile(mOpenDialog.FileName);
+      if mFileLines.Count < 2 then
+        Exit;
+
+      mColumns := TStringList.Create;
+      try
+        mColumns.Delimiter := ';';
+        mColumns.StrictDelimiter := True;
+        mImportLines := TStringList.Create;
+        try
+          WaitWin.StartProgress('Import ČEPRO', '', mFileLines.Count - 1);
+          try
+            // Ověření CSV a převod kódů na ID před změnou dokladu.
+            for mLineIndex := 1 to mFileLines.Count - 1 do begin
+              WaitWin.ChangeText(Format('Kontrola řádku %d / %d', [mLineIndex, mFileLines.Count - 1]));
+              WaitWin.StepIt;
+              mColumns.DelimitedText := mFileLines.Strings[mLineIndex];
+              mEmptyLine := True;
+              for mColumnIndex := 0 to mColumns.Count - 1 do begin
+                mColumns.Strings[mColumnIndex] := Trim(mColumns.Strings[mColumnIndex]);
+                if mColumns.Strings[mColumnIndex] <> '' then
+                  mEmptyLine := False;
+              end;
+              if mEmptyLine then
+                Continue;
+              if UpperCase(mColumns.Strings[0]) = 'CELKEM BEZ DPH' then
+                Continue;
+
+              try
+                if mColumns.Count < 10 then
+                  RaiseException('Očekává se alespoň 10 sloupců.');
+                mAmountText := NxSearchReplace(mColumns.Strings[1], ',', '.', [srAll]);
+                if mAmountText = '' then
+                  RaiseException('Chybí částka ve sloupci 2.');
+                mAmount := NxIBStrToFloat(mAmountText);
+                mColumns.Strings[1] := FloatToStr(mAmount);
+
+                mDebitDivisionCode := mColumns.Strings[3];
+                if mDebitDivisionCode = '' then
+                  mDebitDivisionCode := cDefaultDivisionCode;
+                mCreditDivisionCode := mColumns.Strings[4];
+                if mCreditDivisionCode = '' then
+                  mCreditDivisionCode := cDefaultDivisionCode;
+                mColumns.Strings[3] := GetCeproReferenceID(mObjectSpace, 'Divisions', mDebitDivisionCode, 'Středisko MD');
+                mColumns.Strings[4] := GetCeproReferenceID(mObjectSpace, 'Divisions', mCreditDivisionCode, 'Středisko Dal');
+
+                if mColumns.Strings[5] <> '' then
+                  mColumns.Strings[5] := GetCeproReferenceID(mObjectSpace, 'BusTransactions', mColumns.Strings[5], 'Obchodní případ MD');
+                if mColumns.Strings[6] <> '' then
+                  mColumns.Strings[6] := GetCeproReferenceID(mObjectSpace, 'BusTransactions', mColumns.Strings[6], 'Obchodní případ Dal');
+
+                mColumns.Strings[7] := GetCeproReferenceID(mObjectSpace, 'Accounts', mColumns.Strings[7], 'Účet MD');
+                mColumns.Strings[8] := GetCeproReferenceID(mObjectSpace, 'Accounts', mColumns.Strings[8], 'Účet Dal');
+                mImportLines.Add(mColumns.DelimitedText);
+              except
+                RaiseException(Format('Import ČEPRO, řádek CSV %d. %s', [mLineIndex + 1, ExceptionMessage]));
+              end;
+            end;
+
+            if mImportLines.Count = 0 then
+              Exit;
+            WaitWin.ChangeText('Vkládám řádky do dokladu…');
+            mRowsGrid := TMultiGrid(mSite.FindChildControl('tabRows.grdRows'));
+            if not Assigned(mRowsGrid) then
+              RaiseException('Mřížka řádků interního dokladu není dostupná.');
+            if not Assigned(mRowsGrid.DataSource) then
+              RaiseException('Zdroj dat řádků interního dokladu není dostupný.');
+            mRowsDataSet := TNxRowsObjectDataSet(mRowsGrid.DataSource.DataSet);
+            if not Assigned(mRowsDataSet) then
+              RaiseException('Dataset řádků interního dokladu není dostupný.');
+
+            mRowsDataSet.DisableControls;
+            try
+              for mLineIndex := 0 to mImportLines.Count - 1 do begin
+                mColumns.DelimitedText := mImportLines.Strings[mLineIndex];
+                mAmount := StrToFloat(mColumns.Strings[1]);
+                mRow := mRowsDataSet.CreateBusinessObject;
+                try
+                  mRow.Prefill;
+                  mRow.SetFieldValueAsString('DebitAccount_ID', mColumns.Strings[7]);
+                  mRow.SetFieldValueAsString('CreditAccount_ID', mColumns.Strings[8]);
+                  mRow.SetFieldValueAsString('DebitDivision_ID', mColumns.Strings[3]);
+                  mRow.SetFieldValueAsString('CreditDivision_ID', mColumns.Strings[4]);
+                  mRow.SetFieldValueAsString('DebitBusTransaction_ID', mColumns.Strings[5]);
+                  mRow.SetFieldValueAsString('CreditBusTransaction_ID', mColumns.Strings[6]);
+                  mRow.SetFieldValueAsString('Text', mColumns.Strings[9]);
+                  mRow.SetFieldValueAsFloat('TAmount', mAmount);
+                  mRow.SetFieldValueAsFloat('LocalTAmount', mAmount);
+                finally
+                  mRow.Free;
+                end;
+              end;
+            finally
+              try
+                mSite.ActiveDataSet.UpdateFields;
+                mRowsDataSet.RefreshAndRestoreLastSelectedItem;
+              finally
+                mRowsDataSet.EnableControls;
+              end;
+            end;
+          finally
+            WaitWin.Stop;
+          end;
+        finally
+          mImportLines.Free;
+        end;
+      finally
+        mColumns.Free;
+      end;
+    finally
+      mFileLines.Free;
+    end;
+  finally
+    mOpenDialog.Free;
+  end;
+end;
 
 begin
 end.
