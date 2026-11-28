@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000701",
+    "name": "eu.abra.masa.obb.SetRBOD",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 5,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZCYYYNQCDLA4L3L33VUB3EHOC4",
+      "filename": "IM_Import_ZCYYYNQCDLA4L3L33VUB3EHOC4_ZCYYYNQCDLA4L3L33VUB3EHOC4.pas",
+      "scriptkind": 4,
+      "objversion": 5,
+      "posindex": 1
+    }
+  ]
+}

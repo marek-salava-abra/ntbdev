@@ -1,0 +1,59 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000901",
+    "name": "eu.abra.masa.obb.StoreCardsPMScripts",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 98,
+    "description": "skript 2026 září chování skladových karet",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 27
+  },
+  "scripts": [
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 67,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 58,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Autoserver",
+      "filename": "Autoserver.pas",
+      "scriptkind": 0,
+      "objversion": 39,
+      "posindex": 3
+    },
+    {
+      "scriptid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "filename": "BO_Skladovakarta_C3V5QDVZ5BDL342M01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 28,
+      "posindex": 4
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 31,
+      "posindex": 5
+    },
+    {
+      "scriptid": "GHYLVQXQ3FE13DQC01C0CX3F40",
+      "filename": "BO_Cenikovacena_GHYLVQXQ3FE13DQC01C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 12,
+      "posindex": 6
+    }
+  ]
+}

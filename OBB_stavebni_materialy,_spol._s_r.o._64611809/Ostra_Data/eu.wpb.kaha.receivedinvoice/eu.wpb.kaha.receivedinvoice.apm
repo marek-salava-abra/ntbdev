@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "#000000601",
+    "name": "eu.wpb.kaha.receivedinvoice",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 3,
+    "description": "Skript, který brání generování platebního příkazu pro FP z řady, která se neúčtuje.",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "PPC2EX0BUJD13ACP03KIU0CLP4",
+      "filename": "AG_Fakturyprijate_PPC2EX0BUJD13ACP03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "KH3SX0HB4NDL3BLX00C5OG4NF4",
+      "filename": "BO_Platebniprikaz-radek_KH3SX0HB4NDL3BLX00C5OG4NF4.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 2
+    },
+    {
+      "scriptid": "4AHE04FZGJD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturaprijata-radek_4AHE04FZGJD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 3
+    },
+    {
+      "scriptid": "42HE04FZGJD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturaprijata_42HE04FZGJD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 3,
+      "posindex": 4
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "#000000101",
+    "name": "eu.obb.palety",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 9,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "05O2XT2S23E13HBT00C5OG4NF4",
+      "filename": "AG_Skladovepohyby_05O2XT2S23E13HBT00C5OG4NF4.pas",
+      "scriptkind": 2,
+      "objversion": 9,
+      "posindex": 1
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000601",
+    "name": "eu.abra.masa.obb.Documents",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 74,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "YQ5KSWV4H014LCO3KDGKSKAOIK",
+      "filename": "AG_Dokumenty_YQ5KSWV4H014LCO3KDGKSKAOIK.pas",
+      "scriptkind": 2,
+      "objversion": 69,
+      "posindex": 1
+    },
+    {
+      "scriptid": "GAMJ5NQHOZ2OFHL1VV3ISBVUVG",
+      "filename": "BO_Dokument_GAMJ5NQHOZ2OFHL1VV3ISBVUVG.pas",
+      "scriptkind": 1,
+      "objversion": 15,
+      "posindex": 2
+    }
+  ]
+}

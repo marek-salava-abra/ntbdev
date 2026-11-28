@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "5L00000101",
+    "name": "eu.obb.seeprints",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 31,
+    "description": "ě",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "4CQONRMN0ND13BYP02K2DBYMG4",
+      "filename": "RL_Tiskovesestavy_4CQONRMN0ND13BYP02K2DBYMG4.pas",
+      "scriptkind": 3,
+      "objversion": 18,
+      "posindex": 1
+    },
+    {
+      "scriptid": "002GGOMG2JDO505F2PFP55TBCO",
+      "filename": "RL_Definovatelneformulare_002GGOMG2JDO505F2PFP55TBCO.pas",
+      "scriptkind": 3,
+      "objversion": 20,
+      "posindex": 2
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1020000101",
+    "name": "eu.obb.dobropis",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 21,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZCYYYNQCDLA4L3L33VUB3EHOC4",
+      "filename": "IM_Import_ZCYYYNQCDLA4L3L33VUB3EHOC4_ZCYYYNQCDLA4L3L33VUB3EHOC4.pas",
+      "scriptkind": 4,
+      "objversion": 9,
+      "posindex": 1
+    },
+    {
+      "scriptid": "WC02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Dobropisfakturyvydane-radek_WC02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 2
+    },
+    {
+      "scriptid": "RSX0H254BT04NBP4VX4PY2WDSC",
+      "filename": "IM_Import_RSX0H254BT04NBP4VX4PY2WDSC_RSX0H254BT04NBP4VX4PY2WDSC.pas",
+      "scriptkind": 4,
+      "objversion": 9,
+      "posindex": 3
+    },
+    {
+      "scriptid": "X002MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Vracenipokladnihoprijmu-radek_X002MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 11,
+      "posindex": 4
+    }
+  ]
+}

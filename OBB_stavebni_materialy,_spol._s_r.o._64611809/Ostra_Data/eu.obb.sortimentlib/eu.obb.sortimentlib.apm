@@ -1,0 +1,45 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1I00000101",
+    "name": "eu.obb.sortimentlib",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 54,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "05CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata-radek_05CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 39,
+      "posindex": 1
+    },
+    {
+      "scriptid": "QUKRMP2B4GN41IJGBQOQGY1GEC",
+      "filename": "BO_Nabidkavydana-radek_QUKRMP2B4GN41IJGBQOQGY1GEC.pas",
+      "scriptkind": 1,
+      "objversion": 26,
+      "posindex": 2
+    },
+    {
+      "scriptid": "WK02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem-radek_WK02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 28,
+      "posindex": 3
+    },
+    {
+      "scriptid": "OBBDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana-radek_OBBDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 27,
+      "posindex": 4
+    }
+  ]
+}

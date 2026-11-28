@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1A20000101",
+    "name": "eu.obb.S02.PomuckyFolder",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 10,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Z3P5LK15S1DO11DOHIQPZKXQGO",
+      "filename": "BO_Sverenepomucky_Z3P5LK15S1DO11DOHIQPZKXQGO.pas",
+      "scriptkind": 1,
+      "objversion": 8,
+      "posindex": 1
+    }
+  ]
+}

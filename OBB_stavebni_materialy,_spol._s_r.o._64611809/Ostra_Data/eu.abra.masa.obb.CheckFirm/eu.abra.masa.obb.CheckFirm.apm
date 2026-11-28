@@ -1,0 +1,73 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "~000000801",
+    "name": "eu.abra.masa.obb.CheckFirm",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 44,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 1000
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 42,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 21,
+      "posindex": 2
+    },
+    {
+      "scriptid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "filename": "BO_Fakturavydana_O3BDOKTWEFD13ACM03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 21,
+      "posindex": 3
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 21,
+      "posindex": 4
+    },
+    {
+      "scriptid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "BO_Dodacilist_050I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 21,
+      "posindex": 5
+    },
+    {
+      "scriptid": "WG02MSU3BBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladniprijem_WG02MSU3BBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 21,
+      "posindex": 6
+    },
+    {
+      "scriptid": "WEN033MLM3DL35J301C0CX3F40",
+      "filename": "BO_Zalohovylistvydany_WEN033MLM3DL35J301C0CX3F40.pas",
+      "scriptkind": 1,
+      "objversion": 22,
+      "posindex": 8
+    },
+    {
+      "scriptid": "0RXJZGDLBBDL3ACR03KIU0CLP4",
+      "filename": "BO_Pokladnivydej_0RXJZGDLBBDL3ACR03KIU0CLP4.pas",
+      "scriptkind": 1,
+      "objversion": 18,
+      "posindex": 9
+    }
+  ]
+}

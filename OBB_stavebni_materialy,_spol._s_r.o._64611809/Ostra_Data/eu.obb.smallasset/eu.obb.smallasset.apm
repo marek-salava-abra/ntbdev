@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1810000101",
+    "name": "eu.obb.smallasset",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 21,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "05O2XT2S23E13HBT00C5OG4NF4",
+      "filename": "AG_Skladovepohyby_05O2XT2S23E13HBT00C5OG4NF4.pas",
+      "scriptkind": 2,
+      "objversion": 17,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 11,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 10,
+      "posindex": 3
+    }
+  ]
+}

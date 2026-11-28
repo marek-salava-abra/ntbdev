@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2000000101",
+    "name": "eu.obb.storemenu",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 9,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "4MP1E2VUANDL342Q01C0CX3FCC",
+      "filename": "AG_Skladovemenu_4MP1E2VUANDL342Q01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 5,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 2
+    }
+  ]
+}

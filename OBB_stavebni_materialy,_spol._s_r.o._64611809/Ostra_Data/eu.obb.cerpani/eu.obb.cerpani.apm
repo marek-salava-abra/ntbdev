@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1420000101",
+    "name": "eu.obb.cerpani",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 13,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "SGN1QXTSL2TO5GWRESQPQF3Z3K",
+      "filename": "IM_Import_SGN1QXTSL2TO5GWRESQPQF3Z3K_SGN1QXTSL2TO5GWRESQPQF3Z3K.pas",
+      "scriptkind": 4,
+      "objversion": 10,
+      "posindex": 1
+    },
+    {
+      "scriptid": "3RNTOODOZBWOH1QSR15YBLIDBW",
+      "filename": "IM_Import_3RNTOODOZBWOH1QSR15YBLIDBW_3RNTOODOZBWOH1QSR15YBLIDBW.pas",
+      "scriptkind": 4,
+      "objversion": 6,
+      "posindex": 2
+    }
+  ]
+}

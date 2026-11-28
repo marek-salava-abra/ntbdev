@@ -1,0 +1,4 @@
+﻿uses '.lib';
+
+begin
+end.

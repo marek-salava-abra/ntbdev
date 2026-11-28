@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2J00000101",
+    "name": "eu.obb.accountdocs",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 12,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "AccountDocs",
+      "filename": "AccountDocs.pas",
+      "scriptkind": 0,
+      "objversion": 8,
+      "posindex": 1
+    }
+  ]
+}

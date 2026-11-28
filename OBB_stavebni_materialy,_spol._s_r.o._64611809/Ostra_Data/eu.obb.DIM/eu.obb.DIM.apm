@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1C70000101",
+    "name": "eu.obb.DIM",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 3,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Y51VOGTTDDL4F2Z0WWTOK4BDRS",
+      "filename": "IM_Import_Y51VOGTTDDL4F2Z0WWTOK4BDRS_Y51VOGTTDDL4F2Z0WWTOK4BDRS.pas",
+      "scriptkind": 4,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "NOQNYTKTGF54L3A3TCFFVQSWSK",
+      "filename": "IM_Import_NOQNYTKTGF54L3A3TCFFVQSWSK_NOQNYTKTGF54L3A3TCFFVQSWSK.pas",
+      "scriptkind": 4,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

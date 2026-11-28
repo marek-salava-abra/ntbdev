@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1720000101",
+    "name": "eu.obb.ZLVPay",
+    "license_holder": "OBB_stavebni_materialy,_spol._s_r.o._64611809",
+    "objversion": 40,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 36,
+      "posindex": 1
+    },
+    {
+      "scriptid": "OBSCO4S1BRD13FY1010DELDFKK",
+      "filename": "BO_Bankovnivypis-radek_OBSCO4S1BRD13FY1010DELDFKK.pas",
+      "scriptkind": 1,
+      "objversion": 7,
+      "posindex": 2
+    }
+  ]
+}
