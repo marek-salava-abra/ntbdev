@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1O70000101",
+    "name": "eu.untraco.scprice",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 46,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "G5GESPQ23FE13DQC01C0CX3F40",
+      "filename": "AG_Ceniky_G5GESPQ23FE13DQC01C0CX3F40.pas",
+      "scriptkind": 2,
+      "objversion": 39,
+      "posindex": 1
+    },
+    {
+      "scriptid": "ParseData",
+      "filename": "ParseData.pas",
+      "scriptkind": 0,
+      "objversion": 31,
+      "posindex": 2
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 23,
+      "posindex": 3
+    }
+  ]
+}

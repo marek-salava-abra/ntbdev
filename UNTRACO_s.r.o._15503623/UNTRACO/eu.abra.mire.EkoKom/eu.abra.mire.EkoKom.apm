@@ -1,0 +1,87 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1O30000101",
+    "name": "eu.abra.mire.EkoKom",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 7,
+    "description": "Balíček scriptů pro vytváření výkazů pro EKO-KOM",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "3DROIEGQRFMOH4ZT4I53BZCXKO",
+      "filename": "BO_ObalEKOKOM_3DROIEGQRFMOH4ZT4I53BZCXKO.pas",
+      "scriptkind": 1,
+      "objversion": 4,
+      "posindex": 1
+    },
+    {
+      "scriptid": "YNDO524TCAO4Z0EIWTI2XMGIS4",
+      "filename": "AG_ObalyEKO-KOM_YNDO524TCAO4Z0EIWTI2XMGIS4.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 2
+    },
+    {
+      "scriptid": "W31KWYTC5FDL342M01C0CX3FCC",
+      "filename": "AG_Skladovekarty_W31KWYTC5FDL342M01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 4,
+      "posindex": 3
+    },
+    {
+      "scriptid": "Report",
+      "filename": "Report.pas",
+      "scriptkind": 0,
+      "objversion": 7,
+      "posindex": 4
+    },
+    {
+      "scriptid": "Convert",
+      "filename": "Convert.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 5
+    },
+    {
+      "scriptid": "Settings",
+      "filename": "Settings.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 6
+    },
+    {
+      "scriptid": "Progress",
+      "filename": "Progress.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 7
+    },
+    {
+      "scriptid": "TabEkoKom",
+      "filename": "TabEkoKom.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 8
+    },
+    {
+      "scriptid": "Lib",
+      "filename": "Lib.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 9
+    },
+    {
+      "scriptid": "uLicence",
+      "filename": "uLicence.pas",
+      "scriptkind": 0,
+      "objversion": 4,
+      "posindex": 10
+    }
+  ]
+}

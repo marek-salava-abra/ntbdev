@@ -1,0 +1,24 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1600000101",
+    "name": "eu.abra.setfirm",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 4,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Z5FA3U4DEBZ4X1UWLOZT0SYXVC",
+      "filename": "IM_Import_Z5FA3U4DEBZ4X1UWLOZT0SYXVC_Z5FA3U4DEBZ4X1UWLOZT0SYXVC.pas",
+      "scriptkind": 4,
+      "objversion": 4,
+      "posindex": 1
+    }
+  ]
+}

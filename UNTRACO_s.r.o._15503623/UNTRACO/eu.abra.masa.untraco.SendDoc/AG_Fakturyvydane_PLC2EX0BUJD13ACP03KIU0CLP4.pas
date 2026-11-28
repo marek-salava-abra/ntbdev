@@ -1,0 +1,224 @@
+﻿uses '.const';
+
+procedure InitSite_Hook(Self: TSiteForm);
+var
+  mAction: TBasicAction;
+begin
+  mAction := Self.GetNewAction;
+  mAction.ShowControl := True;
+  mAction.ShowMenuItem := True;
+  mAction.ShortCut := TextToShortCut('Ctrl+w');
+  mAction.Caption := '## Odeslat e-mail ##';
+  mAction.Hint := 'Vytvoří nový email s přílohami PDF a DOK';
+  mAction.Category := 'tabList';
+  mAction.OnExecute := @SendInvoiceByOutlook;
+end;
+
+
+procedure SendInvoiceByOutlook(Sender: TComponent);
+var
+  mOutlook, mItem: Variant;
+  mBO, mDocumentBO, mBODBO, mDocContBO, mHTMLBO:TNxCustomBusinessObject;
+  mPrintList, mFileList, mDocumentList, mDocumentQList, mFirmList, mBODList, mDocList, mPokus:TStringList;
+  mSite:TSiteForm;
+  mOS:TNxCustomObjectSpace;
+  mFileName, mDoc_ID, mTempDir, mTO, mFirm_ID, mFirstFirm_ID, mInvoiceNames, mBODNames, mDODFileName, mOrderNumber, mHTMLInvoice, mOPCode:String;
+  mP:TNxParameters;
+  mContext:TNxContext;
+  i, j, k, l, mReg:integer;
+  mInvoiceForm_ID, mBODForm_ID:string;
+  mM: TMemoryStream;
+  mDocumentContents:TNxCustomBusinessMonikerCollection;
+begin
+  mSite:=TComponent(Sender).DynSite;
+  mDocumentList:=TStringList.Create;
+  mDocumentQList:=TStringList.Create;
+  mDocList:=TStringList.Create;
+  mBODList:=TStringList.Create;
+  mPokus:=TStringList.Create;
+  TDynSiteForm(mSite).List.GetSelectedId(mDocumentList);
+  if mDocumentList.Count>0 then begin
+    mHTMLInvoice:=cHTMLInvoice;
+    mOS:=TDynSiteForm(mSite).BaseObjectSpace;
+    mFirstFirm_ID := '';
+    mInvoiceNames :='';
+    mBODNames :='';
+    mOrderNumber:='';
+    mTO:='';
+      for i := 0 to mDocumentList.Count - 1 do begin
+        mDocumentQList.Add(QuotedStr(mDocumentList.strings[i]));
+        mBO := mOS.CreateObject(Class_IssuedInvoice);
+        try
+          mBO.Load(mDocumentList.Strings[i], nil);
+          mFirm_ID := mBO.GetFieldValueAsString('Firm_ID');
+
+          if i = 0 then begin
+            // U první faktury si zapamatujeme ID firmy
+            mFirstFirm_ID := mFirm_ID;
+            mContext:=NxCreateContext_1(mBO);
+            if mBO.GetFieldValueAsString('TransportationType_ID')='6600000101' then mHTMLInvoice:='2020000101';
+            if mBO.GetFieldValueAsString('TransportationType_ID')='1A00000101' then mHTMLInvoice:='1020000101';
+            if mBO.GetFieldValueAsString('TransportationType_ID')='2B00000101' then mHTMLInvoice:='5020000101';
+            mOPCode:= mOS.SQLSelectFirstAsString('SELECT DISTINCT dq.code FROM IssuedInvoices2 A '+
+                                                 'JOIN StoreDocuments2 SD2 ON SD2.ID=A.ProvideRow_ID '+
+                                                 'JOIN StoreDocuments SD ON SD.ID=SD2.Parent_ID '+
+                                                 'JOIN ReceivedOrders2 RO2 ON RO2.ID=SD2.ProvideRow_ID '+
+                                                 'JOIN ReceivedOrders ro on ro.id=ro2.parent_id '+
+                                                 'Join Docqueues dq on dq.id=ro.docqueue_id '+
+                                                 'where a.parent_id='+QuotedStr(mbo.OID),'');
+            if (mbo.GetFieldValueAsString('TransportationType_ID')='7600000101') and (mOPCode='OP') then
+              mHTMLInvoice:='1000000101';
+            if (mbo.GetFieldValueAsString('TransportationType_ID')='7600000101') and not(mOPCode='OP') then
+              mHTMLInvoice:='4020000101';
+          end else begin
+            // U dalších kontrolujeme, zda sedí s tou první
+            if mFirstFirm_ID <> mFirm_ID then begin
+              NxShowSimpleMessage('Chyba: Vybrané faktury nepatří stejné firmě!', mSite);
+              mBO.Free;
+              Exit; // Končíme proceduru, finální uvolnění mDocumentList zařídí block finally níže
+            end;
+          end;
+        finally
+
+        end;
+      end;
+    try
+     mOutlook := CreateOleObject('Outlook.Application');
+    except
+     mOutlook:= null;
+    end;
+    if VarIsNull(mOutlook) and not(NxGetActualUserID(mOS)='SUPER00000') then NxShowSimpleMessage('Chyba při získání instance Outlooku', Sender.Site)
+    else begin
+      mHTMLBO:=mOS.CreateObject(Class_HtmlTemplate);
+      mHTMLBO.Load(mHTMLInvoice,nil);
+      //mTempDir:=NxGetTempDir+'Abra_outlook\';
+      //if NxGetActualUserID(mOS)='1Y50000101' then
+      mTempDir:='C:\ABRA_test\Abra_outlook\';
+      ForceDirectories(mTempDir);
+      if DirectoryExists(mTempDir) {and not(NxGetActualUserID(mOS)='1Y50000101')} then begin
+      {ShellApi.Execute('open',                  // ACommand
+                       'cmd.exe',               // AFile (spustíme příkazový řádek)
+                       '/c rmdir /s /q "' + mTempDir + '"', // AParams (/c provede příkaz a zavře cmd)
+                       ''                       // APath (pracovní adresář netřeba)
+                      );
+      NxSleep(2000);}
+      end;
+      ForceDirectories(mTempDir);
+      mPrintList:=TStringList.Create;
+      mFileList:=TStringList.Create;
+       mBODList.Clear;
+       mOS.SQLSelect('Select distinct(provide_ID) from issuedinvoices2 where parent_id in ('+mDocumentQList.DelimitedText+')',mBODList);
+       if mBODList.Count>0 then begin
+        for j:=0 to mBODList.count-1 do begin
+          mBODBO:=mOS.CreateObject(Class_BillOfDelivery);
+          if mBODBO.Test(mBODList.strings[j]) then begin
+            mBODBO.Load(mBODList.Strings[j],nil);
+            mPrintList.Clear;
+            mPrintList.Add(mBODBO.OID);
+            mDODFileName:='';
+            if not(NxIsEmptyOID(mBODBO.GetFieldValueAsString('Firm_ID.X_BODForm_ID'))) then mBODForm_ID:=mBODBO.GetFieldValueAsString('Firm_ID.X_BODForm_ID') else mBODForm_ID:=cBODForm_ID;
+            mFileName:=NxSearchReplace(mBODBO.DisplayName,'/','-',[srAll]);
+            mDODFileName:=mOS.SQLSelectFirstAsString('Select distinct(ro.ExternalNumber) from StoreDocuments2 sd2 left join ReceivedOrders ro on ro.id=sd2.provide_id where sd2.Parent_id='+QuotedStr(mBODBO.OID),'');
+            mDODFileName:=NxSearchReplace(mDODFileName,'/','-',[srall]);
+            if NxIsBlank(mOrderNumber) then mOrderNumber:=mDODFileName;
+            if NxIsBlank(mDODFileName) then mDODFileName:=mFileName;
+            if not(NxIsBlank(mDODFileName)) then begin
+              if not(DirectoryExists(mTempDir+mBODBO.OID+'\')) then CreateDir(mTempDir+mBODBO.OID+'\');
+            end;
+            if NxIsBlank(mBODNames) then mBODNames:=mBODBO.DisplayName else mBODNames:=mBODNames+', '+mBODBO.DisplayName;
+            mDocList.Clear;
+            mOS.SQLSelect('Select RightSide_ID from relations where leftside_id='+QuotedStr(mBODBO.OID)+' and rel_def=620', mDocList);
+            if mDocList.Count>0 then begin
+              for k:=0 to mDocList.count-1 do begin
+                mDocumentBO:=mOS.CreateObject(Class_Document);
+                mDocumentBO.Load(mDocList.Strings[k],nil);
+                mDocumentContents:=mDocumentBO.GetLoadedCollectionMonikerForFieldCode(mDocumentBO.GetFieldCode('Contents'));
+                for l:=0 to mDocumentContents.Count-1 do begin
+                  mDocContBO:=mDocumentContents.BusinessObject[l];
+                  mM:=TMemoryStream.Create;
+                  mM.SetBytes(mDocContBO.GetFieldValueAsBytes('Data_ID.BlobData'));
+                  mM.SaveToFile(mTempDir+mBODBO.OID+'\'+mDocContBO.GetFieldValueAsString('FileName'));
+                  mM.free;
+                  if FileExists(mTempDir+mBODBO.OID+'\'+mDocContBO.GetFieldValueAsString('FileName')) then
+                   mFileList.Add(mTempDir+mBODBO.OID+'\'+mDocContBO.GetFieldValueAsString('FileName'));
+                end;
+                mDocumentBO.free;
+              end;
+            end;
+            CFxReportManager.ExportByIDs(NxCreateContext(mOS),mPrintList,GetDynSourceex(mOS,cExport_ID),cExport_ID,2,'',mTempDir+mBODBO.OID+'\'+mDODFileName+'.DOD');
+            //CFxReportManager.ExportByIDs(NxCreateContext(mOS),mPrintList,GetDynSourceex(mOS,cExport_ID),cExport_ID,2,'',''+aaaa.DOD');
+            if FileExists(mTempDir+mBODBO.OID+'\'+mDODFileName+'.DOD') then mFileList.Add(mTempDir+mBODBO.OID+'\'+mDODFileName+'.DOD');
+            CFxReportManager.PrintByIDs(NxCreateContext(mOS),mPrintList,GetDynSource(mOS,mBODForm_ID),mBODForm_ID,rtoFile,pekPDF,mTempDir,mFileName+'.pdf');
+            if FileExists(mTempDir+mFileName+'.pdf') then mFileList.Add(mTempDir+mFileName+'.pdf');
+          end;
+          mBODBO.free;
+        end;
+       end;
+      for i:=0 to mDocumentList.Count-1 do begin
+       mPrintList.Clear;
+       mBO:=mOS.CreateObject(Class_IssuedInvoice);
+       mBO.Load(mDocumentList.Strings[i],nil);
+       if not(NxIsValidEMail(mTO,false)) then  mTO:=GetDefaultEmail(NxCreateContext_1(mbo),msite,mBO.GetFieldValueAsString('Firm_ID'),mBO.GetFieldValueAsString('FirmOffice_ID'),mBO.GetFieldValueAsString('Person_ID'));
+       mPrintList.Add(mbo.OID);
+       mFileName:=NxSearchReplace(mBO.DisplayName,'/','-',[srAll]);
+       if NxIsBlank(mInvoiceNames) then mInvoiceNames:=mBO.DisplayName else mInvoiceNames:=mInvoiceNames+', '+mBO.DisplayName;
+        mReg:=mOS.SQLSelectFirstAsInteger('SELECT 1 FROM IssuedInvoices2 i2 WHERE i2.Parent_ID = '+QuotedStr(mbo.OID)+'  AND i2.StoreCard_ID IN ( SELECT b.ID '#13#10 +
+                                          '      FROM StoreCards b'#13#10 +
+                                          '      WHERE b.Hidden = ''N'' '#13#10 +
+                                          '        AND EXISTS ('#13#10 +
+                                          '            SELECT 1 '#13#10 +
+                                          '            FROM USERDATA '#13#10 +
+                                          '            WHERE FIELDCODE = 2000212 '#13#10 +
+                                          '              AND CLSID = ''C3V5QDVZ5BDL342M01C0CX3FCC'' '#13#10 +
+                                          '              AND ID = b.ID '#13#10 +
+                                          '              AND STRINGFIELDVALUE <> '''''#13#10 +
+                                          '        )'#13#10 +
+                                          '  )',0);
+       if mReg = 1 then begin
+                // Pokud mReg=1, jdeme po X_InvoiceRegForm_ID
+                if not(NxIsEmptyOID(mBO.GetFieldValueAsString('Firm_ID.X_InvoiceRegForm_ID'))) then
+                  mInvoiceForm_ID := mBO.GetFieldValueAsString('Firm_ID.X_InvoiceRegForm_ID')
+                else
+                  mInvoiceForm_ID := cInvoiceRegForm_ID;
+              end else begin
+                // Pokud mReg=0, jdeme po X_InvoiceNoRegForm_ID
+                if not(NxIsEmptyOID(mBO.GetFieldValueAsString('Firm_ID.X_InvoiceNoRegForm_ID'))) then
+                  mInvoiceForm_ID := mBO.GetFieldValueAsString('Firm_ID.X_InvoiceNoRegForm_ID')
+                else
+                  mInvoiceForm_ID := cInvoiceNoRegForm_ID;
+       end;
+       CFxReportManager.PrintByIDs(NxCreateContext(mOS),mPrintList,GetDynSource(mOS,mInvoiceForm_ID),mInvoiceForm_ID,rtoFile,pekPDF,mTempDir,mFileName+'.pdf');
+       if FileExists(mTempDir+mFileName+'.pdf') then mFileList.Add(mTempDir+mFileName+'.pdf');
+       mBO.Free;
+      end;
+      //if not(NxGetActualUserID(mOS)='SUPER00000') then begin
+      if true then begin
+       try
+        mItem := mOutlook.CreateItem(0);
+        mItem.Display;
+        mItem.To := mTO;
+        //mItem.CC := '';
+        mItem.Subject := 'Dodací list č. '+mBODNames+' a faktura č. '+mInvoiceNames;
+        mItem.HTMLBody := NxSearchReplace(mHTMLBO.GetFieldValueAsString('HtmlBody'),'#OrderNumber#',mOrderNumber,[srAll])+ mItem.HTMLBody;;
+        for i:=0 to mFileList.Count-1 do begin
+          if FileExists(mFileList.Strings[i]) then mPokus.Add('Ano '+mFileList.Strings[i]) else mPokus.Add('NE '+mFileList.Strings[i]);
+        end;
+        for i:=0 to mFileList.Count-1 do
+        mItem.Attachments.Add(mFileList.Strings[i]);
+        mItem.Display; //nebo  .Send pro odeslání
+       except
+        NxShowSimpleMessage('Stala se chyba '+NxCrlf+ExceptionMessage,mSite);
+        CFxLog.SaveLog(NxCreateContext(mOS),'LS','Mail FV','Uživatel: '+NxGetUserName+NxCrlf+'tempdir: '+mTempDir+NxCrLF+mFileList.text+NxCrLf+NxCrLF+mPokus.text+NxCrLf+ExceptionMessage,2,now);
+       end;
+      end else begin
+       NxShowSimpleMessage(mTempDir,msite);
+      end;
+      mFileList.Free;
+      mPrintList.Free;
+    end;
+    mOutlook := Null;
+  end;
+end;
+
+begin
+end.

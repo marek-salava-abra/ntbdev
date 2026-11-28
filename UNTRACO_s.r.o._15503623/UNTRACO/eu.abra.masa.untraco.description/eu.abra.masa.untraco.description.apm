@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2OJ0000101",
+    "name": "eu.abra.masa.untraco.description",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 18,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "ZUMBGNJTXF44H4YIMBETLJJRQ0",
+      "filename": "IM_Import_ZUMBGNJTXF44H4YIMBETLJJRQ0_ZUMBGNJTXF44H4YIMBETLJJRQ0.pas",
+      "scriptkind": 4,
+      "objversion": 14,
+      "posindex": 1
+    },
+    {
+      "scriptid": "5JXY100I12P4TITWSNE0LD1IKS",
+      "filename": "IM_Import_5JXY100I12P4TITWSNE0LD1IKS_5JXY100I12P4TITWSNE0LD1IKS.pas",
+      "scriptkind": 4,
+      "objversion": 3,
+      "posindex": 2
+    }
+  ]
+}

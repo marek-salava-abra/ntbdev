@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1F00000101",
+    "name": "eu.untraco.XML",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 112,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O1C4ERBIVNIOT4WASH5MYY14CK",
+      "filename": "AG_Nabidkyvydane_O1C4ERBIVNIOT4WASH5MYY14CK.pas",
+      "scriptkind": 2,
+      "objversion": 108,
+      "posindex": 1
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 62,
+      "posindex": 2
+    },
+    {
+      "scriptid": "progress",
+      "filename": "progress.pas",
+      "scriptkind": 0,
+      "objversion": 49,
+      "posindex": 3
+    }
+  ]
+}

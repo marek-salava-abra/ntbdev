@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1ON0000101",
+    "name": "eu.abra.masa.untraco.SetDocumentDiscount",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 18,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 16,
+      "posindex": 1
+    },
+    {
+      "scriptid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "filename": "BO_Nabidkavydana_LN2RG42OWZVODHSAIXNA5PY1PS.pas",
+      "scriptkind": 1,
+      "objversion": 12,
+      "posindex": 2
+    }
+  ]
+}

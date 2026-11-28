@@ -1,0 +1,31 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "2OP0000101",
+    "name": "eu.abra.masa.untraco.InsertRows",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 4,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 3,
+      "posindex": 1
+    },
+    {
+      "scriptid": "O1C4ERBIVNIOT4WASH5MYY14CK",
+      "filename": "AG_Nabidkyvydane_O1C4ERBIVNIOT4WASH5MYY14CK.pas",
+      "scriptkind": 2,
+      "objversion": 2,
+      "posindex": 2
+    }
+  ]
+}

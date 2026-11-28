@@ -1,0 +1,52 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1500000101",
+    "name": "PrestashopImport_v1.0",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 25,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "Objednavka_prijata",
+      "filename": "Objednavka_prijata.pas",
+      "scriptkind": 0,
+      "objversion": 21,
+      "posindex": 1
+    },
+    {
+      "scriptid": "QSGQOA2NYGF4L1Q5KKKU5MTPJK",
+      "filename": "IM_Import_QSGQOA2NYGF4L1Q5KKKU5MTPJK_QSGQOA2NYGF4L1Q5KKKU5MTPJK.pas",
+      "scriptkind": 4,
+      "objversion": 21,
+      "posindex": 2
+    },
+    {
+      "scriptid": "LGXLSSO10IROLAGTUXLIGORBK0",
+      "filename": "IM_Import_LGXLSSO10IROLAGTUXLIGORBK0_LGXLSSO10IROLAGTUXLIGORBK0.pas",
+      "scriptkind": 4,
+      "objversion": 21,
+      "posindex": 3
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 18,
+      "posindex": 4
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 20,
+      "posindex": 5
+    }
+  ]
+}

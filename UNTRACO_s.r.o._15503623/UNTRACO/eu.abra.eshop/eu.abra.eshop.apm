@@ -1,0 +1,38 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1A00000101",
+    "name": "eu.abra.eshop",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 163,
+    "description": "Automaticky vytvořený balíček pro webové služby",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "library",
+      "filename": "library.pas",
+      "scriptkind": 0,
+      "objversion": 144,
+      "posindex": 1
+    },
+    {
+      "scriptid": "const",
+      "filename": "const.pas",
+      "scriptkind": 0,
+      "objversion": 88,
+      "posindex": 2
+    },
+    {
+      "scriptid": "fce",
+      "filename": "fce.pas",
+      "scriptkind": 0,
+      "objversion": 72,
+      "posindex": 3
+    }
+  ]
+}

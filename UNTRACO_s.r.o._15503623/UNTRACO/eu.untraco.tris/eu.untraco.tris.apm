@@ -1,0 +1,108 @@
+{
+  "type": "ABRAGEN_PACKAGE_METADATA",
+  "metadata_version": 1,
+  "package": {
+    "id": "1O50000101",
+    "name": "eu.untraco.tris",
+    "license_holder": "UNTRACO_s.r.o._15503623",
+    "objversion": 143,
+    "description": "",
+    "cryptForExport": false,
+    "usageState": 2,
+    "usageStateTestConnection": 3,
+    "runOrder": 0
+  },
+  "scripts": [
+    {
+      "scriptid": "lib",
+      "filename": "lib.pas",
+      "scriptkind": 0,
+      "objversion": 77,
+      "posindex": 1
+    },
+    {
+      "scriptid": "01CPMINJW3DL342X01C0CX3FCC",
+      "filename": "BO_Objednavkaprijata_01CPMINJW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 1,
+      "objversion": 65,
+      "posindex": 2
+    },
+    {
+      "scriptid": "O2XDU14IW3DL342X01C0CX3FCC",
+      "filename": "AG_Objednavkyprijate_O2XDU14IW3DL342X01C0CX3FCC.pas",
+      "scriptkind": 2,
+      "objversion": 67,
+      "posindex": 3
+    },
+    {
+      "scriptid": "GF53HAH3WBDL3C5P00CA141B44",
+      "filename": "AG_Objednavkyvydane_GF53HAH3WBDL3C5P00CA141B44.pas",
+      "scriptkind": 2,
+      "objversion": 67,
+      "posindex": 4
+    },
+    {
+      "scriptid": "doc",
+      "filename": "doc.pas",
+      "scriptkind": 0,
+      "objversion": 66,
+      "posindex": 5
+    },
+    {
+      "scriptid": "FileQueue",
+      "filename": "FileQueue.pas",
+      "scriptkind": 0,
+      "objversion": 97,
+      "posindex": 7
+    },
+    {
+      "scriptid": "BT0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarnimanka_BT0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 66,
+      "posindex": 8
+    },
+    {
+      "scriptid": "BP0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Inventarniprebytky_BP0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 66,
+      "posindex": 9
+    },
+    {
+      "scriptid": "NN20CW0TDQSODH2FPC5IVSYIKW",
+      "filename": "AG_Vratkyprijemek_NN20CW0TDQSODH2FPC5IVSYIKW.pas",
+      "scriptkind": 2,
+      "objversion": 66,
+      "posindex": 10
+    },
+    {
+      "scriptid": "BL0I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Vratkydodacichlistu_BL0I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 66,
+      "posindex": 11
+    },
+    {
+      "scriptid": "B10I5SAOS3DL3ACU03KIU0CLP4",
+      "filename": "AG_Prijemky_B10I5SAOS3DL3ACU03KIU0CLP4.pas",
+      "scriptkind": 2,
+      "objversion": 64,
+      "posindex": 12
+    },
+    {
+      "scriptid": "RC",
+      "filename": "RC.pas",
+      "scriptkind": 0,
+      "objversion": 79,
+      "posindex": 13
+    },
+    {
+      "scriptid": "InsertQuantity",
+      "filename": "InsertQuantity.pas",
+      "scriptkind": 0,
+      "objversion": 61,
+      "posindex": 14
+    }
+  ]
+}
